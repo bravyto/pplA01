@@ -1,1 +1,43 @@
+Project Charter
+Foodo
+Kelompok A1
+Bravyto Takwa Pangukir - 1306381660
+Gema Raditya Putra - 1306381830
+Isra Mela - 1306381982
+Rezky Pangestu Gunarso - 1306464505
+Tryviana Yusriska Sari - 1306463660
 
+1.	Latar Belakang Permasalahan
+Banyak orang yang merasa sudah cukup berolahraga namun masih saja mengeluhkan masalah kebugaran badan, terutama juga mengenai masalah berat badan yang tak kunjung ideal. Faktanya adalah asupan kalori atau gizi yang masuk ke tubuh serta pola makan kita juga turut berperan dalam masalah kebugaran dan masalah berat badan. Untuk itu kita harus secara selektif memilih makanan yang sesuai dengan kebutuhan tubuh kita. Maka dari itu kami terpikirkan untuk mengusulkan ide aplikasi yang dapat membantu penggunanya agar dapat mengosumsi makanan yang sesuai dengan kebutuhan tubuh pengguna.
+
+2.	Tujuan Bisnis
+a.	Tujuan
+Membuat aplikasi mobile personal assistant yang memberitahukan pengguna mengenai kebutuhan kalori dan gizi pengguna yang juga mengingatkan pengguna agar tidak mengonsumsi makanan terlalu banyak atau terlalu sedikit dari yang dibutuhkan oleh tubuh pengguna, sehingga dapat membantu menjaga tubuh pengguna menjadi lebih bugar dan juga tentunya lebih ideal dan sehat. Selain itu, aplikasi ini juga akan memberikan rekomendasi kepada pengguna mengenai makanan apa saja yang sesuai untuk dikonsumsi berdasarkan kebutuhan kalori atau gizi yang diperlukan.
+b.	Target Pengguna dan Target Pasar
+Target dari aplikasi ini adalah masyarakat yang peduli akan kebugaran tubuhnya, dan juga yang mempedulikan perihal keidealan berat badannya.
+c.	Keluaran Yang Diharapkan
+Menjadi layanan aplikasi sistem informasi yang dapat membantu penggunanya dengan menjadi personal assitant perihal kebutuhan asupan kalori dan gizi yang dikonsumsi penggunanya.
+
+3.	Daftar Resiko Yang Teridentifikasi
+a.	Project Risk 
+Sumber daya manusia masih dalam tahap belajar, terutama untuk pengembangan aplikasi mobile, sehingga dapat memperlambat proses pengerjaan aplikasi. Masalah komunikasi juga dapat menghambat proses pembuatan aplikasi mobile ini. Kurangnya anggota kelompok yang benar-benar menguasai UI dan UX.
+b.	Technical Risk
+Keterampilan anggota untuk menggunakan berbagai tools terkait pembuat aplikasi mobile dan juga mengenai UI dan UX masih belum begitu maksimal. 
+c.	Business Risk
+Karena merupakan platform baru, pengguna yang biasanya hanya menggunakan hitungan manual sebagai perhitungan kadar gizi dari suatu makanan akan agak sedikit tidak terbiasa atau bahkan acuh untuk menggunakan aplikasi ini pada awalnya.
+
+4.	Estimasi Waktu, Usaha dan Biaya
+a.	Estimasi Waktu
+Dibutuhkan waktu antara 12-14 minggu untuk dapat menyelesaikan aplikasi ini, dimulai dari mock-up, sprint, testing, hingga menjadi aplikasi versi stabil. 
+b.	Estimasi Usaha
+Dibutuhkan usaha lebih bagi anggota yang belum memiliki banyak pengalaman dalam menggunakan software pembuat aplikasi mobile. Anggota tim juga perlu menyediakan waktu 15 menit setiap harinya untuk melaksanakan scrum meeting. 
+c.	Estimasi Biaya
+Secara material, tidak ada biaya langsung yang digunakan untuk membuat aplikasi mobile ini. Tools yang digunakan seperti Android Studio pun disediakan gratis oleh pengembang. Biaya yang harus dikeluarkan mungkin hanya berupa waktu yang harus digunakan.
+
+5.	Project Vision
+Mengembangkan aplikasi personal assistant yang dapat menghitung kebutuhan kalori dan gizi yang sesuai untuk di konsumsi pengguna.
+
+6.	SCRUM Core Team
+•	Product Owner:  Bravyto Takwa Pangukir
+•	SCRUM Team: Bravyto Takwa Pangukir, Isra Mela, Rezky Pangestu Gunarso, Gema Raditya Putra, Tryviana Yusriska Sari
+•	SCRUM Master: Bapak Hadaiq Rolis Sanabila S.Kom., M.Kom, Muhammad Iqbal
