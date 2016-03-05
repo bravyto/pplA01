@@ -8,11 +8,7 @@ Rezky Pangestu Gunarso - 1306464505
 Tryviana Yusriska Sari - 1306463660
 
 1.	Latar Belakang Permasalahan
-Banyak orang yang merasa makanan yang mereka konsumsi sudah sesuai dengan kebutuhan makan mereka sehari-hari, namun masih sangat banyak orang yang memiliki berat badan tidak sesuai dengan umur dan tinggi badan mereka. 
-{{ data }}
-Disisi lain, kekurangan gizi juga masih menjadi masalah besar yang dihadapi berbagai negara saat ini. Di Indonesia sendiri
-{{ data }}
-Faktanya adalah asupan kalori atau gizi yang masuk ke tubuh serta pola makan kita juga turut berperan dalam masalah kesehatan dan masalah berat badan. Untuk itu kita harus secara selektif memilih makanan yang sesuai dengan kebutuhan tubuh kita. Maka dari itu kami terpikirkan untuk mengusulkan ide aplikasi yang dapat membantu penggunanya agar dapat mengonsumsi makanan yang sesuai dengan kebutuhan tubuh pengguna.
+Banyak orang yang merasa makanan yang mereka konsumsi sudah sesuai dengan kebutuhan makan mereka sehari-hari, namun masih sangat banyak orang yang memiliki berat badan tidak sesuai dengan umur dan tinggi badan mereka. Sesuai dengan data WHO mengenai BMI, sekitar belasan persen orang di usia lebih dari 20 tahun di Asia Tenggara mengalami overweight (kelebihan berat badan) dan sekitar 60% orang di Amerika mengalami overweight dan terus meningkat setiap tahunnya. Disisi lain, kekurangan gizi juga masih menjadi masalah besar yang dihadapi berbagai negara saat ini. Di Indonesia sendiri, sekitar 5,4 juta anak balita mengalami gizi buruk sesuai laporan dari National Geographic Indonesia tahun 2015. Faktor yang sangat jelas mempengaruhi gizi adalah makanan yang diasup oleh anak dan gizi yang didapatkan ibunya selama masa kehamilan. Masih banyak ibu hamil yang masih belum tau gizi yang baik untuk anaknya. Setelah lahir, makanan yang diasup oleh anak tentu saja masih menjadi tanggung jawab orang tua anak tersebut. Tetapi sayangnya masih banyak juga orang tua yang tidak tau gizi makanan yang baik untuk anaknya karena faktanya asupan kalori atau gizi yang masuk ke tubuh anak atau ke tubuh orang dewasa serta pola makannya juga turut berperan dalam masalah kesehatan dan masalah berat badan. Untuk itu kita harus secara selektif memilih makanan yang sesuai dengan kebutuhan tubuh kita. Dari masalah yang ada, kami terpikirkan untuk mengusulkan ide aplikasi yang dapat membantu penggunanya agar mengonsumsi makanan yang sesuai dengan kebutuhan tubuh pengguna.
 
 2.	Tujuan Bisnis 
 a.	Tujuan (tujuannya kurang dalam kayak meningkatkan produktifitas)
@@ -50,5 +46,7 @@ Mengembangkan aplikasi personal assistant yang dapat menghitung kebutuhan kalori
 •	SCRUM Master: Bapak Hadaiq Rolis Sanabila S.Kom., M.Kom, Muhammad Iqbal
 
 Sumber :
+http://www.who.int/gho/ncd/risk_factors/bmi_text/en/
+http://nationalgeographic.co.id/berita/2015/06/5-4-juta-balita-di-indonesia-mengalami-gizi-buruk
 http://www.bbc.com/indonesia/laporan_khusus/2009/11/091124_obesity_stats.shtml
 https://catatanseorangahligizi.wordpress.com/2012/12/08/tren-obesitas-menurut-kelompok-usia/
