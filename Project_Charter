@@ -21,8 +21,10 @@ c.	Keluaran Yang Diharapkan
 Menjadi layanan aplikasi sistem informasi yang dapat membantu penggunanya dengan menjadi personal assitant perihal kebutuhan asupan kalori dan gizi yang dikonsumsi penggunanya.
 
 3.	Daftar Resiko Yang Teridentifikasi
-a.	Project Risk (lebih general ke project plus solusi)
+a.	Project Risk
 Sumber daya manusia masih dalam tahap belajar, terutama untuk pengembangan aplikasi mobile, sehingga dapat memperlambat proses pengerjaan aplikasi. Masalah komunikasi juga dapat menghambat proses pembuatan aplikasi mobile ini. Kurangnya anggota kelompok yang benar-benar menguasai UI dan UX.
+Selain itu, jika ada anggota kelompok yang tidak berkontribusi (menghilang) ditengah pengerjaan proyek akan menjadi resiko dalam proyek ini. Untuk masalah ini solusinya adalah dengan memberikan sanksi kepada anggota tersebut dengan cara tidak mencantumkan namanya di dalam proses pengerjaan proyek ini.
+Namun, jika anggota yang tidak berkontribusi tersebut memiliki alasan yang jelas (contohnya sedang sakit), maka tugas dan tanggung jawab anggota tersebut sementara akan dialihkan kepada anggota yang lainnya.
 b.	Technical Risk
 Keterampilan anggota untuk menggunakan berbagai tools terkait pembuat aplikasi mobile dan juga mengenai UI dan UX masih belum begitu maksimal. 
 c.	Business Risk
