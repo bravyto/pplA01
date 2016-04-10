@@ -16,8 +16,10 @@ import java.util.Date;
 /**
  * Created by Bravyto on 10/04/2016.
  */
-public class JadwalMakanActivity extends Activity{
 
+
+public class JadwalMakanActivity extends Activity{
+    protected Button save;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,5 +57,14 @@ public class JadwalMakanActivity extends Activity{
         TimePicker picker3 = (TimePicker) findViewById(R.id.dinner);
         picker3.setCurrentHour(c.get(Calendar.HOUR_OF_DAY));
         picker3.setCurrentMinute(c.get(Calendar.MINUTE));
+
+        save =(Button) findViewById(R.id.submitEatTime);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(JadwalMakanActivity.this, PersonalInfoActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

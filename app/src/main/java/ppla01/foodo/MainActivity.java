@@ -9,11 +9,12 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    protected EditText user_name;
+    public EditText user_name;
     protected EditText user_birthdate;
     protected EditText user_weight;
     protected EditText user_height;
     protected Button submit_profile;
+    public String kirimNama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         user_weight = (EditText) findViewById(R.id.weight);
         user_height = (EditText) findViewById(R.id.height);
         submit_profile = (Button) findViewById(R.id.submitProfile);
+        kirimNama = user_name.getText().toString();
 
         submit_profile.setOnClickListener(new View.OnClickListener() {
             @Override
