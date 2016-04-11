@@ -7,9 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/scrollView2"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="30dp"
-        android:paddingBottom="30dp">
+        android:layout_gravity="center_horizontal" >
 
         <LinearLayout
             android:orientation="vertical"
@@ -30,8 +28,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Breakfast"
                 android:id="@+id/text"
-                android:layout_gravity="center_horizontal"
-                android:paddingTop="10dp" />
+                android:layout_gravity="center_horizontal" />
 
             <TimePicker
                 android:layout_width="wrap_content"
@@ -45,8 +42,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Lunch"
                 android:id="@+id/text2"
-                android:layout_gravity="center_horizontal"
-                android:paddingTop="10dp" />
+                android:layout_gravity="center_horizontal" />
 
             <TimePicker
                 android:layout_width="wrap_content"
@@ -62,8 +58,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Dinner"
                 android:id="@+id/text3"
-                android:layout_gravity="center_horizontal"
-                android:paddingTop="10dp" />
+                android:layout_gravity="center_horizontal" />
 
             <TimePicker
                 android:layout_width="wrap_content"
@@ -81,7 +76,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/button_submit"
-                android:textColor="@color/abc_primary_text_disable_only_material_dark" />
+                android:textColor="@color/abc_primary_text_disable_only_material_dark"
+                android:onClick="save"/>
 
         </LinearLayout>
     </ScrollView>
