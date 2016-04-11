@@ -1,0 +1,60 @@
+Project Charter
+Foodo
+Kelompok PPLAO1
+Bravyto Takwa Pangukir - 1306381660
+Gema Raditya Putra - 1306381830
+Isra Mela - 1306381982
+Rezky Pangestu Gunarso - 1306464505
+Tryviana Yusriska Sari - 1306463660
+
+1.	Latar Belakang Permasalahan
+Menurut riset yang dilakukan WHO(World Health Organization) pada tahun 2014 terhadap sekitar 5 milyar orang dewasa(18 tahun atau lebih), 39%(atau sekitar 1.9 milyar orang) diantaranya memiliki berat badan di atas normal dan 13%(yaitu sekitar 600 juta orang) tergolong obesitas. Berat badan berlebih(overweight) khusunya jumlah lemak yang berlebih dapat memiliki dampak yang serius pada kesehatan, misalkan saja penyakit kardiovaskular. 
+
+Risiko kesehatan tersebut dimulai ketika seseorang hanya memiliki sedikit kelebihan berat badan, dimana ketika kondisi tersebut tidak ditangani dengan baik akan mmenjadikan berat badan sesorang lebih dan lebih besar lagi. 
+
+Menurut WHO, kelebihan berat badan dan obesitas sebagian besar dapat dicegah dengan cara menyeimbangkan energi antara kalori yang dikonsumsi dan kalori yang dikeluarkan. Selain itu Rian Andrew dari Precision Nutrision memaparkan bahwa mengontrol asupan kalori dan kualitas makan yang dikonsumsi juga dapat membantu pencegahan kelebihan berat badan dan obesitas. Untuk itu, kami berencana mengembangkan aplikasi sebagai fasilitator bagi pengguna untuk dapat mengontrol asupan kalori dari makanan yang sesuai bagi kondisi tubuh. Aplikasi ini kami harapkan dapat membantu pengguna baik yang bertujuan untuk menjaga asupan kalori, mencegah terkena obesitas, mau pun menurunkan berat badan.
+
+2.	Tujuan Bisnis 
+a.	Tujuan
+Tujuan aplikasi yang kami kembangkan adalah agar pengguna dapat mengontrol asupan kalori harian serta aplikasi dapat memberikan rekomendasi makanan yang sesuai dengan kebutuhan pengguna , lebih jauh, kami bertujuan agar pengguna mendapatkan energi yang seimbang sehingga dapat meningkatkan kesehatan pengguna. Apabila pengguna lebih sehat, diharapkan produktifitas pengguna akan meningkat.
+b.	Target Pengguna dan Target Pasar
+Karena berdasarkan pada laporan WHO, masih terdapat sekitar 1.9 miliar orang dewasa yang memiliki berat badan berlebih dengan 600 juta diantaranya tergolong obesitas. Sehingga dengan adanya permasalahan tersebut, target pengguna yang ingin dicapai dari aplikasi ini yaitu mereka yang memiliki umur 20 tahun hingga 30 tahun. Dimana pada saat rentang umur tersebut prevalensi kembali meningkat dengan tajam.
+Selain dari segi umur, target pengguna aplikasi ini juga ditargetkan untuk kelompok sosial menengah keatas. Hal ini tidak hanya disebabkan oleh pola makan tetapi juga dipengaruhi oleh transisi lifestyle, yang dapat terjadi akibat perkembangan teknologi, serta aksestabilitas makanan fast food yang cukup tinggi baik di daerah suburban maupun rural.
+c.	Keluaran Yang Diharapkan
+Menjadi layanan aplikasi sistem informasi yang dapat membantu penggunanya dengan menjadi personal assistant perihal kebutuhan asupan kalori dan gizi yang dikonsumsi penggunanya.
+
+3.	Daftar Resiko Yang Teridentifikasi
+a.	Project Risk
+Sumber daya manusia masih dalam tahap belajar, terutama untuk pengembangan aplikasi mobile, sehingga dapat memperlambat proses pengerjaan aplikasi. Untuk menangani hal ini, pada minggu-minggu awal sebelum memulai sprint 1, tiap anggota kelompok kami diwajibkan untuk mempelajari dan mengeksplor android studio sesuai dengan pembagian tugas yang diberikan.
+Masalah komunikasi juga dapat menghambat proses pembuatan aplikasi mobile ini. Untuk mengatasi masalah ini, tim kami melakukan scrum meeting setiap dua minggu sekali dan akan ada diskusi harian yang dilaksanakan tanpa tatap muka (online)
+Pada tim kami, tidak terdapat  anggota kelompok yang benar-benar menguasai UI dan UX, sehingga memungkinkan penghambatan dalam pengembangan aplikasi yang kami buat. Untuk mengatasi hal ini, beberapa anggota tim kami yang cukup paham mengenai UI/UX memperdalam dan melakukan transfer wawasan terhadap anggota yang lain.
+Masalah yang mungkin timbul selanjutnya adalah apabila terdapat anggota tim yang tidak berkontribusi dalam proses pengembangan aplikasi ini. Untuk mengatasi hal ini, kami akan memberikan sanksi sesuai dengan alasan yang membuat dia tidak dapat berkontribusi. Jika dia menghilang tanpa kepastian, tim kami tidak akan mencantumkan namanya dalam proyek yang kami kerjakan, sedangkan apabila alasannya jelas (misalkan sakit), tanggung jawabnya akan dialihkan sementara kepada anggota tim yang lain.
+b.	Technical Risk
+Keterampilan anggota untuk menggunakan berbagai tools terkait pembuat aplikasi mobile dan juga mengenai UI dan UX masih belum begitu maksimal. 
+c.	Business Risk
+Karena merupakan platform baru, pengguna yang biasanya hanya menggunakan hitungan manual sebagai perhitungan kadar gizi dari suatu makanan akan agak sedikit tidak terbiasa atau bahkan acuh untuk menggunakan aplikasi ini pada awalnya.
+
+4.	Estimasi Waktu, Usaha dan Biaya
+a.	Estimasi Waktu
+
+Dibutuhkan waktu antara 12-14 minggu untuk dapat menyelesaikan aplikasi ini, dimulai dari mock-up, sprint, testing, hingga menjadi aplikasi versi stabil. 
+b.	Estimasi Usaha
+Dibutuhkan usaha lebih bagi anggota yang belum memiliki banyak pengalaman dalam menggunakan software pembuat aplikasi mobile. Anggota tim juga perlu menyediakan waktu 15 menit setiap harinya untuk melaksanakan scrum meeting. 
+c.	Estimasi Biaya
+Secara material, tidak ada biaya langsung yang digunakan untuk membuat aplikasi mobile ini. Tools yang digunakan seperti Android Studio pun disediakan gratis oleh pengembang. Biaya yang harus dikeluarkan mungkin hanya berupa waktu yang harus digunakan.
+
+5.	Project Vision
+Mengembangkan aplikasi personal assistant yang dapat menghitung kebutuhan kalori dan gizi yang sesuai untuk di konsumsi pengguna.
+
+6.	SCRUM Core Team (bagan terlampir di ScrumTeam.png)
+•	Product Owner:  Bravyto Takwa Pangukir
+•	SCRUM Team: Bravyto Takwa Pangukir, Isra Mela, Rezky Pangestu Gunarso, Gema Raditya Putra, Tryviana Yusriska Sari
+•	SCRUM Master: Bapak Hadaiq Rolis Sanabila S.Kom., M.Kom, Muhammad Iqbal
+
+Sumber :
+http://www.who.int/gho/ncd/risk_factors/bmi_text/en/
+http://nationalgeographic.co.id/berita/2015/06/5-4-juta-balita-di-indonesia-mengalami-gizi-buruk
+http://www.bbc.com/indonesia/laporan_khusus/2009/11/091124_obesity_stats.shtml
+https://catatanseorangahligizi.wordpress.com/2012/12/08/tren-obesitas-menurut-kelompok-usia/
+http://www.precisionnutrition.com/all-about-energy-balance
+http://www.who.int/mediacentre/factsheets/fs311/en/
