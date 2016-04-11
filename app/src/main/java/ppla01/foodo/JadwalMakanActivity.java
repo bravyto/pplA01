@@ -3,7 +3,6 @@ package ppla01.foodo;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,9 +16,7 @@ import java.util.Date;
 /**
  * Created by Bravyto on 10/04/2016.
  */
-public class JadwalMakanActivity extends AppCompatActivity {
-
-    protected Button set_eat_time;
+public class JadwalMakanActivity extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,15 +55,5 @@ public class JadwalMakanActivity extends AppCompatActivity {
         TimePicker picker3 = (TimePicker) findViewById(R.id.dinner);
         picker3.setCurrentHour(c.get(Calendar.HOUR_OF_DAY));
         picker3.setCurrentMinute(c.get(Calendar.MINUTE));
-
-        set_eat_time = (Button) findViewById(R.id.submitEatTime);
-        set_eat_time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(JadwalMakanActivity.this, MenuActivity.class);
-                startActivity(i);
-            }
-        });
     }
 }
