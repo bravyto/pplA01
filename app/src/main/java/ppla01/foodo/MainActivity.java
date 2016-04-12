@@ -13,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,19 +24,13 @@ public class MainActivity extends Activity {
 
     SharedPreferences spref;
     SharedPreferences.Editor editor;
-    protected EditText user_name, user_height, user_weight,user_weight_target;
+    protected EditText user_name, user_weight_target;
     String  nama, tinggi, umur, beratnow, beratThen, gender;
     boolean valid = true ;
     protected DatePicker user_birthdate;
-<<<<<<< HEAD
     protected EditText user_weight;
     protected EditText user_height;
-    protected EditText user_target;
-=======
->>>>>>> refs/remotes/origin/master
     protected Button submit_profile;
-    protected Spinner user_gender;
-    //    ArrayAdapter<CharSequence> genderAdapter;
     RadioButton pria, wanita;
 
     @Override
@@ -48,15 +43,8 @@ public class MainActivity extends Activity {
 
         user_name = (EditText) findViewById(R.id.name);
         user_birthdate = (DatePicker) findViewById(R.id.birthdate);
-
-
-
         user_weight = (EditText) findViewById(R.id.weight);
-<<<<<<< HEAD
-        user_target = (EditText) findViewById(R.id.target);
-=======
         user_weight_target=(EditText) findViewById(R.id.target);
->>>>>>> refs/remotes/origin/master
         user_height = (EditText) findViewById(R.id.height);
         pria = (RadioButton) findViewById(R.id.pria);
         wanita = (RadioButton) findViewById(R.id.wanita);
@@ -73,42 +61,10 @@ public class MainActivity extends Activity {
             wanita.setChecked(true);
         }
 
-//        genderAdapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_item);
-//        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        user_gender.setAdapter(genderAdapter);
-//        user_gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                //Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-
         submit_profile = (Button) findViewById(R.id.submitProfile);
         submit_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int day  = user_birthdate.getDayOfMonth();
-                int month= user_birthdate.getMonth();
-                int year = user_birthdate.getYear()-1900;
-
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-                final String formatedDate = sdf.format(new Date(year, month, day));
-
-<<<<<<< HEAD
-                Intent i = new Intent(MainActivity.this, JadwalMakanActivity.class);
-                i.putExtra("user_name",user_name.getText().toString());
-                i.putExtra("user_birthdate", formatedDate);
-                i.putExtra("user_weight",user_weight.getText().toString());
-                i.putExtra("user_target",user_target.getText().toString());
-                i.putExtra("user_height", user_height.getText().toString());
-                i.putExtra("user_gender",user_gender.getSelectedItem().toString());
-                startActivity(i);
-=======
                 spref = getSharedPreferences("my_data", 0);
                 editor = spref.edit();
 
@@ -163,11 +119,8 @@ public class MainActivity extends Activity {
                 } else {
                     Toast.makeText(MainActivity.this, "From contains error" + umur, Toast.LENGTH_SHORT).show();
                 }
->>>>>>> refs/remotes/origin/master
             }
         });
-
-
     }
     protected void onStart(){
         super.onStart();
