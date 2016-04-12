@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,7 +22,8 @@ import java.util.Date;
  * Created by Bravyto on 10/04/2016.
  */
 public class JadwalMakanActivity extends AppCompatActivity {
-
+    SharedPreferences spref;
+    SharedPreferences.Editor editor;
     // This is a handle so that we can call methods on our service
     private ScheduleClient scheduleClient;
     // This is the date picker used to select the date for our notification
@@ -45,9 +47,11 @@ public class JadwalMakanActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jadwal_makan);
-
         scheduleClient = new ScheduleClient(this);
         scheduleClient.doBindService();
+
+        spref = getApplicationContext().getSharedPreferences("my_data", 0);
+        editor = spref.edit();
 
         // Get a reference to our date picker
         //picker = (DatePicker) findViewById(R.id.scheduleTimePicker);
@@ -58,6 +62,9 @@ public class JadwalMakanActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                editor = spref.edit();
+                editor.putString("log", "1");
+                editor.commit();
                 Intent i = new Intent(JadwalMakanActivity.this, MenuActivity.class);
                 startActivity(i);
             }
@@ -110,6 +117,31 @@ public class JadwalMakanActivity extends AppCompatActivity {
             c.set(Calendar.MINUTE, minute_morning);
             c.set(Calendar.SECOND, 0);
 
+            editor = spref.edit();
+            String hour = "" + hour_morning;
+            String minutes = ""+minute_morning;
+            String jampagi = "";
+            if(hour_morning<12) {
+                if (hour_morning != 10 && hour_morning != 11) {
+                    hour = "0" + hour;
+                }
+                if (minutes.length() == 1) {
+                    minutes = "0" + minutes;
+                }
+                jampagi = hour + ":" + minutes + " a.m";
+            } else {
+                if(minutes.length()==1){
+                    minutes="0"+minutes;
+                }
+                String temp = ""+hour_morning%12;
+                if (temp.length()==1){
+                    jampagi = "0" + temp + ":"+  minutes+ " p.m";
+                } else{
+                    jampagi = temp + ":"+  minutes+ " p.m";
+                }
+            }
+            editor.putString("pagi",jampagi);
+            editor.commit();
 
             // Ask our service to set an alarm for that date, this activity talks to the client that talks to the service
             scheduleClient.setAlarmForNotification(c,0);
@@ -137,6 +169,31 @@ public class JadwalMakanActivity extends AppCompatActivity {
             d.set(Calendar.MINUTE, minute_noon);
             d.set(Calendar.SECOND, 0);
 
+            editor = spref.edit();
+            String hour = ""+hour_noon;
+            String minutes = ""+minute_noon;
+            String jamsiang = "";
+            if(hour_noon<12) {
+                if (hour_noon != 10 && hour_noon != 11) {
+                    hour = "0" + hour;
+                }
+                if (minutes.length() == 1) {
+                    minutes = "0" + minutes;
+                }
+                jamsiang = hour + ":" + minutes + " a.m";
+            } else {
+                if(minutes.length()==1){
+                    minutes="0"+minutes;
+                }
+                String temp = ""+hour_noon%12;
+                if (temp.length()==1){
+                    jamsiang = "0" + temp + ":"+  minutes+ " p.m";
+                } else{
+                    jamsiang = temp + ":"+  minutes+ " p.m";
+                }
+            }
+            editor.putString("siang",jamsiang);
+            editor.commit();
 
             // Ask our service to set an alarm for that date, this activity talks to the client that talks to the service
             scheduleClient.setAlarmForNotification(d,1);
@@ -164,6 +221,31 @@ public class JadwalMakanActivity extends AppCompatActivity {
             e.set(Calendar.MINUTE, minute_night);
             e.set(Calendar.SECOND, 0);
 
+            editor = spref.edit();
+            String hour = ""+hour_night;
+            String minutes = ""+minute_night;
+            String jammalam = "";
+            if(hour_night<12) {
+                if (hour_night != 10 && hour_night != 11) {
+                    hour = "0" + hour;
+                }
+                if (minutes.length() == 1) {
+                    minutes = "0" + minutes;
+                }
+                jammalam = hour + ":" + minutes + " a.m";
+            } else {
+                if(minutes.length()==1){
+                    minutes="0"+minutes;
+                }
+                String temp = ""+hour_night%12;
+                if (temp.length()==1){
+                    jammalam = "0" + temp + ":"+  minutes+ " p.m";
+                } else{
+                    jammalam = temp + ":"+  minutes+ " p.m";
+                }
+            }
+            editor.putString("malam",jammalam);
+            editor.commit();
 
             // Ask our service to set an alarm for that date, this activity talks to the client that talks to the service
             scheduleClient.setAlarmForNotification(e,2);
@@ -183,4 +265,5 @@ public class JadwalMakanActivity extends AppCompatActivity {
         super.onStop();
 
     }
+
 }
