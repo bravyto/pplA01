@@ -16,11 +16,10 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
             android:id="@+id/linearLayout"
-            android:weightSum="1"
-            android:layout_alignTop="@+id/scrollView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:weightSum="1">
 
             <ImageView
                 android:layout_width="120dp"
@@ -50,138 +49,72 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Birthdate"
-                android:id="@+id/textView4" />
+                android:id="@+id/textView4"
+                android:layout_marginTop="10dp" />
 
-            <EditText
-                android:layout_width="match_parent"
+            <DatePicker
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="date"
-                android:ems="10"
                 android:id="@+id/birthdate"
-                android:hint="dd/mm/yyyy" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Weight"
-                android:id="@+id/textView5" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="1"
-                android:layout_gravity="center_horizontal">
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/weight" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="kg"
-                    android:id="@+id/textView2" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Weight Target"
-                android:id="@+id/textView15" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="1"
-                android:layout_gravity="center_horizontal">
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/target" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="kg"
-                    android:id="@+id/textView21" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Height"
-                android:id="@+id/textView6" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="1"
-                android:layout_gravity="center_horizontal" >
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/height"
-                    android:layout_weight="0.23" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="cm"
-                    android:id="@+id/textView" />
-            </LinearLayout>
+                android:layout_gravity="center_horizontal" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Gender"
-                android:id="@+id/textView61" />
+                android:id="@+id/text"
+                android:layout_marginTop="10dp" />
 
-            <RadioGroup
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gender" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Weight (kg)"
+                android:id="@+id/textView5"
+                android:layout_marginTop="10dp" />
+
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/textView6"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/weight" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Male"
-                    android:id="@+id/pria"
-                    android:layout_below="@+id/textView6"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:checked="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Height (cm)"
+                android:id="@+id/textView6"
+                android:layout_marginTop="10dp" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Female"
-                    android:id="@+id/wanita"
-                    android:layout_below="@+id/textView6"
-                    android:layout_centerHorizontal="true"
-                    android:checked="false" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/height" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Weight Target (kg)"
+                android:id="@+id/target"
+                android:layout_marginTop="10dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText" />
 
             <Button
                 android:layout_width="109dp"
@@ -191,13 +124,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/button_submit"
-                android:textColor="@color/abc_primary_text_disable_only_material_dark"
-                android:onClick="confirm" />
+                android:textColor="@color/abc_primary_text_disable_only_material_dark" />
 
-            </RadioGroup>
         </LinearLayout>
     </ScrollView>
-
-
 
 </RelativeLayout>
