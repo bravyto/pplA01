@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Weight Target (kg)"
-                android:id="@+id/target"
+                android:id="@+id/editText"
                 android:layout_marginTop="10dp" />
 
             <EditText
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
-                android:id="@+id/editText" />
+                android:id="@+id/target" />
 
             <Button
                 android:layout_width="109dp"
