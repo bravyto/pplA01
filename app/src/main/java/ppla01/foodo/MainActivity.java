@@ -15,19 +15,22 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import java.util.Calendar;
 
 public class MainActivity extends Activity {
 
     SharedPreferences spref;
     SharedPreferences.Editor editor;
-    protected EditText user_name, user_height, user_weight,user_weight_target;
+    protected EditText user_name, user_weight_target;
     String  nama, tinggi, umur, beratnow, beratThen, gender;
     boolean valid = true ;
     protected DatePicker user_birthdate;
+    protected EditText user_weight;
+    protected EditText user_height;
     protected Button submit_profile;
-    protected Spinner user_gender;
-    //    ArrayAdapter<CharSequence> genderAdapter;
     RadioButton pria, wanita;
 
     @Override
@@ -58,26 +61,10 @@ public class MainActivity extends Activity {
             wanita.setChecked(true);
         }
 
-//        genderAdapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_item);
-//        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        user_gender.setAdapter(genderAdapter);
-//        user_gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                //Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-
         submit_profile = (Button) findViewById(R.id.submitProfile);
         submit_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 spref = getSharedPreferences("my_data", 0);
                 editor = spref.edit();
 

@@ -93,6 +93,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Weight Target (kg)"
+                android:id="@+id/editText"
                 android:layout_marginTop="10dp" />
 
             <EditText
