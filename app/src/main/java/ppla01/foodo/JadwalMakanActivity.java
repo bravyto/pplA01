@@ -116,7 +116,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
             // scheduleClient.setAlarmForNotification(d,1);
 
 
-            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " + hour_morning+ " : " + minute_morning, Toast.LENGTH_LONG).show();
+            Toast.makeText(JadwalMakanActivity.this,"Notification set fors: " + hour_morning+ " : " + minute_morning, Toast.LENGTH_LONG).show();
         }
     };
 
