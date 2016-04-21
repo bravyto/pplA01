@@ -1,4 +1,4 @@
-package ppl01.foodo;
+package ppla01.foodo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
