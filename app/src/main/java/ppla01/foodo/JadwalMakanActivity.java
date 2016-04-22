@@ -136,7 +136,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
 
             int day2 = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
             int month2= Calendar.getInstance().get(Calendar.MONTH);
-            int year2 =  Calendar.getInstance().get(Calendar.YEAR);;
+            int year2 =  Calendar.getInstance().get(Calendar.YEAR);
             // Create a new calendar set to the date chosen
             // we set the time to midnight (i.e. the first minute of that day)
             Calendar c = Calendar.getInstance();
@@ -172,7 +172,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
             // scheduleClient.setAlarmForNotification(d,1);
 
 
-            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " +jampagi, Toast.LENGTH_LONG).show();
+            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " +jampagi , Toast.LENGTH_LONG).show();
         }
     };
 
@@ -184,7 +184,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
 
             int day2 = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
             int month2= Calendar.getInstance().get(Calendar.MONTH);
-            int year2 =  Calendar.getInstance().get(Calendar.YEAR);;
+            int year2 =  Calendar.getInstance().get(Calendar.YEAR);
             // Create a new calendar set to the date chosen
             // we set the time to midnight (i.e. the first minute of that day)
             Calendar d = Calendar.getInstance();
@@ -232,7 +232,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
 
             int day2 = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
             int month2= Calendar.getInstance().get(Calendar.MONTH);
-            int year2 =  Calendar.getInstance().get(Calendar.YEAR);;
+            int year2 =  Calendar.getInstance().get(Calendar.YEAR);
             // Create a new calendar set to the date chosen
             // we set the time to midnight (i.e. the first minute of that day)
             Calendar e = Calendar.getInstance();
