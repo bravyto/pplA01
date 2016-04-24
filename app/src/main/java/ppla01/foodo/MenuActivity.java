@@ -85,9 +85,6 @@ public class MenuActivity extends Activity {
         TextView beratnowv = (TextView) findViewById(R.id.weight);
         beratnowv.setText(beratnowv.getText() + beratnow);
 
-        TextView beratThenv = (TextView) findViewById(R.id.target);
-        beratThenv.setText(beratThenv.getText() + beratThen);
-
         TextView genderv = (TextView) findViewById(R.id.gender);
         genderv.setText(genderv.getText() + gender);
 

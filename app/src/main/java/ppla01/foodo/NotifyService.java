@@ -71,7 +71,7 @@ public class NotifyService extends Service{
                 );
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.iconnotif)
+                        .setSmallIcon(R.drawable.food_icon2)
                         .setContentTitle("Let's eat")
                         .setContentText("It's time to eat!");
 
