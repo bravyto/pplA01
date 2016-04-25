@@ -20,17 +20,17 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:background="@drawable/breakfast_action"
-                    android:layout_height="360px"
+                    android:layout_height="300px"
                     android:id="@+id/breakfastClick"
                     android:onClick="setBreakfast"
                     android:clickable="true">
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="30dp"
+                        android:layout_height="45dp"
                         android:layout_weight=".2"
                         android:id="@+id/imageView7"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/b" />
+                        android:src="@drawable/coffee" />
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                             android:text="07:00"
                             android:id="@+id/breakfast"
                             android:layout_gravity="center_vertical"
-                            android:textSize="48dp" />
+                            android:textSize="40dp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -68,17 +68,17 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:background="@drawable/breakfast_action"
-                    android:layout_height="360px"
+                    android:layout_height="300px"
                     android:id="@+id/lunchClick"
                     android:onClick="setLunch"
                     android:clickable="true">
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="30dp"
+                        android:layout_height="45dp"
                         android:layout_weight=".2"
                         android:id="@+id/imageView8"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/l" />
+                        android:src="@drawable/therice" />
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                             android:text="13:00"
                             android:id="@+id/lunch"
                             android:layout_gravity="center_vertical"
-                            android:textSize="48dp" />
+                            android:textSize="40dp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -117,17 +117,17 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:background="@drawable/breakfast_action"
-                    android:layout_height="360px"
+                    android:layout_height="300px"
                     android:id="@+id/dinnerClick"
                     android:onClick="setDinner"
                     android:clickable="true">
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="30dp"
+                        android:layout_height="45dp"
                         android:layout_weight=".2"
                         android:id="@+id/imageView9"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/d" />
+                        android:src="@drawable/hamburger" />
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                             android:text="18:00"
                             android:id="@+id/dinner"
                             android:layout_gravity="center_vertical"
-                            android:textSize="48dp" />
+                            android:textSize="40dp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
