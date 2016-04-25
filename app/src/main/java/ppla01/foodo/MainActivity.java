@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -85,6 +87,10 @@ public class MainActivity extends Activity {
         user_birthdate.setText(spref.getString("umur", ""), null);
         user_height.setText(spref.getString("tinggi", ""), null);
         user_weight.setText(spref.getString("beratnow", ""), null);
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "Yellowtail.ttf");
+        TextView tv=(TextView) findViewById(R.id.textView4);
+        tv.setTypeface(font);
 
         String gen = spref.getString("gender", "");
         if (gen.equals("Wanita")){
