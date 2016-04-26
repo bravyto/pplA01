@@ -73,7 +73,7 @@ public class JadwalMakanActivity extends Activity {
                 editor = spref.edit();
                 editor.putString("log", "1");
                 editor.commit();
-                Intent i = new Intent(JadwalMakanActivity.this, MenuActivity.class);
+                Intent i = new Intent(JadwalMakanActivity.this, HomeActivity.class);
                 startActivity(i);
             }
         });

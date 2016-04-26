@@ -26,7 +26,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/imageView20"
                     android:src="@drawable/ikon2"
-                    android:layout_marginBottom="20dp" />
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp" />
 
                 <LinearLayout
                     android:state_pressed="true"
