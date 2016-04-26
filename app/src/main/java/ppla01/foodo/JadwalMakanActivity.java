@@ -141,7 +141,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
             // we set the time to midnight (i.e. the first minute of that day)
             Calendar c = Calendar.getInstance();
             c.set(year2,month2,day2 );
-            c.set(Calendar.HOUR, hour_morning);
+            c.set(Calendar.HOUR_OF_DAY, hour_morning);
             c.set(Calendar.MINUTE, minute_morning);
             c.set(Calendar.SECOND, 0);
 
@@ -189,7 +189,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
             // we set the time to midnight (i.e. the first minute of that day)
             Calendar d = Calendar.getInstance();
             d.set(year2,month2,day2 );
-            d.set(Calendar.HOUR, hour_noon);
+            d.set(Calendar.HOUR_OF_DAY, hour_noon);
             d.set(Calendar.MINUTE, minute_noon);
             d.set(Calendar.SECOND, 0);
 
@@ -237,7 +237,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
             // we set the time to midnight (i.e. the first minute of that day)
             Calendar e = Calendar.getInstance();
             e.set(year2,month2,day2 );
-            e.set(Calendar.HOUR, hour_night);
+            e.set(Calendar.HOUR_OF_DAY, hour_night);
             e.set(Calendar.MINUTE, minute_night);
             e.set(Calendar.SECOND, 0);
 
