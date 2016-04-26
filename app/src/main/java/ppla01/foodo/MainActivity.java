@@ -25,7 +25,7 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     SharedPreferences spref;
     SharedPreferences.Editor editor;
