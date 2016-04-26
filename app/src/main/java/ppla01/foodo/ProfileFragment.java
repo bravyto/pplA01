@@ -1,31 +1,33 @@
 package ppla01.foodo;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import java.util.Calendar;
 import java.util.Locale;
 
-public class MainActivity extends ActionBarActivity {
+/**
+ * Created by Rezky Pangestu G on 25/04/2016.
+ */
+public class ProfileFragment extends Fragment {
 
     SharedPreferences spref;
     SharedPreferences.Editor editor;
@@ -37,6 +39,7 @@ public class MainActivity extends ActionBarActivity {
     protected EditText user_height;
     protected Button submit_profile;
     RadioButton pria, wanita;
+    Button button1;
 
     Calendar myCalendar = Calendar.getInstance();
 
@@ -53,12 +56,12 @@ public class MainActivity extends ActionBarActivity {
         }
 
     };
-
-    public void showDatePicker(View v) {
-        new DatePickerDialog(MainActivity.this, date, myCalendar
-                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-    }
+//
+//    public void showDatePicker(View v) {
+//        new DatePickerDialog(ProfileFragment.this, date, myCalendar
+//                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+//                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+//    }
 
     private void updateLabel() {
 
@@ -69,30 +72,29 @@ public class MainActivity extends ActionBarActivity {
         user_birthdate.setError(null);
     }
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        View view = inflater.inflate(R.layout.activity_main,container,false);
 
-        setTitle("Profile Info");
-        spref = getApplicationContext().getSharedPreferences("my_data", 0);
+        spref = this.getActivity().getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
-        user_name = (EditText) findViewById(R.id.name);
-        user_birthdate = (EditText) findViewById(R.id.birthdate);
-        user_weight = (EditText) findViewById(R.id.weight);
-        user_height = (EditText) findViewById(R.id.height);
-        pria = (RadioButton) findViewById(R.id.pria);
-        wanita = (RadioButton) findViewById(R.id.wanita);
+        user_name = (EditText) view.findViewById(R.id.name);
+        user_birthdate = (EditText) view.findViewById(R.id.birthdate);
+        user_weight = (EditText) view.findViewById(R.id.weight);
+        user_height = (EditText) view.findViewById(R.id.height);
+        pria = (RadioButton) view.findViewById(R.id.pria);
+        wanita = (RadioButton) view.findViewById(R.id.wanita);
 
         user_name.setText(spref.getString("nama", ""), null);
         user_birthdate.setText(spref.getString("umur", ""), null);
         user_height.setText(spref.getString("tinggi", ""), null);
         user_weight.setText(spref.getString("beratnow", ""), null);
 
-//        Typeface font = Typeface.createFromAsset(getAssets(), "Yellowtail.ttf");
-//        TextView tv=(TextView) findViewById(R.id.textView4);
+//        Typeface font = Typeface.createFromAsset(this.getActivity().getAssets(), "Yellowtail.ttf");
+//        TextView tv=(TextView) view.findViewById(R.id.textView4);
 //        tv.setTypeface(font);
 
         String gen = spref.getString("gender", "");
@@ -102,11 +104,10 @@ public class MainActivity extends ActionBarActivity {
             pria.setChecked(true);
         }
 
-        submit_profile = (Button) findViewById(R.id.submitProfile);
+        submit_profile = (Button) view.findViewById(R.id.submitProfile);
         submit_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spref = getSharedPreferences("my_data", 0);
                 editor = spref.edit();
                 valid = true;
 
@@ -146,17 +147,22 @@ public class MainActivity extends ActionBarActivity {
                 editor.commit();
 
                 if (valid) {
-                    Intent intent = new Intent(MainActivity.this, JadwalMakanActivity.class);
-                    startActivity(intent);
+//                    Intent intent = new Intent(MainActivity.this, JadwalMakanActivity.class);
+//                    startActivity(intent);
                 }
             }
         });
-    }
-    protected void onStart(){
-        super.onStart();
-        if (spref.getString("log","").equals("1")){
-            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-            startActivity(intent);
-        }
+        button1 = (Button) view.findViewById(R.id.submitProfile);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                HomeFragment homeFragment = new HomeFragment();
+                fragmentTransaction.replace(R.id.fragment_container,homeFragment);
+                fragmentTransaction.commit();
+            }
+        });
+        return view;
     }
 }

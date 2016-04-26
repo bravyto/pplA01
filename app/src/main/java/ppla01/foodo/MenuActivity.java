@@ -105,7 +105,7 @@ public class MenuActivity extends Activity {
                 editor = spref.edit();
                 editor.putString("log", "");
                 editor.commit();
-                Intent i = new Intent(MenuActivity.this, MainActivity.class);
+                Intent i = new Intent(MenuActivity.this, HomeActivity.class);
                 startActivity(i);
             }
         });
