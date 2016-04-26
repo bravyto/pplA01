@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +25,7 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
 
     SharedPreferences spref;
     SharedPreferences.Editor editor;
@@ -70,9 +71,11 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setTitle("Profile Info");
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
@@ -88,9 +91,9 @@ public class MainActivity extends Activity {
         user_height.setText(spref.getString("tinggi", ""), null);
         user_weight.setText(spref.getString("beratnow", ""), null);
 
-        Typeface font = Typeface.createFromAsset(getAssets(), "Yellowtail.ttf");
-        TextView tv=(TextView) findViewById(R.id.textView4);
-        tv.setTypeface(font);
+//        Typeface font = Typeface.createFromAsset(getAssets(), "Yellowtail.ttf");
+//        TextView tv=(TextView) findViewById(R.id.textView4);
+//        tv.setTypeface(font);
 
         String gen = spref.getString("gender", "");
         if (gen.equals("Wanita")){
