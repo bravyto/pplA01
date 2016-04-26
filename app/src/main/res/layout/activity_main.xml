@@ -210,8 +210,7 @@
                 android:textColor="@color/background_material_light"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:backgroundTint="#1565C0"
-                android:layout_marginTop="20dp"
-                android:backgroundTintMode="add" />
+                android:layout_marginTop="20dp" />
 
         </LinearLayout>
     </ScrollView>

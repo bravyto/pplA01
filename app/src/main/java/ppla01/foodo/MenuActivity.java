@@ -13,6 +13,7 @@ import android.widget.TextView;
  */
 public class MenuActivity extends Activity {
     protected Button edit_profile;
+    protected Button entry_food;
 //<<<<<<< HEAD
     String user_name="";
     String user_birthdate="";
@@ -63,6 +64,7 @@ public class MenuActivity extends Activity {
 //        update_gender = (TextView) findViewById(R.id.gender);
 //        update_gender.setText(user_gender);
         edit_profile = (Button) findViewById(R.id.editProfile);
+        entry_food = (Button) findViewById(R.id.foodEntry);
         tinggi = spref.getString("tinggi", "");
         nama = spref.getString("nama", "");
         umur = spref.getString("umur", "");
@@ -106,6 +108,15 @@ public class MenuActivity extends Activity {
                 editor.putString("log", "");
                 editor.commit();
                 Intent i = new Intent(MenuActivity.this, HomeActivity.class);
+                startActivity(i);
+            }
+        });
+
+        entry_food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(MenuActivity.this, FoodActivity.class);
                 startActivity(i);
             }
         });
