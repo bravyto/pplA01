@@ -219,6 +219,17 @@
                 android:onClick="edit"
                 android:textColor="@color/abc_primary_text_disable_only_material_dark" />
 
+            <Button
+                android:layout_width="109dp"
+                android:layout_height="39dp"
+                android:text="Add Food"
+                android:id="@+id/foodEntry"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_submit"
+                android:onClick="edit"
+                android:textColor="@color/abc_primary_text_disable_only_material_dark" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
