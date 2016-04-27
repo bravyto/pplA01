@@ -155,7 +155,7 @@ public class MainActivity extends Activity {
     protected void onStart(){
         super.onStart();
         if (spref.getString("log","").equals("1")){
-            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
         }
     }
