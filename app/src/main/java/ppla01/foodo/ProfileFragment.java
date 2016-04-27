@@ -78,81 +78,80 @@ public class ProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.activity_main,container,false);
 
-//        spref = getApplicationContext().getSharedPreferences("my_data", 0);
-//        editor = spref.edit();
-//
-//        user_name = (EditText) view.findViewById(R.id.name);
-//        user_birthdate = (EditText) view.findViewById(R.id.birthdate);
-//        user_weight = (EditText) view.findViewById(R.id.weight);
-//        user_height = (EditText) view.findViewById(R.id.height);
-//        pria = (RadioButton) view.findViewById(R.id.pria);
-//        wanita = (RadioButton) view.findViewById(R.id.wanita);
-//
-//        user_name.setText(spref.getString("nama", ""), null);
-//        user_birthdate.setText(spref.getString("umur", ""), null);
-//        user_height.setText(spref.getString("tinggi", ""), null);
-//        user_weight.setText(spref.getString("beratnow", ""), null);
-//
-//        Typeface font = Typeface.createFromAsset(getAssets(), "Yellowtail.ttf");
+        spref = this.getActivity().getApplicationContext().getSharedPreferences("my_data", 0);
+        editor = spref.edit();
+
+        user_name = (EditText) view.findViewById(R.id.name);
+        user_birthdate = (EditText) view.findViewById(R.id.birthdate);
+        user_weight = (EditText) view.findViewById(R.id.weight);
+        user_height = (EditText) view.findViewById(R.id.height);
+        pria = (RadioButton) view.findViewById(R.id.pria);
+        wanita = (RadioButton) view.findViewById(R.id.wanita);
+
+        user_name.setText(spref.getString("nama", ""), null);
+        user_birthdate.setText(spref.getString("umur", ""), null);
+        user_height.setText(spref.getString("tinggi", ""), null);
+        user_weight.setText(spref.getString("beratnow", ""), null);
+
+//        Typeface font = Typeface.createFromAsset(this.getActivity().getAssets(), "Yellowtail.ttf");
 //        TextView tv=(TextView) view.findViewById(R.id.textView4);
 //        tv.setTypeface(font);
-//
-//        String gen = spref.getString("gender", "");
-//        if (gen.equals("Wanita")){
-//            wanita.setChecked(true);
-//        } else {
-//            pria.setChecked(true);
-//        }
-//
-//        submit_profile = (Button) view.findViewById(R.id.submitProfile);
-//        submit_profile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                spref = getSharedPreferences("my_data", 0);
-//                editor = spref.edit();
-//                valid = true;
-//
-//                nama = user_name.getText().toString();
-//                tinggi = user_height.getText().toString();
-//                birthdate = user_birthdate.getText().toString();
-//                beratnow = user_weight.getText().toString();
-//
-//
-//                if (nama.equals("")) {
-//                    user_name.setError("Type your name");
-//                    valid = false;
-//                }
-//                if (birthdate.equals("")) {
-//                    user_birthdate.setError("Set your birthdate");
-//                    valid = false;
-//                }
-//                if (tinggi.equals("")) {
-//                    user_height.setError("Type your height in cm");
-//                    valid = false;
-//                }
-//                if (beratnow.equals("")) {
-//                    user_weight.setError("Type your weight in kg");
-//                    valid = false;
-//                }
-//                if(pria.isChecked()) {
-//                    gender = "Pria";
-//                } else {
-//                    gender = "Wanita";
-//                }
-//                editor.putString("nama", nama);
-//                editor.putString("tinggi", tinggi);
-//                editor.putString("umur", birthdate);
-//                editor.putString("beratnow", beratnow);
-//                editor.putString("gender", gender);
-//
-//                editor.commit();
-//
-//                if (valid) {
-////                    Intent intent = new Intent(MainActivity.this, JadwalMakanActivity.class);
-////                    startActivity(intent);
-//                }
-//            }
-//        });
+
+        String gen = spref.getString("gender", "");
+        if (gen.equals("Wanita")){
+            wanita.setChecked(true);
+        } else {
+            pria.setChecked(true);
+        }
+
+        submit_profile = (Button) view.findViewById(R.id.submitProfile);
+        submit_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor = spref.edit();
+                valid = true;
+
+                nama = user_name.getText().toString();
+                tinggi = user_height.getText().toString();
+                birthdate = user_birthdate.getText().toString();
+                beratnow = user_weight.getText().toString();
+
+
+                if (nama.equals("")) {
+                    user_name.setError("Type your name");
+                    valid = false;
+                }
+                if (birthdate.equals("")) {
+                    user_birthdate.setError("Set your birthdate");
+                    valid = false;
+                }
+                if (tinggi.equals("")) {
+                    user_height.setError("Type your height in cm");
+                    valid = false;
+                }
+                if (beratnow.equals("")) {
+                    user_weight.setError("Type your weight in kg");
+                    valid = false;
+                }
+                if(pria.isChecked()) {
+                    gender = "Pria";
+                } else {
+                    gender = "Wanita";
+                }
+                editor.putString("nama", nama);
+                editor.putString("tinggi", tinggi);
+                editor.putString("umur", birthdate);
+                editor.putString("beratnow", beratnow);
+                editor.putString("gender", gender);
+
+                editor.commit();
+
+                if (valid) {
+//                    Intent intent = new Intent(MainActivity.this, JadwalMakanActivity.class);
+//                    startActivity(intent);
+                }
+            }
+        });
         button1 = (Button) view.findViewById(R.id.submitProfile);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override

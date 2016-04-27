@@ -1,5 +1,6 @@
 package ppla01.foodo;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -18,7 +19,7 @@ import java.util.Calendar;
 /**
  * Created by Bravyto on 10/04/2016.
  */
-public class JadwalMakanActivity extends AppCompatActivity {
+public class JadwalMakanActivity extends Activity {
 //<<<<<<< HEAD
 
     protected Button set_eat_time;
@@ -72,7 +73,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
                 editor = spref.edit();
                 editor.putString("log", "1");
                 editor.commit();
-                Intent i = new Intent(JadwalMakanActivity.this, MenuActivity.class);
+                Intent i = new Intent(JadwalMakanActivity.this, HomeActivity.class);
                 startActivity(i);
             }
         });
@@ -141,7 +142,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
             // we set the time to midnight (i.e. the first minute of that day)
             Calendar c = Calendar.getInstance();
             c.set(year2,month2,day2 );
-            c.set(Calendar.HOUR, hour_morning);
+            c.set(Calendar.HOUR_OF_DAY, hour_morning);
             c.set(Calendar.MINUTE, minute_morning);
             c.set(Calendar.SECOND, 0);
 
@@ -189,7 +190,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
             // we set the time to midnight (i.e. the first minute of that day)
             Calendar d = Calendar.getInstance();
             d.set(year2,month2,day2 );
-            d.set(Calendar.HOUR, hour_noon);
+            d.set(Calendar.HOUR_OF_DAY, hour_noon);
             d.set(Calendar.MINUTE, minute_noon);
             d.set(Calendar.SECOND, 0);
 
@@ -237,7 +238,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
             // we set the time to midnight (i.e. the first minute of that day)
             Calendar e = Calendar.getInstance();
             e.set(year2,month2,day2 );
-            e.set(Calendar.HOUR, hour_night);
+            e.set(Calendar.HOUR_OF_DAY, hour_night);
             e.set(Calendar.MINUTE, minute_night);
             e.set(Calendar.SECOND, 0);
 
