@@ -30,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/imageView13"
                 android:src="@drawable/ikon1"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -205,10 +206,10 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Save"
+                android:text="SAVE"
                 android:id="@+id/submitProfile"
                 android:textColor="@color/background_material_light"
-                style="@style/Widget.AppCompat.Button.Colored"
+                style="@style/AppTheme"
                 android:backgroundTint="#1565C0"
                 android:layout_marginTop="20dp" />
 
