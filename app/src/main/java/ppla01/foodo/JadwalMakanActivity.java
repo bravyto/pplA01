@@ -1,5 +1,6 @@
 package ppla01.foodo;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -18,7 +19,7 @@ import java.util.Calendar;
 /**
  * Created by Bravyto on 10/04/2016.
  */
-public class JadwalMakanActivity extends AppCompatActivity {
+public class JadwalMakanActivity extends Activity {
 //<<<<<<< HEAD
 
     protected Button set_eat_time;
@@ -72,7 +73,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
                 editor = spref.edit();
                 editor.putString("log", "1");
                 editor.commit();
-                Intent i = new Intent(JadwalMakanActivity.this, MenuActivity.class);
+                Intent i = new Intent(JadwalMakanActivity.this, HomeActivity.class);
                 startActivity(i);
             }
         });
