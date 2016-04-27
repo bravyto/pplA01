@@ -47,7 +47,9 @@
         <service android:name=".ScheduleService" />
         <service android:name=".NotifyService" />
 
-        <activity android:name=".FoodActivity"></activity>
+        <activity android:name=".FoodActivity" />
+        <activity android:name=".AddFoodActivity" />
+        <activity android:name=".InfoFoodActivity"></activity>
     </application>
 
 </manifest>
