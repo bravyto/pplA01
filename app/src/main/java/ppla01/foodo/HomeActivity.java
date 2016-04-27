@@ -59,4 +59,8 @@ public class HomeActivity extends Activity {
 //            }
 //        });
     }
+
+    public void onBackPressed(){
+        finish();
+    }
 }

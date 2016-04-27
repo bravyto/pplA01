@@ -157,6 +157,7 @@ public class MainActivity extends Activity {
         if (spref.getString("log","").equals("1")){
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 }
