@@ -15,6 +15,83 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <LinearLayout
+                android:state_pressed="true"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="@drawable/border"
+                android:layout_height="300px"
+                android:id="@+id/calculate"
+                android:gravity="center_vertical|center_horizontal">
+                <!--<ImageView-->
+                    <!--android:layout_width="30dp"-->
+                    <!--android:layout_height="45dp"-->
+                    <!--android:layout_weight=".2"-->
+                    <!--android:id="@+id/imageView7"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:src="@drawable/coffee" />-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight=".6"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical|center_horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".6"
+                        android:text="Disini Hitung Kalori"
+                        android:id="@+id/judul"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="32dp"
+                        android:gravity="center_vertical|center_horizontal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".6"
+                        android:id="@+id/tampil"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="32dp"
+                        android:gravity="center_vertical|center_horizontal" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:state_pressed="true"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="@color/background"
+                android:layout_height="300px"
+                android:id="@+id/tulisan"
+                android:gravity="center_vertical|center_horizontal">
+                <!--<ImageView-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="45dp"-->
+                <!--android:layout_weight=".2"-->
+                <!--android:id="@+id/imageView7"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:src="@drawable/coffee" />-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight=".6"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical|center_horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".6"
+                        android:text="Menu Utama"
+                        android:id="@+id/subjudul"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="24dp"
+                        android:gravity="center_vertical|center_horizontal" />
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -24,7 +101,6 @@
                 <Button
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:text=""
                     android:id="@+id/button1"
                     android:layout_margin="30dp"
                     android:layout_gravity="center"
@@ -34,7 +110,6 @@
                 <Button
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:text=""
                     android:id="@+id/button2"
                     android:layout_gravity="center"
                     android:layout_margin="30dp"
@@ -51,7 +126,6 @@
                 <Button
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:text=""
                     android:id="@+id/button3"
                     android:layout_margin="30dp"
                     android:layout_gravity="center"
@@ -61,7 +135,6 @@
                 <Button
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:text=""
                     android:id="@+id/button4"
                     android:layout_margin="30dp"
                     android:background="@drawable/ikon4"
