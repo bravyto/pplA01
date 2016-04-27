@@ -1,8 +1,17 @@
 <resources>
     <string name="app_name">FooDo</string>
-    <string-array name="gender">
-        <item>Male</item>
-        <item>Female</item>
+    <!--<string-array name="gender">-->
+        <!--<item>Male</item>-->
+        <!--<item>Female</item>-->
+    <!--</string-array>-->
+    <string-array name="activity">
+        <item>Low Activity</item>
+        <item>Light Activity</item>
+        <item>Moderate Activity</item>
+        <item>Active Activity</item>
+        <item>Extreme Activity</item>
+
     </string-array>
     <string name="title_activity_food">FoodActivity</string>
+
 </resources>
