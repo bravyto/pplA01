@@ -29,21 +29,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageView13"
-                android:src="@drawable/ikon1"
+                android:src="@drawable/ikon5"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView6"
-                android:src="@drawable/nametag" />
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFFFFF"
+                android:background="#fafafa"
                 android:paddingLeft="5dp"
                 android:paddingTop="20dp"
                 android:paddingRight="20dp"
