@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class InfoFoodActivity extends AppCompatActivity {
 
     @Override
@@ -17,19 +19,15 @@ public class InfoFoodActivity extends AppCompatActivity {
         Bundle extras = intent.getExtras();
 
         String foodName = extras.getString(FoodActivity.EXTRA_MESSAGE1);
-        String calories = extras.getString(FoodActivity.EXTRA_MESSAGE2);
+        String calories = "Food Calories: " + extras.getString(FoodActivity.EXTRA_MESSAGE2);
 
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(foodName);
+        TextView textV1 = (TextView) findViewById(R.id.nameOfFood);
+        TextView textV2 = (TextView) findViewById(R.id.theCalories);
+        textV1.setText(foodName);
+        textV1.setTextSize(20);
+        textV2.setText(calories);
 
-        TextView textView2 = new TextView(this);
-        textView2.setTextSize(40);
-        textView2.setText(calories);
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
-        layout.addView(textView);
-        layout.addView(textView2);
 
     }
 }
