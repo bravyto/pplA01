@@ -188,6 +188,8 @@ public class MainActivity extends Activity {
                     double BMRr = spref.getFloat("BMR",0);
                     Toast.makeText(v.getContext(),"Bmr adalah "+ BMRr,Toast.LENGTH_SHORT).show();
                     Toast.makeText(v.getContext(),"indeksmassa adalah "+ spref.getFloat("Aktivity",0),Toast.LENGTH_SHORT).show();
+
+
                     Intent intent = new Intent(MainActivity.this, JadwalMakanActivity.class);
                     startActivity(intent);
                 }
