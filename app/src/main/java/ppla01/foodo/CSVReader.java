@@ -55,11 +55,19 @@ public class CSVReader extends ArrayAdapter<FoodDetail> {
 
 
                 String[] RowData = line.split(",");
-
+                int a = RowData.length;
+                String b = "" + a;
 
                 FoodDetail cur = new FoodDetail();
                 cur.setName(RowData[1]);
                 cur.setCalories(RowData[3]);
+                cur.setWater(RowData[2]);
+                cur.setProtein(RowData[4]);
+                cur.setCarbo(RowData[7]);
+                cur.setSugar(RowData[9]);
+                cur.setCalcium(RowData[10]);
+
+                cur.setCholestrol(RowData[47]);
 
                 if (cur.getName().contains(cs2)) {
                     this.add(cur);
