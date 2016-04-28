@@ -9,7 +9,6 @@
             android:layout_height="match_parent"
             android:id="@+id/scrollView2"
             android:layout_gravity="center_horizontal"
-            android:paddingBottom="30dp"
         android:background="@color/colorPrimary">
 
             <LinearLayout
@@ -25,7 +24,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/imageView22"
                     android:layout_marginBottom="20dp"
-                    android:src="@drawable/ikon2" />
+                    android:src="@drawable/ikon6newpensil" />
 
                 <LinearLayout
                     android:state_pressed="true"
