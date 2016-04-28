@@ -1,5 +1,6 @@
 package ppla01.foodo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 
 public class FoodActivity extends AppCompatActivity {
 
+    public final static String EXTRA_MESSAGE1= "passingMessageGan";
+    public final static String EXTRA_MESSAGE2= "passingMessageGan2";
 
     protected Button dispFood;
     protected CSVReader cReader;
@@ -46,7 +49,17 @@ public class FoodActivity extends AppCompatActivity {
         mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
-                Toast.makeText(v.getContext(), "Calories = " + cReader.getItem(pos).getCalories(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(v.getContext(), "Calories = " + cReader.getItem(pos).getCalories(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FoodActivity.this, InfoFoodActivity.class);
+                String cal= cReader.getItem(pos).getCalories();
+                String fname=cReader.getItem(pos).getName();
+                Bundle extras = new Bundle();
+                extras.putString(EXTRA_MESSAGE1,fname);
+                extras.putString(EXTRA_MESSAGE2,cal);
+                intent.putExtras(extras);
+
+                startActivity(intent);
+
             }
         });
 
