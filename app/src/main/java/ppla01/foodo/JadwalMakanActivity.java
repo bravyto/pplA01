@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -57,6 +59,12 @@ public class JadwalMakanActivity extends AppCompatActivity {
         scheduleClient = new ScheduleClient(this);
         scheduleClient.doBindService();
 
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setTitle("Edit Eat Reminder");
+
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
@@ -72,7 +80,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
                 editor = spref.edit();
                 editor.putString("log", "1");
                 editor.commit();
-                Intent i = new Intent(JadwalMakanActivity.this, MenuActivity.class);
+                Intent i = new Intent(JadwalMakanActivity.this, HomeActivity.class);
                 startActivity(i);
             }
         });
