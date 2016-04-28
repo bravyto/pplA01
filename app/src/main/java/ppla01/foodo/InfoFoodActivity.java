@@ -36,7 +36,7 @@ public class InfoFoodActivity extends AppCompatActivity {
         TextView textV7 = (TextView) findViewById(R.id.theCalcium);
         TextView textV8 = (TextView) findViewById(R.id.theChole);
         textV1.setText(foodName);
-        textV1.setTextSize(26);
+        textV1.setTextSize(2);
         textV2.setText(calories);
         textV3.setText(water);
         textV4.setText(protein);
