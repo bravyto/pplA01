@@ -29,9 +29,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageView13"
+<<<<<<< HEAD
                 android:src="@drawable/ikon5"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp" />
+=======
+                android:src="@drawable/ikon1"
+                android:layout_marginBottom="20dp" />
+>>>>>>> refs/remotes/origin/master
 
             <LinearLayout
                 android:orientation="vertical"
@@ -195,15 +200,41 @@
                         android:textSize="15dp" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView20"
+                        android:layout_weight="0.4"
+                        android:src="@drawable/scale"
+                        android:layout_gravity="center_vertical" />
+                    <TextView
+                        android:text="Activity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spin"
+                        android:entries="@array/activity"></Spinner>
+
+:
+                </LinearLayout>
+
             </LinearLayout>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SAVE"
+                android:text="Save"
                 android:id="@+id/submitProfile"
                 android:textColor="@color/background_material_light"
-                style="@style/AppTheme"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:backgroundTint="#1565C0"
                 android:layout_marginTop="20dp" />
 
