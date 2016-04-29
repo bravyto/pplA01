@@ -3,6 +3,7 @@ package ppla01.foodo;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -62,6 +63,19 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                FragmentManager fragmentManager = getFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                ProfileFragment profileFragment = new ProfileFragment();
+//                fragmentTransaction.replace(R.id.fragment_container,profileFragment);
+//                fragmentTransaction.commit();
+
+                Intent intent = new Intent(getActivity(), AddFoodActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 }
