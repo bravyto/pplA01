@@ -64,7 +64,7 @@
             android:layout_weight=".2"
             android:textSize="26dp"
             android:text="Add Food"
-            android:id="@+id/lunch"
+            android:id="@+id/breakfast"
             android:layout_gravity="center_vertical"
             android:clickable="true" />
 
@@ -127,7 +127,7 @@
             android:layout_weight=".2"
             android:textSize="26dp"
             android:text="Add Food"
-            android:id="@+id/breakfast"
+            android:id="@+id/lunch"
             android:layout_gravity="center_vertical"
             android:clickable="true" />
 
@@ -179,7 +179,7 @@
             android:layout_weight=".2"
             android:textSize="26dp"
             android:text="Add Food"
-            android:id="@+id/dinnert"
+            android:id="@+id/dinner"
             android:layout_gravity="center_vertical"
             android:clickable="true" />
 

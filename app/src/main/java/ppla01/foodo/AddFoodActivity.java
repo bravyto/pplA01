@@ -18,8 +18,34 @@ public class AddFoodActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
 
+        breakfastv = (TextView) findViewById(R.id.breakfast);
+        breakfastv.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // request your webservice here. Possible use of AsyncTask and ProgressDialog
+                // show the result here - dialog or Toast
+                Intent i = new Intent(v.getContext(), FoodActivity.class);
+                startActivity(i);
+            }
+
+        });
+
         lunchv = (TextView) findViewById(R.id.lunch);
         lunchv.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // request your webservice here. Possible use of AsyncTask and ProgressDialog
+                // show the result here - dialog or Toast
+                Intent i = new Intent(v.getContext(), FoodActivity.class);
+                startActivity(i);
+            }
+
+        });
+
+        dinnerv = (TextView) findViewById(R.id.dinner);
+        dinnerv.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
