@@ -116,7 +116,7 @@ public class MenuActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(MenuActivity.this, FoodActivity.class);
+                Intent i = new Intent(MenuActivity.this, AddFoodActivity.class);
                 startActivity(i);
             }
         });
