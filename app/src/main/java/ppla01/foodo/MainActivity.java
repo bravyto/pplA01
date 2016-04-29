@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,7 +27,7 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     SharedPreferences spref;
     SharedPreferences.Editor editor;
@@ -79,7 +81,11 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("Profile Info");
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setTitle("Edit Profile Info");
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
@@ -207,17 +213,16 @@ public class MainActivity extends Activity {
                     Toast.makeText(v.getContext(), "Calori adalah " +BMRr, Toast.LENGTH_SHORT).show();
                     Toast.makeText(v.getContext(), "Tahun Lahir  " +separate[2], Toast.LENGTH_SHORT).show();
                     Toast.makeText(v.getContext(), "indeksmassa adalah "+ spref.getFloat("Aktivity",0),Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(v.getContext(), JadwalMakanActivity.class);
-                    startActivity(intent);
+
+                    if (!spref.getString("log","").equals("1")) {
+                        Intent intent = new Intent(v.getContext(), JadwalMakanActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(v.getContext(), HomeActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
         });
-    }
-    protected void onStart(){
-        super.onStart();
-        if (spref.getString("log","").equals("1")){
-            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-            startActivity(intent);
-        }
     }
 }
