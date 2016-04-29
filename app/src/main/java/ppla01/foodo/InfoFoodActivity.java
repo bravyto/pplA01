@@ -1,19 +1,33 @@
 package ppla01.foodo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 public class InfoFoodActivity extends AppCompatActivity {
+    protected ListView lsv;
+   // protected ArrayList<String> arrName = new ArrayList<String>();
+
+    protected Button addFood;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_food);
+
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -26,6 +40,8 @@ public class InfoFoodActivity extends AppCompatActivity {
         String sugar = "Sugar: " + extras.getString(FoodActivity.EXTRA_MESSAGE6);
         String calcium = "Calcium: " + extras.getString(FoodActivity.EXTRA_MESSAGE7);
         String chole = "Cholestrol: " + extras.getString(FoodActivity.EXTRA_MESSAGE8);
+
+
 
         TextView textV1 = (TextView) findViewById(R.id.nameOfFood);
         TextView textV2 = (TextView) findViewById(R.id.theCalories);
@@ -45,6 +61,20 @@ public class InfoFoodActivity extends AppCompatActivity {
         textV7.setText(calcium);
         textV8.setText(chole);
 
+        lsv = (ListView) findViewById(R.id.listView);
+
+
+
+        addFood= (Button) findViewById(R.id.buttonAdd);
+
+        addFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(InfoFoodActivity.this, AddFoodActivity.class);
+                startActivity(i);
+            }
+        });
 
 
     }

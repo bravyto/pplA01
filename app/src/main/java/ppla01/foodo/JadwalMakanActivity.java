@@ -80,7 +80,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
                 editor = spref.edit();
                 editor.putString("log", "1");
                 editor.commit();
-                Intent i = new Intent(JadwalMakanActivity.this, HomeActivity.class);
+                Intent i = new Intent(JadwalMakanActivity.this, AddFoodActivity.class);
                 startActivity(i);
             }
         });
