@@ -9,46 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ppla01.foodo.AddFoodActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Disini Ngitung Kalori"
-        android:textSize="26dp"
-        android:id="@+id/itung"
 
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/linearLayout2"
-        android:layout_marginTop="70dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#e2e2e2">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text=" + Add Breakfast"
-            android:textSize="26dp"
-            android:id="@+id/textView4"
-            android:layout_alignBottom="@+id/linearLayout2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-
-    </LinearLayout>
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -109,55 +70,55 @@
             </LinearLayout>
 
 
-                <!--<ImageView-->
-                <!--android:layout_width="30dp"-->
-                <!--android:layout_height="45dp"-->
-                <!--android:layout_weight=".2"-->
-                <!--android:id="@+id/imageView7"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:src="@drawable/coffee" />-->
-        <LinearLayout
-            android:state_pressed="true"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:background="@drawable/border"
-            android:layout_height="37dp"
-            android:id="@+id/Pagi"
-            android:gravity="center_vertical|center_horizontal">
+            <!--<ImageView-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="45dp"-->
+            <!--android:layout_weight=".2"-->
+            <!--android:id="@+id/imageView7"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:src="@drawable/coffee" />-->
+            <LinearLayout
+                android:state_pressed="true"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="@drawable/border"
+                android:layout_height="37dp"
+                android:id="@+id/Pagi"
+                android:gravity="center_vertical|center_horizontal">
 
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="24dp"
-                android:text="+"
-                android:id="@+id/addPagi"
-                android:layout_gravity="left"
-                android:layout_marginLeft="2dp" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="24dp"
+                    android:text="+"
+                    android:id="@+id/addPagi"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="2dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Breakfast"
-                android:id="@+id/breakfast"
-                android:layout_gravity="center_horizontal"
-                android:textSize="15dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Breakfast"
+                    android:id="@+id/breakfast"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="15dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/caloriMakanan"
-                android:textSize="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/caloriMakanan"
+                    android:textSize="10dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" CaloriFood"
-                android:id="@+id/kalori"
-                android:textSize="10dp"
-                android:layout_marginTop="3dp"
-                android:layout_gravity="top"
-                android:layout_marginRight="100dp"
-                android:layout_marginLeft="50dp" />
-            <!--<ListView-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" CaloriFood"
+                    android:id="@+id/kalori"
+                    android:textSize="10dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_gravity="top"
+                    android:layout_marginRight="100dp"
+                    android:layout_marginLeft="50dp" />
+                <!--<ListView-->
                 <!--android:layout_below="@id/imageView"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
@@ -167,7 +128,7 @@
 
 
 
-        </LinearLayout>
+            </LinearLayout>
             <LinearLayout
                 android:state_pressed="true"
                 android:orientation="horizontal"
@@ -198,6 +159,4 @@
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
-
-
 
