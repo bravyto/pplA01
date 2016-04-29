@@ -3,23 +3,35 @@ package ppla01.foodo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-public class InfoFoodActivity extends AppCompatActivity {
+import java.util.Calendar;
 
+public class InfoFoodActivity extends AppCompatActivity {
+    Button addFood ;
+    Bundle extras;
+    Intent intent;
+    String foodName,calories;
+
+    public final static String EXTRA_MESSAGE1= "passingMessageGan1";
+    public final static String EXTRA_MESSAGE2= "passingMessageGan9";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_food);
 
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
+        addFood = (Button)findViewById(R.id.addFood);
+        intent = getIntent();
+        extras = intent.getExtras();
 
-        String foodName = extras.getString(FoodActivity.EXTRA_MESSAGE1);
-        String calories = "Food Calories: " + extras.getString(FoodActivity.EXTRA_MESSAGE2);
+        foodName = extras.getString(FoodActivity.EXTRA_MESSAGE1);
+        calories = "Food Calories: " + extras.getString(FoodActivity.EXTRA_MESSAGE2);
         String water = "Water: " + extras.getString(FoodActivity.EXTRA_MESSAGE3);
         String protein = "Protein: " + extras.getString(FoodActivity.EXTRA_MESSAGE4);
         String carbo = "Carbohydrat: " + extras.getString(FoodActivity.EXTRA_MESSAGE5);
@@ -45,7 +57,17 @@ public class InfoFoodActivity extends AppCompatActivity {
         textV7.setText(calcium);
         textV8.setText(chole);
 
-
+        addFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
+                Bundle extra = new Bundle();
+                extra.putString(EXTRA_MESSAGE1,foodName);
+                extra.putString(EXTRA_MESSAGE2,calories);
+                intent.putExtras(extra);
+                startActivity(intent);
+            }
+        });
 
     }
 }
