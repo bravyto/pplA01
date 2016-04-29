@@ -80,7 +80,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
                 editor = spref.edit();
                 editor.putString("log", "1");
                 editor.commit();
-                Intent i = new Intent(JadwalMakanActivity.this, AddFoodActivity.class);
+                Intent i = new Intent(JadwalMakanActivity.this, FoodActivity.class);
                 startActivity(i);
             }
         });
@@ -215,7 +215,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
                 if(minutes.length()==1){
                     minutes="0"+minutes;
                 }
-                    jamsiang = hour + ":"+  minutes;
+                jamsiang = hour + ":"+  minutes;
             }
             editor.putString("siang",jamsiang);
             editor.commit();
