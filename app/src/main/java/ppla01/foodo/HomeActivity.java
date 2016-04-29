@@ -31,6 +31,10 @@ public class HomeActivity extends AppCompatActivity {
     TextView update_target;
     TextView update_height;
     TextView update_gender;
+    protected Button button1;
+    protected Button button2;
+    protected Button button3;
+    protected Button button4;
     //=======
     SharedPreferences spref;
     SharedPreferences.Editor editor;
@@ -40,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_container);
+        setContentView(R.layout.activity_home);
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
@@ -49,12 +53,58 @@ public class HomeActivity extends AppCompatActivity {
 
         setTitle("FooDo");
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        FragmentManager fragmentManager = getFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//        HomeFragment homeFragment = new HomeFragment();
+//        fragmentTransaction.add(R.id.fragment_container, homeFragment);
+//        fragmentTransaction.commit();
+        button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        button4 = (Button) findViewById(R.id.button4);
+//        kalori = (TextView) view.findViewById(R.id.tampil);
+//        kalori.setText(spref.getString("Calori", ""), null);
 
-        HomeFragment homeFragment = new HomeFragment();
-        fragmentTransaction.add(R.id.fragment_container, homeFragment);
-        fragmentTransaction.commit();
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                FragmentManager fragmentManager = getFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                ProfileFragment profileFragment = new ProfileFragment();
+//                fragmentTransaction.replace(R.id.fragment_container,profileFragment);
+//                fragmentTransaction.commit();
+
+                Intent i = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                FragmentManager fragmentManager = getFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                SetAlarmFragment setAlarmFragment = new SetAlarmFragment();
+//                fragmentTransaction.replace(R.id.fragment_container,setAlarmFragment);
+//                fragmentTransaction.commit();
+                Intent i = new Intent(HomeActivity.this, JadwalMakanActivity.class);
+                startActivity(i);
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                FragmentManager fragmentManager = getFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                SetAlarmFragment setAlarmFragment = new SetAlarmFragment();
+//                fragmentTransaction.replace(R.id.fragment_container,setAlarmFragment);
+//                fragmentTransaction.commit();
+                Intent i = new Intent(HomeActivity.this, FoodActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 
@@ -66,5 +116,13 @@ public class HomeActivity extends AppCompatActivity {
 //
 //            }
 //        });
+    }
+
+    protected void onStart(){
+        super.onStart();
+        if (!spref.getString("log","").equals("1")){
+            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 }
