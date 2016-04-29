@@ -1,34 +1,29 @@
 package ppla01.foodo;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import java.util.Calendar;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
-
+/**
+ * Created by Bravyto on 29/04/2016.
+ */
+public class ProfileActivity extends AppCompatActivity {
     SharedPreferences spref;
     SharedPreferences.Editor editor;
     protected EditText user_name;
@@ -61,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void showDatePicker(View v) {
-        new DatePickerDialog(MainActivity.this, date, myCalendar
+        new DatePickerDialog(ProfileActivity.this, date, myCalendar
                 .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                 myCalendar.get(Calendar.DAY_OF_MONTH)).show();
     }
@@ -193,34 +188,28 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString("gender", gender);
                 editor.putFloat("Aktivity",(float)indeksMassa);
 
-
+                double berat = Double.parseDouble(spref.getString("beratnow", ""));
+                double tinggi = Double.parseDouble(spref.getString("tinggi", ""));
+                int curent = Calendar.getInstance().get(Calendar.YEAR);
+                separate = spref.getString("umur","").split("/");
+                double BMR=0;
+                String gen = spref.getString("gender", "");
+                if(gen.equals("Pria")){
+                    BMR = 66.473 + (13.7516 * berat) + (5 * tinggi) - (6.755 * (curent-Double.parseDouble(separate[2])) ) *  massa;
+                }
+                else{
+                    BMR = 655.095 + (9.5634 * berat) + (1.8496 * tinggi )- (4.6756 *(curent-Double.parseDouble(separate[2])) * massa) ;
+                }
+                editor.putFloat("BMR", (float) BMR);
+                editor.commit();
 
                 if (valid) {
-                    double berat = 0.0;
-                    if(!spref.getString("beratnow", "").equals(""))
-                        berat = Double.parseDouble(spref.getString("beratnow", ""));
-                    double tinggi = 0.0;
-                    if(!spref.getString("beratnow", "").equals(""))
-                        tinggi = Double.parseDouble(spref.getString("tinggi", ""));
-                    int curent = Calendar.getInstance().get(Calendar.YEAR);
-                    separate = spref.getString("umur","").split("/");
-                    double BMR=0;
-                    String gen = spref.getString("gender", "");
-                    if(gen.equals("Pria")){
-                        BMR = 66.473 + (13.7516 * berat) + (5 * tinggi) - (6.755 * (curent-Double.parseDouble(separate[2])) ) *  massa;
-                    }
-                    else{
-                        BMR = 655.095 + (9.5634 * berat) + (1.8496 * tinggi )- (4.6756 *(curent-Double.parseDouble(separate[2])) * massa) ;
-                    }
-                    editor.putFloat("BMR", (float) BMR);
-                    editor.commit();
-
                     double BMRr = spref.getFloat("BMR",0);
-                    Toast.makeText(v.getContext(), "Calori adalah " +BMRr, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Calori adalah " + BMRr, Toast.LENGTH_SHORT).show();
                     Toast.makeText(v.getContext(), "Tahun Lahir  " +separate[2], Toast.LENGTH_SHORT).show();
                     Toast.makeText(v.getContext(), "indeksmassa adalah "+ spref.getFloat("Aktivity",0),Toast.LENGTH_SHORT).show();
 
-                    if (!spref.getString("log", "").equals("1")) {
+                    if (!spref.getString("log","").equals("1")) {
                         Intent intent = new Intent(v.getContext(), JadwalMakanActivity.class);
                         startActivity(intent);
                     } else {
