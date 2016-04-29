@@ -141,6 +141,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Activity"
+                android:id="@+id/textView141"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView112"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/divider2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/activv"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="EAT TIME"
                 android:id="@+id/textView20"
                 android:layout_gravity="center_horizontal"
@@ -211,7 +234,7 @@
             <Button
                 android:layout_width="109dp"
                 android:layout_height="39dp"
-                android:text="Edit"
+                android:text="Save"
                 android:id="@+id/editProfile"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
@@ -219,16 +242,16 @@
                 android:onClick="edit"
                 android:textColor="@color/abc_primary_text_disable_only_material_dark" />
 
-            <Button
-                android:layout_width="109dp"
-                android:layout_height="39dp"
-                android:text="Add Food"
-                android:id="@+id/foodEntry"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/button_submit"
-                android:onClick="edit"
-                android:textColor="@color/abc_primary_text_disable_only_material_dark" />
+            <!--<Button-->
+                <!--android:layout_width="109dp"-->
+                <!--android:layout_height="39dp"-->
+                <!--android:text="Add Food"-->
+                <!--android:id="@+id/foodEntry"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_marginTop="30dp"-->
+                <!--android:background="@drawable/button_submit"-->
+                <!--android:onClick="edit"-->
+                <!--android:textColor="@color/abc_primary_text_disable_only_material_dark" />-->
 
         </LinearLayout>
     </ScrollView>

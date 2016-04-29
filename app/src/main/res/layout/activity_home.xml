@@ -41,7 +41,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight=".6"
-                        android:text="Disini Hitung Kalori"
                         android:id="@+id/judul"
                         android:layout_gravity="center_vertical"
                         android:textSize="32dp"

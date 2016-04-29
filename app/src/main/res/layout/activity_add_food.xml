@@ -1,15 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ppla01.foodo.AddFoodActivity">
+    android:focusableInTouchMode="true">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2"
+        android:background="@color/colorPrimary">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        >
 
+    <LinearLayout
+        android:state_pressed="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="@drawable/breakfast_action"
+        android:layout_height="wrap_content"
+        android:id="@+id/breakfastClick"
+        android:onClick="setBreakfast"
+        android:clickable="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:elevation="2dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight=".6"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight=".2"
+                android:id="@+id/imageView7"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/coffee" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".6"
+                android:text="Breakfast"
+                android:id="@+id/textView"
+                android:layout_gravity="center_vertical"
+                android:textSize="18dp"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:textSize="26dp"
+            android:text="Add Food"
+            android:id="@+id/lunch"
+            android:layout_gravity="center_vertical"
+            android:clickable="true" />
+
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:background="@drawable/transparant"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Add Food"-->
+            <!--android:id="@+id/button"-->
+            <!--android:textColor="@color/colorPrimaryDark"-->
+            <!--android:layout_below="@+id/theChole"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+         <!--/>-->
+
+    </LinearLayout>
+    <LinearLayout
+        android:state_pressed="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="@drawable/breakfast_action"
+        android:layout_height="wrap_content"
+        android:id="@+id/lunchClick"
+        android:onClick="setLunch"
+        android:clickable="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:elevation="2dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight=".6"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight=".2"
+                android:id="@+id/imageView8"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/therice" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".6"
+                android:text="Lunch"
+                android:id="@+id/textView2"
+                android:layout_gravity="center_vertical"
+                android:textSize="18dp"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:textSize="26dp"
+            android:text="Add Food"
+            android:id="@+id/breakfast"
+            android:layout_gravity="center_vertical"
+            android:clickable="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:state_pressed="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_height="wrap_content"
+        android:id="@+id/dinnerClick"
+        android:onClick="setDinner"
+        android:clickable="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:elevation="2dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight=".6"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight=".2"
+                android:id="@+id/imageView9"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/hamburger" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".6"
+                android:text="Dinner"
+                android:id="@+id/textView3"
+                android:layout_gravity="center_vertical"
+                android:textSize="18dp"
+             android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:textSize="26dp"
+            android:text="Add Food"
+            android:id="@+id/dinnert"
+            android:layout_gravity="center_vertical"
+            android:clickable="true" />
+
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

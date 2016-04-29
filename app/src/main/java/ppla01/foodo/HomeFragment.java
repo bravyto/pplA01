@@ -3,6 +3,7 @@ package ppla01.foodo;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -37,8 +38,10 @@ public class HomeFragment extends Fragment {
         button2 = (Button) view.findViewById(R.id.button2);
         button3 = (Button) view.findViewById(R.id.button3);
         button4 = (Button) view.findViewById(R.id.button4);
-//        kalori = (TextView) view.findViewById(R.id.tampil);
-//        kalori.setText(spref.getString("Calori", ""), null);
+        kalori = (TextView) view.findViewById(R.id.tampil);
+
+        kalori.setText("You need " +spref.getFloat("BMR", 0) + " calories per day",null);
+
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,14 +57,29 @@ public class HomeFragment extends Fragment {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                SetAlarmFragment setAlarmFragment = new SetAlarmFragment();
-                fragmentTransaction.replace(R.id.fragment_container,setAlarmFragment);
-                fragmentTransaction.commit();
+//                FragmentManager fragmentManager = getFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                SetAlarmFragment setAlarmFragment = new SetAlarmFragment();
+//                fragmentTransaction.replace(R.id.fragment_container,setAlarmFragment);
+//                fragmentTransaction.commit();
+                Intent intent = new Intent(getActivity(), JadwalMakanActivity.class);
+                startActivity(intent);
             }
         });
 
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                FragmentManager fragmentManager = getFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                ProfileFragment profileFragment = new ProfileFragment();
+//                fragmentTransaction.replace(R.id.fragment_container,profileFragment);
+//                fragmentTransaction.commit();
+
+                Intent intent = new Intent(getActivity(), AddFoodActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 }
