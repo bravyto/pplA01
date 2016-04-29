@@ -34,7 +34,7 @@
                     android:id="@+id/button1"
                     android:layout_margin="30dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/ikon1"
+                    android:background="@drawable/ikon5new"
                     android:textColor="@color/abc_primary_text_disable_only_material_dark"
                     android:clickable="true" />
                 <Button
@@ -43,7 +43,7 @@
                     android:id="@+id/button2"
                     android:layout_gravity="center"
                     android:layout_margin="30dp"
-                    android:background="@drawable/ikon2"
+                    android:background="@drawable/ikon6new"
                     android:textColor="@color/abc_primary_text_disable_only_material_dark"
                     android:clickable="true"/>
             </LinearLayout>
