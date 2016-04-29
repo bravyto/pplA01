@@ -89,7 +89,7 @@
         android:background="@drawable/transparant"
         android:layout_height="wrap_content"
         android:text="Add This Food"
-        android:id="@+id/buttonAdd"
+        android:id="@+id/addFood"
         android:textColor="@color/colorPrimaryDark"
         android:layout_below="@+id/theChole"
         android:layout_alignParentLeft="true"
