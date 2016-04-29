@@ -1,6 +1,8 @@
 package ppla01.foodo;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,7 +33,11 @@ public class FoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
 
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        setTitle("Search Food");
 
         dispFood = (Button) findViewById(R.id.displayFoodButton);
         cReader = new CSVReader(FoodActivity.this,-1, "abc");
