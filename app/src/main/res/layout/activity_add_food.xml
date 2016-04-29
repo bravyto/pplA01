@@ -11,5 +11,154 @@
 
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2"
+        android:layout_gravity="center_horizontal"
+        android:fillViewport="false">
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:state_pressed="true"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="@drawable/border"
+                android:layout_height="71dp"
+                android:id="@+id/calculate"
+                android:gravity="center_vertical|center_horizontal">
+                <!--<ImageView-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="45dp"-->
+                <!--android:layout_weight=".2"-->
+                <!--android:id="@+id/imageView7"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:src="@drawable/coffee" />-->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight=".6"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:weightSum="1">
+                    <TextView
+                        android:layout_width="147dp"
+                        android:layout_height="33dp"
+                        android:text="Food"
+                        android:id="@+id/judul"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_weight="0.20" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="Remaining"
+                        android:id="@+id/tampil"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_weight="0.44" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+                <!--<ImageView-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="45dp"-->
+                <!--android:layout_weight=".2"-->
+                <!--android:id="@+id/imageView7"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:src="@drawable/coffee" />-->
+        <LinearLayout
+            android:state_pressed="true"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:background="@drawable/border"
+            android:layout_height="37dp"
+            android:id="@+id/Pagi"
+            android:gravity="center_vertical|center_horizontal">
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="24dp"
+                android:text="+"
+                android:id="@+id/addPagi"
+                android:layout_gravity="left"
+                android:layout_marginLeft="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Breakfast"
+                android:id="@+id/breakfast"
+                android:layout_gravity="center_horizontal"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/caloriMakanan"
+                android:textSize="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" CaloriFood"
+                android:id="@+id/kalori"
+                android:textSize="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_gravity="top"
+                android:layout_marginRight="100dp"
+                android:layout_marginLeft="50dp" />
+            <!--<ListView-->
+                <!--android:layout_below="@id/imageView"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:id="@+id/listBreakfast"/>-->
+
+
+
+        </LinearLayout>
+            <LinearLayout
+                android:state_pressed="true"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="@drawable/border"
+                android:layout_height="37dp"
+                android:id="@+id/listpagi"
+                android:gravity="center_vertical|center_horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/makanaPagi1"
+                    android:textSize="10dp"/>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
+
+
+
