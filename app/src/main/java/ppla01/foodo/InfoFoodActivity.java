@@ -20,9 +20,11 @@ public class InfoFoodActivity extends AppCompatActivity {
     Bundle extras;
     Intent intent;
     String foodName,calories;
+    int indeks;
 
     public final static String EXTRA_MESSAGE1= "passingMessageGan1";
     public final static String EXTRA_MESSAGE2= "passingMessageGan9";
+    public final static String AAAA = "Foodname";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,21 +66,23 @@ public class InfoFoodActivity extends AppCompatActivity {
         textV6.setText(sugar);
         textV7.setText(calcium);
         textV8.setText(chole);
+        indeks = 1;
 
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String newItem = foodName;
-
-
+                indeks = indeks+1;
                 Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
 //                Bundle extra = new Bundle();
 //                extra.putString(EXTRA_MESSAGE1,foodName);
 //                extra.putString(EXTRA_MESSAGE2,calories);
 //                intent.putExtras(extra);
-                intent.putExtra("Foodname", foodName);
+                intent.putExtra("indeks", indeks);
+                intent.putExtra(AAAA, foodName);
                // intent.putExtra("calories", calories);
                 startActivity(intent);
+
                 finish();
 
 
