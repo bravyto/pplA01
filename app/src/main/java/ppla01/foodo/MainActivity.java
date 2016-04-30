@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
                     separate = birthdate.split("/");
                     double BMR=0;
                     String gen = spref.getString("gender", "");
-                        
+
                     if(gen.equals("Pria")){
                         BMR = 66.473 + (13.7516 * berat) + (5 * tinggi) - (6.755 * (curent-Double.parseDouble(separate[2])) ) *  massa;
                     }

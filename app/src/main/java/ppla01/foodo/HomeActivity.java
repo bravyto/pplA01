@@ -75,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
 //                fragmentTransaction.replace(R.id.fragment_container,profileFragment);
 //                fragmentTransaction.commit();
 
-                Intent i = new Intent(HomeActivity.this, MainActivity.class);
+                Intent i = new Intent(HomeActivity.this, ProfileActivity.class);
                 startActivity(i);
             }
         });
