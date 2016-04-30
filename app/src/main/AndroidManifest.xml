@@ -47,8 +47,18 @@
         <service android:name=".ScheduleService" />
         <service android:name=".NotifyService" />
 
-        <activity android:name=".FoodActivity" />
+        <activity android:name=".FoodActivity"
+            android:parentActivityName=".HomeActivity" />
         <activity android:name=".AddFoodActivity" />
+        <activity android:name=".ProfileActivity"
+            android:parentActivityName=".HomeActivity" >>
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+
         <activity android:name=".InfoFoodActivity"></activity>
     </application>
 

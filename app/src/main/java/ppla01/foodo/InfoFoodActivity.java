@@ -68,12 +68,20 @@ public class InfoFoodActivity extends AppCompatActivity {
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String newItem = foodName;
+
+
                 Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
-                Bundle extra = new Bundle();
-                extra.putString(EXTRA_MESSAGE1,foodName);
-                extra.putString(EXTRA_MESSAGE2,calories);
-                intent.putExtras(extra);
+//                Bundle extra = new Bundle();
+//                extra.putString(EXTRA_MESSAGE1,foodName);
+//                extra.putString(EXTRA_MESSAGE2,calories);
+//                intent.putExtras(extra);
+                intent.putExtra("Foodname", foodName);
+               // intent.putExtra("calories", calories);
                 startActivity(intent);
+                finish();
+
+
             }
         });
 

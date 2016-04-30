@@ -75,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
 //                fragmentTransaction.replace(R.id.fragment_container,profileFragment);
 //                fragmentTransaction.commit();
 
-                Intent i = new Intent(HomeActivity.this, MainActivity.class);
+                Intent i = new Intent(HomeActivity.this, ProfileActivity.class);
                 startActivity(i);
             }
         });
@@ -101,10 +101,12 @@ public class HomeActivity extends AppCompatActivity {
 //                SetAlarmFragment setAlarmFragment = new SetAlarmFragment();
 //                fragmentTransaction.replace(R.id.fragment_container,setAlarmFragment);
 //                fragmentTransaction.commit();
-                Intent i = new Intent(HomeActivity.this, FoodActivity.class);
+                Intent i = new Intent(HomeActivity.this, AddFoodActivity.class);
                 startActivity(i);
             }
         });
+
+
 
 
 
