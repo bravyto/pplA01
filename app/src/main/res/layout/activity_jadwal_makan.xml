@@ -24,7 +24,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/imageView22"
                     android:layout_marginBottom="20dp"
-                    android:src="@drawable/ikon6newpensil" />
+                    android:src="@drawable/ikon6_new" />
 
                 <LinearLayout
                     android:state_pressed="true"
