@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     double indeksMassa;
     double massa = 0;
     String [] separate;
+    String Activity;
 
     Calendar myCalendar = Calendar.getInstance();
 
@@ -102,20 +103,23 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (parent.getSelectedItem().toString().equals("Low Activity")) {
                     indeksMassa = 1.2;
-//                    Toast.makeText(MainActivity.this,"massa adalah "+ parent.getSelectedItem().toString() +" dan "+ indeksMassa,Toast.LENGTH_SHORT).show();
-
+                    Activity = "Low Activity";
                 }
                 if (Aktivitas.getSelectedItem().toString().equals("Light Activity")) {
                     indeksMassa = 1.375;
+                    Activity = "Light Activity";
                 }
                 if (Aktivitas.getSelectedItem().toString().equals("Moderate Activity")) {
                     indeksMassa = 1.55;
+                    Activity = "Moderate Activity";
                 }
                 if (Aktivitas.getSelectedItem().toString().equals("Active Activity")) {
                     indeksMassa = 1.725;
+                    Activity ="Active Activity";
                 }
                 if (Aktivitas.getSelectedItem().toString().equals("Extreme Activity")) {
                     indeksMassa = 1.9;
+                    Activity = "Extreme Activity";
                 }
             }
 
@@ -193,8 +197,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString("beratnow", beratnow);
                 editor.putString("gender", gender);
                 editor.putFloat("Aktivity",(float)indeksMassa);
-
-
+                editor.putString("Activity",Activity);
 
                 if (valid) {
                     double berat = 0.0;
