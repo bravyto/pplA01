@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,7 +28,7 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     SharedPreferences spref;
     SharedPreferences.Editor editor;
@@ -39,6 +42,8 @@ public class MainActivity extends Activity {
     RadioButton pria, wanita;
     Spinner Aktivitas;
     double indeksMassa;
+    double massa = 0;
+    String [] separate;
 
     Calendar myCalendar = Calendar.getInstance();
 
@@ -77,7 +82,11 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("Profile Info");
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setTitle("Edit Profile Info");
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
@@ -91,25 +100,21 @@ public class MainActivity extends Activity {
         Aktivitas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (Aktivitas.getSelectedItem().toString().equals("Low Activity"))
-                {
+                if (parent.getSelectedItem().toString().equals("Low Activity")) {
                     indeksMassa = 1.2;
 //                    Toast.makeText(MainActivity.this,"massa adalah "+ parent.getSelectedItem().toString() +" dan "+ indeksMassa,Toast.LENGTH_SHORT).show();
+
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Light Activity"))
-                {
+                if (Aktivitas.getSelectedItem().toString().equals("Light Activity")) {
                     indeksMassa = 1.375;
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Moderate Activity"))
-                {
+                if (Aktivitas.getSelectedItem().toString().equals("Moderate Activity")) {
                     indeksMassa = 1.55;
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Active Activity"))
-                {
+                if (Aktivitas.getSelectedItem().toString().equals("Active Activity")) {
                     indeksMassa = 1.725;
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Extreme Activity"))
-                {
+                if (Aktivitas.getSelectedItem().toString().equals("Extreme Activity")) {
                     indeksMassa = 1.9;
                 }
             }
@@ -118,8 +123,8 @@ public class MainActivity extends Activity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
 
+        });
 
         user_name.setText(spref.getString("nama", ""), null);
         user_birthdate.setText(spref.getString("umur", ""), null);
@@ -137,9 +142,18 @@ public class MainActivity extends Activity {
             pria.setChecked(true);
         }
 
-
-
-
+        massa = spref.getFloat("Aktivity",0);
+        if(massa == 1.2){
+            Aktivitas.setSelection(0);
+        } else if(massa == 1.375){
+            Aktivitas.setSelection(1);
+        }else if(massa == 1.55){
+            Aktivitas.setSelection(2);
+        }else if(massa == 1.725){
+            Aktivitas.setSelection(3);
+        }else{
+            Aktivitas.setSelection(4);
+        }
         submit_profile = (Button) findViewById(R.id.submitProfile);
         submit_profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,8 +166,6 @@ public class MainActivity extends Activity {
                 tinggi = user_height.getText().toString();
                 birthdate = user_birthdate.getText().toString();
                 beratnow = user_weight.getText().toString();
-
-
                 if (nama.equals("")) {
                     user_name.setError("Type your name");
                     valid = false;
@@ -182,20 +194,46 @@ public class MainActivity extends Activity {
                 editor.putString("gender", gender);
                 editor.putFloat("Aktivity",(float)indeksMassa);
 
-                editor.commit();
+
 
                 if (valid) {
+                    double berat = 0.0;
+                    if(!spref.getString("beratnow", "").equals(""))
+                        berat = Double.parseDouble(spref.getString("beratnow", ""));
+                    double tinggi = 0.0;
+                    if(!spref.getString("beratnow", "").equals(""))
+                        tinggi = Double.parseDouble(spref.getString("tinggi", ""));
+                    int curent = Calendar.getInstance().get(Calendar.YEAR);
+                    separate = birthdate.split("/");
+                    double BMR=0;
+                    String gen = spref.getString("gender", "");
+
+                    if(gen.equals("Pria")){
+                        BMR = 66.473 + (13.7516 * berat) + (5 * tinggi) - (6.755 * (curent-Double.parseDouble(separate[2])) ) *  massa;
+                    }
+                    else{
+                        BMR = 655.095 + (9.5634 * berat) + (1.8496 * tinggi )- (4.6756 *(curent-Double.parseDouble(separate[2])) * massa) ;
+                    }
+                    editor.putFloat("BMR", (float) BMR);
+                    editor.commit();
+
                     double BMRr = spref.getFloat("BMR",0);
-                    Toast.makeText(v.getContext(),"Bmr adalah "+ BMRr,Toast.LENGTH_SHORT).show();
-                    Toast.makeText(v.getContext(),"indeksmassa adalah "+ spref.getFloat("Aktivity",0),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Calori adalah " +BMRr, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Tahun Lahir  " +separate[2], Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "indeksmassa adalah "+ spref.getFloat("Aktivity",0),Toast.LENGTH_SHORT).show();
 
-
-                    Intent intent = new Intent(MainActivity.this, JadwalMakanActivity.class);
-                    startActivity(intent);
+                    if (!spref.getString("log", "").equals("1")) {
+                        Intent intent = new Intent(v.getContext(), JadwalMakanActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(v.getContext(), HomeActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
         });
     }
+<<<<<<< HEAD
     protected void onStart(){
         super.onStart();
         if (spref.getString("log","").equals("1")){
@@ -228,4 +266,6 @@ public class MainActivity extends Activity {
         return BMR;
 
     }
+=======
+>>>>>>> refs/remotes/origin/master
 }

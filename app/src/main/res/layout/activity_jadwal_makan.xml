@@ -4,171 +4,190 @@
         android:layout_height="match_parent"
     android:focusableInTouchMode="true">
 
-        <ScrollView
+    <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/scrollView2"
             android:layout_gravity="center_horizontal"
-            android:paddingBottom="30dp">
+        android:background="@color/colorPrimary">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:layout_gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView22"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/ikon6newpensil" />
+
                 <LinearLayout
                     android:state_pressed="true"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:background="@drawable/breakfast_action"
-                    android:layout_height="300px"
+                    android:layout_height="wrap_content"
                     android:id="@+id/breakfastClick"
                     android:onClick="setBreakfast"
-                    android:clickable="true">
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="45dp"
-                        android:layout_weight=".2"
-                        android:id="@+id/imageView7"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/coffee" />
+                    android:clickable="true"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:elevation="2dp">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_weight=".6"
                         android:layout_gravity="center_vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".6"
-                            android:text="07:00"
-                            android:id="@+id/breakfast"
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_weight=".2"
+                            android:id="@+id/imageView7"
                             android:layout_gravity="center_vertical"
-                            android:textSize="40dp" />
+                            android:src="@drawable/coffee" />
+
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight=".6"
                             android:text="Breakfast"
                             android:id="@+id/textView"
                             android:layout_gravity="center_vertical"
-                            android:textSize="18dp" />
+                            android:textSize="18dp"
+                            android:textAlignment="center" />
+
                     </LinearLayout>
 
-                    <Switch
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/switch1"
-                        android:layout_gravity="center"
-                        android:checked="false"
-                        android:paddingRight="20dp"/>
+                        android:layout_weight=".6"
+                        android:text="07:00"
+                        android:id="@+id/breakfast"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="40dp" />
+
                 </LinearLayout>
                 <LinearLayout
                     android:state_pressed="true"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:background="@drawable/breakfast_action"
-                    android:layout_height="300px"
+                    android:layout_height="wrap_content"
                     android:id="@+id/lunchClick"
                     android:onClick="setLunch"
-                    android:clickable="true">
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="45dp"
-                        android:layout_weight=".2"
-                        android:id="@+id/imageView8"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/therice" />
+                    android:clickable="true"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:elevation="2dp">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_weight=".6"
                         android:layout_gravity="center_vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".6"
-                            android:text="13:00"
-                            android:id="@+id/lunch"
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_weight=".2"
+                            android:id="@+id/imageView8"
                             android:layout_gravity="center_vertical"
-                            android:textSize="40dp" />
+                            android:src="@drawable/therice" />
+
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight=".6"
                             android:text="Lunch"
                             android:id="@+id/textView2"
                             android:layout_gravity="center_vertical"
-                            android:textSize="18dp" />
+                            android:textSize="18dp"
+                            android:textAlignment="center" />
+
                     </LinearLayout>
 
-                    <Switch
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/switch2"
-                        android:layout_gravity="center"
-                        android:checked="false"
-                        android:paddingRight="20dp"/>
+                        android:layout_weight=".6"
+                        android:text="13:00"
+                        android:id="@+id/lunch"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="40dp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:state_pressed="true"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:background="@drawable/breakfast_action"
-                    android:layout_height="300px"
+                    android:background="#ffffff"
+                    android:layout_height="wrap_content"
                     android:id="@+id/dinnerClick"
                     android:onClick="setDinner"
-                    android:clickable="true">
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="45dp"
-                        android:layout_weight=".2"
-                        android:id="@+id/imageView9"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/hamburger" />
+                    android:clickable="true"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:elevation="2dp">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_weight=".6"
                         android:layout_gravity="center_vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".6"
-                            android:text="18:00"
-                            android:id="@+id/dinner"
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_weight=".2"
+                            android:id="@+id/imageView9"
                             android:layout_gravity="center_vertical"
-                            android:textSize="40dp" />
+                            android:src="@drawable/hamburger" />
+
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight=".6"
                             android:text="Dinner"
                             android:id="@+id/textView3"
                             android:layout_gravity="center_vertical"
-                            android:textSize="18dp" />
+                            android:textSize="18dp"
+                            android:textAlignment="center" />
+
                     </LinearLayout>
 
-                    <Switch
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/switch3"
-                        android:layout_gravity="center"
-                        android:checked="false"
-                        android:paddingRight="20dp"/>
+                        android:layout_weight=".6"
+                        android:text="18:00"
+                        android:id="@+id/dinner"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="40dp" />
+
                 </LinearLayout>
+
                 <Button
-                    android:layout_width="109dp"
-                    android:layout_height="39dp"
+                    style="@style/AppTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Save"
                     android:id="@+id/submitEatTime"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/button_submit"
-                    android:textColor="@color/abc_primary_text_disable_only_material_dark" />
+                    android:textColor="#ffffff"
+                    android:backgroundTint="#1565C0"
+                    android:layout_marginTop="20dp" />
+
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>

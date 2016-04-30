@@ -1,20 +1,25 @@
 package ppla01.foodo;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by TOSHIBA on 10/04/2016.
+ * Created by Bravyto on 29/04/2016.
  */
-public class MenuActivity extends Activity {
+public class ProfileActivity extends AppCompatActivity {
     protected Button edit_profile;
     protected Button entry_food;
-//<<<<<<< HEAD
+    //<<<<<<< HEAD
     String user_name="";
     String user_birthdate="";
     String user_weight="";
@@ -27,16 +32,24 @@ public class MenuActivity extends Activity {
     TextView update_target;
     TextView update_height;
     TextView update_gender;
-//=======
+    //=======
     SharedPreferences spref;
     SharedPreferences.Editor editor;
-    String  nama, tinggi, umur, beratnow, beratThen,  gender,morning,noon,evening;
+    String  nama, tinggi, umur, beratnow, beratThen,  gender,aktivitasnya;
 //>>>>>>> refs/remotes/origin/master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_profile);
+
+
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setTitle("Profile Info");
+
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
@@ -63,64 +76,53 @@ public class MenuActivity extends Activity {
 //        update_height.append(" cm");
 //        update_gender = (TextView) findViewById(R.id.gender);
 //        update_gender.setText(user_gender);
-        edit_profile = (Button) findViewById(R.id.editProfile);
-        entry_food = (Button) findViewById(R.id.foodEntry);
         tinggi = spref.getString("tinggi", "");
         nama = spref.getString("nama", "");
         umur = spref.getString("umur", "");
         beratnow = spref.getString("beratnow", "");
-        beratThen = spref.getString("beratThen", "");
         gender = spref.getString("gender", "");
-        morning=spref.getString("pagi","");
-        noon=spref.getString("siang","");
-        evening=spref.getString("malam","");
+        aktivitasnya=spref.getString("Aktivitas","");
 
         TextView tinggiv = (TextView)findViewById(R.id.height);
-        tinggiv.setText(tinggiv.getText() + tinggi);
+        tinggiv.setText(tinggi + " cm");
 
         TextView namav = (TextView) findViewById(R.id.name);
-        namav.setText(namav.getText() + nama);
+        namav.setText(nama);
 
         TextView umurv = (TextView) findViewById(R.id.birthdate);
-        umurv.setText(umurv.getText() + umur);
+        umurv.setText(umur);
 
         TextView beratnowv = (TextView) findViewById(R.id.weight);
-        beratnowv.setText(beratnowv.getText() + beratnow);
+        beratnowv.setText(beratnow + " kg");
 
         TextView genderv = (TextView) findViewById(R.id.gender);
-        genderv.setText(genderv.getText() + gender);
+        genderv.setText(gender);
 
-        TextView morningv= (TextView) findViewById(R.id.morning);
-        morningv.setText( morning);
-
-        TextView noonv= (TextView) findViewById(R.id.noon);
-        noonv.setText( noon);
-
-        TextView eveningv= (TextView) findViewById(R.id.dinner);
-        eveningv.setText(evening);
+        TextView aktivitas= (TextView) findViewById(R.id.activity);
+        aktivitas.setText(aktivitasnya);
 
 
+    }
 
-        edit_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editor = spref.edit();
-                editor.putString("log", "");
-                editor.commit();
-                Intent i = new Intent(MenuActivity.this, HomeActivity.class);
-                startActivity(i);
-            }
-        });
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
 
-        entry_food.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.action_favorite:
+                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                startActivity(intent);
 
-                Intent i = new Intent(MenuActivity.this, AddFoodActivity.class);
-                startActivity(i);
-            }
-        });
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
 
-
+        }
     }
 }
