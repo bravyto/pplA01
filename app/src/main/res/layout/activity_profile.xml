@@ -34,13 +34,13 @@
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
                 android:layout_gravity="center_vertical"
-                android:elevationl="2dp">
+                android:elevation="2dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageView23"
-                    android:src="@drawable/ikon5new"
+                    android:src="@drawable/ikon1_new"
                     android:layout_marginBottom="20dp" />
 
                 <LinearLayout

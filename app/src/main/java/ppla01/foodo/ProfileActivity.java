@@ -45,37 +45,15 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setTitle("Profile Info");
 
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
-        editor = spref.edit();
 
 
-//        Intent intent = getIntent();
-//        user_name = intent.getStringExtra("user_name");
-//        user_birthdate = intent.getStringExtra("user_birthdate");
-//        user_weight = intent.getStringExtra("user_weight");
-//        user_target = intent.getStringExtra("user_target");
-//        user_height = intent.getStringExtra("user_height");
-//        user_gender = intent.getStringExtra("user_gender");
-//        update_name = (TextView) findViewById(R.id.name);
-//        update_name.setText(user_name);
-//        update_birthdate = (TextView) findViewById(R.id.birthdate);
-//        update_birthdate.setText(user_birthdate);
-//        update_weight = (TextView) findViewById(R.id.weight);
-//        update_weight.setText(user_weight);
-//        update_weight.append(" kg");
-//        update_target = (TextView) findViewById(R.id.target);
-//        update_target.setText(user_target);
-//        update_target.append(" kg");
-//        update_height = (TextView) findViewById(R.id.height);
-//        update_height.setText(user_height);
-//        update_height.append(" cm");
-//        update_gender = (TextView) findViewById(R.id.gender);
-//        update_gender.setText(user_gender);
         tinggi = spref.getString("tinggi", "");
         nama = spref.getString("nama", "");
         umur = spref.getString("umur", "");
@@ -113,10 +91,22 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                System.out.println("Pril");
+                //Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
+                finish();
+                return true;
 
             case R.id.action_favorite:
-                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-                startActivity(intent);
+                editor = spref.edit();
+                editor.putString("fromHome", "1");
+                editor.putString("log", "");
+
+                editor.commit();
+                Intent intent2 = new Intent(ProfileActivity.this, MainActivity.class);
+                finish();
+                startActivity(intent2);
+                return true;
 
             default:
                 // If we got here, the user's action was not recognized.

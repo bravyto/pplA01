@@ -2,6 +2,8 @@ package ppla01.foodo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class AddFoodActivity extends Activity {
+public class AddFoodActivity extends AppCompatActivity {
     Button addBreakFast;
     protected  TextView breakfastv, lunchv, dinnerv;
     private ArrayList<String> arrayList;
@@ -33,6 +35,13 @@ public class AddFoodActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
+
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setTitle("Add Food");
+
 
 //        Intent intent = getIntent();
 //        Bundle extras = intent.getExtras();
@@ -75,7 +84,7 @@ public class AddFoodActivity extends Activity {
             int indek =extras.getInt("indeks");
             String foodname = extras.getString(InfoFoodActivity.AAAA);
             arrayList.add(indek, foodname);
-            
+
         }
 
         adapter = new ArrayAdapter<String>(this, R.layout.list_item,arrayList);
