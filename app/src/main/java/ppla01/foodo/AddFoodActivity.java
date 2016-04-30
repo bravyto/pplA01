@@ -25,7 +25,9 @@ public class AddFoodActivity extends Activity {
     private ArrayList<String> arrayList;
     private ArrayAdapter<String> adapter;
     private EditText txtInput;
-    String foodname = "";
+    int i = 1;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,19 +59,31 @@ public class AddFoodActivity extends Activity {
 //        String foodname = intent.getStringExtra("foodname");
 //        textView.setText(foodname);
 
-//        Bundle extras = getIntent().getExtras();
-//        foodname = extras.getString("Foodname");
-//
-//        ListView listView = (ListView) findViewById(R.id.listv);
-//        String[] items = {"apel", "banana"};
-//        arrayList = new ArrayList<String> (Arrays.asList(items));
-//       // arrayList = new ArrayList<String>();
-//
-//
-//        adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.txtitem ,arrayList);
-//        listView.setAdapter(adapter);
-//        arrayList.add(foodname);
-//        adapter.notifyDataSetChanged();
+        Bundle extras = getIntent().getExtras();
+
+        String foodnamez = "hala";
+
+        ListView listView = (ListView) findViewById(R.id.listv);
+        String[] items = {"apel", "banana"};
+       // arrayList = new ArrayList<String> ();
+
+        arrayList = new ArrayList<String>(Arrays.asList(items));
+
+
+
+        if (extras != null){
+            int indek =extras.getInt("indeks");
+            String foodname = extras.getString(InfoFoodActivity.AAAA);
+            arrayList.add(indek, foodname);
+            
+        }
+
+        adapter = new ArrayAdapter<String>(this, R.layout.list_item,arrayList);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+
+
 
 
 
@@ -81,6 +95,8 @@ public class AddFoodActivity extends Activity {
             public void onClick(View v) {
                 // request your webservice here. Possible use of AsyncTask and ProgressDialog
                 // show the result here - dialog or Toast
+              //  String foodfood = "hahaha";
+
                 Intent i = new Intent(v.getContext(), FoodActivity.class);
                 startActivity(i);
             }
