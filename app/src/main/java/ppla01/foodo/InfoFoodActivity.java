@@ -20,7 +20,7 @@ public class InfoFoodActivity extends AppCompatActivity {
     Button addFood ;
     Bundle extras;
     Intent intent;
-    String foodName,calories;
+    String foodName,calories, kalkal;
     int indeks;
     SharedPreferences spref;
     SharedPreferences.Editor editor;
@@ -56,6 +56,7 @@ public class InfoFoodActivity extends AppCompatActivity {
         String calcium = "Calcium: " + extras.getString(FoodActivity.EXTRA_MESSAGE7);
         String chole = "Cholestrol: " + extras.getString(FoodActivity.EXTRA_MESSAGE8);
 
+        kalkal = extras.getString(FoodActivity.EXTRA_MESSAGE2);;
         TextView textV1 = (TextView) findViewById(R.id.nameOfFood);
         TextView textV2 = (TextView) findViewById(R.id.theCalories);
         TextView textV3 = (TextView) findViewById(R.id.theWater);
@@ -82,11 +83,19 @@ public class InfoFoodActivity extends AppCompatActivity {
                 String newItem = foodName;
                 indeks = indeks+1;
 
+                spref = getApplicationContext().getSharedPreferences("my_data", 0);
                 editor = spref.edit();
 
 
                 String jenis = spref.getString("jenis", "");
+                float kalo = spref.getFloat("kal", 0);
 
+               String baruaja = kalkal;
+                double kal = Double.parseDouble(baruaja);
+
+//                float jumlah = kalo + kal;
+//                editor.putFloat("kal", jumlah);
+//                editor.commit();
 
                 AddFoodActivity addFoodActivity = new AddFoodActivity();
                 Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
@@ -99,13 +108,17 @@ public class InfoFoodActivity extends AppCompatActivity {
 //              Bundle extras = intent.getExtras();
 
                 if(jenis.equals("breakfast")){
-
-                    addFoodActivity.addArrayBreakfast( newItem);
+                   addFoodActivity.ubahApasih(kal);
+                    addFoodActivity.addArrayBreakfast( newItem + "(" + kal + " kal)");
                 } else  if (jenis.equals("lunch")){
-                    addFoodActivity.addArrayLunch(newItem);
+                    addFoodActivity.ubahApasih(kal);
+                    addFoodActivity.addArrayLunch(newItem + "(" + kal + " kal)");
                 } else {
-                    addFoodActivity.addArrayDinner(newItem);
+                    addFoodActivity.ubahApasih(kal);
+                    addFoodActivity.addArrayDinner(newItem + "(" + kal + " kal)");
                 }
+
+
 
                // intent.putExtra("calories", calories);
                 startActivity(intent);

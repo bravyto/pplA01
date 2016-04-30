@@ -22,6 +22,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
+
+
+
+
 public class AddFoodActivity extends Activity {
 
 
@@ -36,13 +40,16 @@ public class AddFoodActivity extends Activity {
     private EditText txtInput;
     int indekBreakfast = 1;
     SharedPreferences spref;
+    private static float lala = 0;
     SharedPreferences.Editor editor;
+    float sisa;
 
 
 
     public AddFoodActivity(){
 
     }
+
     public void addArrayBreakfast(String item){
         this.arrayListBreakfast.add(item);
     }
@@ -53,14 +60,32 @@ public class AddFoodActivity extends Activity {
     public void addArrayDinner(String item){
         this.arrayListDinner.add(item);
     }
+
+    public void ubahApasih(double yeay){
+        this.lala =  this.lala + (float) yeay;
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
 
-
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
-        editor = spref.edit();
+
+        float bmr= spref.getFloat("BMR", 0);
+
+        float min = spref.getFloat("kal",0);
+        sisa = bmr - this.lala;
+
+        TextView kurang = (TextView) findViewById(R.id.tampil);
+        if(sisa < 0){
+            kurang.setText("Excess :  "+ ((-1) *sisa) + "  from " + bmr);
+        } else {
+            kurang.setText("Remaining : " + sisa + "  from " + bmr);
+        }
+
 //        Intent intent = getIntent();
 //        Bundle extras = intent.getExtras();
 //        String foodName = extras.getString(InfoFoodActivity.EXTRA_MESSAGE1);

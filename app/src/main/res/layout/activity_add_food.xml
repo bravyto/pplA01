@@ -60,7 +60,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:text="Remaining"
+                        android:text="Remaining: "
                         android:id="@+id/tampil"
                         android:layout_gravity="center_vertical"
                         android:textSize="15dp"
