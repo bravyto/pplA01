@@ -1,6 +1,7 @@
 package ppla01.foodo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,8 @@ public class InfoFoodActivity extends AppCompatActivity {
     Intent intent;
     String foodName,calories;
     int indeks;
+    SharedPreferences spref;
+    SharedPreferences.Editor editor;
 
     public final static String EXTRA_MESSAGE1= "passingMessageGan1";
     public final static String EXTRA_MESSAGE2= "passingMessageGan9";
@@ -29,6 +32,10 @@ public class InfoFoodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_food);
+
+
+        spref = getApplicationContext().getSharedPreferences("my_data", 0);
+        editor = spref.edit();
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
@@ -68,18 +75,38 @@ public class InfoFoodActivity extends AppCompatActivity {
         textV8.setText(chole);
         indeks = 1;
 
+
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String newItem = foodName;
                 indeks = indeks+1;
+
+                editor = spref.edit();
+
+
+                String jenis = spref.getString("jenis", "");
+
+
+                AddFoodActivity addFoodActivity = new AddFoodActivity();
                 Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
-//                Bundle extra = new Bundle();
 //                extra.putString(EXTRA_MESSAGE1,foodName);
 //                extra.putString(EXTRA_MESSAGE2,calories);
 //                intent.putExtras(extra);
-                intent.putExtra("indeks", indeks);
-                intent.putExtra(AAAA, foodName);
+
+                //AddFoodActivity.arrayList.add(newItem);
+
+//              Bundle extras = intent.getExtras();
+
+                if(jenis.equals("breakfast")){
+
+                    addFoodActivity.addArrayBreakfast( newItem);
+                } else  if (jenis.equals("lunch")){
+                    addFoodActivity.addArrayLunch(newItem);
+                } else {
+                    addFoodActivity.addArrayDinner(newItem);
+                }
+
                // intent.putExtra("calories", calories);
                 startActivity(intent);
 

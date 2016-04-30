@@ -1,7 +1,10 @@
 package ppla01.foodo;
 
+
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,20 +23,44 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 public class AddFoodActivity extends Activity {
+
+
     Button addBreakFast;
     protected  TextView breakfastv, lunchv, dinnerv;
-    private ArrayList<String> arrayList;
-    private ArrayAdapter<String> adapter;
+    private static ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
+    private static ArrayList<String> arrayListLunch  =new ArrayList<String>();
+    private static ArrayList<String> arrayListDinner  =new ArrayList<String>();
+    private ArrayAdapter<String> adapterBreakfast;
+    private ArrayAdapter<String> adapterLunch;
+    private ArrayAdapter<String> adapterDinner;
     private EditText txtInput;
-    int i = 1;
+    int indekBreakfast = 1;
+    SharedPreferences spref;
+    SharedPreferences.Editor editor;
 
 
 
+    public AddFoodActivity(){
+
+    }
+    public void addArrayBreakfast(String item){
+        this.arrayListBreakfast.add(item);
+    }
+    public void addArrayLunch(String item){
+        this.arrayListLunch.add(item);
+    }
+
+    public void addArrayDinner(String item){
+        this.arrayListDinner.add(item);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
 
+
+        spref = getApplicationContext().getSharedPreferences("my_data", 0);
+        editor = spref.edit();
 //        Intent intent = getIntent();
 //        Bundle extras = intent.getExtras();
 //        String foodName = extras.getString(InfoFoodActivity.EXTRA_MESSAGE1);
@@ -63,27 +90,30 @@ public class AddFoodActivity extends Activity {
 
         String foodnamez = "hala";
 
-        ListView listView = (ListView) findViewById(R.id.listv);
+
         String[] items = {"apel", "banana"};
        // arrayList = new ArrayList<String> ();
 
-        arrayList = new ArrayList<String>(Arrays.asList(items));
+        //arrayList = new ArrayList<String>(Arrays.asList(items));
 
 
 
-        if (extras != null){
-            int indek =extras.getInt("indeks");
-            String foodname = extras.getString(InfoFoodActivity.AAAA);
-            arrayList.add(indek, foodname);
-            
-        }
-
-        adapter = new ArrayAdapter<String>(this, R.layout.list_item,arrayList);
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        ListView listBreakfast = (ListView) findViewById(R.id.listv);
+        adapterBreakfast = new ArrayAdapter<String>(this, R.layout.list_item,arrayListBreakfast);
+        listBreakfast.setAdapter(adapterBreakfast);
+        adapterBreakfast.notifyDataSetChanged();
 
 
+        ListView listLunch = (ListView) findViewById(R.id.listvlunch);
+        adapterLunch = new ArrayAdapter<String>(this, R.layout.list_item, arrayListLunch);
+        listLunch.setAdapter(adapterLunch);
+        adapterLunch.notifyDataSetChanged();
 
+
+        ListView listDinner = (ListView) findViewById(R.id.listvdinner);
+        adapterDinner = new ArrayAdapter<String>(this, R.layout.list_item, arrayListDinner);
+        listDinner.setAdapter(adapterDinner);
+        adapterDinner.notifyDataSetChanged();
 
 
 
@@ -97,7 +127,13 @@ public class AddFoodActivity extends Activity {
                 // show the result here - dialog or Toast
               //  String foodfood = "hahaha";
 
+                String jenis = "breakfast";
+                editor = spref.edit();
+
+                editor.putString("jenis", jenis);
+                editor.commit();
                 Intent i = new Intent(v.getContext(), FoodActivity.class);
+                //i.putExtra("jenis", jenis);
                 startActivity(i);
             }
 
@@ -110,7 +146,13 @@ public class AddFoodActivity extends Activity {
             public void onClick(View v) {
                 // request your webservice here. Possible use of AsyncTask and ProgressDialog
                 // show the result here - dialog or Toast
+                String jenis = "lunch";
+                editor = spref.edit();
+
+                editor.putString("jenis", jenis);
+                editor.commit();
                 Intent i = new Intent(v.getContext(), FoodActivity.class);
+                //i.putExtra("jenis", jenis);
                 startActivity(i);
             }
 
@@ -123,6 +165,11 @@ public class AddFoodActivity extends Activity {
             public void onClick(View v) {
                 // request your webservice here. Possible use of AsyncTask and ProgressDialog
                 // show the result here - dialog or Toast
+                String jenis = "dinner";
+                editor = spref.edit();
+
+                editor.putString("jenis", jenis);
+                editor.commit();
                 Intent i = new Intent(v.getContext(), FoodActivity.class);
                 startActivity(i);
             }
