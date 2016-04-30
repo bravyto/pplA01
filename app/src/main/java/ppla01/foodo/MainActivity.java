@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -223,23 +224,38 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(v.getContext(), "indeksmassa adalah "+ spref.getFloat("Aktivity",0),Toast.LENGTH_SHORT).show();
 
                     if (!spref.getString("log", "").equals("1")) {
-                        Intent intent = new Intent(v.getContext(), JadwalMakanActivity.class);
-                        startActivity(intent);
+
+                        if(!spref.getString("fromHome","").equals(null) && spref.getString("fromHome","").equals("1")){
+                            editor = spref.edit();
+                            editor.putString("fromHome", "");
+                            editor.putString("log", "1");
+                            editor.commit();
+                            Intent intent = new Intent(v.getContext(), ProfileActivity.class);
+                            finish();
+                            startActivity(intent);
+                        }
+                        else {
+                            Intent intent = new Intent(v.getContext(), JadwalMakanActivity.class);
+                            finish();
+                            startActivity(intent);
+                        }
                     } else {
+
                         Intent intent = new Intent(v.getContext(), HomeActivity.class);
+                        finish();
                         startActivity(intent);
                     }
                 }
             }
         });
     }
-<<<<<<< HEAD
+//<<<<<<< HEAD
     protected void onStart(){
         super.onStart();
         if (spref.getString("log","").equals("1")){
-            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             finish();
+            startActivity(intent);
         }
     }
     public  double getBMR(){
@@ -266,6 +282,23 @@ public class MainActivity extends AppCompatActivity {
         return BMR;
 
     }
-=======
->>>>>>> refs/remotes/origin/master
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                //System.out.println("Mausk");
+                //Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                this.finish();
+                //startActivity(intent);
+                return true;
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+//=======
+//>>>>>>> refs/remotes/origin/master
 }

@@ -46,7 +46,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
-        editor = spref.edit();
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
@@ -74,6 +73,7 @@ public class HomeActivity extends AppCompatActivity {
 //                ProfileFragment profileFragment = new ProfileFragment();
 //                fragmentTransaction.replace(R.id.fragment_container,profileFragment);
 //                fragmentTransaction.commit();
+
 
                 Intent i = new Intent(HomeActivity.this, ProfileActivity.class);
                 startActivity(i);
@@ -120,16 +120,15 @@ public class HomeActivity extends AppCompatActivity {
 //        });
     }
 
-<<<<<<< HEAD
-    public void onBackPressed(){
+//<<<<<<< HEAD
+    public void onBackPressed() {
         finish();
-=======
+    }
     protected void onStart(){
         super.onStart();
         if (!spref.getString("log","").equals("1")){
             Intent intent = new Intent(HomeActivity.this, MainActivity.class);
             startActivity(intent);
         }
->>>>>>> refs/remotes/origin/master
     }
 }

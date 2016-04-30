@@ -131,7 +131,7 @@
                     android:state_pressed="true"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:background="#ffffff"
+                    android:background="@drawable/dinner_action"
                     android:layout_height="wrap_content"
                     android:id="@+id/dinnerClick"
                     android:onClick="setDinner"
