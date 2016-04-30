@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -203,9 +204,10 @@ public class MainActivity extends AppCompatActivity {
                     if(!spref.getString("beratnow", "").equals(""))
                         tinggi = Double.parseDouble(spref.getString("tinggi", ""));
                     int curent = Calendar.getInstance().get(Calendar.YEAR);
-                    separate = spref.getString("umur","").split("/");
+                    separate = birthdate.split("/");
                     double BMR=0;
                     String gen = spref.getString("gender", "");
+                        
                     if(gen.equals("Pria")){
                         BMR = 66.473 + (13.7516 * berat) + (5 * tinggi) - (6.755 * (curent-Double.parseDouble(separate[2])) ) *  massa;
                     }
