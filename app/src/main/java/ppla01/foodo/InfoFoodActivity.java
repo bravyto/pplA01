@@ -1,6 +1,7 @@
 package ppla01.foodo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ public class InfoFoodActivity extends AppCompatActivity {
     Button addFood ;
     Bundle extras;
     Intent intent;
+<<<<<<< HEAD
     String foodName,calories;
     int indeks;
     int strCalories;
@@ -34,13 +36,24 @@ public class InfoFoodActivity extends AppCompatActivity {
 
 
 
+=======
+    String foodName,calories, kalori;
+    SharedPreferences spref;
+    SharedPreferences.Editor editor;
+
+>>>>>>> refs/remotes/origin/master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_food);
 
+<<<<<<< HEAD
 
 
+=======
+        spref = getApplicationContext().getSharedPreferences("my_data", 0);
+        editor = spref.edit();
+>>>>>>> refs/remotes/origin/master
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
@@ -66,6 +79,7 @@ public class InfoFoodActivity extends AppCompatActivity {
         String calcium = "Calcium: " + extras.getString(FoodActivity.EXTRA_MESSAGE7);
         String chole = "Cholestrol: " + extras.getString(FoodActivity.EXTRA_MESSAGE8);
 
+        kalori = extras.getString(FoodActivity.EXTRA_MESSAGE2);;
         TextView textV1 = (TextView) findViewById(R.id.nameOfFood);
         TextView textV2 = (TextView) findViewById(R.id.theCalories);
         TextView textV3 = (TextView) findViewById(R.id.theWater);
@@ -83,7 +97,6 @@ public class InfoFoodActivity extends AppCompatActivity {
         textV6.setText(sugar);
         textV7.setText(calcium);
         textV8.setText(chole);
-        indeks = 1;
 
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,20 +108,27 @@ public class InfoFoodActivity extends AppCompatActivity {
                 judul.setText(d.getCal()+"n");
 
                 String newItem = foodName;
-                indeks = indeks+1;
+                spref = getApplicationContext().getSharedPreferences("my_data", 0);
+                editor = spref.edit();
+                String jenis = spref.getString("jenis", "");
+                double caloriUpdate = Double.parseDouble(kalori);
+
+                AddFoodActivity addFoodActivity = new AddFoodActivity();
                 Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
-//                Bundle extra = new Bundle();
-//                extra.putString(EXTRA_MESSAGE1,foodName);
-//                extra.putString(EXTRA_MESSAGE2,calories);
-//                intent.putExtras(extra);
-                intent.putExtra("indeks", indeks);
-                intent.putExtra(AAAA, foodName);
-               // intent.putExtra("calories", calories);
+
+                if(jenis.equals("breakfast")){
+                   addFoodActivity.AddKalori(caloriUpdate);
+                    addFoodActivity.addArrayBreakfast( newItem + " (" + caloriUpdate + " kal)");
+                } else  if (jenis.equals("lunch")){
+                    addFoodActivity.AddKalori(caloriUpdate);
+                    addFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kal)");
+                } else {
+                    addFoodActivity.AddKalori(caloriUpdate);
+                    addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kal)");
+                }
+
                 startActivity(intent);
-
                 finish();
-
-
             }
         });
 
