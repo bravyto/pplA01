@@ -21,14 +21,26 @@ public class InfoFoodActivity extends AppCompatActivity {
     Intent intent;
     String foodName,calories;
     int indeks;
+    int strCalories;
+    TextView judul;
 
+    Calories d;
     public final static String EXTRA_MESSAGE1= "passingMessageGan1";
     public final static String EXTRA_MESSAGE2= "passingMessageGan9";
     public final static String AAAA = "Foodname";
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_food);
+
+
+
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
@@ -39,9 +51,14 @@ public class InfoFoodActivity extends AppCompatActivity {
         addFood = (Button)findViewById(R.id.addFood);
         intent = getIntent();
         extras = intent.getExtras();
+        Calories ab = (Calories)intent.getSerializableExtra("sampleObj2");
+        d =ab;
 
         foodName = extras.getString(FoodActivity.EXTRA_MESSAGE1);
         calories = "Food Calories: " + extras.getString(FoodActivity.EXTRA_MESSAGE2);
+        String strcl= extras.getString(FoodActivity.EXTRA_MESSAGE2);
+        strCalories= Integer.parseInt(strcl);
+
         String water = "Water: " + extras.getString(FoodActivity.EXTRA_MESSAGE3);
         String protein = "Protein: " + extras.getString(FoodActivity.EXTRA_MESSAGE4);
         String carbo = "Carbohydrat: " + extras.getString(FoodActivity.EXTRA_MESSAGE5);
@@ -71,6 +88,12 @@ public class InfoFoodActivity extends AppCompatActivity {
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                d.setCal(strCalories);
+                System.out.println(d.getCal());
+                judul = (TextView) findViewById(R.id.judul);
+                judul.setText(d.getCal()+"n");
+
                 String newItem = foodName;
                 indeks = indeks+1;
                 Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
@@ -90,4 +113,7 @@ public class InfoFoodActivity extends AppCompatActivity {
         });
 
     }
+
+
+
 }

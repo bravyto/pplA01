@@ -21,11 +21,15 @@ import java.util.Calendar;
 
 public class AddFoodActivity extends Activity {
     Button addBreakFast;
+    protected TextView judul;
     protected  TextView breakfastv, lunchv, dinnerv;
     private ArrayList<String> arrayList;
     private ArrayAdapter<String> adapter;
     private EditText txtInput;
     int i = 1;
+
+    Calories ab = new Calories();
+
 
 
 
@@ -33,6 +37,13 @@ public class AddFoodActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
+        System.out.print("masuk");
+
+
+        System.out.print(ab.getCal());
+        judul = (TextView) findViewById(R.id.judul);
+        //System.out.print(ab.getCal());
+        judul.setText(ab.getCal() + "n");
 
 //        Intent intent = getIntent();
 //        Bundle extras = intent.getExtras();
@@ -98,6 +109,7 @@ public class AddFoodActivity extends Activity {
               //  String foodfood = "hahaha";
 
                 Intent i = new Intent(v.getContext(), FoodActivity.class);
+                i.putExtra("sampleObj",ab);
                 startActivity(i);
             }
 
