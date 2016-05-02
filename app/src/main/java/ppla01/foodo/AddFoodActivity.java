@@ -3,8 +3,6 @@ package ppla01.foodo;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,8 +19,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Set;
 
-public class AddFoodActivity extends AppCompatActivity {
+public class AddFoodActivity extends Activity {
 
     protected  TextView breakfastv, lunchv, dinnerv;
     protected Button Edit;
@@ -54,7 +53,18 @@ public class AddFoodActivity extends AppCompatActivity {
     }
 
     public void AddKalori(double kaloriFood){
-        this.kalori =  this.kalori + (float)kaloriFood;
+
+
+
+        this.kalori =  this.kalori+ (float)kaloriFood;
+    }
+
+    public double getKalori(){
+        return this.kalori;
+    }
+
+    public ArrayList<String> getListBreakfast(){
+        return this.arrayListBreakfast;
     }
 
     @Override
@@ -62,20 +72,14 @@ public class AddFoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
 
-
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        setTitle("Add Food");
-
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
+        editor = spref.edit();
 
         float bmr= spref.getFloat("BMR", 0);
-        sisa = bmr - this.kalori;
+        sisa = bmr - spref.getFloat("kalori",0);
 
         TextView consume = (TextView) findViewById(R.id.judul);
-        consume.setText("Consumed : "+ kalori);
+        consume.setText("Consumed : "+ spref.getFloat("kalori",0)+ " kal");
         TextView kurang = (TextView) findViewById(R.id.tampil);
         if(sisa < 0){
             kurang.setText("Excess :  "+ ((-1) *sisa) + "  from " + bmr);
@@ -84,10 +88,18 @@ public class AddFoodActivity extends AppCompatActivity {
         }
 
         ListView listBreakfast = (ListView) findViewById(R.id.listv);
-        adapterBreakfast = new ArrayAdapter<String>(this, R.layout.list_item,arrayListBreakfast);
-        listBreakfast.setAdapter(adapterBreakfast);
-        adapterBreakfast.notifyDataSetChanged();
+        Set<String> set = spref.getStringSet("SetPagi", null);
+        if(set==null){
 
+        }
+        else{
+            if(arrayListBreakfast.isEmpty()){
+                arrayListBreakfast=new ArrayList<>(set);
+
+            }
+            adapterBreakfast = new ArrayAdapter<String>(this, R.layout.list_item, arrayListBreakfast);
+            listBreakfast.setAdapter(adapterBreakfast);
+        }
 
         ListView listLunch = (ListView) findViewById(R.id.listvlunch);
         adapterLunch = new ArrayAdapter<String>(this, R.layout.list_item, arrayListLunch);
@@ -150,6 +162,7 @@ public class AddFoodActivity extends AppCompatActivity {
             }
 
         });
+
 
     }
 

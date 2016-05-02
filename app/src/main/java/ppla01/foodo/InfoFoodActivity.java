@@ -14,7 +14,10 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 
 public class InfoFoodActivity extends AppCompatActivity {
     Button addFood ;
@@ -23,6 +26,8 @@ public class InfoFoodActivity extends AppCompatActivity {
     String foodName,calories, kalori;
     SharedPreferences spref;
     SharedPreferences.Editor editor;
+    ArrayList<String> listPagi = new ArrayList<>();
+    Set <String> setPagi = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +35,9 @@ public class InfoFoodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info_food);
 
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
-        editor = spref.edit();
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setTitle("Food Info");
@@ -73,9 +77,8 @@ public class InfoFoodActivity extends AppCompatActivity {
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle extras = new Bundle();
                 String newItem = foodName;
-                spref = getApplicationContext().getSharedPreferences("my_data", 0);
-                editor = spref.edit();
                 String jenis = spref.getString("jenis", "");
                 double caloriUpdate = Double.parseDouble(kalori);
 
@@ -83,14 +86,25 @@ public class InfoFoodActivity extends AppCompatActivity {
                 Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
 
                 if(jenis.equals("breakfast")){
-                   addFoodActivity.AddKalori(caloriUpdate);
-                    addFoodActivity.addArrayBreakfast( newItem + " (" + caloriUpdate + " kal)");
+                    addFoodActivity.AddKalori(caloriUpdate);
+                    addFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kal)");
+                    listPagi = addFoodActivity.getListBreakfast();
+                    editor = spref.edit();
+                    setPagi.addAll(listPagi);
+                    editor.putStringSet("SetPagi", setPagi);
+                    editor.putFloat("kalori", (float) addFoodActivity.getKalori() + spref.getFloat("kalori", 0));
+                    editor.commit();
+
+
+
                 } else  if (jenis.equals("lunch")){
                     addFoodActivity.AddKalori(caloriUpdate);
                     addFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kal)");
+
                 } else {
                     addFoodActivity.AddKalori(caloriUpdate);
                     addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kal)");
+
                 }
 
                 startActivity(intent);
