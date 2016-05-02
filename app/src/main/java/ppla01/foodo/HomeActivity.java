@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
 
         setTitle("FooDo");
 

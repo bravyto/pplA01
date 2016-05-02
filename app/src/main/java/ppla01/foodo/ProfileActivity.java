@@ -45,8 +45,12 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+<<<<<<< HEAD
         actionBar.setHomeButtonEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
+=======
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+>>>>>>> refs/remotes/origin/master
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setTitle("Profile Info");
@@ -59,7 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
         umur = spref.getString("umur", "");
         beratnow = spref.getString("beratnow", "");
         gender = spref.getString("gender", "");
-        aktivitasnya=spref.getString("Aktivitas","");
+        aktivitasnya=spref.getString("Activity","");
 
         TextView tinggiv = (TextView)findViewById(R.id.height);
         tinggiv.setText(tinggi + " cm");
@@ -78,8 +82,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         TextView aktivitas= (TextView) findViewById(R.id.activity);
         aktivitas.setText(aktivitasnya);
-
-
     }
 
     @Override
