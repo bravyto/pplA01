@@ -20,6 +20,7 @@ public class ScheduleClient {
     // A flag if we are connected to the service or not
     private boolean mIsBound;
 
+
     public ScheduleClient(Context context) {
         mContext = context;
     }
@@ -54,6 +55,8 @@ public class ScheduleClient {
      * @param c a date to set the notification for
      */
     public void setAlarmForNotification(Calendar c, int code){
+       // Log.i("ScheduleClient", "bbbbbbb"+ code);
+
 
         mBoundService.setAlarm(c,code);
     }
