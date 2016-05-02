@@ -27,21 +27,11 @@ public class FoodActivity extends AppCompatActivity {
     protected Button dispFood;
     protected CSVReader cReader;
     protected ListView mList;
-    public Calories c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
-
-
-
-        Intent i = getIntent();
-        Calories ab = (Calories)i.getSerializableExtra("sampleObj");
-        c = ab;
-
-
-
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
@@ -92,8 +82,6 @@ public class FoodActivity extends AppCompatActivity {
                 extras.putString(EXTRA_MESSAGE7,calcium);
                 extras.putString(EXTRA_MESSAGE8,chole);
                 intent.putExtras(extras);
-
-                intent.putExtra("sampleObj2",c);
 
                 startActivity(intent);
 

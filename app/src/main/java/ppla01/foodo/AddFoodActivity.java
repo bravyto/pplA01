@@ -21,12 +21,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 public class AddFoodActivity extends Activity {
-<<<<<<< HEAD
-    Button addBreakFast;
-    protected TextView judul;
-=======
 
->>>>>>> refs/remotes/origin/master
     protected  TextView breakfastv, lunchv, dinnerv;
     protected Button Edit;
     private static ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
@@ -44,15 +39,9 @@ public class AddFoodActivity extends Activity {
 
     }
 
-<<<<<<< HEAD
-    Calories ab = new Calories();
-
-
-=======
     public void addArrayBreakfast(String item){
         this.arrayListBreakfast.add(item);
     }
->>>>>>> refs/remotes/origin/master
 
     public void addArrayLunch(String item){
         this.arrayListLunch.add(item);
@@ -70,13 +59,6 @@ public class AddFoodActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
-        System.out.print("masuk");
-
-
-        System.out.print(ab.getCal());
-        judul = (TextView) findViewById(R.id.judul);
-        //System.out.print(ab.getCal());
-        judul.setText(ab.getCal() + "n");
 
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
 
@@ -121,7 +103,6 @@ public class AddFoodActivity extends Activity {
                 editor.putString("jenis", "breakfast");
                 editor.commit();
                 Intent i = new Intent(v.getContext(), FoodActivity.class);
-                i.putExtra("sampleObj",ab);
                 startActivity(i);
             }
 
