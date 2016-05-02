@@ -21,6 +21,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Set;
 
 public class AddFoodActivity extends AppCompatActivity {
 
@@ -57,6 +58,19 @@ public class AddFoodActivity extends AppCompatActivity {
         this.kalori =  this.kalori + (float)kaloriFood;
     }
 
+    public double getKalori(){
+        return this.kalori;
+    }
+    public ArrayList<String> getListBreakfast(){
+        return this.arrayListBreakfast;
+    }
+    public ArrayList<String> getListLunch(){
+        return this.arrayListLunch;
+    }
+    public ArrayList<String> getListDinner(){
+        return this.arrayListDinner;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,10 +86,10 @@ public class AddFoodActivity extends AppCompatActivity {
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
 
         float bmr= spref.getFloat("BMR", 0);
-        sisa = bmr - this.kalori;
+        sisa = bmr - spref.getFloat("kalori",0);
 
         TextView consume = (TextView) findViewById(R.id.judul);
-        consume.setText("Consumed : "+ kalori);
+        consume.setText("Consumed : "+ spref.getFloat("kalori",0)+ " kal");
         TextView kurang = (TextView) findViewById(R.id.tampil);
         if(sisa < 0){
             kurang.setText("Excess :  "+ ((-1) *sisa) + "  from " + bmr);
@@ -84,21 +98,47 @@ public class AddFoodActivity extends AppCompatActivity {
         }
 
         ListView listBreakfast = (ListView) findViewById(R.id.listv);
-        adapterBreakfast = new ArrayAdapter<String>(this, R.layout.list_item,arrayListBreakfast);
-        listBreakfast.setAdapter(adapterBreakfast);
-        adapterBreakfast.notifyDataSetChanged();
+        Set<String> setPagi = spref.getStringSet("SetPagi", null);
+        if(setPagi==null){
 
+        }
+        else{
+            if(arrayListBreakfast.isEmpty()){
+                arrayListBreakfast=new ArrayList<>(setPagi);
+
+            }
+            adapterBreakfast = new ArrayAdapter<String>(this, R.layout.list_item, arrayListBreakfast);
+            listBreakfast.setAdapter(adapterBreakfast);
+        }
 
         ListView listLunch = (ListView) findViewById(R.id.listvlunch);
-        adapterLunch = new ArrayAdapter<String>(this, R.layout.list_item, arrayListLunch);
-        listLunch.setAdapter(adapterLunch);
-        adapterLunch.notifyDataSetChanged();
+        Set<String> setSiang = spref.getStringSet("SetSiang", null);
+        if(setSiang==null){
 
+        }
+        else{
+            if(arrayListLunch.isEmpty()){
+                arrayListLunch=new ArrayList<>(setSiang);
+
+            }
+            adapterLunch = new ArrayAdapter<String>(this, R.layout.list_item, arrayListLunch);
+            listLunch.setAdapter(adapterLunch);
+        }
 
         ListView listDinner = (ListView) findViewById(R.id.listvdinner);
-        adapterDinner = new ArrayAdapter<String>(this, R.layout.list_item, arrayListDinner);
-        listDinner.setAdapter(adapterDinner);
-        adapterDinner.notifyDataSetChanged();
+        Set<String> setMalam = spref.getStringSet("SetMalam", null);
+        if(setMalam==null){
+
+        }
+        else{
+            if(arrayListDinner.isEmpty()){
+                arrayListDinner=new ArrayList<>(setMalam);
+
+            }
+            adapterDinner = new ArrayAdapter<String>(this, R.layout.list_item, arrayListDinner);
+            listDinner.setAdapter(adapterDinner);
+        }
+
 
         breakfastv = (TextView) findViewById(R.id.breakfastz);
         breakfastv.setOnClickListener(new View.OnClickListener() {
