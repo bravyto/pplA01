@@ -45,7 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setTitle("Profile Info");
