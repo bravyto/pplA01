@@ -83,7 +83,7 @@ public class InfoFoodActivity extends AppCompatActivity {
                 Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
 
                 if(jenis.equals("breakfast")){
-                   addFoodActivity.AddKalori(caloriUpdate);
+                    addFoodActivity.AddKalori(caloriUpdate);
                     addFoodActivity.addArrayBreakfast( newItem + " (" + caloriUpdate + " kal)");
                 } else  if (jenis.equals("lunch")){
                     addFoodActivity.AddKalori(caloriUpdate);

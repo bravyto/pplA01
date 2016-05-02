@@ -219,7 +219,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
                 if(minutes.length()==1){
                     minutes="0"+minutes;
                 }
-                    jamsiang = hour + ":"+  minutes;
+                jamsiang = hour + ":"+  minutes;
             }
             editor.putString("siang",jamsiang);
             editor.commit();
