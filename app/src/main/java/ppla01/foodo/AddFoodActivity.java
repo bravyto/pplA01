@@ -3,6 +3,8 @@ package ppla01.foodo;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class AddFoodActivity extends Activity {
+public class AddFoodActivity extends AppCompatActivity {
 
     protected  TextView breakfastv, lunchv, dinnerv;
     protected Button Edit;
@@ -59,6 +61,13 @@ public class AddFoodActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
+
+
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setTitle("Add Food");
 
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
 
@@ -137,18 +146,6 @@ public class AddFoodActivity extends Activity {
                 editor.putString("jenis", "dinner");
                 editor.commit();
                 Intent i = new Intent(v.getContext(), FoodActivity.class);
-                startActivity(i);
-            }
-
-        });
-        Edit=(Button)findViewById(R.id.edit);
-        Edit.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // request your webservice here. Possible use of AsyncTask and ProgressDialog
-                // show the result here - dialog or Toast
-                Intent i = new Intent(AddFoodActivity.this, HomeActivity.class);
                 startActivity(i);
             }
 

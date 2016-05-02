@@ -34,7 +34,7 @@ public class FoodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food);
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setTitle("Search Food");
