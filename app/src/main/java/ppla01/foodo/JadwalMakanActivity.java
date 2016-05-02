@@ -60,8 +60,12 @@ public class JadwalMakanActivity extends AppCompatActivity {
         scheduleClient.doBindService();
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+
+        spref = getSharedPreferences("my_data", 0);
+        if (spref.getString("log", "").equals("1")) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         setTitle("Edit Eat Reminder");
 
@@ -97,14 +101,14 @@ public class JadwalMakanActivity extends AppCompatActivity {
 
 
         if(spref.getString("siang","") == "") {
-            editor.putString("siang", "13:00");
+            editor.putString("siang", "12:30");
             editor.commit();
         }
 
         lunch_time.setText(spref.getString("siang",""));
 
         if(spref.getString("malam","") == "") {
-            editor.putString("malam", "18:00");
+            editor.putString("malam", "19:00");
             editor.commit();
         }
 
@@ -180,7 +184,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
             // scheduleClient.setAlarmForNotification(d,1);
 
 
-            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " +jampagi , Toast.LENGTH_LONG).show();
+//            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " +jampagi , Toast.LENGTH_LONG).show();
         }
     };
 
@@ -215,7 +219,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
                 if(minutes.length()==1){
                     minutes="0"+minutes;
                 }
-                    jamsiang = hour + ":"+  minutes;
+                jamsiang = hour + ":"+  minutes;
             }
             editor.putString("siang",jamsiang);
             editor.commit();
@@ -228,7 +232,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
             // scheduleClient.setAlarmForNotification(d,1);
 
 
-            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " + jamsiang, Toast.LENGTH_LONG).show();
+//            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " + jamsiang, Toast.LENGTH_LONG).show();
         }
     };
 
@@ -277,7 +281,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
             // scheduleClient.setAlarmForNotification(d,1);
 
 
-            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " + jammalam, Toast.LENGTH_LONG).show();
+//            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " + jammalam, Toast.LENGTH_LONG).show();
         }
     };
 

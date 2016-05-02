@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         editor = spref.edit();
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
 
         setTitle("FooDo");
 

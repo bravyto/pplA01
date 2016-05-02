@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusableInTouchMode="true"
-    android:background="@color/colorPrimary">
+    android:focusableInTouchMode="true">
 
     <LinearLayout
         android:orientation="vertical"
@@ -67,7 +66,7 @@
                     android:layout_height="100dp"
                     android:id="@+id/button4"
                     android:layout_margin="30dp"
-                    android:background="@drawable/ikon4"
+                    android:background="@drawable/eat"
                     android:textColor="@color/abc_primary_text_disable_only_material_dark"
                     android:clickable="true"/>
             </LinearLayout>

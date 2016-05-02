@@ -4,11 +4,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logonew"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:parentActivityName=".ProfileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".JadwalMakanActivity">
+        <activity android:name=".JadwalMakanActivity"
+            android:parentActivityName=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,8 +50,9 @@
         <service android:name=".NotifyService" />
 
         <activity android:name=".FoodActivity"
-            android:parentActivityName=".HomeActivity" />
-        <activity android:name=".AddFoodActivity" />
+            android:parentActivityName=".AddFoodActivity" />
+        <activity android:name=".AddFoodActivity"
+            android:parentActivityName=".HomeActivity"/>
         <activity android:name=".ProfileActivity"
             android:parentActivityName=".HomeActivity" >>
             <intent-filter>
@@ -59,7 +62,8 @@
         </intent-filter>
         </activity>
 
-        <activity android:name=".InfoFoodActivity"></activity>
+        <activity android:name=".InfoFoodActivity"
+            android:parentActivityName=".FoodActivity"></activity>
     </application>
 
 </manifest>
