@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.util.Log;
 
 import java.util.Calendar;
 
@@ -53,6 +54,7 @@ public class ScheduleClient {
      * @param c a date to set the notification for
      */
     public void setAlarmForNotification(Calendar c, int code){
+
         mBoundService.setAlarm(c,code);
     }
 

@@ -8,13 +8,19 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import java.util.Calendar;
+
 public class NotifyService extends Service{
+    Intent intent;
+    String message;
     /**
      * Class for clients to access
      */
@@ -23,6 +29,13 @@ public class NotifyService extends Service{
             return NotifyService.this;
         }
     }
+
+    /*
+    public void recieve(int a) {
+        this.theCode =  a;
+        Log.i("NotifyService", "cdde"+ this.theCode);
+
+    } */
 
     // Unique id to identify the notification.
     private static final int NOTIFICATION = 123;
@@ -33,8 +46,12 @@ public class NotifyService extends Service{
 
     @Override
     public void onCreate() {
-        Log.i("NotifyService", "onCreate()");
+        //Log.i("NotifyService", "onCreate()");
+        //Log.i("NotifyService", "weleeeh"+ AlarmTask.code);
+
         mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+
     }
 
     @Override
@@ -61,6 +78,18 @@ public class NotifyService extends Service{
      * Creates a notification and shows it in the OS drag-down status bar
      */
     private void showNotification() {
+
+        if (AlarmTask.code == 0) {
+            message = "Good morning, It's time to take your Breakfast :)";
+        }
+        if(AlarmTask.code == 1) {
+            message = "It's time for Lunch.. Don't miss it!";
+        }
+        if(AlarmTask.code == 2) {
+            message = "Let's go for dinner!";
+        }
+
+
         Intent resultIntent = new Intent(this, MenuActivity.class);
         PendingIntent resultPendingIntent =
                 PendingIntent.getActivity(
@@ -73,7 +102,7 @@ public class NotifyService extends Service{
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.food_icon2)
                         .setContentTitle("Let's eat")
-                        .setContentText("It's time to eat!");
+                        .setContentText(message);
 
         int mNotificationId = 001;
 
@@ -84,6 +113,8 @@ public class NotifyService extends Service{
         stopSelf();
 
     }
+
+
 
 
 
