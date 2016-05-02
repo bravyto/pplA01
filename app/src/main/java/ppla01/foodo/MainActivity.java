@@ -84,8 +84,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+        spref = getSharedPreferences("my_data", 0);
+        if (spref.getString("log", "").equals("1")) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         setTitle("Edit Profile Info");
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
@@ -147,13 +150,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         massa = spref.getFloat("Aktivity",0);
-        if(massa == 1.2){
+        String aktivitas = spref.getString("Activity", "");
+        if(aktivitas.equals("Low Activity")){
             Aktivitas.setSelection(0);
-        } else if(massa == 1.375){
+        } else if(aktivitas.equals("Light Activity")){
             Aktivitas.setSelection(1);
-        }else if(massa == 1.55){
+        }else if(aktivitas.equals("Moderate Activity")){
             Aktivitas.setSelection(2);
-        }else if(massa == 1.725){
+        }else if(aktivitas.equals("Active Activity")){
             Aktivitas.setSelection(3);
         }else{
             Aktivitas.setSelection(4);
@@ -215,15 +219,15 @@ public class MainActivity extends AppCompatActivity {
                         BMR = 66.473 + (13.7516 * berat) + (5 * tinggi) - (6.755 * (curent-Double.parseDouble(separate[2])) ) *  massa;
                     }
                     else{
-                        BMR = 655.095 + (9.5634 * berat) + (1.8496 * tinggi )- (4.6756 *(curent-Double.parseDouble(separate[2])) * massa) ;
+                        BMR = 655.095 + (9.5634 * berat) + (1.8496 * tinggi ) - (4.6756 * (curent - Double.parseDouble(separate[2])) * massa) ;
                     }
                     editor.putFloat("BMR", (float) BMR);
                     editor.commit();
 
                     double BMRr = spref.getFloat("BMR",0);
-                    Toast.makeText(v.getContext(), "Calori adalah " +BMRr, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(v.getContext(), "Tahun Lahir  " +separate[2], Toast.LENGTH_SHORT).show();
-                    Toast.makeText(v.getContext(), "indeksmassa adalah "+ spref.getFloat("Aktivity",0),Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(v.getContext(), "Calori adalah " +BMRr, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(v.getContext(), "Tahun Lahir  " +separate[2], Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(v.getContext(), "indeksmassa adalah "+ spref.getFloat("Aktivity",0),Toast.LENGTH_SHORT).show();
 
                     if (!spref.getString("log", "").equals("1")) {
                         Intent intent = new Intent(v.getContext(), JadwalMakanActivity.class);
