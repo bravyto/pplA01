@@ -18,6 +18,15 @@ public class FoodDetail {
     private String vitd;
     private String vitk;
     private String cholestrol;
+    private String sodium;
+
+    public String getSodium() {
+        return sodium;
+    }
+
+    public void setSodium(String sodium) {
+        this.sodium = sodium;
+    }
 
     public String getVitb12() {
         return vitb12;
