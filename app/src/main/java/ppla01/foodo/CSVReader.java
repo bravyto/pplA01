@@ -20,7 +20,7 @@ public class CSVReader extends ArrayAdapter<FoodDetail> {
     public CSVReader(Context context,int textViewResourceId, String message) {
         super(context,textViewResourceId);
         this.ctx = context;
-        this.message=message.toUpperCase();
+        this.message=message.toLowerCase();
 
         loadArrayFromFile();
 
@@ -47,7 +47,7 @@ public class CSVReader extends ArrayAdapter<FoodDetail> {
     private void loadArrayFromFile(){
         try {
             CharSequence cs2 = message;
-            InputStream is = ctx.getAssets().open("foodData.csv");
+            InputStream is = ctx.getAssets().open("newFoodDataIndo.csv");
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
             String line;
 
@@ -61,13 +61,13 @@ public class CSVReader extends ArrayAdapter<FoodDetail> {
                 FoodDetail cur = new FoodDetail();
                 cur.setName(RowData[1]);
                 cur.setCalories(RowData[3]);
-                cur.setWater(RowData[2]);
+                cur.setVitc(RowData[6]);
                 cur.setProtein(RowData[4]);
-                cur.setCarbo(RowData[7]);
-                cur.setSugar(RowData[9]);
-                cur.setCalcium(RowData[10]);
+                cur.setCarbo(RowData[5]);
+                cur.setSodium(RowData[7]);
+                cur.setCalcium(RowData[8]);
 
-                cur.setCholestrol(RowData[47]);
+                cur.setCholestrol(RowData[9]);
 
                 if (cur.getName().contains(cs2)) {
                     this.add(cur);
