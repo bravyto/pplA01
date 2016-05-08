@@ -54,10 +54,10 @@ public class InfoFoodActivity extends AppCompatActivity {
 
         foodName = extras.getString(FoodActivity.EXTRA_MESSAGE1);
         calories = "Food Calories: " + extras.getString(FoodActivity.EXTRA_MESSAGE2);
-        String water = "Water: " + extras.getString(FoodActivity.EXTRA_MESSAGE3);
+        String water = "Vit C: " + extras.getString(FoodActivity.EXTRA_MESSAGE3);
         String protein = "Protein: " + extras.getString(FoodActivity.EXTRA_MESSAGE4);
         String carbo = "Carbohydrat: " + extras.getString(FoodActivity.EXTRA_MESSAGE5);
-        String sugar = "Sugar: " + extras.getString(FoodActivity.EXTRA_MESSAGE6);
+        String sugar = "Sodium: " + extras.getString(FoodActivity.EXTRA_MESSAGE6);
         String calcium = "Calcium: " + extras.getString(FoodActivity.EXTRA_MESSAGE7);
         String chole = "Cholestrol: " + extras.getString(FoodActivity.EXTRA_MESSAGE8);
 
