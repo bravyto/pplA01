@@ -38,8 +38,8 @@
                 android:id="@+id/breakfastClick"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:elevation="4dp"
-                android:background="#ffffff">
+                android:background="#FFFFFF"
+                android:elevation="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -87,23 +87,16 @@
 
             <LinearLayout
                 android:state_pressed="true"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/item"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:elevation="2dp"
-                android:background="#ffffff">
+                android:elevation="0dp"
+                android:background="#fafafa"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp">
 
 
-                <ListView
-                    android:id="@+id/listv"
-                    android:layout_width="match_parent"
-                    android:fastScrollEnabled="false"
-                    android:gravity="center_vertical"
-                    android:smoothScrollbar="false"
-                    android:layout_height="50dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -115,7 +108,7 @@
                 android:id="@+id/lunchClick"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:elevation="4dp">
+                android:elevation="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -150,20 +143,17 @@
 
             <LinearLayout
                 android:state_pressed="true"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:background="#ffffff"
+                android:background="#fafafa"
                 android:layout_height="wrap_content"
                 android:id="@+id/item2"
-                android:paddingTop="10dp"
+                android:paddingTop="5dp"
                 android:paddingBottom="10dp"
-                android:elevation="2dp">
+                android:elevation="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp">
 
-                <ListView
-                    android:id="@+id/listvlunch"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:fastScrollEnabled="true"></ListView>
             </LinearLayout>
 
             <LinearLayout
@@ -174,8 +164,8 @@
                 android:id="@+id/dinnerClick"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:elevation="4dp"
-                android:background="#ffffff">
+                android:background="#ffffff"
+                android:elevation="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -209,20 +199,16 @@
             </LinearLayout>
             <LinearLayout
                 android:state_pressed="true"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:background="#ffffff"
+                android:background="#fafafa"
                 android:layout_height="wrap_content"
                 android:id="@+id/item3"
-                android:paddingTop="10dp"
+                android:paddingTop="5dp"
                 android:paddingBottom="10dp"
-                android:elevation="2dp">
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp">
 
-                <ListView
-                    android:id="@+id/listvdinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:fastScrollEnabled="true"></ListView>
             </LinearLayout>
 
         </LinearLayout>

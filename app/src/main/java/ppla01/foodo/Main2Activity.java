@@ -2,8 +2,10 @@ package ppla01.foodo;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,9 +32,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -78,7 +84,7 @@ public class Main2Activity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_stat);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_eat);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_eaten);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_reminder);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_profile);
         int tabIconColor = ContextCompat.getColor(Main2Activity.this, R.color.activeTab);
@@ -87,6 +93,14 @@ public class Main2Activity extends AppCompatActivity {
         for(int i = 1; i < 4; i++) {
             tabLayout.getTabAt(i).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
         }
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main2Activity.this, AddFoodActivity.class);
+                startActivity(intent);
+            }
+        });
         tabLayout.setOnTabSelectedListener(
                 new TabLayout.ViewPagerOnTabSelectedListener(mViewPager) {
 
@@ -98,12 +112,15 @@ public class Main2Activity extends AppCompatActivity {
                         MenuInflater inflater = getMenuInflater();
                         int tabNo = tabLayout.getSelectedTabPosition();
                         mOptionsMenu.clear();
-                        if (tabNo==3)
+                        fab.setVisibility(View.INVISIBLE);
+                        if (tabNo == 3)
                             inflater.inflate(R.menu.profile_menu, mOptionsMenu);
-                        else if(tabNo == 2)
+                        else if (tabNo == 2)
                             inflater.inflate(R.menu.reminder_menu, mOptionsMenu);
-                        else
+                        else {
+                            fab.setVisibility(View.VISIBLE);
                             inflater.inflate(R.menu.menu_main2, mOptionsMenu);
+                        }
                     }
 
                     @Override
@@ -123,14 +140,6 @@ public class Main2Activity extends AppCompatActivity {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             if (tab != null) tab.setCustomView(R.layout.view_home_tab);
         }
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
     }
 
@@ -287,46 +296,82 @@ public class Main2Activity extends AppCompatActivity {
 
                 spref = getContext().getSharedPreferences("my_data", 0);
 
-                ListView listBreakfast = (ListView) rootView.findViewById(R.id.listv);
+                LinearLayout item = (LinearLayout) rootView.findViewById(R.id.item);
                 Set<String> setPagi = spref.getStringSet("SetPagi", null);
-                if(setPagi==null){
-
+                arrayListBreakfast=new ArrayList<>(setPagi);
+                if(arrayListBreakfast.isEmpty()) {
+                    TextView textView = new TextView(getContext());
+                    textView.setText("No food is eaten");
+                    textView.setPadding(10, 0, 10, 0);
+                    item.addView(textView);
                 }
-                else{
-                    if(arrayListBreakfast.isEmpty()){
-                        arrayListBreakfast=new ArrayList<>(setPagi);
 
+                for( int i = 0; i < arrayListBreakfast.size(); i++ )
+                {
+                    TextView textView = new TextView(getContext());
+                    textView.setText(arrayListBreakfast.get(i));
+                    textView.setPadding(10, 0, 10, 0);
+                    item.addView(textView);
+                    if (i != arrayListBreakfast.size() - 1) {
+                        ImageView divider = new ImageView(getContext());
+                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+                        lp.setMargins(0, 10, 0, 5);
+                        divider.setLayoutParams(lp);
+                        divider.setBackgroundColor(Color.BLACK);
+                        item.addView(divider);
                     }
-                    adapterBreakfast = new ArrayAdapter<String>(getContext(), R.layout.list_item, arrayListBreakfast);
-                    listBreakfast.setAdapter(adapterBreakfast);
                 }
 
-                ListView listLunch = (ListView) rootView.findViewById(R.id.listvlunch);
+                LinearLayout item2 = (LinearLayout) rootView.findViewById(R.id.item2);
                 Set<String> setSiang = spref.getStringSet("SetSiang", null);
-                if(setSiang==null){
-
+                arrayListLunch=new ArrayList<>(setSiang);
+                if(arrayListLunch.isEmpty()) {
+                    TextView textView = new TextView(getContext());
+                    textView.setText("No food is eaten");
+                    textView.setPadding(10, 0, 10, 0);
+                    item2.addView(textView);
                 }
-                else{
-                    if(arrayListLunch.isEmpty()){
-                        arrayListLunch=new ArrayList<>(setSiang);
+                for( int i = 0; i < arrayListLunch.size(); i++ )
+                {
+                    TextView textView = new TextView(getContext());
+                    textView.setText(arrayListLunch.get(i));
+                    textView.setPadding(10, 0, 10, 0);
+                    item2.addView(textView);
 
+                    if (i != arrayListLunch.size() - 1) {
+                        ImageView divider = new ImageView(getContext());
+                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+                        lp.setMargins(0, 10, 0, 5);
+                        divider.setLayoutParams(lp);
+                        divider.setBackgroundColor(Color.BLACK);
+                        item2.addView(divider);
                     }
-                    adapterLunch = new ArrayAdapter<String>(getContext(), R.layout.list_item, arrayListLunch);
-                    listLunch.setAdapter(adapterLunch);
                 }
 
-                ListView listDinner = (ListView) rootView.findViewById(R.id.listvdinner);
+                LinearLayout item3 = (LinearLayout) rootView.findViewById(R.id.item3);
                 Set<String> setMalam = spref.getStringSet("SetMalam", null);
-                if(setMalam==null){
-
+                arrayListDinner=new ArrayList<>(setMalam);
+                if(arrayListDinner.isEmpty()) {
+                    TextView textView = new TextView(getContext());
+                    textView.setText("No food is eaten");
+                    textView.setPadding(10, 0, 10, 0);
+                    item3.addView(textView);
                 }
-                else{
-                    if(arrayListDinner.isEmpty()){
-                        arrayListDinner=new ArrayList<>(setMalam);
+                for( int i = 0; i < arrayListDinner.size(); i++ )
+                {
+                    TextView textView = new TextView(getContext());
+                    textView.setText(arrayListDinner.get(i));
+                    textView.setPadding(10, 0, 10, 0);
+                    item3.addView(textView);
 
+                    if (i != arrayListDinner.size() - 1) {
+                        ImageView divider = new ImageView(getContext());
+                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+                        lp.setMargins(0, 10, 0, 5);
+                        divider.setLayoutParams(lp);
+                        divider.setBackgroundColor(Color.BLACK);
+                        item3.addView(divider);
                     }
-                    adapterDinner = new ArrayAdapter<String>(getContext(), R.layout.list_item, arrayListDinner);
-                    listDinner.setAdapter(adapterDinner);
                 }
             }
             else {
