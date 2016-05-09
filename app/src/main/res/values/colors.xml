@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#D32F2F</color>
     <color name="background">#F44336</color>
     <color name="colorAccent">#4CAF50</color>
+    <color name="activeTab">#FFFFFF</color>
+    <color name="notActiveTab">#B71C1C</color>
 </resources>
