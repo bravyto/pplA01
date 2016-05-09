@@ -93,32 +93,32 @@ public class InfoFoodActivity extends AppCompatActivity {
                 Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
 
                 if(jenis.equals("breakfast")){
-                    addFoodActivity.AddKalori(caloriUpdate);
-                    addFoodActivity.addArrayBreakfast( newItem + " (" + caloriUpdate + " kal)");
+                    addFoodActivity.AddKaloriPagi(caloriUpdate);
+                    addFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kal)");
                     listPagi = addFoodActivity.getListBreakfast();
                     editor = spref.edit();
                     setPagi.addAll(listPagi);
                     editor.putStringSet("SetPagi", setPagi);
-                    editor.putFloat("kalori", (float) addFoodActivity.getKalori() + spref.getFloat("kalori", 0));
+                    editor.putFloat("kaloriPagi", (float) caloriUpdate + spref.getFloat("kaloriPagi",0) );
                     editor.commit();
 
                 } else  if (jenis.equals("lunch")){
-                    addFoodActivity.AddKalori(caloriUpdate);
+                    addFoodActivity.AddKaloriSiang(caloriUpdate);
                     addFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kal)");
                     listSiang = addFoodActivity.getListLunch();
                     editor = spref.edit();
                     setSiang.addAll(listSiang);
                     editor.putStringSet("SetSiang", setSiang);
-                    editor.putFloat("kalori", (float) addFoodActivity.getKalori() + spref.getFloat("kalori", 0));
+                    editor.putFloat("kaloriSiang", (float) caloriUpdate + spref.getFloat("kaloriSiang",0) );
                     editor.commit();
                 } else {
-                    addFoodActivity.AddKalori(caloriUpdate);
+                    addFoodActivity.AddKaloriMalam(caloriUpdate);
                     addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kal)");
                     listMalam = addFoodActivity.getListDinner();
                     editor = spref.edit();
                     setMalam.addAll(listMalam);
                     editor.putStringSet("SetMalam", setMalam);
-                    editor.putFloat("kalori", (float) addFoodActivity.getKalori() + spref.getFloat("kalori", 0));
+                    editor.putFloat("kaloriMalam", (float) caloriUpdate + spref.getFloat("kaloriMalam",0) );
                     editor.commit();
                 }
 

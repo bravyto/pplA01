@@ -155,6 +155,7 @@ public class Main2Activity extends AppCompatActivity {
         public PlaceholderFragment() {
         }
 
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
