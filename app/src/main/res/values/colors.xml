@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F44336</color>
-    <color name="colorPrimaryDark">#D32F2F</color>
-    <color name="background">#F44336</color>
-    <color name="colorAccent">#009688</color>
+    <color name="colorPrimary">#DC424C</color>
+    <color name="colorPrimaryDark">#B0353D</color>
+    <color name="background">#DC424C</color>
+    <color name="colorAccent">#01A99D</color>
+    <color name="activeTab">#FFFFFF</color>
+    <color name="notActiveTab">#8F1D24</color>
 </resources>

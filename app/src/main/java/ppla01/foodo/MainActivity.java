@@ -108,22 +108,30 @@ public class MainActivity extends AppCompatActivity {
                 if (parent.getSelectedItem().toString().equals("Low Activity")) {
                     indeksMassa = 1.2;
                     Activity = "Low Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Light Activity")) {
+                else if (Aktivitas.getSelectedItem().toString().equals("Light Activity")) {
                     indeksMassa = 1.375;
                     Activity = "Light Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Moderate Activity")) {
+                else if (Aktivitas.getSelectedItem().toString().equals("Moderate Activity")) {
                     indeksMassa = 1.55;
                     Activity = "Moderate Activity";
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Active Activity")) {
+                else if (Aktivitas.getSelectedItem().toString().equals("Active Activity")) {
                     indeksMassa = 1.725;
                     Activity ="Active Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Extreme Activity")) {
+                else {
                     indeksMassa = 1.9;
                     Activity = "Extreme Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
                 }
             }
 
@@ -150,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
             pria.setChecked(true);
         }
 
-        massa = spref.getFloat("Aktivity",0);
+//        massa = spref.getFloat("Aktivity",0);
         String aktivitas = spref.getString("Activity", "");
         if(aktivitas.equals("Low Activity")){
             Aktivitas.setSelection(0);
@@ -201,10 +209,12 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString("umur", birthdate);
                 editor.putString("beratnow", beratnow);
                 editor.putString("gender", gender);
-                editor.putFloat("Aktivity",(float)indeksMassa);
-                editor.putString("Activity",Activity);
+                editor.putFloat("Aktivity", (float) indeksMassa);
+                editor.putString("Activity", Activity);
+                editor.commit();
 
                 if (valid) {
+                    massa = spref.getFloat("Aktivity",0);
                     double berat = 0.0;
                     if(!spref.getString("beratnow", "").equals(""))
                         berat = Double.parseDouble(spref.getString("beratnow", ""));

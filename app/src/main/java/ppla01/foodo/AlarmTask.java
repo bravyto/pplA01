@@ -8,6 +8,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import java.util.Calendar;
 
@@ -15,11 +16,17 @@ public class AlarmTask implements Runnable {
     // The date selected for the alarm
     private final Calendar date;
 
-    private final int code;
+    public static int code;
     // The android system alarm manager
     private final AlarmManager am;
     // Your context to retrieve the alarm manager from
     private final Context context;
+
+
+
+    //public NotifyService not = new NotifyService();
+
+
 
     public AlarmTask(Context context, Calendar date, int code) {
         this.context = context;
@@ -28,12 +35,21 @@ public class AlarmTask implements Runnable {
         this.code = code;
     }
 
+/*
+    public void send() {
+        not.recieve(code);
+
+    }
+    */
+
     @Override
     public void run() {
+        //send();
         // Request to start are service when the alarm date is upon us
         // We don't start an activity as we just want to pop up a notification into the system bar not a full activity
         Intent intent = new Intent(context, NotifyService.class);
         intent.putExtra(NotifyService.INTENT_NOTIFY, true);
+
         PendingIntent pendingIntent = PendingIntent.getService(context, code, intent, 0);
 
         // Sets an alarm - note this alarm will be lost if the phone is turned off and on again

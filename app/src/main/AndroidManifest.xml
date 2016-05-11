@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ppla01.foodo">
+    package="ppla01.foodo" >
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+<<<<<<< HEAD
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 <<<<<<< HEAD
@@ -15,27 +16,25 @@
         <activity android:name=".MainActivity"
             android:parentActivityName=".ProfileActivity">
 >>>>>>> refs/remotes/origin/master
+=======
+        android:supportsRtl="true" >
+        <activity
+            android:name=".MainActivity"
+            android:parentActivityName=".ProfileActivity"
+            android:theme="@style/AppTheme" >
+>>>>>>> refs/remotes/origin/master
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".ProfileActivity"
-            android:parentActivityName=".HomeActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 <<<<<<< HEAD
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".ProfileActivity"
+            android:parentActivityName=".HomeActivity" >
 =======
-        <activity android:name=".JadwalMakanActivity"
-            android:parentActivityName=".HomeActivity">
+        <activity android:name=".Splash"
+            android:theme="@style/AppTheme" >
 >>>>>>> refs/remotes/origin/master
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,6 +42,27 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+        <activity android:name=".MainActivity">
+=======
+        <activity android:name=".JadwalMakanActivity"
+            android:parentActivityName=".HomeActivity">
+>>>>>>> refs/remotes/origin/master
+=======
+        <activity
+            android:name=".JadwalMakanActivity"
+            android:parentActivityName=".ProfileActivity"
+            android:theme="@style/AppTheme">
+>>>>>>> refs/remotes/origin/master
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+<<<<<<< HEAD
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,13 +71,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".JadwalMakanActivity">
+=======
+        <activity android:name=".MenuActivity"
+            android:theme="@style/AppTheme">
+>>>>>>> refs/remotes/origin/master
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".MenuActivity">
+=======
+        <activity android:name=".HomeActivity"
+            android:theme="@style/AppTheme">
+>>>>>>> refs/remotes/origin/master
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -69,6 +98,7 @@
         <service android:name=".ScheduleService" />
         <service android:name=".NotifyService" />
 
+<<<<<<< HEAD
         <activity android:name=".FoodActivity"
 <<<<<<< HEAD
             android:parentActivityName=".HomeActivity" />
@@ -80,11 +110,27 @@
         <activity android:name=".ProfileActivity"
             android:parentActivityName=".HomeActivity" >>
 >>>>>>> refs/remotes/origin/master
+=======
+        <activity
+            android:name=".FoodActivity"
+            android:parentActivityName=".AddFoodActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".AddFoodActivity"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ProfileActivity"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme" >
+>
+>>>>>>> refs/remotes/origin/master
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+<<<<<<< HEAD
         </activity>
 
 <<<<<<< HEAD
@@ -94,6 +140,18 @@
 =======
         <activity android:name=".InfoFoodActivity"
             android:parentActivityName=".FoodActivity"></activity>
+>>>>>>> refs/remotes/origin/master
+=======
+        </activity>
+        <activity
+            android:name=".InfoFoodActivity"
+            android:parentActivityName=".FoodActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppThemeTab" >
+        </activity>
 >>>>>>> refs/remotes/origin/master
     </application>
 

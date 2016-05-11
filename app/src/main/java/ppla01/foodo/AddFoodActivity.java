@@ -24,6 +24,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Set;
 
 public class AddFoodActivity extends AppCompatActivity {
 <<<<<<< HEAD
@@ -40,7 +41,9 @@ public class AddFoodActivity extends AppCompatActivity {
     private ArrayAdapter<String> adapterLunch;
     private ArrayAdapter<String> adapterDinner;
     SharedPreferences spref;
-    private static float kalori = 0;
+    private static float kaloriPagi ;
+    private static float kaloriSiang ;
+    private static float kaloriMalam ;
     SharedPreferences.Editor editor;
     float sisa;
 
@@ -60,8 +63,41 @@ public class AddFoodActivity extends AppCompatActivity {
         this.arrayListDinner.add(item);
     }
 
-    public void AddKalori(double kaloriFood){
-        this.kalori =  this.kalori + (float)kaloriFood;
+    public void AddKaloriPagi(double kaloriFood){
+        this.kaloriPagi =  this.kaloriPagi + (float)kaloriFood;
+    }
+
+    public void AddKaloriSiang(double kaloriFood){
+        this.kaloriSiang =  this.kaloriSiang + (float)kaloriFood;
+    }
+
+    public void AddKaloriMalam (double kaloriFood){
+        this.kaloriMalam =  this.kaloriMalam + (float)kaloriFood;
+    }
+
+    public double getKaloriPagi(){
+        return this.kaloriPagi;
+    }
+
+    public double getKaloriSiang(){
+        return this.kaloriSiang;
+    }
+
+    public double getKaloriMalam(){
+
+        return this.kaloriMalam;
+    }
+
+    public ArrayList<String> getListBreakfast(){
+
+        return this.arrayListBreakfast;
+    }
+    public ArrayList<String> getListLunch(){
+        return this.arrayListLunch;
+    }
+    public ArrayList<String> getListDinner(){
+
+        return this.arrayListDinner;
     }
 
     @Override
@@ -132,10 +168,10 @@ public class AddFoodActivity extends AppCompatActivity {
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
 
         float bmr= spref.getFloat("BMR", 0);
-        sisa = bmr - this.kalori;
+        sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
 
         TextView consume = (TextView) findViewById(R.id.judul);
-        consume.setText("Consumed : "+ kalori);
+        consume.setText("Consumed : "+ (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+ " kal"));
         TextView kurang = (TextView) findViewById(R.id.tampil);
         if(sisa < 0){
             kurang.setText("Excess :  "+ ((-1) *sisa) + "  from " + bmr);
@@ -144,21 +180,47 @@ public class AddFoodActivity extends AppCompatActivity {
         }
 
         ListView listBreakfast = (ListView) findViewById(R.id.listv);
-        adapterBreakfast = new ArrayAdapter<String>(this, R.layout.list_item,arrayListBreakfast);
-        listBreakfast.setAdapter(adapterBreakfast);
-        adapterBreakfast.notifyDataSetChanged();
+        Set<String> setPagi = spref.getStringSet("SetPagi", null);
+        if(setPagi==null){
 
+        }
+        else{
+            if(arrayListBreakfast.isEmpty()){
+                arrayListBreakfast=new ArrayList<>(setPagi);
+
+            }
+            adapterBreakfast = new ArrayAdapter<String>(this, R.layout.list_item, arrayListBreakfast);
+            listBreakfast.setAdapter(adapterBreakfast);
+        }
 
         ListView listLunch = (ListView) findViewById(R.id.listvlunch);
-        adapterLunch = new ArrayAdapter<String>(this, R.layout.list_item, arrayListLunch);
-        listLunch.setAdapter(adapterLunch);
-        adapterLunch.notifyDataSetChanged();
+        Set<String> setSiang = spref.getStringSet("SetSiang", null);
+        if(setSiang==null){
 
+        }
+        else{
+            if(arrayListLunch.isEmpty()){
+                arrayListLunch=new ArrayList<>(setSiang);
+
+            }
+            adapterLunch = new ArrayAdapter<String>(this, R.layout.list_item, arrayListLunch);
+            listLunch.setAdapter(adapterLunch);
+        }
 
         ListView listDinner = (ListView) findViewById(R.id.listvdinner);
-        adapterDinner = new ArrayAdapter<String>(this, R.layout.list_item, arrayListDinner);
-        listDinner.setAdapter(adapterDinner);
-        adapterDinner.notifyDataSetChanged();
+        Set<String> setMalam = spref.getStringSet("SetMalam", null);
+        if(setMalam==null){
+
+        }
+        else{
+            if(arrayListDinner.isEmpty()){
+                arrayListDinner=new ArrayList<>(setMalam);
+
+            }
+            adapterDinner = new ArrayAdapter<String>(this, R.layout.list_item, arrayListDinner);
+            listDinner.setAdapter(adapterDinner);
+        }
+
 
         breakfastv = (TextView) findViewById(R.id.breakfastz);
         breakfastv.setOnClickListener(new View.OnClickListener() {
@@ -210,8 +272,5 @@ public class AddFoodActivity extends AppCompatActivity {
             }
 
         });
-
     }
-
-
 }
