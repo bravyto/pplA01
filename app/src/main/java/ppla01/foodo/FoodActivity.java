@@ -22,6 +22,7 @@ public class FoodActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE6= "passingMessageGan6";
     public final static String EXTRA_MESSAGE7= "passingMessageGan7";
     public final static String EXTRA_MESSAGE8= "passingMessageGan8";
+    public final static String EXTRA_MESSAGE9= "passingMessageGan9";
 
 
     protected Button dispFood;
@@ -69,18 +70,21 @@ public class FoodActivity extends AppCompatActivity {
                 String vitc = cReader.getItem(pos).getVitc();
                 String protein = cReader.getItem(pos).getProtein();
                 String carbo = cReader.getItem(pos).getCarbo();
-                String sodium = cReader.getItem(pos).getSodium();
+                String water = cReader.getItem(pos).getWater();
                 String calcium=cReader.getItem(pos).getCalcium();
-                String chole=cReader.getItem(pos).getCholestrol();
+                //String chole=cReader.getItem(pos).getCholestrol();
+                String porsi = cReader.getItem(pos).getPorsi();
+                String beratMakanan= cReader.getItem(pos).getBeratMakanan();
                 Bundle extras = new Bundle();
                 extras.putString(EXTRA_MESSAGE1,fname);
                 extras.putString(EXTRA_MESSAGE2,cal);
                 extras.putString(EXTRA_MESSAGE3,vitc);
                 extras.putString(EXTRA_MESSAGE4,protein);
                 extras.putString(EXTRA_MESSAGE5,carbo);
-                extras.putString(EXTRA_MESSAGE6,sodium);
+                extras.putString(EXTRA_MESSAGE6,water);
                 extras.putString(EXTRA_MESSAGE7,calcium);
-                extras.putString(EXTRA_MESSAGE8,chole);
+                extras.putString(EXTRA_MESSAGE8,porsi);
+                extras.putString(EXTRA_MESSAGE9,beratMakanan);
                 intent.putExtras(extras);
 
                 startActivity(intent);

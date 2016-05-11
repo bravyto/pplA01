@@ -54,12 +54,12 @@ public class InfoFoodActivity extends AppCompatActivity {
 
         foodName = extras.getString(FoodActivity.EXTRA_MESSAGE1);
         calories = "Food Calories: " + extras.getString(FoodActivity.EXTRA_MESSAGE2);
-        String water = "Vit C: " + extras.getString(FoodActivity.EXTRA_MESSAGE3);
+        String vitc = "Vit C: " + extras.getString(FoodActivity.EXTRA_MESSAGE3);
         String protein = "Protein: " + extras.getString(FoodActivity.EXTRA_MESSAGE4);
         String carbo = "Carbohydrat: " + extras.getString(FoodActivity.EXTRA_MESSAGE5);
-        String sugar = "Sodium: " + extras.getString(FoodActivity.EXTRA_MESSAGE6);
+        String water = "Water: " + extras.getString(FoodActivity.EXTRA_MESSAGE6);
         String calcium = "Calcium: " + extras.getString(FoodActivity.EXTRA_MESSAGE7);
-        String chole = "Cholestrol: " + extras.getString(FoodActivity.EXTRA_MESSAGE8);
+        String porsiAndBerat = "Porsi: " + extras.getString(FoodActivity.EXTRA_MESSAGE8) + " Berat: " + extras.getString(FoodActivity.EXTRA_MESSAGE9) + "(g)";
 
         kalori = extras.getString(FoodActivity.EXTRA_MESSAGE2);;
         TextView textV1 = (TextView) findViewById(R.id.nameOfFood);
@@ -73,12 +73,12 @@ public class InfoFoodActivity extends AppCompatActivity {
         textV1.setText(foodName);
         textV1.setTextSize(26);
         textV2.setText(calories);
-        textV3.setText(water);
+        textV3.setText(vitc);
         textV4.setText(protein);
         textV5.setText(carbo);
-        textV6.setText(sugar);
+        textV6.setText(water);
         textV7.setText(calcium);
-        textV8.setText(chole);
+        textV8.setText(porsiAndBerat);
 
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
