@@ -38,6 +38,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.DataPointInterface;
+import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.OnDataPointTapListener;
+import com.jjoe64.graphview.series.Series;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -225,9 +233,9 @@ public class Main2Activity extends AppCompatActivity {
         String  nama, tinggi, umur, beratnow, gender, aktivitasnya;
         protected  TextView breakfastv, lunchv, dinnerv;
         protected Button Edit;
-        private static ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
-        private static ArrayList<String> arrayListLunch  =new ArrayList<String>();
-        private static ArrayList<String> arrayListDinner  =new ArrayList<String>();
+        private ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
+        private ArrayList<String> arrayListLunch  =new ArrayList<String>();
+        private ArrayList<String> arrayListDinner  =new ArrayList<String>();
         private ArrayAdapter<String> adapterBreakfast;
         private ArrayAdapter<String> adapterLunch;
         private ArrayAdapter<String> adapterDinner;
@@ -377,6 +385,45 @@ public class Main2Activity extends AppCompatActivity {
             }
             else {
                 rootView = inflater.inflate(R.layout.fragment_main2, container, false);
+                spref = getContext().getSharedPreferences("my_data", 0);
+                GraphView line_graph = (GraphView) rootView.findViewById(R.id.graph);
+                line_graph.getViewport().setScrollable(true);
+                line_graph.getViewport().setScalable(true);
+                // set manual X bounds
+                line_graph.getViewport().setXAxisBoundsManual(true);
+                line_graph.getViewport().setMinX(0);
+                line_graph.getViewport().setMaxX(5);
+
+                // set manual Y bounds
+                line_graph.getViewport().setYAxisBoundsManual(true);
+                line_graph.getViewport().setMinY(0);
+                line_graph.getViewport().setMaxY(99);
+                int size = 99;
+
+                //Ini tingaal tambah array of tanggal sama array of konsumsi kalori user
+                //Sumber graph bisa liat di
+                // https://www.numetriclabz.com/android-line-graph-using-graphview-library-tutorial/
+                // http://www.android-graphview.org/documentation
+                DataPoint [] values = new DataPoint[size];
+                for (int i=0; i<size; i++) {
+                    DataPoint v = new DataPoint(i, i);
+                    values[i] = v;
+                }
+
+                LineGraphSeries<DataPoint> line_series = new LineGraphSeries<DataPoint>(values);
+                line_graph.addSeries(line_series);
+                line_series.setDrawDataPoints(true);
+                line_series.setDataPointsRadius(10);
+                StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(line_graph);
+                //staticLabelsFormatter.setHorizontalLabels(new String[] {"Jan", "Feb", "March","April","June","July"});
+                line_graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+                line_series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                    @Override
+                    public void onTap(Series series, DataPointInterface dataPoint) {
+                        //Toast.makeText(Main2Activity.this, "Series: On Data Point clicked: " + dataPoint, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
 //                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             }
 
