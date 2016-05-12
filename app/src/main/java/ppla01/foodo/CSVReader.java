@@ -47,7 +47,7 @@ public class CSVReader extends ArrayAdapter<FoodDetail> {
     private void loadArrayFromFile(){
         try {
             CharSequence cs2 = message;
-            InputStream is = ctx.getAssets().open("newFoodDataIndo.csv");
+            InputStream is = ctx.getAssets().open("DataBaruMakanan.csv");
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
             String line;
 
@@ -60,16 +60,18 @@ public class CSVReader extends ArrayAdapter<FoodDetail> {
 
                 FoodDetail cur = new FoodDetail();
                 cur.setName(RowData[1]);
-                cur.setCalories(RowData[3]);
-                cur.setVitc(RowData[6]);
-                cur.setProtein(RowData[4]);
-                cur.setCarbo(RowData[5]);
-                cur.setSodium(RowData[7]);
-                cur.setCalcium(RowData[8]);
+                cur.setCalories(RowData[2]);
+                cur.setVitc(RowData[5]);
+                cur.setProtein(RowData[3]);
+                cur.setCarbo(RowData[4]);
+                cur.setWater(RowData[6]);
+                cur.setCalcium(RowData[7]);
+                cur.setPorsi(RowData[9]);
+                cur.setBeratMakanan(RowData[10]);
 
-                cur.setCholestrol(RowData[9]);
+                //cur.setCholestrol(RowData[9]);
 
-                if (cur.getName().contains(cs2)) {
+                if (cur.getName().toLowerCase().contains(cs2)) {
                     this.add(cur);
                 }
 
