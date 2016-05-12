@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -295,29 +294,4 @@ public class JadwalMakanActivity extends AppCompatActivity {
         super.onStop();
 
     }
-<<<<<<< HEAD
-
-    @Override
-
-    protected void onStart(){
-        super.onStart();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-
-            case android.R.id.home:
-                this.finish();
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
 }
-=======
-}
->>>>>>> refs/remotes/origin/master

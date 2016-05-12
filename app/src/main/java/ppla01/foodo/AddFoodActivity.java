@@ -2,10 +2,7 @@ package ppla01.foodo;
 
 import android.app.Activity;
 import android.content.Intent;
-<<<<<<< HEAD
-=======
 import android.content.SharedPreferences;
->>>>>>> refs/remotes/origin/master
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -27,11 +24,7 @@ import java.util.Calendar;
 import java.util.Set;
 
 public class AddFoodActivity extends AppCompatActivity {
-<<<<<<< HEAD
-    Button addBreakFast;
-=======
 
->>>>>>> refs/remotes/origin/master
     protected  TextView breakfastv, lunchv, dinnerv;
     protected Button Edit;
     private static ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
@@ -105,59 +98,6 @@ public class AddFoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
 
-<<<<<<< HEAD
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#AB9672")));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        setTitle("Add Food");
-
-
-//        Intent intent = getIntent();
-//        Bundle extras = intent.getExtras();
-//        String foodName = extras.getString(InfoFoodActivity.EXTRA_MESSAGE1);
-//        String caloriFood = extras.getString(InfoFoodActivity.EXTRA_MESSAGE2);
-////        int kalori = Integer.parseInt(caloriFood);
-//        TextView food = (TextView)findViewById(R.id.makanaPagi1);
-//        TextView calori = (TextView)findViewById(R.id.caloriMakanan);
-//        food.setText(foodName);
-//        calori.setText(caloriFood);
-//
-//
-//        addBreakFast = (Button)findViewById(R.id.addPagi);
-//        addBreakFast.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(v.getContext(), FoodActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
-//        TextView textView = (TextView) findViewById(R.id.txtitem);
-//        Intent intent = getIntent();
-//        String foodname = intent.getStringExtra("foodname");
-//        textView.setText(foodname);
-
-        Bundle extras = getIntent().getExtras();
-
-        String foodnamez = "hala";
-
-        ListView listView = (ListView) findViewById(R.id.listv);
-        String[] items = {"apel", "banana"};
-       // arrayList = new ArrayList<String> ();
-
-        arrayList = new ArrayList<String>(Arrays.asList(items));
-
-
-
-        if (extras != null){
-            int indek =extras.getInt("indeks");
-            String foodname = extras.getString(InfoFoodActivity.AAAA);
-            arrayList.add(indek, foodname);
-
-        }
-=======
->>>>>>> refs/remotes/origin/master
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));

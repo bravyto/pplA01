@@ -32,12 +32,10 @@
                 android:weightSum="1"
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
-<<<<<<< HEAD
+
                 android:layout_gravity="center_vertical"
                 android:elevation="2dp">
-=======
-                android:layout_gravity="center_vertical">
->>>>>>> refs/remotes/origin/master
+
 
                 <ImageView
                     android:layout_width="match_parent"
