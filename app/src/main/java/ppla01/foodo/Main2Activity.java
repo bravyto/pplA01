@@ -298,79 +298,80 @@ public class Main2Activity extends AppCompatActivity {
 
                 LinearLayout item = (LinearLayout) rootView.findViewById(R.id.item);
                 Set<String> setPagi = spref.getStringSet("SetPagi", null);
-                arrayListBreakfast=new ArrayList<>(setPagi);
-                if(arrayListBreakfast.isEmpty()) {
+                if(setPagi == null) {
                     TextView textView = new TextView(getContext());
-                    textView.setText("No food is eaten");
+                    textView.setText("No food eaten");
                     textView.setPadding(10, 0, 10, 0);
                     item.addView(textView);
-                }
+                } else {
+                    arrayListBreakfast = new ArrayList<>(setPagi);
 
-                for( int i = 0; i < arrayListBreakfast.size(); i++ )
-                {
-                    TextView textView = new TextView(getContext());
-                    textView.setText(arrayListBreakfast.get(i));
-                    textView.setPadding(10, 0, 10, 0);
-                    item.addView(textView);
-                    if (i != arrayListBreakfast.size() - 1) {
-                        ImageView divider = new ImageView(getContext());
-                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
-                        lp.setMargins(0, 10, 0, 5);
-                        divider.setLayoutParams(lp);
-                        divider.setBackgroundColor(Color.BLACK);
-                        item.addView(divider);
+                    for (int i = 0; i < arrayListBreakfast.size(); i++) {
+                        TextView textView = new TextView(getContext());
+                        textView.setText(arrayListBreakfast.get(i));
+                        textView.setPadding(10, 0, 10, 0);
+                        item.addView(textView);
+                        if (i != arrayListBreakfast.size() - 1) {
+                            ImageView divider = new ImageView(getContext());
+                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+                            lp.setMargins(0, 10, 0, 5);
+                            divider.setLayoutParams(lp);
+                            divider.setBackgroundColor(Color.BLACK);
+                            item.addView(divider);
+                        }
                     }
                 }
 
                 LinearLayout item2 = (LinearLayout) rootView.findViewById(R.id.item2);
                 Set<String> setSiang = spref.getStringSet("SetSiang", null);
-                arrayListLunch=new ArrayList<>(setSiang);
-                if(arrayListLunch.isEmpty()) {
+                if(setSiang == null) {
                     TextView textView = new TextView(getContext());
-                    textView.setText("No food is eaten");
+                    textView.setText("No food eaten");
                     textView.setPadding(10, 0, 10, 0);
                     item2.addView(textView);
-                }
-                for( int i = 0; i < arrayListLunch.size(); i++ )
-                {
-                    TextView textView = new TextView(getContext());
-                    textView.setText(arrayListLunch.get(i));
-                    textView.setPadding(10, 0, 10, 0);
-                    item2.addView(textView);
+                } else {
 
-                    if (i != arrayListLunch.size() - 1) {
-                        ImageView divider = new ImageView(getContext());
-                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
-                        lp.setMargins(0, 10, 0, 5);
-                        divider.setLayoutParams(lp);
-                        divider.setBackgroundColor(Color.BLACK);
-                        item2.addView(divider);
+                    arrayListLunch = new ArrayList<>(setSiang);
+                    for (int i = 0; i < arrayListLunch.size(); i++) {
+                        TextView textView = new TextView(getContext());
+                        textView.setText(arrayListLunch.get(i));
+                        textView.setPadding(10, 0, 10, 0);
+                        item2.addView(textView);
+
+                        if (i != arrayListLunch.size() - 1) {
+                            ImageView divider = new ImageView(getContext());
+                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+                            lp.setMargins(0, 10, 0, 5);
+                            divider.setLayoutParams(lp);
+                            divider.setBackgroundColor(Color.BLACK);
+                            item2.addView(divider);
+                        }
                     }
                 }
 
                 LinearLayout item3 = (LinearLayout) rootView.findViewById(R.id.item3);
                 Set<String> setMalam = spref.getStringSet("SetMalam", null);
-                arrayListDinner=new ArrayList<>(setMalam);
-                if(arrayListDinner.isEmpty()) {
+                if(setMalam == null) {
                     TextView textView = new TextView(getContext());
-                    textView.setText("No food is eaten");
+                    textView.setText("No food eaten");
                     textView.setPadding(10, 0, 10, 0);
                     item3.addView(textView);
-                }
-                for( int i = 0; i < arrayListDinner.size(); i++ )
-                {
-                    TextView textView = new TextView(getContext());
-                    textView.setText(arrayListDinner.get(i));
-                    textView.setPadding(10, 0, 10, 0);
-                    item3.addView(textView);
+                } else {
+                    arrayListDinner = new ArrayList<>(setMalam);
+                    for (int i = 0; i < arrayListDinner.size(); i++) {
+                        TextView textView = new TextView(getContext());
+                        textView.setText(arrayListDinner.get(i));
+                        textView.setPadding(10, 0, 10, 0);
+                        item3.addView(textView);
 
-                    if (i != arrayListDinner.size() - 1) {
-                        ImageView divider = new ImageView(getContext());
-                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
-                        lp.setMargins(0, 10, 0, 5);
-                        divider.setLayoutParams(lp);
-                        divider.setBackgroundColor(Color.BLACK);
-                        item3.addView(divider);
+                        if (i != arrayListDinner.size() - 1) {
+                            ImageView divider = new ImageView(getContext());
+                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+                            lp.setMargins(0, 10, 0, 5);
+                            divider.setLayoutParams(lp);
+                            divider.setBackgroundColor(Color.BLACK);
+                            item3.addView(divider);
+                        }
                     }
                 }
             }
