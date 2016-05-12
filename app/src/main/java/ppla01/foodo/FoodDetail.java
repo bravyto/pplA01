@@ -19,6 +19,33 @@ public class FoodDetail {
     private String vitk;
     private String cholestrol;
     private String sodium;
+    private String fat;
+    private String porsi;
+    private String beratMakanan;
+
+    public String getPorsi() {
+        return porsi;
+    }
+
+    public void setPorsi(String porsi) {
+        this.porsi = porsi;
+    }
+
+    public String getBeratMakanan() {
+        return beratMakanan;
+    }
+
+    public void setBeratMakanan(String beratMakanan) {
+        this.beratMakanan = beratMakanan;
+    }
+
+    public String getFat() {
+        return fat;
+    }
+
+    public void setFat(String fat) {
+        this.fat = fat;
+    }
 
     public String getSodium() {
         return sodium;
@@ -28,29 +55,10 @@ public class FoodDetail {
         this.sodium = sodium;
     }
 
-    public String getVitb12() {
-        return vitb12;
-    }
-
-    public String getVite() {
-        return vite;
-    }
-
-    public String getVitd() {
-        return vitd;
-    }
-
-    public String getVitk() {
-        return vitk;
-    }
-
     public String getCholestrol() {
         return cholestrol;
     }
 
-    public String getVitb6() {
-        return vitb6;
-    }
 
     public String getVitc() {
         return vitc;
@@ -58,10 +66,6 @@ public class FoodDetail {
 
     public String getCalcium() {
         return calcium;
-    }
-
-    public String getSugar() {
-        return sugar;
     }
 
     public String getCarbo() {
