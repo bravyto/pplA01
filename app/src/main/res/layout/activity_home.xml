@@ -67,7 +67,7 @@
                     android:id="@+id/button4"
                     android:layout_margin="30dp"
 
-                    android:background="@drawable/ikon4_new"
+                    android:background="@drawable/eat"
 
                     android:textColor="@color/abc_primary_text_disable_only_material_dark"
                     android:clickable="true"/>
