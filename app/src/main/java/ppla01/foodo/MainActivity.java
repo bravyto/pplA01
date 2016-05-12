@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -240,14 +241,81 @@ public class MainActivity extends AppCompatActivity {
 //                    Toast.makeText(v.getContext(), "indeksmassa adalah "+ spref.getFloat("Aktivity",0),Toast.LENGTH_SHORT).show();
 
                     if (!spref.getString("log", "").equals("1")) {
-                        Intent intent = new Intent(v.getContext(), JadwalMakanActivity.class);
-                        startActivity(intent);
+
+                        if(!spref.getString("fromHome","").equals(null) && spref.getString("fromHome","").equals("1")){
+                            editor = spref.edit();
+                            editor.putString("fromHome", "");
+                            editor.putString("log", "1");
+                            editor.commit();
+                            Intent intent = new Intent(v.getContext(), ProfileActivity.class);
+                            finish();
+                            startActivity(intent);
+                        }
+                        else {
+                            Intent intent = new Intent(v.getContext(), JadwalMakanActivity.class);
+                            finish();
+                            startActivity(intent);
+                        }
                     } else {
+
                         Intent intent = new Intent(v.getContext(), HomeActivity.class);
+                        finish();
                         startActivity(intent);
                     }
                 }
             }
         });
     }
+//<<<<<<< HEAD
+    protected void onStart(){
+        super.onStart();
+        if (spref.getString("log","").equals("1")){
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            finish();
+            startActivity(intent);
+        }
+    }
+    public  double getBMR(){
+        spref = getSharedPreferences("my_data", 0);
+        editor = spref.edit();
+        double berat =Double.parseDouble(spref.getString("beratnow",""));
+        double tinggi = Double.parseDouble(spref.getString("tinggi",""));
+        int curent = Calendar.getInstance().get(Calendar.YEAR);
+        int year = myCalendar.get(Calendar.YEAR);
+        double massa = spref.getFloat("Aktivity",0);
+
+
+        double BMR=0;
+        String gen = spref.getString("gender", "");
+        if(gen.equals("Pria")){
+           BMR = 66.473 + (13.7516 * berat) + (5 * tinggi) - (6.755 * (curent-year) ) *  massa;
+
+        }
+        else{
+            BMR = 655.095 + (9.5634 * berat) + (1.8496 * tinggi )- (4.6756 *(curent-year) * massa) ;
+        }
+        editor.putFloat("BMR", (float)BMR);
+        editor.commit();
+        return BMR;
+
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                //System.out.println("Mausk");
+                //Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                this.finish();
+                //startActivity(intent);
+                return true;
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+//=======
+//>>>>>>> refs/remotes/origin/master
 }
