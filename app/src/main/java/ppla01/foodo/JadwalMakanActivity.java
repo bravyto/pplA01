@@ -60,14 +60,20 @@ public class JadwalMakanActivity extends AppCompatActivity {
         scheduleClient.doBindService();
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
 
         spref = getSharedPreferences("my_data", 0);
         if (spref.getString("log", "").equals("1")) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            setTitle("Edit Eat Reminder");
+        } else {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
+        setTitle("Set Eat Reminder");
 
-        setTitle("Edit Eat Reminder");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        getSupportActionBar().setIcon(R.mipmap.ic_actionbaricon);
 
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
@@ -84,7 +90,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
                 editor = spref.edit();
                 editor.putString("log", "1");
                 editor.commit();
-                Intent i = new Intent(JadwalMakanActivity.this, HomeActivity.class);
+                Intent i = new Intent(JadwalMakanActivity.this, Main2Activity.class);
                 startActivity(i);
             }
         });

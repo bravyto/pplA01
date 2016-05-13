@@ -96,7 +96,10 @@ public class ProfileActivity extends AppCompatActivity {
         beratnowv.setText(beratnow + " kg");
 
         TextView genderv = (TextView) findViewById(R.id.gender);
-        genderv.setText(gender);
+        if(gender.equals("Pria"))
+            genderv.setText("Male");
+        else
+            genderv.setText("Female");
 
         TextView aktivitas= (TextView) findViewById(R.id.activity);
         aktivitas.setText(aktivitasnya);
