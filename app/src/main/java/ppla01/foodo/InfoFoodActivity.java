@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,8 +24,10 @@ public class InfoFoodActivity extends AppCompatActivity {
     Button addFood ;
     Bundle extras;
     Intent intent;
+    EditText edit1;
     String foodName,calories, kalori;
     SharedPreferences spref;
+    double portion =1;
     SharedPreferences.Editor editor;
     ArrayList<String> listPagi = new ArrayList<>();
     ArrayList<String> listSiang = new ArrayList<>();
@@ -70,6 +73,8 @@ public class InfoFoodActivity extends AppCompatActivity {
         TextView textV6 = (TextView) findViewById(R.id.theSugar);
         TextView textV7 = (TextView) findViewById(R.id.theCalcium);
         TextView textV8 = (TextView) findViewById(R.id.theChole);
+        edit1 = (EditText) findViewById(R.id.inputPortion);
+
         textV1.setText(foodName);
         textV1.setTextSize(26);
         textV2.setText(calories);
@@ -87,7 +92,9 @@ public class InfoFoodActivity extends AppCompatActivity {
                 spref = getApplicationContext().getSharedPreferences("my_data", 0);
                 editor = spref.edit();
                 String jenis = spref.getString("jenis", "");
-                double caloriUpdate = Double.parseDouble(kalori);
+                String thePortion = edit1.getText().toString();
+                portion = Double.parseDouble(thePortion);
+                double caloriUpdate = Double.parseDouble(kalori) * portion;
 
                 AddFoodActivity addFoodActivity = new AddFoodActivity();
                 Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
