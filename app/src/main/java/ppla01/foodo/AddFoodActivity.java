@@ -111,7 +111,7 @@ public class AddFoodActivity extends AppCompatActivity {
         sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
 
         TextView consume = (TextView) findViewById(R.id.judul);
-        consume.setText("Consumed : "+ (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+ " kal"));
+        consume.setText("Consumed : "+ (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+ spref.getFloat        ("kaloriMalam",0)+ " kal"));
         TextView kurang = (TextView) findViewById(R.id.tampil);
         if(sisa < 0){
             kurang.setText("Excess :  "+ ((-1) *sisa) + "  from " + bmr);
