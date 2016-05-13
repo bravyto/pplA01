@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -84,13 +85,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
         spref = getSharedPreferences("my_data", 0);
         if (spref.getString("log", "").equals("1")) {
+            setTitle("Edit Profile Info");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } else {
+            setTitle("Input Profile Info");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
 
-        setTitle("Edit Profile Info");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        getSupportActionBar().setIcon(R.mipmap.ic_actionbaricon);
+
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
@@ -107,22 +115,30 @@ public class MainActivity extends AppCompatActivity {
                 if (parent.getSelectedItem().toString().equals("Low Activity")) {
                     indeksMassa = 1.2;
                     Activity = "Low Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Light Activity")) {
+                else if (Aktivitas.getSelectedItem().toString().equals("Light Activity")) {
                     indeksMassa = 1.375;
                     Activity = "Light Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Moderate Activity")) {
+                else if (Aktivitas.getSelectedItem().toString().equals("Moderate Activity")) {
                     indeksMassa = 1.55;
                     Activity = "Moderate Activity";
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Active Activity")) {
+                else if (Aktivitas.getSelectedItem().toString().equals("Active Activity")) {
                     indeksMassa = 1.725;
                     Activity ="Active Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
                 }
-                if (Aktivitas.getSelectedItem().toString().equals("Extreme Activity")) {
+                else {
                     indeksMassa = 1.9;
                     Activity = "Extreme Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
                 }
             }
 
@@ -149,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
             pria.setChecked(true);
         }
 
-        massa = spref.getFloat("Aktivity",0);
+//        massa = spref.getFloat("Aktivity",0);
         String aktivitas = spref.getString("Activity", "");
         if(aktivitas.equals("Low Activity")){
             Aktivitas.setSelection(0);
@@ -200,10 +216,12 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString("umur", birthdate);
                 editor.putString("beratnow", beratnow);
                 editor.putString("gender", gender);
-                editor.putFloat("Aktivity",(float)indeksMassa);
-                editor.putString("Activity",Activity);
+                editor.putFloat("Aktivity", (float) indeksMassa);
+                editor.putString("Activity", Activity);
+                editor.commit();
 
                 if (valid) {
+                    massa = spref.getFloat("Aktivity",0);
                     double berat = 0.0;
                     if(!spref.getString("beratnow", "").equals(""))
                         berat = Double.parseDouble(spref.getString("beratnow", ""));
@@ -230,14 +248,76 @@ public class MainActivity extends AppCompatActivity {
 //                    Toast.makeText(v.getContext(), "indeksmassa adalah "+ spref.getFloat("Aktivity",0),Toast.LENGTH_SHORT).show();
 
                     if (!spref.getString("log", "").equals("1")) {
-                        Intent intent = new Intent(v.getContext(), JadwalMakanActivity.class);
-                        startActivity(intent);
+
+                        if(!spref.getString("fromHome","").equals(null) && spref.getString("fromHome","").equals("1")){
+                            editor = spref.edit();
+                            editor.putString("fromHome", "");
+                            editor.putString("log", "1");
+                            editor.commit();
+                            Intent intent = new Intent(v.getContext(), ProfileActivity.class);
+                            finish();
+                            startActivity(intent);
+                        }
+                        else {
+                            Intent intent = new Intent(v.getContext(), JadwalMakanActivity.class);
+                            finish();
+                            startActivity(intent);
+                        }
                     } else {
-                        Intent intent = new Intent(v.getContext(), HomeActivity.class);
+
+                        Intent intent = new Intent(v.getContext(), Main2Activity.class);
+                        finish();
                         startActivity(intent);
                     }
                 }
             }
         });
     }
+//<<<<<<< HEAD
+    protected void onStart(){
+        super.onStart();
+    }
+    public  double getBMR(){
+        spref = getSharedPreferences("my_data", 0);
+        editor = spref.edit();
+        double berat =Double.parseDouble(spref.getString("beratnow",""));
+        double tinggi = Double.parseDouble(spref.getString("tinggi",""));
+        int curent = Calendar.getInstance().get(Calendar.YEAR);
+        int year = myCalendar.get(Calendar.YEAR);
+        double massa = spref.getFloat("Aktivity",0);
+
+
+        double BMR=0;
+        String gen = spref.getString("gender", "");
+        if(gen.equals("Pria")){
+           BMR = 66.473 + (13.7516 * berat) + (5 * tinggi) - (6.755 * (curent-year) ) *  massa;
+
+        }
+        else{
+            BMR = 655.095 + (9.5634 * berat) + (1.8496 * tinggi )- (4.6756 *(curent-year) * massa) ;
+        }
+        editor.putFloat("BMR", (float)BMR);
+        editor.commit();
+        return BMR;
+
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                //System.out.println("Mausk");
+                //Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                this.finish();
+                //startActivity(intent);
+                return true;
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+//=======
+//>>>>>>> refs/remotes/origin/master
 }

@@ -46,12 +46,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
-        editor = spref.edit();
 
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
-
-        setTitle("FooDo");
+//        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+//        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+//
+//        setTitle("FooDo");
 
 //        FragmentManager fragmentManager = getFragmentManager();
 //        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -75,6 +74,7 @@ public class HomeActivity extends AppCompatActivity {
 //                fragmentTransaction.replace(R.id.fragment_container,profileFragment);
 //                fragmentTransaction.commit();
 
+
                 Intent i = new Intent(HomeActivity.this, ProfileActivity.class);
                 startActivity(i);
             }
@@ -89,6 +89,19 @@ public class HomeActivity extends AppCompatActivity {
 //                fragmentTransaction.replace(R.id.fragment_container,setAlarmFragment);
 //                fragmentTransaction.commit();
                 Intent i = new Intent(HomeActivity.this, JadwalMakanActivity.class);
+                startActivity(i);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                FragmentManager fragmentManager = getFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                SetAlarmFragment setAlarmFragment = new SetAlarmFragment();
+//                fragmentTransaction.replace(R.id.fragment_container,setAlarmFragment);
+//                fragmentTransaction.commit();
+                Intent i = new Intent(HomeActivity.this, Main2Activity.class);
                 startActivity(i);
             }
         });
@@ -120,6 +133,10 @@ public class HomeActivity extends AppCompatActivity {
 //        });
     }
 
+//<<<<<<< HEAD
+    public void onBackPressed() {
+        finish();
+    }
     protected void onStart(){
         super.onStart();
         if (!spref.getString("log","").equals("1")){

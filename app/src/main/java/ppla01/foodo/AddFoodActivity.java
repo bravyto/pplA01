@@ -34,7 +34,9 @@ public class AddFoodActivity extends AppCompatActivity {
     private ArrayAdapter<String> adapterLunch;
     private ArrayAdapter<String> adapterDinner;
     SharedPreferences spref;
-    private static float kalori = 0;
+    private static float kaloriPagi ;
+    private static float kaloriSiang ;
+    private static float kaloriMalam ;
     SharedPreferences.Editor editor;
     float sisa;
 
@@ -54,20 +56,40 @@ public class AddFoodActivity extends AppCompatActivity {
         this.arrayListDinner.add(item);
     }
 
-    public void AddKalori(double kaloriFood){
-        this.kalori =  this.kalori + (float)kaloriFood;
+    public void AddKaloriPagi(double kaloriFood){
+        this.kaloriPagi =  this.kaloriPagi + (float)kaloriFood;
     }
 
-    public double getKalori(){
-        return this.kalori;
+    public void AddKaloriSiang(double kaloriFood){
+        this.kaloriSiang =  this.kaloriSiang + (float)kaloriFood;
     }
+
+    public void AddKaloriMalam (double kaloriFood){
+        this.kaloriMalam =  this.kaloriMalam + (float)kaloriFood;
+    }
+
+    public double getKaloriPagi(){
+        return this.kaloriPagi;
+    }
+
+    public double getKaloriSiang(){
+        return this.kaloriSiang;
+    }
+
+    public double getKaloriMalam(){
+
+        return this.kaloriMalam;
+    }
+
     public ArrayList<String> getListBreakfast(){
+
         return this.arrayListBreakfast;
     }
     public ArrayList<String> getListLunch(){
         return this.arrayListLunch;
     }
     public ArrayList<String> getListDinner(){
+
         return this.arrayListDinner;
     }
 
@@ -86,10 +108,10 @@ public class AddFoodActivity extends AppCompatActivity {
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
 
         float bmr= spref.getFloat("BMR", 0);
-        sisa = bmr - spref.getFloat("kalori",0);
+        sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
 
         TextView consume = (TextView) findViewById(R.id.judul);
-        consume.setText("Consumed : "+ spref.getFloat("kalori",0)+ " kal");
+        consume.setText("Consumed : "+ (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+ spref.getFloat        ("kaloriMalam",0)+ " kal"));
         TextView kurang = (TextView) findViewById(R.id.tampil);
         if(sisa < 0){
             kurang.setText("Excess :  "+ ((-1) *sisa) + "  from " + bmr);
@@ -190,8 +212,5 @@ public class AddFoodActivity extends AppCompatActivity {
             }
 
         });
-
     }
-
-
 }

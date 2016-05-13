@@ -23,7 +23,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/imageView22"
                     android:layout_marginBottom="20dp"
-                    android:src="@drawable/ikon6newpensil" />
+                    android:src="@drawable/ikon6_new" />
 
                 <LinearLayout
                     android:state_pressed="true"
@@ -130,7 +130,7 @@
                     android:state_pressed="true"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:background="#ffffff"
+                    android:background="@drawable/dinner_action"
                     android:layout_height="wrap_content"
                     android:id="@+id/dinnerClick"
                     android:onClick="setDinner"
