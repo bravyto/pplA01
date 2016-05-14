@@ -177,6 +177,57 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:state_pressed="true"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/dinner_action"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/setClick"
+                    android:onClick="setReset"
+                    android:clickable="true"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:elevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight=".6"
+                        android:layout_gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_weight=".2"
+                            android:id="@+id/imageView91"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/hamburger" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".6"
+                            android:text="Reset"
+                            android:id="@+id/textView31"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="18dp"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".6"
+                        android:text="00:00"
+                        android:id="@+id/reset"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="40dp" />
+
+                </LinearLayout>
+
                 <Button
                     style="@style/AppTheme"
                     android:layout_width="match_parent"

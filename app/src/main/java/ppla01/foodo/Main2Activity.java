@@ -38,6 +38,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionMenu;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.DataPoint;
@@ -72,16 +73,22 @@ public class Main2Activity extends AppCompatActivity {
     private TabLayout tabLayout;
     private Menu mOptionsMenu;
 
+    FloatingActionMenu fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main2);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        setTitle("FooDo");
+        setTitle("Home");
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        getSupportActionBar().setIcon(R.mipmap.ic_actionbaricon);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -101,14 +108,47 @@ public class Main2Activity extends AppCompatActivity {
         for(int i = 1; i < 4; i++) {
             tabLayout.getTabAt(i).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
         }
-        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab = (FloatingActionMenu) findViewById(R.id.menu);
+
+        com.github.clans.fab.FloatingActionButton fab1 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item);
+        com.github.clans.fab.FloatingActionButton fab2 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item1);
+        com.github.clans.fab.FloatingActionButton fab3 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item2);
+
+        fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Main2Activity.this, AddFoodActivity.class);
+
+                SharedPreferences spref = getApplicationContext().getSharedPreferences("my_data", 0);
+                SharedPreferences.Editor editor = spref.edit();
+                editor.putString("jenis", "breakfast");
+                editor.commit();
+                Intent intent = new Intent(Main2Activity.this, FoodActivity.class);
                 startActivity(intent);
             }
         });
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences spref = getApplicationContext().getSharedPreferences("my_data", 0);
+                SharedPreferences.Editor editor = spref.edit();
+                editor.putString("jenis", "lunch");
+                editor.commit();
+                Intent intent = new Intent(Main2Activity.this, FoodActivity.class);
+                startActivity(intent);
+            }
+        });
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences spref = getApplicationContext().getSharedPreferences("my_data", 0);
+                SharedPreferences.Editor editor = spref.edit();
+                editor.putString("jenis", "dinner");
+                editor.commit();
+                Intent intent = new Intent(Main2Activity.this, FoodActivity.class);
+                startActivity(intent);
+            }
+        });
+
         tabLayout.setOnTabSelectedListener(
                 new TabLayout.ViewPagerOnTabSelectedListener(mViewPager) {
 
@@ -121,13 +161,22 @@ public class Main2Activity extends AppCompatActivity {
                         int tabNo = tabLayout.getSelectedTabPosition();
                         mOptionsMenu.clear();
                         fab.setVisibility(View.INVISIBLE);
-                        if (tabNo == 3)
+                        if (tabNo == 3) {
                             inflater.inflate(R.menu.profile_menu, mOptionsMenu);
-                        else if (tabNo == 2)
+                            setTitle("Profile");
+                        }
+                        else if (tabNo == 2) {
                             inflater.inflate(R.menu.reminder_menu, mOptionsMenu);
-                        else {
+                            setTitle("Reminder");
+                        }
+                        else if (tabNo == 1) {
                             fab.setVisibility(View.VISIBLE);
                             inflater.inflate(R.menu.menu_main2, mOptionsMenu);
+                            setTitle("Today's Food");
+                        }
+                        else {
+                            inflater.inflate(R.menu.menu_main2, mOptionsMenu);
+                            setTitle("Home");
                         }
                     }
 
@@ -160,8 +209,16 @@ public class Main2Activity extends AppCompatActivity {
         return true;
     }
 
+    protected void onStart(){
+        super.onStart();
 
-
+        SharedPreferences spref = getApplicationContext().getSharedPreferences("my_data", 0);
+        if (!spref.getString("log","").equals("1")){
+            Intent intent = new Intent(Main2Activity.this, MainActivity.class);
+            finish();
+            startActivity(intent);
+        }
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

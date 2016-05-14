@@ -85,13 +85,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
         spref = getSharedPreferences("my_data", 0);
         if (spref.getString("log", "").equals("1")) {
+            setTitle("Edit Profile Info");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } else {
+            setTitle("Input Profile Info");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
 
-        setTitle("Edit Profile Info");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        getSupportActionBar().setIcon(R.mipmap.ic_actionbaricon);
+
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
@@ -258,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     } else {
 
-                        Intent intent = new Intent(v.getContext(), HomeActivity.class);
+                        Intent intent = new Intent(v.getContext(), Main2Activity.class);
                         finish();
                         startActivity(intent);
                     }
@@ -269,11 +276,6 @@ public class MainActivity extends AppCompatActivity {
 //<<<<<<< HEAD
     protected void onStart(){
         super.onStart();
-        if (spref.getString("log","").equals("1")){
-            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-            finish();
-            startActivity(intent);
-        }
     }
     public  double getBMR(){
         spref = getSharedPreferences("my_data", 0);
