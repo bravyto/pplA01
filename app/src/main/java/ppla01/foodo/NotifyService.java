@@ -10,17 +10,22 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
 public class NotifyService extends Service{
     Intent intent;
     String message;
+    SharedPreferences spref;
+    SharedPreferences.Editor editor;
+    AddFoodActivity food;
     /**
      * Class for clients to access
      */
@@ -50,6 +55,19 @@ public class NotifyService extends Service{
         //Log.i("NotifyService", "weleeeh"+ AlarmTask.code);
 
         mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        if(AlarmTask.code == 3) {
+            spref = getApplicationContext().getSharedPreferences("my_data", 0);
+            food = new AddFoodActivity();
+            editor = spref.edit();
+            message = "Reset data";
+            Toast.makeText(NotifyService.this, "Notification reset: " + spref.getFloat("kalori",0), Toast.LENGTH_LONG).show();
+            editor.putStringSet("SetSiang", null);
+            editor.putStringSet("SetPagi", null);
+            editor.putStringSet("SetMalam", null);
+            editor.commit();
+            food.setNull();
+        }
 
 
     }
@@ -88,6 +106,10 @@ public class NotifyService extends Service{
         if(AlarmTask.code == 2) {
             message = "Let's go for dinner!";
         }
+        if(AlarmTask.code == 3){
+            message = "Reset Data!";
+        }
+
 
 
         Intent resultIntent = new Intent(this, MenuActivity.class);

@@ -55,4 +55,6 @@ public class AlarmTask implements Runnable {
         // Sets an alarm - note this alarm will be lost if the phone is turned off and on again
         am.setRepeating(AlarmManager.RTC, date.getTimeInMillis(),24*60*60*1000, pendingIntent);
     }
+
+
 }
