@@ -72,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save"
-        android:id="@+id/button"
+        android:id="@+id/submitEvaluation"
         android:textColor="#ffffff"
         android:backgroundTint="#1565C0"
         android:layout_marginTop="20dp" />

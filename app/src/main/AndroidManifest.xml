@@ -82,6 +82,10 @@
             android:label="@string/title_activity_main2"
             android:theme="@style/AppThemeTab" >
         </activity>
+        <activity
+            android:name=".WeekEvaluationActivity"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

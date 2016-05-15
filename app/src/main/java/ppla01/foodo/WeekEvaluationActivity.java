@@ -40,7 +40,7 @@ public class WeekEvaluationActivity extends AppCompatActivity {
 
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setTitle("Week Evaluation");
@@ -54,7 +54,7 @@ public class WeekEvaluationActivity extends AppCompatActivity {
         user_height.setText(spref.getString("tinggi", ""), null);
         user_weight.setText(spref.getString("beratnow", ""), null);
 
-        submit_evaluation = (Button) findViewById(R.id.submitProfile);
+        submit_evaluation = (Button) findViewById(R.id.submitEvaluation);
         submit_evaluation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +69,9 @@ public class WeekEvaluationActivity extends AppCompatActivity {
                     valid = false;
                 }
                 if (valid) {
+
+                    editor.putString("tinggi", tinggi);
+                    editor.putString("beratnow", beratnow);
                     Float massa = spref.getFloat("Aktivity",0);
                     double berat = 0.0;
                     if(!spref.getString("beratnow", "").equals(""))
