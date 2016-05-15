@@ -85,10 +85,6 @@ public class Main2Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         setTitle("Home");
-
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        getSupportActionBar().setIcon(R.mipmap.ic_actionbaricon);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -109,6 +105,8 @@ public class Main2Activity extends AppCompatActivity {
             tabLayout.getTabAt(i).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
         }
         fab = (FloatingActionMenu) findViewById(R.id.menu);
+        fab.setVisibility(View.INVISIBLE);
+        fab.hideMenuButton(true);
 
         com.github.clans.fab.FloatingActionButton fab1 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item);
         com.github.clans.fab.FloatingActionButton fab2 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item1);
@@ -117,7 +115,7 @@ public class Main2Activity extends AppCompatActivity {
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                fab.close(true);
                 SharedPreferences spref = getApplicationContext().getSharedPreferences("my_data", 0);
                 SharedPreferences.Editor editor = spref.edit();
                 editor.putString("jenis", "breakfast");
@@ -129,6 +127,7 @@ public class Main2Activity extends AppCompatActivity {
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                fab.close(true);
                 SharedPreferences spref = getApplicationContext().getSharedPreferences("my_data", 0);
                 SharedPreferences.Editor editor = spref.edit();
                 editor.putString("jenis", "lunch");
@@ -140,6 +139,7 @@ public class Main2Activity extends AppCompatActivity {
         fab3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                fab.close(true);
                 SharedPreferences spref = getApplicationContext().getSharedPreferences("my_data", 0);
                 SharedPreferences.Editor editor = spref.edit();
                 editor.putString("jenis", "dinner");
@@ -160,21 +160,24 @@ public class Main2Activity extends AppCompatActivity {
                         MenuInflater inflater = getMenuInflater();
                         int tabNo = tabLayout.getSelectedTabPosition();
                         mOptionsMenu.clear();
-                        fab.setVisibility(View.INVISIBLE);
                         if (tabNo == 3) {
+                            fab.hideMenuButton(true);
                             inflater.inflate(R.menu.profile_menu, mOptionsMenu);
                             setTitle("Profile");
                         }
                         else if (tabNo == 2) {
+                            fab.hideMenuButton(true);
                             inflater.inflate(R.menu.reminder_menu, mOptionsMenu);
                             setTitle("Reminder");
                         }
                         else if (tabNo == 1) {
                             fab.setVisibility(View.VISIBLE);
+                            fab.showMenuButton(true);
                             inflater.inflate(R.menu.menu_main2, mOptionsMenu);
                             setTitle("Today's Food");
                         }
                         else {
+                            fab.hideMenuButton(true);
                             inflater.inflate(R.menu.menu_main2, mOptionsMenu);
                             setTitle("Home");
                         }

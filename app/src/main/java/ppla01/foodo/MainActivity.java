@@ -95,10 +95,6 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        getSupportActionBar().setIcon(R.mipmap.ic_actionbaricon);
-
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 

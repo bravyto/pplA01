@@ -75,9 +75,6 @@ public class JadwalMakanActivity extends AppCompatActivity {
         }
         setTitle("Set Eat Reminder");
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        getSupportActionBar().setIcon(R.mipmap.ic_actionbaricon);
 
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();

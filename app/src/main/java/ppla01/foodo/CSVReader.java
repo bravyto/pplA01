@@ -1,6 +1,7 @@
 package ppla01.foodo;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -46,6 +47,7 @@ public class CSVReader extends ArrayAdapter<FoodDetail> {
 
     private void loadArrayFromFile(){
         try {
+            int counter =0;
             CharSequence cs2 = message;
             InputStream is = ctx.getAssets().open("DataBaruMakanan.csv");
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -72,10 +74,17 @@ public class CSVReader extends ArrayAdapter<FoodDetail> {
                 //cur.setCholestrol(RowData[9]);
 
                 if (cur.getName().toLowerCase().contains(cs2)) {
+                    counter++;
                     this.add(cur);
                 }
 
 
+            }
+            Log.d("itung","" + counter);
+            if (counter ==0) {
+                FoodDetail cur2 = new FoodDetail();
+                cur2.setName("No matches found");
+                this.add(cur2);
             }
         } catch (IOException e) {
             e.printStackTrace();
