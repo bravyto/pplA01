@@ -49,10 +49,6 @@ public class InfoFoodActivity extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        getSupportActionBar().setIcon(R.mipmap.ic_actionbaricon);
-
         setTitle("Food Information");
 
         addFood = (Button)findViewById(R.id.addFood);
