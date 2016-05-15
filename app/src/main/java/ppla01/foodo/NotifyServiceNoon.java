@@ -114,7 +114,7 @@ public class NotifyServiceNoon extends Service {
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.food_icon2)
                         .setContentTitle("Let's eat")
-                        .setContentText("Makan siang coy");
+                        .setContentText("It's time for Lunch.. Don't miss it!");
 
         int mNotificationId = 002;
 

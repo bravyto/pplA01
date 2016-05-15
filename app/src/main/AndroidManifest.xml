@@ -55,6 +55,8 @@
         <service android:name=".NotifyService" />
         <service android:name=".ScheduleServiceNoon" />
         <service android:name=".NotifyServiceNoon" />
+        <service android:name=".ScheduleServiceNight" />
+        <service android:name=".NotifyServiceNight" />
 
         <activity
             android:name=".FoodActivity"
