@@ -53,6 +53,8 @@
 
         <service android:name=".ScheduleService" />
         <service android:name=".NotifyService" />
+        <service android:name=".ScheduleServiceNoon" />
+        <service android:name=".NotifyServiceNoon" />
 
         <activity
             android:name=".FoodActivity"

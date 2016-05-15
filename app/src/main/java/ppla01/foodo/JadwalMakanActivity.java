@@ -36,6 +36,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     // This is a handle so that we can call methods on our service
     private ScheduleClient scheduleClient;
+    private ScheduleClientNoon scheduleClientNoon;
     // This is the date picker used to select the date for our notification
     // private DatePicker picker;
     /**
@@ -62,6 +63,9 @@ public class JadwalMakanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_jadwal_makan);
         scheduleClient = new ScheduleClient(this);
         scheduleClient.doBindService();
+
+        scheduleClientNoon = new ScheduleClientNoon(this);
+        scheduleClientNoon.doBindServiceNoon();
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
@@ -249,7 +253,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
 
 
             // Ask our service to set an alarm for that date, this activity talks to the client that talks to the service
-            scheduleClient.setAlarmForNotification(d,1);
+            scheduleClientNoon.setAlarmForNotificationNoon(d,1);
             // scheduleClient.setAlarmForNotification(d,1);
 
 
@@ -360,8 +364,12 @@ public class JadwalMakanActivity extends AppCompatActivity {
     public void onStop() {
         // When our activity is stopped ensure we also stop the connection to the service
         // this stops us leaking our activity into the system *bad*
-        if(scheduleClient != null)
+        if(scheduleClient != null) {
             scheduleClient.doUnbindService();
+        }
+        if (scheduleClientNoon != null) {
+            scheduleClientNoon.doUnbindServiceNoon();
+        }
         super.onStop();
 
     }
