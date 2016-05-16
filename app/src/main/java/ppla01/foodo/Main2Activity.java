@@ -38,6 +38,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.DataPoint;
@@ -386,43 +393,97 @@ public class Main2Activity extends AppCompatActivity {
             else {
                 rootView = inflater.inflate(R.layout.fragment_main2, container, false);
                 spref = getContext().getSharedPreferences("my_data", 0);
-                GraphView line_graph = (GraphView) rootView.findViewById(R.id.graph);
-                line_graph.getViewport().setScrollable(true);
-                line_graph.getViewport().setScalable(true);
-                // set manual X bounds
-                line_graph.getViewport().setXAxisBoundsManual(true);
-                line_graph.getViewport().setMinX(0);
-                line_graph.getViewport().setMaxX(5);
 
-                // set manual Y bounds
-                line_graph.getViewport().setYAxisBoundsManual(true);
-                line_graph.getViewport().setMinY(0);
-                line_graph.getViewport().setMaxY(99);
-                int size = 99;
+                PieChart pieChart = (PieChart) rootView.findViewById(R.id.chart);
+// creating data values
+                ArrayList<Entry> entries = new ArrayList<>();
+                entries.add(new Entry(4f, 0));
+                entries.add(new Entry(8f, 1));
+                entries.add(new Entry(6f, 2));
+                entries.add(new Entry(12f, 3));
+                entries.add(new Entry(18f, 4));
+                entries.add(new Entry(9f, 5));
 
-                //Ini tingaal tambah array of tanggal sama array of konsumsi kalori user
-                //Sumber graph bisa liat di
-                // https://www.numetriclabz.com/android-line-graph-using-graphview-library-tutorial/
-                // http://www.android-graphview.org/documentation
-                DataPoint [] values = new DataPoint[size];
-                for (int i=0; i<size; i++) {
-                    DataPoint v = new DataPoint(i, i);
-                    values[i] = v;
-                }
+                PieDataSet dataset = new PieDataSet(entries, "# of Calls");
 
-                LineGraphSeries<DataPoint> line_series = new LineGraphSeries<DataPoint>(values);
-                line_graph.addSeries(line_series);
-                line_series.setDrawDataPoints(true);
-                line_series.setDataPointsRadius(10);
-                StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(line_graph);
-                //staticLabelsFormatter.setHorizontalLabels(new String[] {"Jan", "Feb", "March","April","June","July"});
-                line_graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
-                line_series.setOnDataPointTapListener(new OnDataPointTapListener() {
-                    @Override
-                    public void onTap(Series series, DataPointInterface dataPoint) {
-                        //Toast.makeText(Main2Activity.this, "Series: On Data Point clicked: " + dataPoint, Toast.LENGTH_SHORT).show();
-                    }
-                });
+                // creating labels
+                ArrayList<String> labels = new ArrayList<String>();
+                labels.add("January");
+                labels.add("February");
+                labels.add("March");
+                labels.add("April");
+                labels.add("May");
+                labels.add("June");
+
+                PieData data = new PieData(labels, dataset); // initialize Piedata
+
+                pieChart.setData(data);
+
+                pieChart.setDescription("Description");  // set the description
+
+//                GraphView line_graph = (GraphView) rootView.findViewById(R.id.graph);
+//                line_graph.getViewport().setScrollable(true);
+//                line_graph.getViewport().setScalable(true);
+//                // set manual X bounds
+//                line_graph.getViewport().setXAxisBoundsManual(true);
+//                line_graph.getViewport().setMinX(0);
+//                line_graph.getViewport().setMaxX(5);
+//
+//                // set manual Y bounds
+//                line_graph.getViewport().setYAxisBoundsManual(true);
+//                line_graph.getViewport().setMinY(0);
+//                line_graph.getViewport().setMaxY(99);
+//                int size = 99;
+//
+//                //Ini tingaal tambah array of tanggal sama array of konsumsi kalori user
+//                //Sumber graph bisa liat di
+//                // https://www.numetriclabz.com/android-line-graph-using-graphview-library-tutorial/
+//                // http://www.android-graphview.org/documentation
+//                DataPoint [] values = new DataPoint[size];
+//                for (int i=0; i<size; i++) {
+//                    DataPoint v = new DataPoint(i, i);
+//                    values[i] = v;
+//                }
+//
+//                LineGraphSeries<DataPoint> line_series = new LineGraphSeries<DataPoint>(values);
+//                line_graph.addSeries(line_series);
+//                line_series.setDrawDataPoints(true);
+//                line_series.setDataPointsRadius(10);
+//                StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(line_graph);
+//                //staticLabelsFormatter.setHorizontalLabels(new String[] {"Jan", "Feb", "March","April","June","July"});
+//                line_graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+//                line_series.setOnDataPointTapListener(new OnDataPointTapListener() {
+//                    @Override
+//                    public void onTap(Series series, DataPointInterface dataPoint) {
+//                        //Toast.makeText(Main2Activity.this, "Series: On Data Point clicked: " + dataPoint, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+
+
+                LineChart lineChart = (LineChart) rootView.findViewById(R.id.graph);
+                // creating list of entry
+                ArrayList<Entry> entries_line = new ArrayList<>();
+                entries_line.add(new Entry(4f, 0));
+                entries_line.add(new Entry(8f, 1));
+                entries_line.add(new Entry(6f, 2));
+                entries_line.add(new Entry(2f, 3));
+                entries_line.add(new Entry(18f, 4));
+                entries_line.add(new Entry(9f, 5));
+
+                LineDataSet dataset_line = new LineDataSet(entries_line, "# of Calls");
+
+                // creating labels
+                ArrayList<String> labels_line = new ArrayList<String>();
+                labels_line.add("January");
+                labels_line.add("February");
+                labels_line.add("March");
+                labels_line.add("April");
+                labels_line.add("May");
+                labels_line.add("June");
+
+                LineData data_line = new LineData(labels_line, dataset_line);
+                lineChart.setData(data_line); // set the data and list of lables into chart
+                lineChart.setDescription("Description");  // set the description
 
 //                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             }
