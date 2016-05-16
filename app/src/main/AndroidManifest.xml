@@ -53,6 +53,10 @@
 
         <service android:name=".ScheduleService" />
         <service android:name=".NotifyService" />
+        <service android:name=".ScheduleServiceNoon" />
+        <service android:name=".NotifyServiceNoon" />
+        <service android:name=".ScheduleServiceNight" />
+        <service android:name=".NotifyServiceNight" />
 
         <activity
             android:name=".FoodActivity"
@@ -81,6 +85,10 @@
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppThemeTab" >
+        </activity>
+        <activity
+            android:name=".WeekEvaluationActivity"
+            android:theme="@style/AppTheme" >
         </activity>
     </application>
 

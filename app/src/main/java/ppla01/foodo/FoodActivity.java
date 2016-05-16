@@ -64,31 +64,33 @@ public class FoodActivity extends AppCompatActivity {
         mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
-                //Toast.makeText(v.getContext(), "Calories = " + cReader.getItem(pos).getCalories(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(FoodActivity.this, InfoFoodActivity.class);
-                String cal= cReader.getItem(pos).getCalories();
-                String fname=cReader.getItem(pos).getName();
+                if (cReader.getItem(pos).getCalories() != null) {
+                    //Toast.makeText(v.getContext(), "Calories = " + cReader.getItem(pos).getCalories(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(FoodActivity.this, InfoFoodActivity.class);
+                String cal = cReader.getItem(pos).getCalories();
+                String fname = cReader.getItem(pos).getName();
                 String vitc = cReader.getItem(pos).getVitc();
                 String protein = cReader.getItem(pos).getProtein();
                 String carbo = cReader.getItem(pos).getCarbo();
                 String water = cReader.getItem(pos).getWater();
-                String calcium=cReader.getItem(pos).getCalcium();
+                String calcium = cReader.getItem(pos).getCalcium();
                 //String chole=cReader.getItem(pos).getCholestrol();
                 String porsi = cReader.getItem(pos).getPorsi();
-                String beratMakanan= cReader.getItem(pos).getBeratMakanan();
+                String beratMakanan = cReader.getItem(pos).getBeratMakanan();
                 Bundle extras = new Bundle();
-                extras.putString(EXTRA_MESSAGE1,fname);
-                extras.putString(EXTRA_MESSAGE2,cal);
-                extras.putString(EXTRA_MESSAGE3,vitc);
-                extras.putString(EXTRA_MESSAGE4,protein);
-                extras.putString(EXTRA_MESSAGE5,carbo);
-                extras.putString(EXTRA_MESSAGE6,water);
-                extras.putString(EXTRA_MESSAGE7,calcium);
-                extras.putString(EXTRA_MESSAGE8,porsi);
-                extras.putString(EXTRA_MESSAGE9,beratMakanan);
+                extras.putString(EXTRA_MESSAGE1, fname);
+                extras.putString(EXTRA_MESSAGE2, cal);
+                extras.putString(EXTRA_MESSAGE3, vitc);
+                extras.putString(EXTRA_MESSAGE4, protein);
+                extras.putString(EXTRA_MESSAGE5, carbo);
+                extras.putString(EXTRA_MESSAGE6, water);
+                extras.putString(EXTRA_MESSAGE7, calcium);
+                extras.putString(EXTRA_MESSAGE8, porsi);
+                extras.putString(EXTRA_MESSAGE9, beratMakanan);
                 intent.putExtras(extras);
 
                 startActivity(intent);
+            }
 
             }
         });

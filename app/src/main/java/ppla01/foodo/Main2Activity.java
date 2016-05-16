@@ -220,6 +220,10 @@ public class Main2Activity extends AppCompatActivity {
             Intent intent = new Intent(Main2Activity.this, MainActivity.class);
             finish();
             startActivity(intent);
+        } else if (spref.getString("log","").equals("2")) {
+            Intent intent = new Intent(Main2Activity.this, WeekEvaluationActivity.class);
+            finish();
+            startActivity(intent);
         }
     }
     @Override
