@@ -132,7 +132,7 @@
                         <RadioButton
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Pria"
+                            android:text="Male"
                             android:id="@+id/pria"
                             android:layout_below="@+id/textView6"
                             android:layout_alignParentLeft="true"
@@ -143,7 +143,7 @@
                         <RadioButton
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Wanita"
+                            android:text="Female"
                             android:id="@+id/wanita"
                             android:layout_below="@+id/textView6"
                             android:layout_centerHorizontal="true"

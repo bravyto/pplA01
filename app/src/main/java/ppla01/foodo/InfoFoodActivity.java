@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,8 +24,10 @@ public class InfoFoodActivity extends AppCompatActivity {
     Button addFood ;
     Bundle extras;
     Intent intent;
+    EditText edit1;
     String foodName,calories, kalori;
     SharedPreferences spref;
+    double portion =1;
     SharedPreferences.Editor editor;
     ArrayList<String> listPagi = new ArrayList<>();
     ArrayList<String> listSiang = new ArrayList<>();
@@ -43,10 +46,10 @@ public class InfoFoodActivity extends AppCompatActivity {
         editor = spref.edit();
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        setTitle("Food Info");
+        setTitle("Food Information");
 
         addFood = (Button)findViewById(R.id.addFood);
         intent = getIntent();
@@ -59,7 +62,7 @@ public class InfoFoodActivity extends AppCompatActivity {
         String carbo = "Carbohydrat: " + extras.getString(FoodActivity.EXTRA_MESSAGE5);
         String water = "Water: " + extras.getString(FoodActivity.EXTRA_MESSAGE6);
         String calcium = "Calcium: " + extras.getString(FoodActivity.EXTRA_MESSAGE7);
-        String porsiAndBerat = "Porsi: " + extras.getString(FoodActivity.EXTRA_MESSAGE8) + " Berat: " + extras.getString(FoodActivity.EXTRA_MESSAGE9) + "(g)";
+        String porsiAndBerat = "Portion: " + extras.getString(FoodActivity.EXTRA_MESSAGE8) + " Weight: " + extras.getString(FoodActivity.EXTRA_MESSAGE9) + "(g)";
 
         kalori = extras.getString(FoodActivity.EXTRA_MESSAGE2);;
         TextView textV1 = (TextView) findViewById(R.id.nameOfFood);
@@ -70,6 +73,8 @@ public class InfoFoodActivity extends AppCompatActivity {
         TextView textV6 = (TextView) findViewById(R.id.theSugar);
         TextView textV7 = (TextView) findViewById(R.id.theCalcium);
         TextView textV8 = (TextView) findViewById(R.id.theChole);
+        edit1 = (EditText) findViewById(R.id.inputPortion);
+
         textV1.setText(foodName);
         textV1.setTextSize(26);
         textV2.setText(calories);
@@ -87,43 +92,49 @@ public class InfoFoodActivity extends AppCompatActivity {
                 spref = getApplicationContext().getSharedPreferences("my_data", 0);
                 editor = spref.edit();
                 String jenis = spref.getString("jenis", "");
-                double caloriUpdate = Double.parseDouble(kalori);
+                String thePortion = edit1.getText().toString();
 
-                AddFoodActivity addFoodActivity = new AddFoodActivity();
-                Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
-
-                if(jenis.equals("breakfast")){
-                    addFoodActivity.AddKaloriPagi(caloriUpdate);
-                    addFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kal)");
-                    listPagi = addFoodActivity.getListBreakfast();
-                    editor = spref.edit();
-                    setPagi.addAll(listPagi);
-                    editor.putStringSet("SetPagi", setPagi);
-                    editor.putFloat("kaloriPagi", (float) caloriUpdate + spref.getFloat("kaloriPagi",0) );
-                    editor.commit();
-
-                } else  if (jenis.equals("lunch")){
-                    addFoodActivity.AddKaloriSiang(caloriUpdate);
-                    addFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kal)");
-                    listSiang = addFoodActivity.getListLunch();
-                    editor = spref.edit();
-                    setSiang.addAll(listSiang);
-                    editor.putStringSet("SetSiang", setSiang);
-                    editor.putFloat("kaloriSiang", (float) caloriUpdate + spref.getFloat("kaloriSiang",0) );
-                    editor.commit();
+                if(thePortion.equals("")) {
+                    edit1.setError("Type your eat portion");
                 } else {
-                    addFoodActivity.AddKaloriMalam(caloriUpdate);
-                    addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kal)");
-                    listMalam = addFoodActivity.getListDinner();
-                    editor = spref.edit();
-                    setMalam.addAll(listMalam);
-                    editor.putStringSet("SetMalam", setMalam);
-                    editor.putFloat("kaloriMalam", (float) caloriUpdate + spref.getFloat("kaloriMalam",0) );
-                    editor.commit();
-                }
+                    portion = Double.parseDouble(thePortion);
+                    double caloriUpdate = Double.parseDouble(kalori) * portion;
+                    AddFoodActivity addFoodActivity = new AddFoodActivity();
+                    Intent intent = new Intent(v.getContext(), Main2Activity.class);
 
-                startActivity(intent);
-                finish();
+                    if (jenis.equals("breakfast")) {
+                        addFoodActivity.AddKaloriPagi(caloriUpdate);
+                        addFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kal)");
+                        listPagi = addFoodActivity.getListBreakfast();
+                        editor = spref.edit();
+                        setPagi.addAll(listPagi);
+                        editor.putStringSet("SetPagi", setPagi);
+                        editor.putFloat("kaloriPagi", (float) caloriUpdate + spref.getFloat("kaloriPagi", 0));
+                        editor.commit();
+
+                    } else if (jenis.equals("lunch")) {
+                        addFoodActivity.AddKaloriSiang(caloriUpdate);
+                        addFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kal)");
+                        listSiang = addFoodActivity.getListLunch();
+                        editor = spref.edit();
+                        setSiang.addAll(listSiang);
+                        editor.putStringSet("SetSiang", setSiang);
+                        editor.putFloat("kaloriSiang", (float) caloriUpdate + spref.getFloat("kaloriSiang", 0));
+                        editor.commit();
+                    } else {
+                        addFoodActivity.AddKaloriMalam(caloriUpdate);
+                        addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kal)");
+                        listMalam = addFoodActivity.getListDinner();
+                        editor = spref.edit();
+                        setMalam.addAll(listMalam);
+                        editor.putStringSet("SetMalam", setMalam);
+                        editor.putFloat("kaloriMalam", (float) caloriUpdate + spref.getFloat("kaloriMalam", 0));
+                        editor.commit();
+                    }
+
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 

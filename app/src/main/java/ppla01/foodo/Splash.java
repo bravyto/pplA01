@@ -40,7 +40,7 @@ public class Splash extends Activity{
                 iv4.startAnimation(an2);
                 iv5.startAnimation(an2);
                 finish();
-                Intent i = new Intent(Splash.this, HomeActivity.class);
+                Intent i = new Intent(Splash.this, Main2Activity.class);
                 startActivity(i);
             }
             @Override
