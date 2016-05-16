@@ -41,7 +41,7 @@ public class WeekEvaluationActivity extends AppCompatActivity {
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         setTitle("Week Evaluation");
 
@@ -91,6 +91,7 @@ public class WeekEvaluationActivity extends AppCompatActivity {
                         BMR = 655.095 + (9.5634 * berat) + (1.8496 * tinggi ) - (4.6756 * (curent - Double.parseDouble(separate[2])) * massa) ;
                     }
                     editor.putFloat("BMR", (float) BMR);
+                    editor.putString("log", "1");
                     editor.commit();
 
                     Intent intent = new Intent(v.getContext(), Main2Activity.class);
