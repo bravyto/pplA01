@@ -12,13 +12,25 @@
         <TextView android:id="@+id/section_label" android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
         </TextView>
-        <TextView
-            android:id="@+id/linetext"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:id="@+id/judul1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Histroy User"
-            android:textSize="16dp"
-            android:layout_marginBottom="20dp"/>
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/linetext2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Konsumsi kalori anda hari ini :"
+                android:textSize="16dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
 
 
         <LinearLayout
@@ -26,14 +38,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            >
+            android:layout_below="@+id/judul1">
+        >
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/chart"
                 android:layout_width="match_parent"
-                android:layout_height="300dp" />
+                android:layout_height="300dp"
+                android:layout_marginBottom="20dp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/lines"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
@@ -42,7 +57,8 @@
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/graph"
                 android:layout_width="match_parent"
-                android:layout_height="300dp" />
+                android:layout_height="300dp"
+                android:layout_marginTop="20dp" />
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>
