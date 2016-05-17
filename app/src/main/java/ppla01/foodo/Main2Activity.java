@@ -226,7 +226,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onStart();
 
         SharedPreferences spref = getApplicationContext().getSharedPreferences("my_data", 0);
-        if (!spref.getString("log","").equals("1")){
+        if (!spref.getString("log","").equals("1") && !spref.getString("log","").equals("2")){
             Intent intent = new Intent(Main2Activity.this, MainActivity.class);
             finish();
             startActivity(intent);

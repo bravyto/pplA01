@@ -90,6 +90,8 @@
             android:name=".WeekEvaluationActivity"
             android:theme="@style/AppTheme" >
         </activity>
+
+        <receiver android:name=".AlarmReciever"/>
     </application>
 
 </manifest>
