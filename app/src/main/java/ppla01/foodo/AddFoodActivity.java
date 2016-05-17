@@ -51,15 +51,54 @@ public class AddFoodActivity extends AppCompatActivity {
     }
 
     public void addArrayBreakfast(String item){
-        this.arrayListBreakfast.add(item);
+        boolean same = false;
+        for(int i = 0 ; i < this.arrayListBreakfast.size(); i++) {
+            if(this.arrayListBreakfast.get(i).substring(0, this.arrayListBreakfast.get(i).lastIndexOf("(") - 1).equals(item.substring(0, item.lastIndexOf("(") - 1))) {
+                same = true;
+                String word = this.arrayListBreakfast.get(i);
+                double calory1 = Double.parseDouble(word.substring(word.lastIndexOf("(") + 1, word.length() - 1 - 4));
+                double calory2 = Double.parseDouble(item.substring(item.lastIndexOf("(") + 1, item.length() - 1 - 4));
+                calory1 += calory2;
+                this.arrayListBreakfast.set(i, word.substring(0, word.lastIndexOf("(") - 1) + " (" + calory1 + " kal)");
+            }
+        }
+        if(!same)
+            this.arrayListBreakfast.add(item);
     }
 
     public void addArrayLunch(String item){
-        this.arrayListLunch.add(item);
+
+        boolean same = false;
+        for(int i = 0 ; i < this.arrayListLunch.size(); i++) {
+            if(this.arrayListLunch.get(i).substring(0, this.arrayListLunch.get(i).lastIndexOf("(") - 1).equals(item.substring(0, item.lastIndexOf("(") - 1))) {
+                same = true;
+                String word = this.arrayListLunch.get(i);
+                double calory1 = Double.parseDouble(word.substring(word.lastIndexOf("(") + 1, word.length() - 1 - 4));
+                double calory2 = Double.parseDouble(item.substring(item.lastIndexOf("(") + 1, item.length() - 1 - 4));
+                calory1 += calory2;
+                this.arrayListLunch.set(i, word.substring(0, word.lastIndexOf("(") - 1) + " (" + calory1 + " kal)");
+            }
+        }
+        if(!same)
+            this.arrayListLunch.add(item);
     }
 
     public void addArrayDinner(String item){
-        this.arrayListDinner.add(item);
+
+
+        boolean same = false;
+        for(int i = 0 ; i < this.arrayListDinner.size(); i++) {
+            if(this.arrayListDinner.get(i).substring(0, this.arrayListDinner.get(i).lastIndexOf("(") - 1).equals(item.substring(0, item.lastIndexOf("(") - 1))) {
+                same = true;
+                String word = this.arrayListDinner.get(i);
+                double calory1 = Double.parseDouble(word.substring(word.lastIndexOf("(") + 1, word.length() - 1 - 4));
+                double calory2 = Double.parseDouble(item.substring(item.lastIndexOf("(") + 1, item.length() - 1 - 4));
+                calory1 += calory2;
+                this.arrayListDinner.set(i, word.substring(0, word.lastIndexOf("(") - 1) + " (" + calory1 + " kal)");
+            }
+        }
+        if(!same)
+            this.arrayListDinner.add(item);
     }
 
     public void AddKaloriPagi(double kaloriFood){
