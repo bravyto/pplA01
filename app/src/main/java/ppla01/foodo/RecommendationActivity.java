@@ -11,32 +11,22 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 /**
  * Created by Bravyto on 29/04/2016.
  */
 public class RecommendationActivity extends AppCompatActivity {
-    protected Button edit_profile;
-    protected Button entry_food;
-    //<<<<<<< HEAD
-    String user_name="";
-    String user_birthdate="";
-    String user_weight="";
-    String user_target="";
-    String user_height="";
-    String user_gender="";
-    TextView update_name;
-    TextView update_birthdate;
-    TextView update_weight;
-    TextView update_target;
-    TextView update_height;
-    TextView update_gender;
-    //=======
+    protected Button recPagi;
+    protected Button recSiang;
+    protected Button recMalam;
+    protected RecReader rReader;
+    protected ListView theList;
     SharedPreferences spref;
     SharedPreferences.Editor editor;
-    String  nama, tinggi, umur, beratnow, beratThen,  gender,aktivitasnya;
-//>>>>>>> refs/remotes/origin/master
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,27 +43,54 @@ public class RecommendationActivity extends AppCompatActivity {
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
+        recPagi = (Button) findViewById(R.id.recBreakfast);
+        recSiang = (Button) findViewById(R.id.recLunch);
+        recMalam = (Button) findViewById(R.id.recDinner);
+
+        rReader = new RecReader(RecommendationActivity.this,-1, "abc");
+
+        recPagi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                rReader = new RecReader(RecommendationActivity.this,-1, "breakfast");
+                theList = (ListView)findViewById(R.id.thelist);
+                theList.setAdapter(rReader);
+
+
+            }
+
+
+        });
+
+        recSiang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rReader = new RecReader(RecommendationActivity.this,-1, "lunch");
+                theList = (ListView)findViewById(R.id.thelist);
+                theList.setAdapter(rReader);
+
+
+            }
+
+
+        });
+
+        recMalam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rReader = new RecReader(RecommendationActivity.this,-1, "dinner");
+                theList = (ListView)findViewById(R.id.thelist);
+                theList.setAdapter(rReader);
+
+
+            }
+
+
+        });
+
+
     }
-//
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.main, menu);
-//        return true;
-//    }
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//
-//            case R.id.action_favorite:
-//                Intent intent = new Intent(RecommendationActivity.this, MainActivity.class);
-//                startActivity(intent);
-//
-//            default:
-//                // If we got here, the user's action was not recognized.
-//                // Invoke the superclass to handle it.
-//                return super.onOptionsItemSelected(item);
-//
-//        }
-//    }
+
 }
