@@ -25,26 +25,11 @@
                 android:id="@+id/linetext2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Konsumsi kalori anda hari ini :"
+                android:text="Rekap Konsumsi Kalori"
                 android:textSize="16dp"
                 android:layout_marginBottom="20dp"
                 android:layout_gravity="center_horizontal" />
 
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/test"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_below="@+id/judul1">
-        >
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/chart"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginBottom="20dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -53,7 +38,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:gravity="top|center_vertical|fill_vertical"
-            android:layout_below="@+id/test">
+            android:layout_below="@+id/judul1">
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/graph"
                 android:layout_width="match_parent"
