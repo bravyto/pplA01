@@ -96,7 +96,7 @@ public class Main2Activity extends AppCompatActivity {
     FloatingActionMenu fab;
 
     private static float[] yData = new float[4];
-    private static String[] xData = { "Breakfast", "Lunch", "Dinner", "Sisa Kalori"};
+    private static String[] xData = { "Sisa Kalori", "Breakfast", "Lunch", "Dinner"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -299,6 +299,10 @@ public class Main2Activity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -463,7 +467,7 @@ public class Main2Activity extends AppCompatActivity {
 
                 float bmr= spref.getFloat("BMR", 0);
                 float sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
-
+                float lebih = sisa;
                 float totalKonsumsi = bmr-sisa;
 
 
@@ -485,11 +489,18 @@ public class Main2Activity extends AppCompatActivity {
                 pieChart.setRotationEnabled(true);
                 pieChart.setDescription("");
 
-                yData[0] = spref.getFloat("kaloriPagi",0);
-                yData[1] = spref.getFloat("kaloriSiang", 0);
-                yData[2] = spref.getFloat("kaloriMalam", 0);
-                yData[3] = sisa;
-
+                yData[1] = spref.getFloat("kaloriPagi",0);
+                yData[2] = spref.getFloat("kaloriSiang", 0);
+                yData[3] = spref.getFloat("kaloriMalam", 0);
+                if(sisa<0.0){
+                    lebih = totalKonsumsi - bmr;
+                    yData[0] = lebih;
+                    xData[0] = "Kelebihan Kalori";
+                }
+                else{
+                    yData[0] = sisa;
+                    xData[0] = "Sisa Kalori";
+                }
 
                 // add data
                 addData(pieChart);
@@ -516,9 +527,9 @@ public class Main2Activity extends AppCompatActivity {
                             }
                             else if(xData[e.getXIndex()].equalsIgnoreCase("dinner")){
 
-                                Set<String> setDinner = spref.getStringSet("SetDinner", null);
+                                Set<String> setMalam = spref.getStringSet("SetMalam", null);
 
-                                PlaceholderFragment.showToast(getContext(), setDinner, "Dinner");
+                                PlaceholderFragment.showToast(getContext(), setMalam, "Dinner");
 
                             }
                             else if(xData[e.getXIndex()].equalsIgnoreCase("sisa kalori")){
@@ -741,13 +752,17 @@ public class Main2Activity extends AppCompatActivity {
         private static void addData(PieChart pieChart) {
             ArrayList<Entry> yVals1 = new ArrayList<Entry>();
 
-            for (int i = 0; i < yData.length; i++)
-                yVals1.add(new Entry(yData[i], i));
+            for (int i = 0; i < yData.length; i++) {
+                if(yData[i] > 0)
+                    yVals1.add(new Entry(yData[i], i));
+            }
 
             ArrayList<String> xVals = new ArrayList<String>();
 
-            for (int i = 0; i < xData.length; i++)
-                xVals.add(xData[i]);
+            for (int i = 0; i < xData.length; i++) {
+                if(yData[i] > 0)
+                    xVals.add(xData[i]);
+            }
 
             // create pie data set
             PieDataSet dataSet = new PieDataSet(yVals1, "(dalam kalori)");
