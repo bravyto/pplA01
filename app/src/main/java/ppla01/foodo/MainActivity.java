@@ -113,13 +113,8 @@ public class MainActivity extends AppCompatActivity {
         Aktivitas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getSelectedItem().toString().equals("Low Activity")) {
-                    indeksMassa = 1.2;
-                    Activity = "Low Activity";
-                    editor.putFloat("Aktivity",(float)indeksMassa);
-                    editor.commit();
-                }
-                else if (Aktivitas.getSelectedItem().toString().equals("Light Activity")) {
+
+                if (Aktivitas.getSelectedItem().toString().equals("Light Activity")) {
                     indeksMassa = 1.375;
                     Activity = "Light Activity";
                     editor.putFloat("Aktivity",(float)indeksMassa);
@@ -128,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
                 else if (Aktivitas.getSelectedItem().toString().equals("Moderate Activity")) {
                     indeksMassa = 1.55;
                     Activity = "Moderate Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
                 }
                 else if (Aktivitas.getSelectedItem().toString().equals("Active Activity")) {
                     indeksMassa = 1.725;
@@ -135,9 +132,15 @@ public class MainActivity extends AppCompatActivity {
                     editor.putFloat("Aktivity",(float)indeksMassa);
                     editor.commit();
                 }
-                else {
+                else if (parent.getSelectedItem().toString().equals("Extreme Activity")) {
                     indeksMassa = 1.9;
                     Activity = "Extreme Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
+                }
+                else {
+                    indeksMassa = 1.2;
+                    Activity = "Low Activity";
                     editor.putFloat("Aktivity",(float)indeksMassa);
                     editor.commit();
                 }
@@ -168,8 +171,8 @@ public class MainActivity extends AppCompatActivity {
 
 //        massa = spref.getFloat("Aktivity",0);
         String aktivitas = spref.getString("Activity", "");
-        if(aktivitas.equals("Low Activity")){
-            Aktivitas.setSelection(0);
+        if(aktivitas.equals("Extreme Activity")){
+            Aktivitas.setSelection(4);
         } else if(aktivitas.equals("Light Activity")){
             Aktivitas.setSelection(1);
         }else if(aktivitas.equals("Moderate Activity")){
@@ -177,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         }else if(aktivitas.equals("Active Activity")){
             Aktivitas.setSelection(3);
         }else{
-            Aktivitas.setSelection(4);
+            Aktivitas.setSelection(0);
         }
         submit_profile = (Button) findViewById(R.id.submitProfile);
         submit_profile.setOnClickListener(new View.OnClickListener() {
