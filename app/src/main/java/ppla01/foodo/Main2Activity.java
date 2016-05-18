@@ -1,5 +1,7 @@
 package ppla01.foodo;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -38,7 +40,22 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//<<<<<<< HEAD
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+//=======
 import com.github.clans.fab.FloatingActionMenu;
+//>>>>>>> refs/remotes/origin/master
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.DataPoint;
@@ -74,6 +91,9 @@ public class Main2Activity extends AppCompatActivity {
     private Menu mOptionsMenu;
 
     FloatingActionMenu fab;
+
+    private static float[] yData = new float[4];
+    private static String[] xData = { "Breakfast", "Lunch", "Dinner", "Sisa Kalori"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -173,7 +193,7 @@ public class Main2Activity extends AppCompatActivity {
                         else if (tabNo == 1) {
                             fab.setVisibility(View.VISIBLE);
                             fab.showMenuButton(true);
-                            inflater.inflate(R.menu.menu_main2, mOptionsMenu);
+                            inflater.inflate(R.menu.main, mOptionsMenu);
                             setTitle("Today's Food");
                         }
                         else {
@@ -216,7 +236,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onStart();
 
         SharedPreferences spref = getApplicationContext().getSharedPreferences("my_data", 0);
-        if (!spref.getString("log","").equals("1")){
+        if (!spref.getString("log","").equals("1") && !spref.getString("log","").equals("2")){
             Intent intent = new Intent(Main2Activity.this, MainActivity.class);
             finish();
             startActivity(intent);
@@ -239,6 +259,9 @@ public class Main2Activity extends AppCompatActivity {
             startActivity(intent);
         }else if (id == R.id.action_edit_reminder) {
             Intent intent = new Intent(Main2Activity.this, JadwalMakanActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.action_favorite) {
+            Intent intent = new Intent(Main2Activity.this, RecommendationActivity.class);
             startActivity(intent);
         }
 
@@ -324,6 +347,8 @@ public class Main2Activity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView;
+
+
             if(getArguments().getInt(ARG_SECTION_NUMBER) == 4) {
                 rootView = inflater.inflate(R.layout.fragment_profile, container, false);
                 spref = getContext().getSharedPreferences("my_data", 0);
@@ -450,41 +475,108 @@ public class Main2Activity extends AppCompatActivity {
             else {
                 rootView = inflater.inflate(R.layout.fragment_main2, container, false);
                 spref = getContext().getSharedPreferences("my_data", 0);
-                GraphView line_graph = (GraphView) rootView.findViewById(R.id.graph);
-                line_graph.getViewport().setScrollable(true);
-                line_graph.getViewport().setScalable(true);
-                // set manual X bounds
-                line_graph.getViewport().setXAxisBoundsManual(true);
-                line_graph.getViewport().setMinX(0);
-                line_graph.getViewport().setMaxX(5);
 
-                // set manual Y bounds
-                line_graph.getViewport().setYAxisBoundsManual(true);
-                line_graph.getViewport().setMinY(0);
-                line_graph.getViewport().setMaxY(99);
-                int size = 99;
 
-                //Ini tingaal tambah array of tanggal sama array of konsumsi kalori user
-                //Sumber graph bisa liat di
-                // https://www.numetriclabz.com/android-line-graph-using-graphview-library-tutorial/
-                // http://www.android-graphview.org/documentation
-                DataPoint [] values = new DataPoint[size];
-                for (int i=0; i<size; i++) {
-                    DataPoint v = new DataPoint(i, i);
-                    values[i] = v;
-                }
 
-                LineGraphSeries<DataPoint> line_series = new LineGraphSeries<DataPoint>(values);
-                line_graph.addSeries(line_series);
-                line_series.setDrawDataPoints(true);
-                line_series.setDataPointsRadius(10);
-                StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(line_graph);
-                //staticLabelsFormatter.setHorizontalLabels(new String[] {"Jan", "Feb", "March","April","June","July"});
-                line_graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
-                line_series.setOnDataPointTapListener(new OnDataPointTapListener() {
+
+                float bmr= spref.getFloat("BMR", 0);
+                float sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
+
+                PieChart pieChart = (PieChart) rootView.findViewById(R.id.chart);
+// creating data values
+
+
+                pieChart.setDrawHoleEnabled(true);
+                pieChart.setHoleRadius(7);
+                pieChart.setTransparentCircleRadius(10);
+
+                // enable rotation of the chart by touch
+                pieChart.setRotationAngle(0);
+                pieChart.setRotationEnabled(true);
+                pieChart.setDescription("Konsumsi Kalori");
+
+                // set a chart value selected listener
+                pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+
                     @Override
-                    public void onTap(Series series, DataPointInterface dataPoint) {
-                        //Toast.makeText(Main2Activity.this, "Series: On Data Point clicked: " + dataPoint, Toast.LENGTH_SHORT).show();
+                    public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+                        // display msg when value selected
+                        if (e == null)
+                            return;
+
+                        PlaceholderFragment.showToast(getContext(), "text");
+                        //Toast.makeText(getActivity(), "Please long press the key", Toast.LENGTH_LONG ).show();
+//
+//                        Toast.makeText(Main2Activity.this,
+//                                xData[e.getXIndex()] + " = " + e.getVal() + "%", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onNothingSelected() {
+
+                    }
+                });
+
+                yData[0] = spref.getFloat("kaloriPagi",0);
+                yData[1] = spref.getFloat("kaloriSiang",0);
+                yData[2] = spref.getFloat("kaloriMalam",0);
+                yData[3] = sisa;
+
+
+                // add data
+                addData(pieChart);
+
+                // customize legends
+                Legend l = pieChart.getLegend();
+                l.setPosition(Legend.LegendPosition.BELOW_CHART_CENTER);
+                l.setXEntrySpace(7);
+                l.setYEntrySpace(5);
+
+                LineChart lineChart = (LineChart) rootView.findViewById(R.id.graph);
+                // creating list of entry
+                ArrayList<Entry> entries_line = new ArrayList<>();
+                entries_line.add(new Entry(4f, 0));
+                entries_line.add(new Entry(8f, 1));
+                entries_line.add(new Entry(6f, 2));
+                entries_line.add(new Entry(2f, 3));
+                entries_line.add(new Entry(18f, 4));
+                entries_line.add(new Entry(9f, 5));
+                entries_line.add(new Entry(18f, 6));
+                entries_line.add(new Entry(9f, 7));
+
+                LineDataSet dataset_line = new LineDataSet(entries_line, "dalam satuan kalori");
+
+                // creating labels
+                ArrayList<String> labels_line = new ArrayList<String>();
+                labels_line.add("January");
+                labels_line.add("February");
+                labels_line.add("March");
+                labels_line.add("April");
+                labels_line.add("May");
+                labels_line.add("June");
+                labels_line.add("July");
+                labels_line.add("August");
+
+                LineData data_line = new LineData(labels_line, dataset_line);
+                data_line.setValueTextSize(12f);
+                lineChart.setData(data_line); // set the data and list of lables into chart
+                lineChart.setDescription("Konsumsi Kalori");  // set the description
+                lineChart.setVisibleXRangeMaximum(5);
+
+                lineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+
+                    @Override
+                    public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+                        // display msg when value selected
+                        if (e == null)
+                            return;
+
+                        Toast.makeText(getActivity(), "Please long press the key", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onNothingSelected() {
+
                     }
                 });
 
@@ -493,5 +585,108 @@ public class Main2Activity extends AppCompatActivity {
 
             return rootView;
         }
+
+        private static void addData(PieChart pieChart) {
+            ArrayList<Entry> yVals1 = new ArrayList<Entry>();
+
+            for (int i = 0; i < yData.length; i++)
+                yVals1.add(new Entry(yData[i], i));
+
+            ArrayList<String> xVals = new ArrayList<String>();
+
+            for (int i = 0; i < xData.length; i++)
+                xVals.add(xData[i]);
+
+            // create pie data set
+            PieDataSet dataSet = new PieDataSet(yVals1, "");
+            dataSet.setSliceSpace(3);
+            dataSet.setSelectionShift(5);
+
+            // add many colors
+            ArrayList<Integer> colors = new ArrayList<Integer>();
+
+            for (int c : ColorTemplate.VORDIPLOM_COLORS)
+                colors.add(c);
+
+            for (int c : ColorTemplate.JOYFUL_COLORS)
+                colors.add(c);
+
+            for (int c : ColorTemplate.COLORFUL_COLORS)
+                colors.add(c);
+
+            for (int c : ColorTemplate.LIBERTY_COLORS)
+                colors.add(c);
+
+            for (int c : ColorTemplate.PASTEL_COLORS)
+                colors.add(c);
+
+            colors.add(ColorTemplate.getHoloBlue());
+            dataSet.setColors(colors);
+
+            // instantiate pie data object now
+            PieData data = new PieData(xVals, dataSet);
+            data.setValueTextSize(11f);
+//        data.setValueTextColor();
+
+            pieChart.setData(data);
+
+            // undo all highlights
+            pieChart.highlightValues(null);
+
+            // update pie chart
+            pieChart.invalidate();
+        }
+
+        public static void showToast(Context context,String message){
+            LayoutInflater inflater = LayoutInflater.from(context);
+
+            View layout = inflater.inflate(R.layout.toast,
+                    (ViewGroup) ((Activity) context).findViewById(R.id.toast_layout_root));
+
+            LineChart lineChart = (LineChart) layout.findViewById(R.id.graph);
+            // creating list of entry
+            ArrayList<Entry> entries_line = new ArrayList<>();
+            entries_line.add(new Entry(4f, 0));
+            entries_line.add(new Entry(8f, 1));
+            entries_line.add(new Entry(6f, 2));
+            entries_line.add(new Entry(2f, 3));
+            entries_line.add(new Entry(18f, 4));
+            entries_line.add(new Entry(9f, 5));
+            entries_line.add(new Entry(18f, 6));
+            entries_line.add(new Entry(9f, 7));
+
+            LineDataSet dataset_line = new LineDataSet(entries_line, "dalam satuan kalori");
+
+            // creating labels
+            ArrayList<String> labels_line = new ArrayList<String>();
+            labels_line.add("January");
+            labels_line.add("February");
+            labels_line.add("March");
+            labels_line.add("April");
+            labels_line.add("May");
+            labels_line.add("June");
+            labels_line.add("July");
+            labels_line.add("August");
+
+            LineData data_line = new LineData(labels_line, dataset_line);
+            data_line.setValueTextSize(12f);
+            lineChart.setData(data_line); // set the data and list of lables into chart
+            lineChart.setDescription("Konsumsi Kalori");  // set the description
+            lineChart.setVisibleXRangeMaximum(5);
+
+
+            // set a message
+//            TextView text = (TextView) layout.findViewById(R.id.text);
+//            text.setText(message);
+
+            // Toast...
+            Toast toast = new Toast(context);
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setView(layout);
+            toast.show();
+        }
+
     }
+
 }
