@@ -321,9 +321,9 @@ public class Main2Activity extends AppCompatActivity {
         double bawahBMI,atasBMI,ideal1,ideal2;
         protected  TextView breakfastv, lunchv, dinnerv;
         protected Button Edit;
-        private ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
-        private ArrayList<String> arrayListLunch  =new ArrayList<String>();
-        private ArrayList<String> arrayListDinner  =new ArrayList<String>();
+        private static  ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
+        private static ArrayList<String> arrayListLunch  =new ArrayList<String>();
+        private static ArrayList<String> arrayListDinner  =new ArrayList<String>();
         private ArrayAdapter<String> adapterBreakfast;
         private ArrayAdapter<String> adapterLunch;
         private ArrayAdapter<String> adapterDinner;
@@ -430,96 +430,18 @@ public class Main2Activity extends AppCompatActivity {
 
                 spref = getContext().getSharedPreferences("my_data", 0);
 
-                LinearLayout item = (LinearLayout) rootView.findViewById(R.id.item);
-                Set<String> setPagi = spref.getStringSet("SetPagi", null);
-                if(setPagi == null) {
-                    TextView textView = new TextView(getContext());
-                    textView.setText("No food eaten");
-                    textView.setPadding(10, 0, 10, 0);
-                    item.addView(textView);
-                } else {
-                    arrayListBreakfast = new ArrayList<>(setPagi);
-
-                    for (int i = 0; i < arrayListBreakfast.size(); i++) {
-                        TextView textView = new TextView(getContext());
-                        textView.setText(arrayListBreakfast.get(i));
-                        textView.setPadding(10, 0, 10, 0);
-                        item.addView(textView);
-                        if (i != arrayListBreakfast.size() - 1) {
-                            ImageView divider = new ImageView(getContext());
-                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
-                            lp.setMargins(0, 10, 0, 5);
-                            divider.setLayoutParams(lp);
-                            divider.setBackgroundColor(Color.BLACK);
-                            item.addView(divider);
-                        }
-                    }
-                }
-
-                LinearLayout item2 = (LinearLayout) rootView.findViewById(R.id.item2);
-                Set<String> setSiang = spref.getStringSet("SetSiang", null);
-                if(setSiang == null) {
-                    TextView textView = new TextView(getContext());
-                    textView.setText("No food eaten");
-                    textView.setPadding(10, 0, 10, 0);
-                    item2.addView(textView);
-                } else {
-
-                    arrayListLunch = new ArrayList<>(setSiang);
-                    for (int i = 0; i < arrayListLunch.size(); i++) {
-                        TextView textView = new TextView(getContext());
-                        textView.setText(arrayListLunch.get(i));
-                        textView.setPadding(10, 0, 10, 0);
-                        item2.addView(textView);
-
-                        if (i != arrayListLunch.size() - 1) {
-                            ImageView divider = new ImageView(getContext());
-                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
-                            lp.setMargins(0, 10, 0, 5);
-                            divider.setLayoutParams(lp);
-                            divider.setBackgroundColor(Color.BLACK);
-                            item2.addView(divider);
-                        }
-                    }
-                }
-
-                LinearLayout item3 = (LinearLayout) rootView.findViewById(R.id.item3);
-                Set<String> setMalam = spref.getStringSet("SetMalam", null);
-                if(setMalam == null) {
-                    TextView textView = new TextView(getContext());
-                    textView.setText("No food eaten");
-                    textView.setPadding(10, 0, 10, 0);
-                    item3.addView(textView);
-                } else {
-                    arrayListDinner = new ArrayList<>(setMalam);
-                    for (int i = 0; i < arrayListDinner.size(); i++) {
-                        TextView textView = new TextView(getContext());
-                        textView.setText(arrayListDinner.get(i));
-                        textView.setPadding(10, 0, 10, 0);
-                        item3.addView(textView);
-
-                        if (i != arrayListDinner.size() - 1) {
-                            ImageView divider = new ImageView(getContext());
-                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
-                            lp.setMargins(0, 10, 0, 5);
-                            divider.setLayoutParams(lp);
-                            divider.setBackgroundColor(Color.BLACK);
-                            item3.addView(divider);
-                        }
-                    }
-                }
-            }
-            else {
-                rootView = inflater.inflate(R.layout.fragment_main2, container, false);
-                spref = getContext().getSharedPreferences("my_data", 0);
-
-
-
-
                 float bmr= spref.getFloat("BMR", 0);
                 float sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
 
-                PieChart pieChart = (PieChart) rootView.findViewById(R.id.chart);
+                float totalKonsumsi = bmr-sisa;
+
+
+                TextView textBMR = (TextView) rootView.findViewById(R.id.textBMR);
+                textBMR.setText((int)bmr + " kalori");
+
+                TextView textSisa = (TextView) rootView.findViewById(R.id.textSisa);
+                textSisa.setText((int)totalKonsumsi + " kalori");
+                PieChart pieChart =  (PieChart) rootView.findViewById(R.id.chart);
 // creating data values
 
 
@@ -530,7 +452,16 @@ public class Main2Activity extends AppCompatActivity {
                 // enable rotation of the chart by touch
                 pieChart.setRotationAngle(0);
                 pieChart.setRotationEnabled(true);
-                pieChart.setDescription("Konsumsi Kalori");
+                pieChart.setDescription("");
+
+                yData[0] = spref.getFloat("kaloriPagi",0);
+                yData[1] = spref.getFloat("kaloriSiang", 0);
+                yData[2] = spref.getFloat("kaloriMalam", 0);
+                yData[3] = sisa;
+
+
+                // add data
+                addData(pieChart);
 
                 // set a chart value selected listener
                 pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
@@ -541,7 +472,28 @@ public class Main2Activity extends AppCompatActivity {
                         if (e == null)
                             return;
 
-                        PlaceholderFragment.showToast(getContext(), "text");
+                        else {
+                            if(xData[e.getXIndex()].equalsIgnoreCase("breakfast")){
+                                Set<String> setPagi = spref.getStringSet("SetPagi", null);
+
+                                PlaceholderFragment.showToast(getContext(), setPagi, "Breakfast");
+                            }
+                            else if(xData[e.getXIndex()].equalsIgnoreCase("lunch")){
+                                Set<String> setSiang = spref.getStringSet("SetSiang", null);
+
+                                PlaceholderFragment.showToast(getContext(), setSiang, "Lunch");
+                            }
+                            else if(xData[e.getXIndex()].equalsIgnoreCase("dinner")){
+
+                                Set<String> setDinner = spref.getStringSet("SetDinner", null);
+
+                                PlaceholderFragment.showToast(getContext(), setDinner, "Dinner");
+
+                            }
+                            else if(xData[e.getXIndex()].equalsIgnoreCase("sisa kalori")){
+
+                            }
+                        }
                         //Toast.makeText(getActivity(), "Please long press the key", Toast.LENGTH_LONG ).show();
 //
 //                        Toast.makeText(Main2Activity.this,
@@ -554,20 +506,152 @@ public class Main2Activity extends AppCompatActivity {
                     }
                 });
 
-                yData[0] = spref.getFloat("kaloriPagi",0);
-                yData[1] = spref.getFloat("kaloriSiang",0);
-                yData[2] = spref.getFloat("kaloriMalam",0);
-                yData[3] = sisa;
-
-
-                // add data
-                addData(pieChart);
 
                 // customize legends
                 Legend l = pieChart.getLegend();
-                l.setPosition(Legend.LegendPosition.BELOW_CHART_CENTER);
+                l.setPosition(Legend.LegendPosition.ABOVE_CHART_CENTER);
                 l.setXEntrySpace(7);
                 l.setYEntrySpace(5);
+
+
+//                LinearLayout item = (LinearLayout) rootView.findViewById(R.id.item);
+//                Set<String> setPagi = spref.getStringSet("SetPagi", null);
+//                if(setPagi == null) {
+//                    TextView textView = new TextView(getContext());
+//                    textView.setText("No food eaten");
+//                    textView.setPadding(10, 0, 10, 0);
+//                    item.addView(textView);
+//                } else {
+//                    arrayListBreakfast = new ArrayList<>(setPagi);
+//
+//                    for (int i = 0; i < arrayListBreakfast.size(); i++) {
+//                        TextView textView = new TextView(getContext());
+//                        textView.setText(arrayListBreakfast.get(i));
+//                        textView.setPadding(10, 0, 10, 0);
+//                        item.addView(textView);
+//                        if (i != arrayListBreakfast.size() - 1) {
+//                            ImageView divider = new ImageView(getContext());
+//                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+//                            lp.setMargins(0, 10, 0, 5);
+//                            divider.setLayoutParams(lp);
+//                            divider.setBackgroundColor(Color.BLACK);
+//                            item.addView(divider);
+//                        }
+//                    }
+//                }
+//
+//                LinearLayout item2 = (LinearLayout) rootView.findViewById(R.id.item2);
+//                Set<String> setSiang = spref.getStringSet("SetSiang", null);
+//                if(setSiang == null) {
+//                    TextView textView = new TextView(getContext());
+//                    textView.setText("No food eaten");
+//                    textView.setPadding(10, 0, 10, 0);
+//                    item2.addView(textView);
+//                } else {
+//
+//                    arrayListLunch = new ArrayList<>(setSiang);
+//                    for (int i = 0; i < arrayListLunch.size(); i++) {
+//                        TextView textView = new TextView(getContext());
+//                        textView.setText(arrayListLunch.get(i));
+//                        textView.setPadding(10, 0, 10, 0);
+//                        item2.addView(textView);
+//
+//                        if (i != arrayListLunch.size() - 1) {
+//                            ImageView divider = new ImageView(getContext());
+//                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+//                            lp.setMargins(0, 10, 0, 5);
+//                            divider.setLayoutParams(lp);
+//                            divider.setBackgroundColor(Color.BLACK);
+//                            item2.addView(divider);
+//                        }
+//                    }
+//                }
+//
+//                LinearLayout item3 = (LinearLayout) rootView.findViewById(R.id.item3);
+//                Set<String> setMalam = spref.getStringSet("SetMalam", null);
+//                if(setMalam == null) {
+//                    TextView textView = new TextView(getContext());
+//                    textView.setText("No food eaten");
+//                    textView.setPadding(10, 0, 10, 0);
+//                    item3.addView(textView);
+//                } else {
+//                    arrayListDinner = new ArrayList<>(setMalam);
+//                    for (int i = 0; i < arrayListDinner.size(); i++) {
+//                        TextView textView = new TextView(getContext());
+//                        textView.setText(arrayListDinner.get(i));
+//                        textView.setPadding(10, 0, 10, 0);
+//                        item3.addView(textView);
+//
+//                        if (i != arrayListDinner.size() - 1) {
+//                            ImageView divider = new ImageView(getContext());
+//                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+//                            lp.setMargins(0, 10, 0, 5);
+//                            divider.setLayoutParams(lp);
+//                            divider.setBackgroundColor(Color.BLACK);
+//                            item3.addView(divider);
+//                        }
+//                    }
+//                }
+            }
+            else {
+                rootView = inflater.inflate(R.layout.fragment_main2, container, false);
+                spref = getContext().getSharedPreferences("my_data", 0);
+
+
+
+
+//                float bmr= spref.getFloat("BMR", 0);
+//                float sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
+//
+//                PieChart pieChart = (PieChart) rootView.findViewById(R.id.chart);
+//// creating data values
+//
+//
+//                pieChart.setDrawHoleEnabled(true);
+//                pieChart.setHoleRadius(7);
+//                pieChart.setTransparentCircleRadius(10);
+//
+//                // enable rotation of the chart by touch
+//                pieChart.setRotationAngle(0);
+//                pieChart.setRotationEnabled(true);
+//                pieChart.setDescription("Konsumsi Kalori");
+//
+//                // set a chart value selected listener
+//                pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+//
+//                    @Override
+//                    public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+//                        // display msg when value selected
+//                        if (e == null)
+//                            return;
+//
+//                        PlaceholderFragment.showToast(getContext(), "text");
+//                        //Toast.makeText(getActivity(), "Please long press the key", Toast.LENGTH_LONG ).show();
+////
+////                        Toast.makeText(Main2Activity.this,
+////                                xData[e.getXIndex()] + " = " + e.getVal() + "%", Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected() {
+//
+//                    }
+//                });
+//
+//                yData[0] = spref.getFloat("kaloriPagi",0);
+//                yData[1] = spref.getFloat("kaloriSiang",0);
+//                yData[2] = spref.getFloat("kaloriMalam",0);
+//                yData[3] = sisa;
+//
+//
+//                // add data
+//                addData(pieChart);
+//
+//                // customize legends
+//                Legend l = pieChart.getLegend();
+//                l.setPosition(Legend.LegendPosition.BELOW_CHART_CENTER);
+//                l.setXEntrySpace(7);
+//                l.setYEntrySpace(5);
 
                 LineChart lineChart = (LineChart) rootView.findViewById(R.id.graph);
                 // creating list of entry
@@ -635,7 +719,7 @@ public class Main2Activity extends AppCompatActivity {
                 xVals.add(xData[i]);
 
             // create pie data set
-            PieDataSet dataSet = new PieDataSet(yVals1, "");
+            PieDataSet dataSet = new PieDataSet(yVals1, "(dalam kalori)");
             dataSet.setSliceSpace(3);
             dataSet.setSelectionShift(5);
 
@@ -674,47 +758,79 @@ public class Main2Activity extends AppCompatActivity {
             pieChart.invalidate();
         }
 
-        public static void showToast(Context context,String message){
+        public static void showToast(Context context,Set<String> listMakanan, String stat){
             LayoutInflater inflater = LayoutInflater.from(context);
 
             View layout = inflater.inflate(R.layout.toast,
                     (ViewGroup) ((Activity) context).findViewById(R.id.toast_layout_root));
+            LinearLayout item = (LinearLayout) layout.findViewById(R.id.listMakanan);
 
-            LineChart lineChart = (LineChart) layout.findViewById(R.id.graph);
-            // creating list of entry
-            ArrayList<Entry> entries_line = new ArrayList<>();
-            entries_line.add(new Entry(4f, 0));
-            entries_line.add(new Entry(8f, 1));
-            entries_line.add(new Entry(6f, 2));
-            entries_line.add(new Entry(2f, 3));
-            entries_line.add(new Entry(18f, 4));
-            entries_line.add(new Entry(9f, 5));
-            entries_line.add(new Entry(18f, 6));
-            entries_line.add(new Entry(9f, 7));
+//            LineChart lineChart = (LineChart) layout.findViewById(R.id.graph);
+//            // creating list of entry
+//            ArrayList<Entry> entries_line = new ArrayList<>();
+//            entries_line.add(new Entry(4f, 0));
+//            entries_line.add(new Entry(8f, 1));
+//            entries_line.add(new Entry(6f, 2));
+//            entries_line.add(new Entry(2f, 3));
+//            entries_line.add(new Entry(18f, 4));
+//            entries_line.add(new Entry(9f, 5));
+//            entries_line.add(new Entry(18f, 6));
+//            entries_line.add(new Entry(9f, 7));
+//
+//            LineDataSet dataset_line = new LineDataSet(entries_line, "dalam satuan kalori");
+//
+//            TextView shows = (TextView) layout.findViewById(R.id.text);
+//
+//            String ex = index+"";
+//            shows.setText(ex);
+//
+//            // creating labels
+//            ArrayList<String> labels_line = new ArrayList<String>();
+//            labels_line.add("January");
+//            labels_line.add("February");
+//            labels_line.add("March");
+//            labels_line.add("April");
+//            labels_line.add("May");
+//            labels_line.add("June");
+//            labels_line.add("July");
+//            labels_line.add("August");
+//
+//            LineData data_line = new LineData(labels_line, dataset_line);
+//            data_line.setValueTextSize(12f);
+//            lineChart.setData(data_line); // set the data and list of lables into chart
+//            lineChart.setDescription("Konsumsi Kalori");  // set the description
+//            lineChart.setVisibleXRangeMaximum(5);
 
-            LineDataSet dataset_line = new LineDataSet(entries_line, "dalam satuan kalori");
 
-            // creating labels
-            ArrayList<String> labels_line = new ArrayList<String>();
-            labels_line.add("January");
-            labels_line.add("February");
-            labels_line.add("March");
-            labels_line.add("April");
-            labels_line.add("May");
-            labels_line.add("June");
-            labels_line.add("July");
-            labels_line.add("August");
+//             set a message
+            TextView text = (TextView) layout.findViewById(R.id.text);
+            text.setText(stat);
 
-            LineData data_line = new LineData(labels_line, dataset_line);
-            data_line.setValueTextSize(12f);
-            lineChart.setData(data_line); // set the data and list of lables into chart
-            lineChart.setDescription("Konsumsi Kalori");  // set the description
-            lineChart.setVisibleXRangeMaximum(5);
+            if(listMakanan == null) {
+                TextView textView = new TextView(context);
+                textView.setText("No food eaten");
+                textView.setPadding(10, 0, 10, 0);
+                textView.setTextColor(Color.WHITE);
+                item.addView(textView);
+            } else {
+                arrayListBreakfast = new ArrayList<>(listMakanan);
 
-
-            // set a message
-//            TextView text = (TextView) layout.findViewById(R.id.text);
-//            text.setText(message);
+                for (int i = 0; i < arrayListBreakfast.size(); i++) {
+                    TextView textView = new TextView(context);
+                    textView.setText(arrayListBreakfast.get(i));
+                    textView.setPadding(10, 0, 10, 0);
+                    textView.setTextColor(Color.WHITE);
+                    item.addView(textView);
+                    if (i != arrayListBreakfast.size() - 1) {
+                        ImageView divider = new ImageView(context);
+                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+                        lp.setMargins(0, 10, 0, 5);
+                        divider.setLayoutParams(lp);
+                        divider.setBackgroundColor(Color.WHITE);
+                        item.addView(divider);
+                    }
+                }
+            }
 
             // Toast...
             Toast toast = new Toast(context);
