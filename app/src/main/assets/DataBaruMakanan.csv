@@ -30,6 +30,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 29,Jagung Kuning muda,129,4.1,30.3,9,63.5,5,1.3,1 buah,131,None
 30,Jagung Kuning pipil baru,307,7.9,63.6,0,24,9,3.4,1 gelas,138.2,None
 31,Jagung Kuning pipil lama,355,9.2,73.7,0,12,10,3.9,1 gelas,150.6,None
+32,Jagung Kuning segar,140,4.7,33.1,8,60,6,1.3,1 tongkol ,200,dinner
 33,Jagung Putih giling,361,8.7,72.4,0,13.1,9,4.5,1 gelas,132.4,None
 34,Jagung Putih muda,129,4.1,30.3,9,63.5,5,1.3,1 buah,10,None
 35,Jagung Putih pipil baru,307,7.9,63.6,0,24,9,3.4,1 gelas,162.6,None
@@ -337,6 +338,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 337,Gambas lodeh,13,0.3,1.6,1.3,0,6.7,0.6,1 mangkok,255.2,None
 338,Jagung Muda bertongkol,33,2.2,7.4,8,89.5,7,0.1,1 tongkol,24.6,None
 339,Jamur Coklat (kulat siau),45,2.5,0,5,93.8,36,3.9,1 mangkok,50,None
+340,Jamur Kuping Tepung,128,16,64.6,0,14.9,51,0.9,1 sdm,7,breakfast
 341,Jamur Kuping segar,15,3.8,0.9,5,93.7,3,0.6,1 mangkok,50,None
 342,Jamur Putih (kulat putih),48,2.8,2.9,5,82.4,60,4.1,1 mangkok,50,None
 343,Jantung Pisang segar,31,1.2,7.1,10,90.2,30,0.3,1 buah,175.5,None
@@ -482,6 +484,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 483,Susu Kental Manis,336,8.2,55,1,25,275,10,1 gelas,200,None
 484,Susu Kental Tak Manis,138,7,9.9,1,73.7,243,7.9,1 gelas,200,None
 485,Susu Kerbau,160,6.3,7.1,1,73.8,216,12,1 gelas,200,None
+486,Susu Sapi,61,3.2,4.3,1,88.3,143,3.5,1 gelas,200,breakfast
 487,Susu Skim (tak berlemak),36,3.5,5.1,1,90.5,123,0.1,1 sdm,5,None
 488,Tepung Susu,509,24.6,36.2,6,3.5,904,30,1 sdm,5,None
 489,Tepung Susu Asam untuk bayi,418,19,65.5,30,2.5,800,9,1 sdm,5,None
@@ -549,8 +552,10 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 551,Es Krim (Coconut milk),156.7,3,32.7,0,0,6.7,1.7,1 buah,30,None
 552,Es Mambo,152,0,37.6,0,0,2,0,1 bungkus,25,None
 553,Es Sirup,44.8,0,11.3,0,0,0.6,0,1 gelas,125,None
+554,Gado-gado,135.3,5.8,16.4,0.1,72.5,14,5.8,1 porsi,150,lunch
 555,Gemblong,287.5,6.5,52.8,0,23.5,0.2,6.5,1 buah,40,None
 556,Getuk Lindri,171.4,4,32,0,61.1,0,4,1 potong,35,None
+557,Gudeg,53,1.6,8.8,0,87.9,7.9,1.6,1 porsi,100,dinner
 558,Jagung Rebus,175,1.8,35,0,0,4.8,1.8,1 bungkus,60,None
 559,Jagung Sayur (tumis),148.9,10.4,20.1,0,0,8.7,10.4,1 sendok ,60,None
 560,Jenang,381.7,9.5,65.8,0,18.8,0.1,9.5,1 buah,60,None
@@ -583,7 +588,10 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 587,Lopis,163.3,2.8,33,0,61.2,0,2.2,1 buah,60,None
 588,Martabak ,265.3,4.7,49.3,0,40,0,5.5,1 potong,75,None
 589,Martabak Telur,200,8.9,29.5,0,54.7,0.1,5.1,1 buah,100,None
+590,Mie Goreng,468,7.6,62.4,2,0,22.4,20.4,1 piring ,25,lunch
 591,Misro,218,0.8,50.2,0,31.2,0.1,16,1 buah,50,None
+592,Nasi Goreng,276,3.2,30.2,0,0,4.8,3.2,1 piring ,50,dinner
+593,Nasi Uduk,253.3,4.3,11.7,0,50.2,0,21,1 bungkus,60,breakfast
 594,Noga Kacang Tanah,600,14,42,0,1,0,41.7,1 buah,30,None
 595,Oncom Goreng,363.3,19.3,40.3,0,31.3,0,19.3,1 buah,30,None
 596,Oncom Hitam Goreng,284,12,13.6,0,0,115.6,14.4,1 potong,25,None
@@ -636,6 +644,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 21363,MCDONALD'SDELUXE BRKFSTW/ SYRUP & MARGARINE,285,7.56,29.48,0.2,45.91,50,109,1 item 14.8 oz,420,None
 21344,MCDONALD'SDOUBLE CHEESEBURGER,282,15.5,18.79,0.4,47,178,48,1 sandwich,155,None
 21345,MCDONALD'SDOUBLE QUARTER POUNDER W/ CHS,262,16.96,14.43,0.6,50.34,106,57,1 item,280,None
+21357,MCDONALD'S EGG MCMUFFIN,228,13.64,21.67,1.2,52.58,192,165,1 sandwich,126,breakfast
 21382,MCDONALD'SFILET-O-FISH (WITHOUT TARTAR SAUCE),243,12.47,31.08,0.1,46.9,128,25,1 item,124,None
 21238,MCDONALD'SFRENCH FR,323,3.41,42.58,5.6,36.63,19,0,1 small serving,71,None
 21380,MCDONALD'SFRUIT 'N YOGURT PARFAIT,105,2.73,20.72,13.9,74.61,86,5,1 item 5.2 oz,149,None
@@ -647,6 +656,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 21313,MCDONALD'SHOT MUSTARD SAU,190,2.6,29.08,0,58.65,32,0,1 package,28,None
 21364,MCDONALD'SHOTCAKES & SAUSAGE,294,7.81,37.55,0,40.7,78,19,1 item,192,None
 21321,MCDONALD'SHOTCAKES (PLAIN),228,6,38.27,0,48.24,84,13,3 hotcakes 5.3 oz,149,None
+21365,MCDONALD'S HOTCAKES (WITH 2 PATS MARGARINE & SYRUP),272,4.05,46.08,0,40.6,57,9,1 item,221,breakfast
 21343,MCDONALD'SLOFAT CARAMEL SAU,313,1.89,71.53,0,22.5,71,12,.8 oz,21,None
 21355,MCDONALD'SMCCHICKEN SNDWCH,273,10.43,27.97,0,46.11,88,27,1 sandwich,131,None
 21356,MCDONALD'SMCCHICKEN SNDWCH (WITHOUT MAYONNAISE),240,11.08,30.95,0.9,47.43,96,22,1 item,138,None
