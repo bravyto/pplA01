@@ -92,6 +92,8 @@ public class Main2Activity extends AppCompatActivity {
 
     FloatingActionMenu fab;
 
+    private static Toast toast;
+
     private static float[] yData = new float[4];
     private static String[] xData = { "Sisa Kalori", "Breakfast", "Lunch", "Dinner"};
 
@@ -811,9 +813,13 @@ public class Main2Activity extends AppCompatActivity {
             }
 
             // Toast...
-            Toast toast = new Toast(context);
+            if(toast != null){
+                toast.cancel();
+            }
+
+            toast = new Toast(context);
             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setView(layout);
             toast.show();
         }
