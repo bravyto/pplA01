@@ -318,6 +318,7 @@ public class Main2Activity extends AppCompatActivity {
         SharedPreferences spref;
         SharedPreferences.Editor editor;
         String  nama, tinggi, umur, beratnow, gender, aktivitasnya;
+        double bawahBMI,atasBMI,ideal1,ideal2;
         protected  TextView breakfastv, lunchv, dinnerv;
         protected Button Edit;
         private ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
@@ -377,6 +378,42 @@ public class Main2Activity extends AppCompatActivity {
 
                 TextView aktivitas= (TextView) rootView.findViewById(R.id.activity);
                 aktivitas.setText(aktivitasnya);
+
+                TextView beratIdeal= (TextView) rootView.findViewById(R.id.weightIdeal);
+                double BMI = Double.parseDouble(beratnow)/(Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
+
+                if (BMI< 18.5){
+                    atasBMI = 18.5;
+                    bawahBMI = 18.5;
+                }else if (BMI >  18.5 || BMI <= 24.9){
+                    bawahBMI = 18.5;
+                    atasBMI = 24.9;
+                }
+                else if (BMI >= 25 || BMI <= 29.9){
+                    bawahBMI = 25;
+                    atasBMI = 29.9;
+                }else if (BMI >= 30 || BMI <= 34.9){
+                    bawahBMI = 30;
+                    atasBMI = 34.9;
+                }
+                else if (BMI >= 35 || BMI <= 39.9){
+                    bawahBMI = 35;
+                    atasBMI = 39.9;
+                }
+                else if (BMI >= 40 ){
+                    bawahBMI = 40;
+                    atasBMI = 40;
+                }
+
+                ideal1 = Math.round(bawahBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
+                ideal2 = Math.round(atasBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
+
+                if(ideal1 == ideal2){
+                    beratIdeal.setText(""+ideal1 +" kg");
+                }
+                else{
+                    beratIdeal.setText(""+ideal1 +" - " + ideal2 +" kg");
+                }
             } else if (getArguments().getInt(ARG_SECTION_NUMBER) == 3) {
                 rootView = inflater.inflate(R.layout.fragment_reminder, container, false);
 
