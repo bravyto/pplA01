@@ -107,7 +107,7 @@ public class JadwalMakanActivity extends AppCompatActivity {
         breakfast_time= (TextView) findViewById(R.id.breakfast);
         lunch_time= (TextView) findViewById(R.id.lunch);
         dinner_time= (TextView) findViewById(R.id.dinner);
-        reset_time = (TextView) findViewById(R.id.reset);
+//        reset_time = (TextView) findViewById(R.id.reset);
 
         if(spref.getString("pagi","") == "") {
             editor.putString("pagi", "07:00");
@@ -130,12 +130,12 @@ public class JadwalMakanActivity extends AppCompatActivity {
 
         dinner_time.setText(spref.getString("malam",""));
 
-        if(spref.getString("reset","") == "") {
-            editor.putString("reset", "00:00");
-            editor.commit();
-        }
-
-        reset_time.setText(spref.getString("reset",""));
+//        if(spref.getString("reset","") == "") {
+//            editor.putString("reset", "00:00");
+//            editor.commit();
+//        }
+//
+//        reset_time.setText(spref.getString("reset",""));
 
     }
 
@@ -146,9 +146,9 @@ public class JadwalMakanActivity extends AppCompatActivity {
     public void setDinner(View v) {
         showDialog(DIALOG_ID_NIGHT);
     }
-    public void setReset(View v) {
-        showDialog(DIALOG_ID_RESET);
-    }
+//    public void setReset(View v) {
+//        showDialog(DIALOG_ID_RESET);
+//    }
 
 
     protected Dialog onCreateDialog(int id) {
@@ -158,12 +158,12 @@ public class JadwalMakanActivity extends AppCompatActivity {
         else if(id==DIALOG_ID_NOON) {
             return new TimePickerDialog(JadwalMakanActivity.this, noonTimePickerListener,hour_noon,minute_noon,true);
         }
-        else if (id==DIALOG_ID_NIGHT){
+        else {
             return new TimePickerDialog(JadwalMakanActivity.this, nightTimePickerListener,hour_night,minute_night,true);
         }
-        else{
-            return new TimePickerDialog(JadwalMakanActivity.this, resetTimePickerListener,hour_reset,minute_reset,true);
-        }
+//        else{
+//            return new TimePickerDialog(JadwalMakanActivity.this, resetTimePickerListener,hour_reset,minute_reset,true);
+//        }
     }
 
     protected TimePickerDialog.OnTimeSetListener morningTimePickerListener = new TimePickerDialog.OnTimeSetListener() {
@@ -311,55 +311,55 @@ public class JadwalMakanActivity extends AppCompatActivity {
         }
     };
 
-    protected TimePickerDialog.OnTimeSetListener resetTimePickerListener = new TimePickerDialog.OnTimeSetListener() {
-        @Override
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            hour_reset=hourOfDay;
-            minute_reset=minute;
-
-            int day2 = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-            int month2= Calendar.getInstance().get(Calendar.MONTH);
-            int year2 =  Calendar.getInstance().get(Calendar.YEAR);
-            // Create a new calendar set to the date chosen
-            // we set the time to midnight (i.e. the first minute of that day)
-            Calendar f = Calendar.getInstance();
-            f.set(year2,month2,day2 );
-            f.set(Calendar.HOUR_OF_DAY, hour_reset);
-            f.set(Calendar.MINUTE, minute_reset);
-            f.set(Calendar.SECOND, 0);
-
-            editor = spref.edit();
-            String hour = ""+hour_reset;
-            String minutes = ""+minute_reset;
-            String jamreset = "";
-            if(hour_reset<10) {
-                hour = "0" + hour;
-                if (minutes.length() == 1) {
-                    minutes = "0" + minutes;
-                }
-                jamreset = hour + ":" + minutes;
-            }
-            else {
-                if(minutes.length()==1){
-                    minutes="0"+minutes;
-                }
-                jamreset = hour + ":"+  minutes;
-            }
-            editor.putString("reset",jamreset);
-            editor.commit();
-
-            reset_time.setText(jamreset);
-
-
-            // Ask our service to set an alarm for that date, this activity talks to the client that talks to the service
-            scheduleClient.setAlarmForNotification(f,3);
-            // scheduleClient.setAlarmForNotification(d,1);
-            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " + jamreset, Toast.LENGTH_LONG).show();
-
-
-//            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " + jammalam, Toast.LENGTH_LONG).show();
-        }
-    };
+//    protected TimePickerDialog.OnTimeSetListener resetTimePickerListener = new TimePickerDialog.OnTimeSetListener() {
+//        @Override
+//        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+//            hour_reset=hourOfDay;
+//            minute_reset=minute;
+//
+//            int day2 = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+//            int month2= Calendar.getInstance().get(Calendar.MONTH);
+//            int year2 =  Calendar.getInstance().get(Calendar.YEAR);
+//            // Create a new calendar set to the date chosen
+//            // we set the time to midnight (i.e. the first minute of that day)
+//            Calendar f = Calendar.getInstance();
+//            f.set(year2,month2,day2 );
+//            f.set(Calendar.HOUR_OF_DAY, hour_reset);
+//            f.set(Calendar.MINUTE, minute_reset);
+//            f.set(Calendar.SECOND, 0);
+//
+//            editor = spref.edit();
+//            String hour = ""+hour_reset;
+//            String minutes = ""+minute_reset;
+//            String jamreset = "";
+//            if(hour_reset<10) {
+//                hour = "0" + hour;
+//                if (minutes.length() == 1) {
+//                    minutes = "0" + minutes;
+//                }
+//                jamreset = hour + ":" + minutes;
+//            }
+//            else {
+//                if(minutes.length()==1){
+//                    minutes="0"+minutes;
+//                }
+//                jamreset = hour + ":"+  minutes;
+//            }
+//            editor.putString("reset",jamreset);
+//            editor.commit();
+//
+//            reset_time.setText(jamreset);
+//
+//
+//            // Ask our service to set an alarm for that date, this activity talks to the client that talks to the service
+//            scheduleClient.setAlarmForNotification(f,3);
+//            // scheduleClient.setAlarmForNotification(d,1);
+//            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " + jamreset, Toast.LENGTH_LONG).show();
+//
+//
+////            Toast.makeText(JadwalMakanActivity.this,"Notification set for: " + jammalam, Toast.LENGTH_LONG).show();
+//        }
+//    };
 
     @Override
     public void onStop() {

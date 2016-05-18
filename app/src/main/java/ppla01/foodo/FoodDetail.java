@@ -22,6 +22,15 @@ public class FoodDetail {
     private String fat;
     private String porsi;
     private String beratMakanan;
+    private String tipe;
+
+    public String getTipe() {
+        return tipe;
+    }
+
+    public void setTipe(String tipe) {
+        this.tipe = tipe;
+    }
 
     public String getPorsi() {
         return porsi;

@@ -67,6 +67,7 @@ import com.jjoe64.graphview.series.Series;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Set;
 
 public class Main2Activity extends AppCompatActivity {
@@ -80,7 +81,9 @@ public class Main2Activity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
+    SharedPreferences spref;
+    SharedPreferences.Editor editor;
+    AddFoodActivity food;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -105,6 +108,9 @@ public class Main2Activity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        spref = getApplicationContext().getSharedPreferences("my_data", 0);
+        editor = spref.edit();
 
         setTitle("Home");
         // Create the adapter that will return a fragment for each of the three
@@ -222,6 +228,31 @@ public class Main2Activity extends AppCompatActivity {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             if (tab != null) tab.setCustomView(R.layout.view_home_tab);
         }
+        int date =  spref.getInt("tanggal",0);
+        //Toast.makeText(Main2Activity.this, "tanggal sekarang di spref " + date, Toast.LENGTH_SHORT).show();
+        int curent = Calendar.getInstance().get(Calendar.DATE);
+       // Toast.makeText(Main2Activity.this, "tanggal sekarang  " + curent, Toast.LENGTH_SHORT).show();
+        if(curent != date){
+            food = new AddFoodActivity();
+            editor = spref.edit();
+            editor.putStringSet("SetSiang", null);
+            editor.putStringSet("SetPagi", null);
+            editor.putStringSet("SetMalam", null);
+            editor.putFloat("kaloriPagi", 0);
+            editor.putFloat("kaloriSiang",0);
+            editor.putFloat("kaloriMalam",0);
+            editor.commit();
+            food.setNull();
+//            Toast.makeText(Main2Activity.this, "masuk if"+
+//                    "  " +curent, Toast.LENGTH_SHORT).show();
+            editor.putInt("tanggal", curent);
+            editor.commit();
+
+        }
+
+
+
+
 
     }
 
@@ -324,6 +355,7 @@ public class Main2Activity extends AppCompatActivity {
         SharedPreferences spref;
         SharedPreferences.Editor editor;
         String  nama, tinggi, umur, beratnow, gender, aktivitasnya;
+        double bawahBMI,atasBMI,ideal1,ideal2;
         protected  TextView breakfastv, lunchv, dinnerv;
         protected Button Edit;
         private static  ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
@@ -383,6 +415,42 @@ public class Main2Activity extends AppCompatActivity {
 
                 TextView aktivitas= (TextView) rootView.findViewById(R.id.activity);
                 aktivitas.setText(aktivitasnya);
+
+                TextView beratIdeal= (TextView) rootView.findViewById(R.id.weightIdeal);
+                double BMI = Double.parseDouble(beratnow)/(Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
+
+                if (BMI< 18.5){
+                    atasBMI = 18.5;
+                    bawahBMI = 18.5;
+                }else if (BMI >  18.5 || BMI <= 24.9){
+                    bawahBMI = 18.5;
+                    atasBMI = 24.9;
+                }
+                else if (BMI >= 25 || BMI <= 29.9){
+                    bawahBMI = 25;
+                    atasBMI = 29.9;
+                }else if (BMI >= 30 || BMI <= 34.9){
+                    bawahBMI = 30;
+                    atasBMI = 34.9;
+                }
+                else if (BMI >= 35 || BMI <= 39.9){
+                    bawahBMI = 35;
+                    atasBMI = 39.9;
+                }
+                else if (BMI >= 40 ){
+                    bawahBMI = 40;
+                    atasBMI = 40;
+                }
+
+                ideal1 = Math.round(bawahBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
+                ideal2 = Math.round(atasBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
+
+                if(ideal1 == ideal2){
+                    beratIdeal.setText(""+ideal1 +" kg");
+                }
+                else{
+                    beratIdeal.setText(""+ideal1 +" - " + ideal2 +" kg");
+                }
             } else if (getArguments().getInt(ARG_SECTION_NUMBER) == 3) {
                 rootView = inflater.inflate(R.layout.fragment_reminder, container, false);
 
