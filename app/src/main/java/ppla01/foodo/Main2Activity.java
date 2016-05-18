@@ -67,6 +67,7 @@ import com.jjoe64.graphview.series.Series;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Set;
 
 public class Main2Activity extends AppCompatActivity {
@@ -80,7 +81,9 @@ public class Main2Activity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
+    SharedPreferences spref;
+    SharedPreferences.Editor editor;
+    AddFoodActivity food;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -103,6 +106,9 @@ public class Main2Activity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        spref = getApplicationContext().getSharedPreferences("my_data", 0);
+        editor = spref.edit();
 
         setTitle("Home");
         // Create the adapter that will return a fragment for each of the three
@@ -220,6 +226,31 @@ public class Main2Activity extends AppCompatActivity {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             if (tab != null) tab.setCustomView(R.layout.view_home_tab);
         }
+        int date =  spref.getInt("tanggal",0);
+        //Toast.makeText(Main2Activity.this, "tanggal sekarang di spref " + date, Toast.LENGTH_SHORT).show();
+        int curent = Calendar.getInstance().get(Calendar.DATE);
+       // Toast.makeText(Main2Activity.this, "tanggal sekarang  " + curent, Toast.LENGTH_SHORT).show();
+        if(curent != date){
+            food = new AddFoodActivity();
+            editor = spref.edit();
+            editor.putStringSet("SetSiang", null);
+            editor.putStringSet("SetPagi", null);
+            editor.putStringSet("SetMalam", null);
+            editor.putFloat("kaloriPagi", 0);
+            editor.putFloat("kaloriSiang",0);
+            editor.putFloat("kaloriMalam",0);
+            editor.commit();
+            food.setNull();
+//            Toast.makeText(Main2Activity.this, "masuk if"+
+//                    "  " +curent, Toast.LENGTH_SHORT).show();
+            editor.putInt("tanggal", curent);
+            editor.commit();
+
+        }
+
+
+
+
 
     }
 
