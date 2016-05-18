@@ -396,7 +396,7 @@ public class Main2Activity extends AppCompatActivity {
                 float bmr= spref.getFloat("BMR", 0);
                 float sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
 
-                float totalKonsumsi = sisa + bmr;
+                float totalKonsumsi = bmr-sisa;
 
 
                 TextView textBMR = (TextView) rootView.findViewById(R.id.textBMR);
@@ -404,7 +404,7 @@ public class Main2Activity extends AppCompatActivity {
 
                 TextView textSisa = (TextView) rootView.findViewById(R.id.textSisa);
                 textSisa.setText((int)totalKonsumsi + " kalori");
-                PieChart pieChart = (PieChart) rootView.findViewById(R.id.chart);
+                PieChart pieChart =  (PieChart) rootView.findViewById(R.id.chart);
 // creating data values
 
 
