@@ -135,30 +135,30 @@
                         android:textSize="15dp" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:weightSum="1"
-                    android:layout_marginBottom="10dp" >
+                <!--<LinearLayout-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:weightSum="1"-->
+                    <!--android:layout_marginBottom="10dp" >-->
 
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageView01"
-                        android:layout_weight="0.2"
-                        android:src="@drawable/scale"
-                        android:layout_gravity="center_vertical" />
+                    <!--<ImageView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:id="@+id/imageView01"-->
+                        <!--android:layout_weight="0.2"-->
+                        <!--android:src="@drawable/scale"-->
+                        <!--android:layout_gravity="center_vertical" />-->
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="weight"
-                        android:id="@+id/weightIdeal"
-                        android:layout_weight="0.8"
-                        android:layout_gravity="center_vertical"
-                        android:textSize="15dp" />
-                </LinearLayout>
+                    <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="weight"-->
+                        <!--android:id="@+id/weightIdeal"-->
+                        <!--android:layout_weight="0.8"-->
+                        <!--android:layout_gravity="center_vertical"-->
+                        <!--android:textSize="15dp" />-->
+                <!--</LinearLayout>-->
 
                 <LinearLayout
                     android:orientation="horizontal"

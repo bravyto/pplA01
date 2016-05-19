@@ -104,7 +104,7 @@ public class InfoFoodActivity extends AppCompatActivity {
 
                     if (jenis.equals("breakfast")) {
                         addFoodActivity.AddKaloriPagi(caloriUpdate);
-                        addFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kal)");
+                        addFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kcal)");
                         listPagi = addFoodActivity.getListBreakfast();
                         editor = spref.edit();
                         setPagi.addAll(listPagi);
@@ -114,7 +114,7 @@ public class InfoFoodActivity extends AppCompatActivity {
 
                     } else if (jenis.equals("lunch")) {
                         addFoodActivity.AddKaloriSiang(caloriUpdate);
-                        addFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kal)");
+                        addFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kcal)");
                         listSiang = addFoodActivity.getListLunch();
                         editor = spref.edit();
                         setSiang.addAll(listSiang);
@@ -123,7 +123,7 @@ public class InfoFoodActivity extends AppCompatActivity {
                         editor.commit();
                     } else {
                         addFoodActivity.AddKaloriMalam(caloriUpdate);
-                        addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kal)");
+                        addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kcal)");
                         listMalam = addFoodActivity.getListDinner();
                         editor = spref.edit();
                         setMalam.addAll(listMalam);

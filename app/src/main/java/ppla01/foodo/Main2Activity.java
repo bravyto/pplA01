@@ -98,7 +98,7 @@ public class Main2Activity extends AppCompatActivity {
     private static Toast toast;
 
     private static float[] yData = new float[4];
-    private static String[] xData = { "Sisa Kalori", "Breakfast", "Lunch", "Dinner"};
+    private static String[] xData = { "Not consumed", "Breakfast", "Lunch", "Dinner"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -416,7 +416,7 @@ public class Main2Activity extends AppCompatActivity {
                 TextView aktivitas= (TextView) rootView.findViewById(R.id.activity);
                 aktivitas.setText(aktivitasnya);
 
-                TextView beratIdeal= (TextView) rootView.findViewById(R.id.weightIdeal);
+//                TextView beratIdeal= (TextView) rootView.findViewById(R.id.weightIdeal);
                 double BMI = Double.parseDouble(beratnow)/(Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
 
                 if (BMI< 18.5){
@@ -446,10 +446,10 @@ public class Main2Activity extends AppCompatActivity {
                 ideal2 = Math.round(atasBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
 
                 if(ideal1 == ideal2){
-                    beratIdeal.setText(""+ideal1 +" kg");
+//                    beratIdeal.setText(""+ideal1 +" kg");
                 }
                 else{
-                    beratIdeal.setText(""+ideal1 +" - " + ideal2 +" kg");
+//                    beratIdeal.setText(""+ideal1 +" - " + ideal2 +" kg");
                 }
             } else if (getArguments().getInt(ARG_SECTION_NUMBER) == 3) {
                 rootView = inflater.inflate(R.layout.fragment_reminder, container, false);
@@ -474,10 +474,10 @@ public class Main2Activity extends AppCompatActivity {
 
 
                 TextView textBMR = (TextView) rootView.findViewById(R.id.textBMR);
-                textBMR.setText((int)bmr + " kalori");
+                textBMR.setText((int)bmr + " kcal");
 
                 TextView textSisa = (TextView) rootView.findViewById(R.id.textSisa);
-                textSisa.setText((int)totalKonsumsi + " kalori");
+                textSisa.setText((int)totalKonsumsi + " kcal");
                 PieChart pieChart =  (PieChart) rootView.findViewById(R.id.chart);
 // creating data values
 
@@ -495,13 +495,13 @@ public class Main2Activity extends AppCompatActivity {
                 yData[2] = spref.getFloat("kaloriSiang", 0);
                 yData[3] = spref.getFloat("kaloriMalam", 0);
                 if(sisa<0.0){
-                    lebih = totalKonsumsi - bmr;
-                    yData[0] = lebih;
-                    xData[0] = "Kelebihan Kalori";
+//                    lebih = totalKonsumsi - bmr;
+//                    yData[0] = lebih;
+//                    xData[0] = "Kelebihan Kalori";
                 }
                 else{
                     yData[0] = sisa;
-                    xData[0] = "Sisa Kalori";
+                    xData[0] = "Not consumed";
                 }
 
                 // add data
@@ -534,7 +534,7 @@ public class Main2Activity extends AppCompatActivity {
                                 PlaceholderFragment.showToast(getContext(), setMalam, "Dinner");
 
                             }
-                            else if(xData[e.getXIndex()].equalsIgnoreCase("sisa kalori")){
+                            else if(xData[e.getXIndex()].equalsIgnoreCase("Not consumed")){
 
                             }
                         }
@@ -767,34 +767,41 @@ public class Main2Activity extends AppCompatActivity {
             }
 
             // create pie data set
-            PieDataSet dataSet = new PieDataSet(yVals1, "(dalam kalori)");
+            PieDataSet dataSet = new PieDataSet(yVals1, "(in kcal)");
             dataSet.setSliceSpace(3);
             dataSet.setSelectionShift(5);
 
             // add many colors
             ArrayList<Integer> colors = new ArrayList<Integer>();
 
-            for (int c : ColorTemplate.VORDIPLOM_COLORS)
-                colors.add(c);
+//            for (int c : ColorTemplate.VORDIPLOM_COLORS)
+//                colors.add(c);
 
-            for (int c : ColorTemplate.JOYFUL_COLORS)
-                colors.add(c);
+//            for (int c : ColorTemplate.JOYFUL_COLORS)
+//                colors.add(c);
+//
+//            for (int c : ColorTemplate.COLORFUL_COLORS)
+//                colors.add(c);
+//
+//            for (int c : ColorTemplate.LIBERTY_COLORS)
+//                colors.add(c);
+//
+//            for (int c : ColorTemplate.PASTEL_COLORS)
+//                colors.add(c);
+//
+//            colors.add(ColorTemplate.getHoloBlue());
+            colors.add(Color.rgb(118, 92, 83));
+            colors.add(Color.rgb(14, 143, 41));
+            colors.add(Color.rgb(220, 66, 76));
+            colors.add(Color.rgb(34, 121, 169));
 
-            for (int c : ColorTemplate.COLORFUL_COLORS)
-                colors.add(c);
 
-            for (int c : ColorTemplate.LIBERTY_COLORS)
-                colors.add(c);
-
-            for (int c : ColorTemplate.PASTEL_COLORS)
-                colors.add(c);
-
-            colors.add(ColorTemplate.getHoloBlue());
             dataSet.setColors(colors);
 
             // instantiate pie data object now
             PieData data = new PieData(xVals, dataSet);
             data.setValueTextSize(11f);
+            data.setValueTextColor(Color.WHITE);
 //        data.setValueTextColor();
 
             pieChart.setData(data);
