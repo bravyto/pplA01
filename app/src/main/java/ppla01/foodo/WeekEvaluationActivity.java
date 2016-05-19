@@ -99,9 +99,9 @@ public class WeekEvaluationActivity extends AppCompatActivity {
                     editor.putString("log", "1");
                     editor.commit();
 
-                    Intent intent = new Intent(v.getContext(), Main2Activity.class);
-                    finish();
+                    Intent intent = new Intent(v.getContext(), RewardActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });
