@@ -416,7 +416,7 @@ public class Main2Activity extends AppCompatActivity {
                 TextView aktivitas= (TextView) rootView.findViewById(R.id.activity);
                 aktivitas.setText(aktivitasnya);
 
-                TextView beratIdeal= (TextView) rootView.findViewById(R.id.weightIdeal);
+//                TextView beratIdeal= (TextView) rootView.findViewById(R.id.weightIdeal);
                 double BMI = Double.parseDouble(beratnow)/(Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
 
                 if (BMI< 18.5){
@@ -446,10 +446,10 @@ public class Main2Activity extends AppCompatActivity {
                 ideal2 = Math.round(atasBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
 
                 if(ideal1 == ideal2){
-                    beratIdeal.setText(""+ideal1 +" kg");
+//                    beratIdeal.setText(""+ideal1 +" kg");
                 }
                 else{
-                    beratIdeal.setText(""+ideal1 +" - " + ideal2 +" kg");
+//                    beratIdeal.setText(""+ideal1 +" - " + ideal2 +" kg");
                 }
             } else if (getArguments().getInt(ARG_SECTION_NUMBER) == 3) {
                 rootView = inflater.inflate(R.layout.fragment_reminder, container, false);
@@ -774,27 +774,34 @@ public class Main2Activity extends AppCompatActivity {
             // add many colors
             ArrayList<Integer> colors = new ArrayList<Integer>();
 
-            for (int c : ColorTemplate.VORDIPLOM_COLORS)
-                colors.add(c);
+//            for (int c : ColorTemplate.VORDIPLOM_COLORS)
+//                colors.add(c);
 
-            for (int c : ColorTemplate.JOYFUL_COLORS)
-                colors.add(c);
+//            for (int c : ColorTemplate.JOYFUL_COLORS)
+//                colors.add(c);
+//
+//            for (int c : ColorTemplate.COLORFUL_COLORS)
+//                colors.add(c);
+//
+//            for (int c : ColorTemplate.LIBERTY_COLORS)
+//                colors.add(c);
+//
+//            for (int c : ColorTemplate.PASTEL_COLORS)
+//                colors.add(c);
+//
+//            colors.add(ColorTemplate.getHoloBlue());
+            colors.add(Color.rgb(118, 92, 83));
+            colors.add(Color.rgb(14, 143, 41));
+            colors.add(Color.rgb(220, 66, 76));
+            colors.add(Color.rgb(34, 121, 169));
 
-            for (int c : ColorTemplate.COLORFUL_COLORS)
-                colors.add(c);
 
-            for (int c : ColorTemplate.LIBERTY_COLORS)
-                colors.add(c);
-
-            for (int c : ColorTemplate.PASTEL_COLORS)
-                colors.add(c);
-
-            colors.add(ColorTemplate.getHoloBlue());
             dataSet.setColors(colors);
 
             // instantiate pie data object now
             PieData data = new PieData(xVals, dataSet);
             data.setValueTextSize(11f);
+            data.setValueTextColor(Color.WHITE);
 //        data.setValueTextColor();
 
             pieChart.setData(data);
