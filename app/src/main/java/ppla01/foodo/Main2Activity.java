@@ -495,9 +495,9 @@ public class Main2Activity extends AppCompatActivity {
                 yData[2] = spref.getFloat("kaloriSiang", 0);
                 yData[3] = spref.getFloat("kaloriMalam", 0);
                 if(sisa<0.0){
-//                    lebih = totalKonsumsi - bmr;
-//                    yData[0] = lebih;
-//                    xData[0] = "Kelebihan Kalori";
+                    lebih = totalKonsumsi - bmr;
+                    yData[0] = lebih;
+                    xData[0] = "Kelebihan Kalori";
                 }
                 else{
                     yData[0] = sisa;
@@ -755,15 +755,19 @@ public class Main2Activity extends AppCompatActivity {
             ArrayList<Entry> yVals1 = new ArrayList<Entry>();
 
             for (int i = 0; i < yData.length; i++) {
-                if(yData[i] > 0)
-                    yVals1.add(new Entry(yData[i], i));
+                if(yData[i] > 0) {
+                    if(!xData[i].equals("Kelebihan Kalori"))
+                        yVals1.add(new Entry(yData[i], i));
+                }
+
             }
 
             ArrayList<String> xVals = new ArrayList<String>();
 
             for (int i = 0; i < xData.length; i++) {
                 if(yData[i] > 0)
-                    xVals.add(xData[i]);
+                    if(!xData[i].equals("Kelebihan Kalori"))
+                        xVals.add(xData[i]);
             }
 
             // create pie data set
@@ -790,10 +794,14 @@ public class Main2Activity extends AppCompatActivity {
 //                colors.add(c);
 //
 //            colors.add(ColorTemplate.getHoloBlue());
-            colors.add(Color.rgb(118, 92, 83));
-            colors.add(Color.rgb(14, 143, 41));
-            colors.add(Color.rgb(220, 66, 76));
-            colors.add(Color.rgb(34, 121, 169));
+            if(!xData[0].equals("Kelebihan Kalori"))
+                colors.add(Color.rgb(118, 92, 83));
+            if(yData[1] > 0)
+                colors.add(Color.rgb(14, 143, 41));
+            if(yData[2] > 0)
+                colors.add(Color.rgb(220, 66, 76));
+            if(yData[3] > 0)
+                colors.add(Color.rgb(34, 121, 169));
 
 
             dataSet.setColors(colors);
