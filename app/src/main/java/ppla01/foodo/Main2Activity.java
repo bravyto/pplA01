@@ -95,8 +95,10 @@ public class Main2Activity extends AppCompatActivity {
 
     FloatingActionMenu fab;
 
+    private static Toast toast;
+
     private static float[] yData = new float[4];
-    private static String[] xData = { "Sisa Kalori", "Breakfast", "Lunch", "Dinner"};
+    private static String[] xData = { "Not consumed", "Breakfast", "Lunch", "Dinner"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -414,7 +416,7 @@ public class Main2Activity extends AppCompatActivity {
                 TextView aktivitas= (TextView) rootView.findViewById(R.id.activity);
                 aktivitas.setText(aktivitasnya);
 
-                TextView beratIdeal= (TextView) rootView.findViewById(R.id.weightIdeal);
+//                TextView beratIdeal= (TextView) rootView.findViewById(R.id.weightIdeal);
                 double BMI = Double.parseDouble(beratnow)/(Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
 
                 if (BMI< 18.5){
@@ -444,10 +446,10 @@ public class Main2Activity extends AppCompatActivity {
                 ideal2 = Math.round(atasBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
 
                 if(ideal1 == ideal2){
-                    beratIdeal.setText(""+ideal1 +" kg");
+//                    beratIdeal.setText(""+ideal1 +" kg");
                 }
                 else{
-                    beratIdeal.setText(""+ideal1 +" - " + ideal2 +" kg");
+//                    beratIdeal.setText(""+ideal1 +" - " + ideal2 +" kg");
                 }
             } else if (getArguments().getInt(ARG_SECTION_NUMBER) == 3) {
                 rootView = inflater.inflate(R.layout.fragment_reminder, container, false);
@@ -472,10 +474,10 @@ public class Main2Activity extends AppCompatActivity {
 
 
                 TextView textBMR = (TextView) rootView.findViewById(R.id.textBMR);
-                textBMR.setText((int)bmr + " kalori");
+                textBMR.setText((int)bmr + " kcal");
 
                 TextView textSisa = (TextView) rootView.findViewById(R.id.textSisa);
-                textSisa.setText((int)totalKonsumsi + " kalori");
+                textSisa.setText((int)totalKonsumsi + " kcal");
                 PieChart pieChart =  (PieChart) rootView.findViewById(R.id.chart);
 // creating data values
 
@@ -499,7 +501,7 @@ public class Main2Activity extends AppCompatActivity {
                 }
                 else{
                     yData[0] = sisa;
-                    xData[0] = "Sisa Kalori";
+                    xData[0] = "Not consumed";
                 }
 
                 // add data
@@ -532,7 +534,7 @@ public class Main2Activity extends AppCompatActivity {
                                 PlaceholderFragment.showToast(getContext(), setMalam, "Dinner");
 
                             }
-                            else if(xData[e.getXIndex()].equalsIgnoreCase("sisa kalori")){
+                            else if(xData[e.getXIndex()].equalsIgnoreCase("Not consumed")){
 
                             }
                         }
@@ -753,46 +755,61 @@ public class Main2Activity extends AppCompatActivity {
             ArrayList<Entry> yVals1 = new ArrayList<Entry>();
 
             for (int i = 0; i < yData.length; i++) {
-                if(yData[i] > 0)
-                    yVals1.add(new Entry(yData[i], i));
+                if(yData[i] > 0) {
+                    if(!xData[i].equals("Kelebihan Kalori"))
+                        yVals1.add(new Entry(yData[i], i));
+                }
+
             }
 
             ArrayList<String> xVals = new ArrayList<String>();
 
             for (int i = 0; i < xData.length; i++) {
                 if(yData[i] > 0)
-                    xVals.add(xData[i]);
+                    if(!xData[i].equals("Kelebihan Kalori"))
+                        xVals.add(xData[i]);
             }
 
             // create pie data set
-            PieDataSet dataSet = new PieDataSet(yVals1, "(dalam kalori)");
+            PieDataSet dataSet = new PieDataSet(yVals1, "(in kcal)");
             dataSet.setSliceSpace(3);
             dataSet.setSelectionShift(5);
 
             // add many colors
             ArrayList<Integer> colors = new ArrayList<Integer>();
 
-            for (int c : ColorTemplate.VORDIPLOM_COLORS)
-                colors.add(c);
+//            for (int c : ColorTemplate.VORDIPLOM_COLORS)
+//                colors.add(c);
 
-            for (int c : ColorTemplate.JOYFUL_COLORS)
-                colors.add(c);
+//            for (int c : ColorTemplate.JOYFUL_COLORS)
+//                colors.add(c);
+//
+//            for (int c : ColorTemplate.COLORFUL_COLORS)
+//                colors.add(c);
+//
+//            for (int c : ColorTemplate.LIBERTY_COLORS)
+//                colors.add(c);
+//
+//            for (int c : ColorTemplate.PASTEL_COLORS)
+//                colors.add(c);
+//
+//            colors.add(ColorTemplate.getHoloBlue());
+            if(!xData[0].equals("Kelebihan Kalori"))
+                colors.add(Color.rgb(118, 92, 83));
+            if(yData[1] > 0)
+                colors.add(Color.rgb(14, 143, 41));
+            if(yData[2] > 0)
+                colors.add(Color.rgb(220, 66, 76));
+            if(yData[3] > 0)
+                colors.add(Color.rgb(34, 121, 169));
 
-            for (int c : ColorTemplate.COLORFUL_COLORS)
-                colors.add(c);
 
-            for (int c : ColorTemplate.LIBERTY_COLORS)
-                colors.add(c);
-
-            for (int c : ColorTemplate.PASTEL_COLORS)
-                colors.add(c);
-
-            colors.add(ColorTemplate.getHoloBlue());
             dataSet.setColors(colors);
 
             // instantiate pie data object now
             PieData data = new PieData(xVals, dataSet);
             data.setValueTextSize(11f);
+            data.setValueTextColor(Color.WHITE);
 //        data.setValueTextColor();
 
             pieChart.setData(data);
@@ -879,9 +896,13 @@ public class Main2Activity extends AppCompatActivity {
             }
 
             // Toast...
-            Toast toast = new Toast(context);
+            if(toast != null){
+                toast.cancel();
+            }
+
+            toast = new Toast(context);
             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setView(layout);
             toast.show();
         }
