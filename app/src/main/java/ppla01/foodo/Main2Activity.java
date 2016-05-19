@@ -505,7 +505,7 @@ public class Main2Activity extends AppCompatActivity {
                 }
 
                 // add data
-                addData(pieChart);
+                final ArrayList<String> arrayX = addData(pieChart);
 
                 // set a chart value selected listener
                 pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
@@ -513,35 +513,35 @@ public class Main2Activity extends AppCompatActivity {
                     @Override
                     public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
                         // display msg when value selected
+                        int indeks = e.getXIndex();
+//                        if(xData[0].equalsIgnoreCase("Kelebihan Kalori")){
+//                            indeks += 1;
+//                        }
+
+                        System.out.println("Index: " +indeks);
                         if (e == null)
                             return;
 
                         else {
-                            if(xData[e.getXIndex()].equalsIgnoreCase("breakfast")){
+                            if(arrayX.get(indeks).equalsIgnoreCase("breakfast")){
                                 Set<String> setPagi = spref.getStringSet("SetPagi", null);
-
                                 PlaceholderFragment.showToast(getContext(), setPagi, "Breakfast");
                             }
-                            else if(xData[e.getXIndex()].equalsIgnoreCase("lunch")){
+                            else if(arrayX.get(indeks).equalsIgnoreCase("lunch")){
                                 Set<String> setSiang = spref.getStringSet("SetSiang", null);
-
                                 PlaceholderFragment.showToast(getContext(), setSiang, "Lunch");
                             }
-                            else if(xData[e.getXIndex()].equalsIgnoreCase("dinner")){
-
+                            else if(arrayX.get(indeks).equalsIgnoreCase("dinner")){
                                 Set<String> setMalam = spref.getStringSet("SetMalam", null);
-
                                 PlaceholderFragment.showToast(getContext(), setMalam, "Dinner");
+                            }
+                            else if(arrayX.get(indeks).equalsIgnoreCase("Not consumed")){
 
                             }
-                            else if(xData[e.getXIndex()].equalsIgnoreCase("Not consumed")){
+                            else if(arrayX.get(indeks).equalsIgnoreCase("Kelebihan Kalori")){
 
                             }
                         }
-                        //Toast.makeText(getActivity(), "Please long press the key", Toast.LENGTH_LONG ).show();
-//
-//                        Toast.makeText(Main2Activity.this,
-//                                xData[e.getXIndex()] + " = " + e.getVal() + "%", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -640,63 +640,6 @@ public class Main2Activity extends AppCompatActivity {
             else {
                 rootView = inflater.inflate(R.layout.fragment_main2, container, false);
                 spref = getContext().getSharedPreferences("my_data", 0);
-
-
-
-
-//                float bmr= spref.getFloat("BMR", 0);
-//                float sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
-//
-//                PieChart pieChart = (PieChart) rootView.findViewById(R.id.chart);
-//// creating data values
-//
-//
-//                pieChart.setDrawHoleEnabled(true);
-//                pieChart.setHoleRadius(7);
-//                pieChart.setTransparentCircleRadius(10);
-//
-//                // enable rotation of the chart by touch
-//                pieChart.setRotationAngle(0);
-//                pieChart.setRotationEnabled(true);
-//                pieChart.setDescription("Konsumsi Kalori");
-//
-//                // set a chart value selected listener
-//                pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
-//
-//                    @Override
-//                    public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
-//                        // display msg when value selected
-//                        if (e == null)
-//                            return;
-//
-//                        PlaceholderFragment.showToast(getContext(), "text");
-//                        //Toast.makeText(getActivity(), "Please long press the key", Toast.LENGTH_LONG ).show();
-////
-////                        Toast.makeText(Main2Activity.this,
-////                                xData[e.getXIndex()] + " = " + e.getVal() + "%", Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                    @Override
-//                    public void onNothingSelected() {
-//
-//                    }
-//                });
-//
-//                yData[0] = spref.getFloat("kaloriPagi",0);
-//                yData[1] = spref.getFloat("kaloriSiang",0);
-//                yData[2] = spref.getFloat("kaloriMalam",0);
-//                yData[3] = sisa;
-//
-//
-//                // add data
-//                addData(pieChart);
-//
-//                // customize legends
-//                Legend l = pieChart.getLegend();
-//                l.setPosition(Legend.LegendPosition.BELOW_CHART_CENTER);
-//                l.setXEntrySpace(7);
-//                l.setYEntrySpace(5);
-
                 LineChart lineChart = (LineChart) rootView.findViewById(R.id.graph);
                 // creating list of entry
                 ArrayList<Entry> entries_line = new ArrayList<>();
@@ -713,14 +656,14 @@ public class Main2Activity extends AppCompatActivity {
 
                 // creating labels
                 ArrayList<String> labels_line = new ArrayList<String>();
-                labels_line.add("January");
-                labels_line.add("February");
-                labels_line.add("March");
-                labels_line.add("April");
-                labels_line.add("May");
-                labels_line.add("June");
-                labels_line.add("July");
-                labels_line.add("August");
+                labels_line.add("21 May 2016");
+                labels_line.add("22 May 2016");
+                labels_line.add("23 May 2016");
+                labels_line.add("24 May 2016");
+                labels_line.add("25 May 2016");
+                labels_line.add("26 May 2016");
+                labels_line.add("27 May 2016");
+                labels_line.add("28 May 2016");
 
                 LineData data_line = new LineData(labels_line, dataset_line);
                 data_line.setValueTextSize(12f);
@@ -751,24 +694,34 @@ public class Main2Activity extends AppCompatActivity {
             return rootView;
         }
 
-        private static void addData(PieChart pieChart) {
+        private static ArrayList<String> addData(PieChart pieChart) {
             ArrayList<Entry> yVals1 = new ArrayList<Entry>();
 
-            for (int i = 0; i < yData.length; i++) {
-                if(yData[i] > 0) {
-                    if(!xData[i].equals("Kelebihan Kalori"))
-                        yVals1.add(new Entry(yData[i], i));
+            if(xData[0].equalsIgnoreCase("Kelebihan Kalori")){
+                for (int i = 0; i < yData.length-1; i++) {
+                    if (yData[i+1] > 0) {
+                        yVals1.add(new Entry(yData[i+1], i));
+                    }
                 }
-
             }
-
+            else {
+                for (int i = 0; i < yData.length; i++) {
+                    if (yData[i] > 0) {
+                        yVals1.add(new Entry(yData[i], i));
+                    }
+                }
+            }
             ArrayList<String> xVals = new ArrayList<String>();
 
             for (int i = 0; i < xData.length; i++) {
-                if(yData[i] > 0)
-                    if(!xData[i].equals("Kelebihan Kalori"))
+                if(yData[i] > 0){
+                    if(!xData[i].equalsIgnoreCase("Kelebihan Kalori"))
                         xVals.add(xData[i]);
+                }
             }
+
+            System.out.println(xVals.toString());
+            System.out.println(yVals1.toString());
 
             // create pie data set
             PieDataSet dataSet = new PieDataSet(yVals1, "(in kcal)");
@@ -819,6 +772,8 @@ public class Main2Activity extends AppCompatActivity {
 
             // update pie chart
             pieChart.invalidate();
+
+            return xVals;
         }
 
         public static void showToast(Context context,Set<String> listMakanan, String stat){
