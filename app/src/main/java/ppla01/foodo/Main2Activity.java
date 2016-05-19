@@ -41,6 +41,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 //<<<<<<< HEAD
+import com.github.mikephil.charting.charts.CombinedChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -53,9 +54,12 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.clans.fab.FloatingActionMenu;
 //>>>>>>> refs/remotes/origin/master
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.DataPoint;
@@ -66,8 +70,11 @@ import com.jjoe64.graphview.series.Series;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.Set;
 
 public class Main2Activity extends AppCompatActivity {
@@ -462,100 +469,96 @@ public class Main2Activity extends AppCompatActivity {
                 lunch.setText(spref.getString("siang", ""));
                 TextView dinner= (TextView) rootView.findViewById(R.id.dinner);
                 dinner.setText(spref.getString("malam", ""));
-            } else if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
-                rootView = inflater.inflate(R.layout.fragment_food, container, false);
+            } else {
+                if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
+                    rootView = inflater.inflate(R.layout.fragment_food, container, false);
 
-                spref = getContext().getSharedPreferences("my_data", 0);
+                    spref = getContext().getSharedPreferences("my_data", 0);
 
-                float bmr= spref.getFloat("BMR", 0);
-                float sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
-                float lebih = sisa;
-                float totalKonsumsi = bmr-sisa;
+                    float bmr = spref.getFloat("BMR", 0);
+                    float sisa = bmr - (spref.getFloat("kaloriPagi", 0) + spref.getFloat("kaloriSiang", 0) + spref.getFloat("kaloriMalam", 0));
+                    float lebih = sisa;
+                    float totalKonsumsi = bmr - sisa;
 
 
-                TextView textBMR = (TextView) rootView.findViewById(R.id.textBMR);
-                textBMR.setText((int)bmr + " kcal");
+                    TextView textBMR = (TextView) rootView.findViewById(R.id.textBMR);
+                    textBMR.setText((int) bmr + " kcal");
 
-                TextView textSisa = (TextView) rootView.findViewById(R.id.textSisa);
-                textSisa.setText((int)totalKonsumsi + " kcal");
-                PieChart pieChart =  (PieChart) rootView.findViewById(R.id.chart);
+                    TextView textSisa = (TextView) rootView.findViewById(R.id.textSisa);
+                    textSisa.setText((int) totalKonsumsi + " kcal");
+                    PieChart pieChart = (PieChart) rootView.findViewById(R.id.chart);
 // creating data values
 
 
-                pieChart.setDrawHoleEnabled(true);
-                pieChart.setHoleRadius(7);
-                pieChart.setTransparentCircleRadius(10);
+                    pieChart.setDrawHoleEnabled(true);
+                    pieChart.setHoleRadius(7);
+                    pieChart.setTransparentCircleRadius(10);
 
-                // enable rotation of the chart by touch
-                pieChart.setRotationAngle(0);
-                pieChart.setRotationEnabled(true);
-                pieChart.setDescription("");
+                    // enable rotation of the chart by touch
+                    pieChart.setRotationAngle(0);
+                    pieChart.setRotationEnabled(true);
+                    pieChart.setDescription("");
 
-                yData[1] = spref.getFloat("kaloriPagi",0);
-                yData[2] = spref.getFloat("kaloriSiang", 0);
-                yData[3] = spref.getFloat("kaloriMalam", 0);
-                if(sisa<0.0){
-                    lebih = totalKonsumsi - bmr;
-                    yData[0] = lebih;
-                    xData[0] = "Kelebihan Kalori";
-                }
-                else{
-                    yData[0] = sisa;
-                    xData[0] = "Not consumed";
-                }
+                    yData[1] = spref.getFloat("kaloriPagi", 0);
+                    yData[2] = spref.getFloat("kaloriSiang", 0);
+                    yData[3] = spref.getFloat("kaloriMalam", 0);
+                    if (sisa < 0.0) {
+                        lebih = totalKonsumsi - bmr;
+                        yData[0] = lebih;
+                        xData[0] = "Kelebihan Kalori";
+                    } else {
+                        yData[0] = sisa;
+                        xData[0] = "Not consumed";
+                    }
 
-                // add data
-                final ArrayList<String> arrayX = addData(pieChart);
+                    // add data
+                    final ArrayList<String> arrayX = addData(pieChart);
 
-                // set a chart value selected listener
-                pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+                    // set a chart value selected listener
+                    pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
 
-                    @Override
-                    public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
-                        // display msg when value selected
-                        int indeks = e.getXIndex();
+                        @Override
+                        public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+                            // display msg when value selected
+                            int indeks = e.getXIndex();
 //                        if(xData[0].equalsIgnoreCase("Kelebihan Kalori")){
 //                            indeks += 1;
 //                        }
 
-                        System.out.println("Index: " +indeks);
-                        if (e == null)
-                            return;
+                            System.out.println("Index: " + indeks);
+                            if (e == null)
+                                return;
 
-                        else {
-                            if(arrayX.get(indeks).equalsIgnoreCase("breakfast")){
-                                Set<String> setPagi = spref.getStringSet("SetPagi", null);
-                                PlaceholderFragment.showToast(getContext(), setPagi, "Breakfast");
-                            }
-                            else if(arrayX.get(indeks).equalsIgnoreCase("lunch")){
-                                Set<String> setSiang = spref.getStringSet("SetSiang", null);
-                                PlaceholderFragment.showToast(getContext(), setSiang, "Lunch");
-                            }
-                            else if(arrayX.get(indeks).equalsIgnoreCase("dinner")){
-                                Set<String> setMalam = spref.getStringSet("SetMalam", null);
-                                PlaceholderFragment.showToast(getContext(), setMalam, "Dinner");
-                            }
-                            else if(arrayX.get(indeks).equalsIgnoreCase("Not consumed")){
+                            else {
+                                if (arrayX.get(indeks).equalsIgnoreCase("breakfast")) {
+                                    Set<String> setPagi = spref.getStringSet("SetPagi", null);
+                                    PlaceholderFragment.showToast(getContext(), setPagi, "Breakfast");
+                                } else if (arrayX.get(indeks).equalsIgnoreCase("lunch")) {
+                                    Set<String> setSiang = spref.getStringSet("SetSiang", null);
+                                    PlaceholderFragment.showToast(getContext(), setSiang, "Lunch");
+                                } else if (arrayX.get(indeks).equalsIgnoreCase("dinner")) {
+                                    Set<String> setMalam = spref.getStringSet("SetMalam", null);
+                                    PlaceholderFragment.showToast(getContext(), setMalam, "Dinner");
+                                } else if (arrayX.get(indeks).equalsIgnoreCase("Not consumed")) {
 
-                            }
-                            else if(arrayX.get(indeks).equalsIgnoreCase("Kelebihan Kalori")){
+                                } else if (arrayX.get(indeks).equalsIgnoreCase("Kelebihan Kalori")) {
 
+                                }
                             }
                         }
-                    }
 
-                    @Override
-                    public void onNothingSelected() {
+                        @Override
+                        public void onNothingSelected() {
 
-                    }
-                });
+                        }
+                    });
 
 
-                // customize legends
-                Legend l = pieChart.getLegend();
-                l.setPosition(Legend.LegendPosition.ABOVE_CHART_CENTER);
-                l.setXEntrySpace(7);
-                l.setYEntrySpace(5);
+                    // customize legends
+                    Legend l = pieChart.getLegend();
+                    l.setPosition(Legend.LegendPosition.ABOVE_CHART_CENTER);
+                    l.setXEntrySpace(7);
+                    l.setYEntrySpace(5);
 
 
 //                LinearLayout item = (LinearLayout) rootView.findViewById(R.id.item);
@@ -636,59 +639,86 @@ public class Main2Activity extends AppCompatActivity {
 //                        }
 //                    }
 //                }
-            }
-            else {
-                rootView = inflater.inflate(R.layout.fragment_main2, container, false);
-                spref = getContext().getSharedPreferences("my_data", 0);
-                LineChart lineChart = (LineChart) rootView.findViewById(R.id.graph);
-                // creating list of entry
-                ArrayList<Entry> entries_line = new ArrayList<>();
-                entries_line.add(new Entry(4f, 0));
-                entries_line.add(new Entry(8f, 1));
-                entries_line.add(new Entry(6f, 2));
-                entries_line.add(new Entry(2f, 3));
-                entries_line.add(new Entry(18f, 4));
-                entries_line.add(new Entry(9f, 5));
-                entries_line.add(new Entry(18f, 6));
-                entries_line.add(new Entry(9f, 7));
+                } else {
+                    rootView = inflater.inflate(R.layout.fragment_main2, container, false);
+                    spref = getContext().getSharedPreferences("my_data", 0);
+                    LineChart lineChart = (LineChart) rootView.findViewById(R.id.graph);
+                    // creating list of entry
+                    ArrayList<Entry> entries_line = new ArrayList<>();
+                    entries_line.add(new Entry(4f, 0));
+                    entries_line.add(new Entry(8f, 1));
+                    entries_line.add(new Entry(6f, 2));
+                    entries_line.add(new Entry(2f, 3));
+                    entries_line.add(new Entry(18f, 4));
+                    entries_line.add(new Entry(9f, 5));
+                    entries_line.add(new Entry(18f, 6));
+                    entries_line.add(new Entry(9f, 7));
 
-                LineDataSet dataset_line = new LineDataSet(entries_line, "dalam satuan kalori");
+                    ArrayList<Entry> entries_line2 = new ArrayList<>();
+                    entries_line2.add(new Entry(1f, 0));
+                    entries_line2.add(new Entry(2f, 1));
+                    entries_line2.add(new Entry(3f, 2));
+                    entries_line2.add(new Entry(4f, 3));
+                    entries_line2.add(new Entry(5f, 4));
+                    entries_line2.add(new Entry(6f, 5));
+                    entries_line2.add(new Entry(7f, 6));
+                    entries_line2.add(new Entry(8f, 7));
 
-                // creating labels
-                ArrayList<String> labels_line = new ArrayList<String>();
-                labels_line.add("21 May 2016");
-                labels_line.add("22 May 2016");
-                labels_line.add("23 May 2016");
-                labels_line.add("24 May 2016");
-                labels_line.add("25 May 2016");
-                labels_line.add("26 May 2016");
-                labels_line.add("27 May 2016");
-                labels_line.add("28 May 2016");
+                    // creating labels
+                    String[] labels_line = new String[]{"21 May 2016", "22 May 2016", "23 May 2016", "24 May 2016", "25 May 2016", "26 May 2016", "27 May 2016", "28 May 2016"};
 
-                LineData data_line = new LineData(labels_line, dataset_line);
-                data_line.setValueTextSize(12f);
-                lineChart.setData(data_line); // set the data and list of lables into chart
-                lineChart.setDescription("Konsumsi Kalori");  // set the description
-                lineChart.setVisibleXRangeMaximum(5);
+                    ArrayList<ILineDataSet> lines = new ArrayList<ILineDataSet>();
 
-                lineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+                    final LineDataSet dataset_line = new LineDataSet(entries_line, "Konsumsi Kalori Anda");
+                    final LineDataSet dataset_line2 = new LineDataSet(entries_line2, "Konsumsi Kalori Ideal");
+                    dataset_line.setCircleColor(Color.rgb(220, 66, 76));
+                    dataset_line.setColor(Color.rgb(220, 66, 76));
+                    dataset_line.setLineWidth(3f);
+                    dataset_line.setCircleRadius(5f);
+                    dataset_line.setValueTextSize(10f);
+                    dataset_line.setDrawValues(false);
+                    dataset_line.setFillColor(Color.rgb(220, 66, 76));
 
-                    @Override
-                    public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
-                        // display msg when value selected
-                        if (e == null)
-                            return;
+                    dataset_line2.getCircleColor(Color.rgb(1, 169, 157));
+                    dataset_line2.getCircleColor(Color.rgb(1, 169, 157));
+                    dataset_line2.setLineWidth(3f);
+                    dataset_line2.setCircleRadius(5f);
+                    dataset_line2.setValueTextSize(10f);
+                    dataset_line2.setDrawValues(false);
 
-                        Toast.makeText(getActivity(), "Please long press the key", Toast.LENGTH_SHORT).show();
-                    }
+                    lines.add(dataset_line);
+                    lines.add(dataset_line2);
 
-                    @Override
-                    public void onNothingSelected() {
+//                LineData data_line = new LineData(labels_line, dataset_line);
+//                data_line.setValueTextSize(12f);
 
-                    }
-                });
+                    lineChart.setData(new LineData(labels_line, lines));// set the data and list of lables into chart
+                    lineChart.setBackgroundColor(Color.WHITE);
+                    lineChart.setDescription("in Kcal");  // set the description
+                    lineChart.setVisibleXRangeMaximum(5);
+                    lineChart.moveViewToX(labels_line.length - 5);
 
+                    lineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+
+                        @Override
+                        public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+                            // display msg when value selected
+                            if (e == null)
+                                return;
+
+                            dataset_line.setDrawValues(true);
+                            dataset_line2.setDrawValues(true);
+                            Toast.makeText(getActivity(), "Please long press the key", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onNothingSelected() {
+                            dataset_line.setDrawValues(false);
+                            dataset_line2.setDrawValues(false);
+                        }
+                    });
 //                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+                }
             }
 
             return rootView;
@@ -724,7 +754,8 @@ public class Main2Activity extends AppCompatActivity {
             System.out.println(yVals1.toString());
 
             // create pie data set
-            PieDataSet dataSet = new PieDataSet(yVals1, "(in kcal)");
+//            PieDataSet dataSet = new PieDataSet(yVals1, "(in kcal)");
+            PieDataSet dataSet = new PieDataSet(yVals1, "");
             dataSet.setSliceSpace(3);
             dataSet.setSelectionShift(5);
 
@@ -761,6 +792,7 @@ public class Main2Activity extends AppCompatActivity {
 
             // instantiate pie data object now
             PieData data = new PieData(xVals, dataSet);
+            data.setValueFormatter(new MyValueFormatter());
             data.setValueTextSize(11f);
             data.setValueTextColor(Color.WHITE);
 //        data.setValueTextColor();
@@ -862,6 +894,21 @@ public class Main2Activity extends AppCompatActivity {
             toast.show();
         }
 
+    }
+
+    public static class MyValueFormatter implements ValueFormatter {
+        NumberFormat nf = NumberFormat.getNumberInstance(Locale.GERMAN);
+        private DecimalFormat mFormat = (DecimalFormat)nf;
+
+        public MyValueFormatter() {
+            mFormat = new DecimalFormat("###.###.##0"); // use one decimal
+        }
+
+        @Override
+        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+            // write your logic here
+            return mFormat.format((int)value) + " Kcal"; // e.g. append a dollar-sign
+        }
     }
 
 }
