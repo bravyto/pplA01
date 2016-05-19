@@ -1,5 +1,6 @@
 package ppla01.foodo;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -8,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -87,29 +89,6 @@ public class NotifyServiceNoon extends Service {
      */
     private void showNotificationNoon() {
 
-        if (AlarmTask.code == 0) {
-            message = "Good morning, It's time to take your Breakfast :)";
-        }
-        if(AlarmTask.code == 1) {
-            message = "It's time for Lunch.. Don't miss it!";
-        }
-        if(AlarmTask.code == 2) {
-            message = "Let's go for dinner!";
-        }
-        if(AlarmTask.code == 3){
-            message = "Reset Data!";
-        }
-
-
-
-        Intent resultIntent = new Intent(this, MenuActivity.class);
-        PendingIntent resultPendingIntent =
-                PendingIntent.getActivity(
-                        this,
-                        0,
-                        resultIntent,
-                        PendingIntent.FLAG_UPDATE_CURRENT
-                );
         NotificationCompat.Builder mBuilderNoon =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.food_icon2)
@@ -117,6 +96,22 @@ public class NotifyServiceNoon extends Service {
                         .setContentText("It's time for Lunch.. Don't miss it!");
 
         int mNotificationId = 002;
+
+        Intent contentIntent = new Intent(this, RecommendationActivity.class);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(RecommendationActivity.class);
+        stackBuilder.addNextIntent(contentIntent);
+
+
+
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(
+                        0,
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
+        mBuilderNoon.setContentIntent(resultPendingIntent);
+
+        mBuilderNoon.setAutoCancel(true);
 
         mNMNoon =(NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
