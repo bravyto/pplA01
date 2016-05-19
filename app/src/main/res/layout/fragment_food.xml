@@ -20,9 +20,135 @@
             android:layout_height="match_parent"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
-            android:paddingTop="40dp"
+            android:paddingTop="20dp"
             android:paddingBottom="40dp"
             android:clipToPadding="false">
+
+            <LinearLayout
+                android:state_pressed="true"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="#ffffff"
+                android:layout_height="wrap_content"
+                android:id="@+id/judul"
+                android:paddingTop="10dp"
+                android:elevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:id="@+id/judulBMR"
+                        android:text="Calorie needs:"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="15dp"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:layout_marginTop="3dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:id="@+id/judulSisa"
+                        android:text="Calorie consumed:"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="15dp"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:layout_marginTop="3dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:state_pressed="true"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="#ffffff"
+                android:layout_height="wrap_content"
+                android:id="@+id/bmr"
+                android:paddingBottom="10dp"
+                android:elevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="0.5"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:id="@+id/textBMR"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="15dp"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:layout_marginTop="3dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:id="@+id/textSisa"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="15dp"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:layout_marginTop="3dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:id="@+id/judul1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/linetext1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your calorie intake today:"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#000000" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/test"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_below="@+id/judul1">
+                >
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="270dp" />
+            </LinearLayout>
 
 
             <!--<ImageView-->
@@ -34,195 +160,195 @@
             <!--android:src="@drawable/coffee" />-->
 
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:elevation="2dp"
-                android:background="#ffffff">
+            <!--<LinearLayout-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:elevation="2dp"-->
+                <!--android:background="#ffffff">-->
 
-                <LinearLayout
-                    android:state_pressed="true"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/breakfastClick"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:background="#FFFFFF"
-                    android:elevation="4dp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight=".6"
-                        android:layout_gravity="center_vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="45dp"
-                            android:layout_weight=".2"
-                            android:id="@+id/imageView7"
-                            android:layout_gravity="center_vertical"
-                            android:src="@drawable/coffee" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".6"
-                            android:text="Breakfast"
-                            android:id="@+id/textView"
-                            android:layout_gravity="center_vertical"
-                            android:textSize="15dp"
-                            android:textAlignment="center"
-                            android:textColor="#000000"
-                            android:layout_marginTop="3dp" />
-
-                    </LinearLayout>
-
-
-                    <!--<Button-->
+                <!--<LinearLayout-->
+                    <!--android:state_pressed="true"-->
+                    <!--android:orientation="horizontal"-->
                     <!--android:layout_width="match_parent"-->
-                    <!--android:background="@drawable/transparant"-->
                     <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Add Food"-->
-                    <!--android:id="@+id/button"-->
-                    <!--android:textColor="@color/colorPrimaryDark"-->
-                    <!--android:layout_below="@+id/theChole"-->
-                    <!--android:layout_alignParentLeft="true"-->
-                    <!--android:layout_alignParentStart="true"-->
-                    <!--/>-->
+                    <!--android:id="@+id/breakfastClick"-->
+                    <!--android:paddingTop="10dp"-->
+                    <!--android:paddingBottom="10dp"-->
+                    <!--android:background="#FFFFFF"-->
+                    <!--android:elevation="4dp">-->
 
-                </LinearLayout>
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:layout_weight=".6"-->
+                        <!--android:layout_gravity="center_vertical">-->
 
-                <LinearLayout
-                    android:state_pressed="true"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/item"
-                    android:elevation="0dp"
-                    android:background="#fafafa"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="10dp">
+                        <!--<ImageView-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="45dp"-->
+                            <!--android:layout_weight=".2"-->
+                            <!--android:id="@+id/imageView7"-->
+                            <!--android:layout_gravity="center_vertical"-->
+                            <!--android:src="@drawable/coffee" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_weight=".6"-->
+                            <!--android:text="Breakfast"-->
+                            <!--android:id="@+id/textView"-->
+                            <!--android:layout_gravity="center_vertical"-->
+                            <!--android:textSize="15dp"-->
+                            <!--android:textAlignment="center"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:layout_marginTop="3dp" />-->
+
+                    <!--</LinearLayout>-->
 
 
-                </LinearLayout>
+                    <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:background="@drawable/transparant"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:text="Add Food"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:id="@+id/button"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:textColor="@color/colorPrimaryDark"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:layout_below="@+id/theChole"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:layout_alignParentLeft="true"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;-->
+                    <!--&lt;!&ndash;/>&ndash;&gt;-->
 
-                <LinearLayout
-                    android:state_pressed="true"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:background="#ffffff"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lunchClick"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:elevation="4dp">
+                <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight=".6"
-                        android:layout_gravity="center_vertical">
+                <!--<LinearLayout-->
+                    <!--android:state_pressed="true"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/item"-->
+                    <!--android:elevation="0dp"-->
+                    <!--android:background="#fafafa"-->
+                    <!--android:paddingTop="5dp"-->
+                    <!--android:paddingBottom="10dp">-->
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="45dp"
-                            android:layout_weight=".2"
-                            android:id="@+id/imageView8"
-                            android:layout_gravity="center_vertical"
-                            android:src="@drawable/therice" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".6"
-                            android:text="Lunch"
-                            android:id="@+id/textView2"
-                            android:layout_gravity="center_vertical"
-                            android:textSize="15dp"
-                            android:textAlignment="center"
-                            android:textColor="#000000"
-                            android:layout_marginTop="3dp" />
+                <!--</LinearLayout>-->
 
-                    </LinearLayout>
+                <!--<LinearLayout-->
+                    <!--android:state_pressed="true"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:background="#ffffff"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/lunchClick"-->
+                    <!--android:paddingTop="10dp"-->
+                    <!--android:paddingBottom="10dp"-->
+                    <!--android:elevation="4dp">-->
 
-                </LinearLayout>
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:layout_weight=".6"-->
+                        <!--android:layout_gravity="center_vertical">-->
 
-                <LinearLayout
-                    android:state_pressed="true"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:background="#fafafa"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/item2"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="10dp"
-                    android:elevation="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingRight="0dp">
+                        <!--<ImageView-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="45dp"-->
+                            <!--android:layout_weight=".2"-->
+                            <!--android:id="@+id/imageView8"-->
+                            <!--android:layout_gravity="center_vertical"-->
+                            <!--android:src="@drawable/therice" />-->
 
-                </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_weight=".6"-->
+                            <!--android:text="Lunch"-->
+                            <!--android:id="@+id/textView2"-->
+                            <!--android:layout_gravity="center_vertical"-->
+                            <!--android:textSize="15dp"-->
+                            <!--android:textAlignment="center"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:layout_marginTop="3dp" />-->
 
-                <LinearLayout
-                    android:state_pressed="true"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/dinnerClick"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:background="#ffffff"
-                    android:elevation="4dp">
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight=".6"
-                        android:layout_gravity="center_vertical">
+                <!--</LinearLayout>-->
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="45dp"
-                            android:layout_weight=".2"
-                            android:id="@+id/imageView9"
-                            android:layout_gravity="center_vertical"
-                            android:src="@drawable/hamburger" />
+                <!--<LinearLayout-->
+                    <!--android:state_pressed="true"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:background="#fafafa"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/item2"-->
+                    <!--android:paddingTop="5dp"-->
+                    <!--android:paddingBottom="10dp"-->
+                    <!--android:elevation="0dp"-->
+                    <!--android:paddingLeft="0dp"-->
+                    <!--android:paddingRight="0dp">-->
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".6"
-                            android:text="Dinner"
-                            android:id="@+id/textView3"
-                            android:layout_gravity="center_vertical"
-                            android:textSize="15dp"
-                            android:textAlignment="center"
-                            android:textColor="#000000"
-                            android:layout_marginTop="3dp" />
+                <!--</LinearLayout>-->
 
-                    </LinearLayout>
+                <!--<LinearLayout-->
+                    <!--android:state_pressed="true"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/dinnerClick"-->
+                    <!--android:paddingTop="10dp"-->
+                    <!--android:paddingBottom="10dp"-->
+                    <!--android:background="#ffffff"-->
+                    <!--android:elevation="4dp">-->
 
-                </LinearLayout>
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:layout_weight=".6"-->
+                        <!--android:layout_gravity="center_vertical">-->
 
-                <LinearLayout
-                    android:state_pressed="true"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:background="#fafafa"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/item3"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="10dp"
-                    android:paddingLeft="0dp"
-                    android:paddingRight="0dp">
+                        <!--<ImageView-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="45dp"-->
+                            <!--android:layout_weight=".2"-->
+                            <!--android:id="@+id/imageView9"-->
+                            <!--android:layout_gravity="center_vertical"-->
+                            <!--android:src="@drawable/hamburger" />-->
 
-                </LinearLayout>
-            </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_weight=".6"-->
+                            <!--android:text="Dinner"-->
+                            <!--android:id="@+id/textView3"-->
+                            <!--android:layout_gravity="center_vertical"-->
+                            <!--android:textSize="15dp"-->
+                            <!--android:textAlignment="center"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:layout_marginTop="3dp" />-->
+
+                    <!--</LinearLayout>-->
+
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:state_pressed="true"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:background="#fafafa"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/item3"-->
+                    <!--android:paddingTop="5dp"-->
+                    <!--android:paddingBottom="10dp"-->
+                    <!--android:paddingLeft="0dp"-->
+                    <!--android:paddingRight="0dp">-->
+
+                <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
 
         </LinearLayout>
     </ScrollView>
