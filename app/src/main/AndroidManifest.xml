@@ -79,7 +79,7 @@
         </activity>
         <activity
             android:name=".RecommendationActivity"
-            android:parentActivityName=".HomeActivity"
+            android:parentActivityName=".Main2Activity"
             android:theme="@style/AppTheme" >
             >
             <intent-filter>
