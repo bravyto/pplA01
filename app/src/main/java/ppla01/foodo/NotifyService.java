@@ -102,7 +102,7 @@ public class NotifyService extends Service{
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.food_icon2)
                         .setContentTitle("Let's eat")
-                        .setContentText("Hei Good morning, It's time to take your Breakfast :)");
+                        .setContentText("Heloh Good morning, It's time to take your Breakfast :)");
 
         int mNotificationId = 001;
 
