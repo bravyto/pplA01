@@ -792,7 +792,7 @@ public class Main2Activity extends AppCompatActivity {
 
             // instantiate pie data object now
             PieData data = new PieData(xVals, dataSet);
-//            data.setValueFormatter(new MyValueFormatter());
+            data.setValueFormatter(new MyValueFormatter());
             data.setValueTextSize(11f);
             data.setValueTextColor(Color.WHITE);
 //        data.setValueTextColor();
@@ -901,7 +901,7 @@ public class Main2Activity extends AppCompatActivity {
         private DecimalFormat mFormat = (DecimalFormat)nf;
 
         public MyValueFormatter() {
-//            mFormat = new DecimalFormat("###.###.##0"); // use one decimal
+            mFormat = new DecimalFormat("###,###,##0"); // use one decimal
         }
 
         @Override

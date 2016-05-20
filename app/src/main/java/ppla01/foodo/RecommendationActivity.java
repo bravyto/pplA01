@@ -58,6 +58,7 @@ public class RecommendationActivity extends AppCompatActivity {
         recMalam = (Button) findViewById(R.id.recDinner);
 
         rReader = new RecReader(RecommendationActivity.this,-1, "abc");
+        theList = (ListView)findViewById(R.id.thelist);
 
         recPagi.setOnClickListener(new View.OnClickListener() {
             @Override
