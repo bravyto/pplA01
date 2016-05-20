@@ -63,6 +63,13 @@ public class RecReader extends ArrayAdapter<FoodDetail> {
                 FoodDetail cur = new FoodDetail();
                 cur.setName(RowData[1]);
                 cur.setCalories(RowData[2]);
+                cur.setVitc(RowData[5]);
+                cur.setProtein(RowData[3]);
+                cur.setCarbo(RowData[4]);
+                cur.setWater(RowData[6]);
+                cur.setCalcium(RowData[7]);
+                cur.setPorsi(RowData[9]);
+                cur.setBeratMakanan(RowData[10]);
                 cur.setTipe(RowData[11]);
 
                 if (cur.getTipe().equals(message)) {

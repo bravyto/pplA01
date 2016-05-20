@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -26,6 +27,15 @@ public class RecommendationActivity extends AppCompatActivity {
     protected ListView theList;
     SharedPreferences spref;
     SharedPreferences.Editor editor;
+    public final static String EXTRA_MESSAGE1= "passingMessageGan";
+    public final static String EXTRA_MESSAGE2= "passingMessageGan2";
+    public final static String EXTRA_MESSAGE3= "passingMessageGan3";
+    public final static String EXTRA_MESSAGE4= "passingMessageGan4";
+    public final static String EXTRA_MESSAGE5= "passingMessageGan5";
+    public final static String EXTRA_MESSAGE6= "passingMessageGan6";
+    public final static String EXTRA_MESSAGE7= "passingMessageGan7";
+    public final static String EXTRA_MESSAGE8= "passingMessageGan8";
+    public final static String EXTRA_MESSAGE9= "passingMessageGan9";
 
 
     @Override
@@ -48,6 +58,7 @@ public class RecommendationActivity extends AppCompatActivity {
         recMalam = (Button) findViewById(R.id.recDinner);
 
         rReader = new RecReader(RecommendationActivity.this,-1, "abc");
+        theList = (ListView)findViewById(R.id.thelist);
 
         recPagi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +99,40 @@ public class RecommendationActivity extends AppCompatActivity {
             }
 
 
+        });
+
+        theList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
+                if (rReader.getItem(pos).getCalories() != null) {
+                    //Toast.makeText(v.getContext(), "Calories = " + cReader.getItem(pos).getCalories(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(RecommendationActivity.this, InfoRecActivity.class);
+                    String cal = rReader.getItem(pos).getCalories();
+                    String fname = rReader.getItem(pos).getName();
+                    String vitc = rReader.getItem(pos).getVitc();
+                    String protein = rReader.getItem(pos).getProtein();
+                    String carbo = rReader.getItem(pos).getCarbo();
+                    String water = rReader.getItem(pos).getWater();
+                    String calcium = rReader.getItem(pos).getCalcium();
+                    //String chole=cReader.getItem(pos).getCholestrol();
+                    String porsi = rReader.getItem(pos).getPorsi();
+                    String beratMakanan = rReader.getItem(pos).getBeratMakanan();
+                    Bundle extras = new Bundle();
+                    extras.putString(EXTRA_MESSAGE1, fname);
+                    extras.putString(EXTRA_MESSAGE2, cal);
+                    extras.putString(EXTRA_MESSAGE3, vitc);
+                    extras.putString(EXTRA_MESSAGE4, protein);
+                    extras.putString(EXTRA_MESSAGE5, carbo);
+                    extras.putString(EXTRA_MESSAGE6, water);
+                    extras.putString(EXTRA_MESSAGE7, calcium);
+                    extras.putString(EXTRA_MESSAGE8, porsi);
+                    extras.putString(EXTRA_MESSAGE9, beratMakanan);
+                    intent.putExtras(extras);
+
+                    startActivity(intent);
+                }
+
+            }
         });
 
 
