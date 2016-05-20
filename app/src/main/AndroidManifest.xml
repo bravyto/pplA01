@@ -53,6 +53,10 @@
 
         <service android:name=".ScheduleService" />
         <service android:name=".NotifyService" />
+        <service android:name=".ScheduleServiceNoon" />
+        <service android:name=".NotifyServiceNoon" />
+        <service android:name=".ScheduleServiceNight" />
+        <service android:name=".NotifyServiceNight" />
 
         <activity
             android:name=".FoodActivity"
@@ -74,6 +78,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".RecommendationActivity"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme" >
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".InfoFoodActivity"
             android:parentActivityName=".FoodActivity"
             android:theme="@style/AppTheme" />
@@ -82,6 +97,16 @@
             android:label="@string/title_activity_main2"
             android:theme="@style/AppThemeTab" >
         </activity>
+        <activity
+            android:name=".WeekEvaluationActivity"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".RewardActivity"
+            android:theme="@style/AppTheme" >
+        </activity>
+
+        <receiver android:name=".AlarmReciever"/>
     </application>
 
 </manifest>
