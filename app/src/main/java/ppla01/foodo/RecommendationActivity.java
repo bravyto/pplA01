@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,9 +21,9 @@ import android.widget.TextView;
  * Created by Bravyto on 29/04/2016.
  */
 public class RecommendationActivity extends AppCompatActivity {
-    protected Button recPagi;
-    protected Button recSiang;
-    protected Button recMalam;
+    protected ImageView recPagi;
+    protected ImageView recSiang;
+    protected ImageView recMalam;
     protected RecReader rReader;
     protected ListView theList;
     SharedPreferences spref;
@@ -53,9 +54,9 @@ public class RecommendationActivity extends AppCompatActivity {
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
-        recPagi = (Button) findViewById(R.id.recBreakfast);
-        recSiang = (Button) findViewById(R.id.recLunch);
-        recMalam = (Button) findViewById(R.id.recDinner);
+        recPagi = (ImageView) findViewById(R.id.oneImgView);
+        recSiang = (ImageView) findViewById(R.id.twoImgView);
+        recMalam = (ImageView) findViewById(R.id.threeImgView);
 
         rReader = new RecReader(RecommendationActivity.this,-1, "abc");
         theList = (ListView)findViewById(R.id.thelist);
