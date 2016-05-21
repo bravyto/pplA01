@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="40dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView38"
+            android:layout_weight="0.2"
+            android:src="@drawable/scale"
+            android:layout_gravity="center_vertical" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/weight"
+            android:layout_weight="0.6"
+            android:hint="Weight "
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="kg"
+            android:id="@+id/textView4"
+            android:layout_weight="0.2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView40"
+            android:layout_weight="0.2"
+            android:src="@drawable/height"
+            android:layout_gravity="center_vertical" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/height"
+            android:layout_weight="0.6"
+            android:hint="Height "
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="cm"
+            android:id="@+id/textView5"
+            android:layout_weight="0.2" />
+    </LinearLayout>
+
+    <Button
+        style="@style/AppTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/submitEvaluation"
+        android:textColor="#ffffff"
+        android:backgroundTint="#1565C0"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

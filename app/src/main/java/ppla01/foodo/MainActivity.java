@@ -1,7 +1,10 @@
 package ppla01.foodo;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -27,6 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -91,13 +95,10 @@ public class MainActivity extends AppCompatActivity {
             setTitle("Edit Profile Info");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         } else {
+            scheduleAlarm(findViewById(android.R.id.content));
             setTitle("Input Profile Info");
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
-
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        getSupportActionBar().setIcon(R.mipmap.ic_actionbaricon);
 
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
@@ -112,13 +113,8 @@ public class MainActivity extends AppCompatActivity {
         Aktivitas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getSelectedItem().toString().equals("Low Activity")) {
-                    indeksMassa = 1.2;
-                    Activity = "Low Activity";
-                    editor.putFloat("Aktivity",(float)indeksMassa);
-                    editor.commit();
-                }
-                else if (Aktivitas.getSelectedItem().toString().equals("Light Activity")) {
+
+                if (Aktivitas.getSelectedItem().toString().equals("Light Activity")) {
                     indeksMassa = 1.375;
                     Activity = "Light Activity";
                     editor.putFloat("Aktivity",(float)indeksMassa);
@@ -127,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
                 else if (Aktivitas.getSelectedItem().toString().equals("Moderate Activity")) {
                     indeksMassa = 1.55;
                     Activity = "Moderate Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
                 }
                 else if (Aktivitas.getSelectedItem().toString().equals("Active Activity")) {
                     indeksMassa = 1.725;
@@ -134,9 +132,15 @@ public class MainActivity extends AppCompatActivity {
                     editor.putFloat("Aktivity",(float)indeksMassa);
                     editor.commit();
                 }
-                else {
+                else if (parent.getSelectedItem().toString().equals("Extreme Activity")) {
                     indeksMassa = 1.9;
                     Activity = "Extreme Activity";
+                    editor.putFloat("Aktivity",(float)indeksMassa);
+                    editor.commit();
+                }
+                else {
+                    indeksMassa = 1.2;
+                    Activity = "Low Activity";
                     editor.putFloat("Aktivity",(float)indeksMassa);
                     editor.commit();
                 }
@@ -167,8 +171,8 @@ public class MainActivity extends AppCompatActivity {
 
 //        massa = spref.getFloat("Aktivity",0);
         String aktivitas = spref.getString("Activity", "");
-        if(aktivitas.equals("Low Activity")){
-            Aktivitas.setSelection(0);
+        if(aktivitas.equals("Extreme Activity")){
+            Aktivitas.setSelection(4);
         } else if(aktivitas.equals("Light Activity")){
             Aktivitas.setSelection(1);
         }else if(aktivitas.equals("Moderate Activity")){
@@ -176,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         }else if(aktivitas.equals("Active Activity")){
             Aktivitas.setSelection(3);
         }else{
-            Aktivitas.setSelection(4);
+            Aktivitas.setSelection(0);
         }
         submit_profile = (Button) findViewById(R.id.submitProfile);
         submit_profile.setOnClickListener(new View.OnClickListener() {
@@ -272,6 +276,28 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+
+    public void scheduleAlarm(View V)
+    {
+        // time at which alarm will be scheduled here alarm is scheduled at 1 day from current time,
+        // we fetch  the current time in milliseconds and added 1 day time
+        // i.e. 24*60*60*1000= 86,400,000   milliseconds in a day
+        Long time = new GregorianCalendar().getTimeInMillis()+7*24*60*60*1000;
+
+        // create an Intent and set the class which will execute when Alarm triggers, here we have
+        // given AlarmReciever in the Intent, the onRecieve() method of this class will execute when
+        // alarm triggers and
+        //we will write the code to send SMS inside onRecieve() method pf Alarmreciever class
+        Intent intentAlarm = new Intent(this, AlarmReciever.class);
+
+        // create the object
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        //set the alarm for particular time
+        alarmManager.set(AlarmManager.RTC_WAKEUP,time, PendingIntent.getBroadcast(this,1,  intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
+
     }
 //<<<<<<< HEAD
     protected void onStart(){

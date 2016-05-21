@@ -13,17 +13,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * Created by Gema Raditya on 4/26/2016.
+ * Created by Gema Raditya on 5/18/2016.
  */
-public class CSVReader extends ArrayAdapter<FoodDetail> {
+public class RecReader extends ArrayAdapter<FoodDetail> {
     Context ctx;
     String message;
-    public CSVReader(Context context,int textViewResourceId, String message) {
+    public RecReader(Context context,int textViewResourceId, String message) {
         super(context,textViewResourceId);
         this.ctx = context;
         this.message=message.toLowerCase();
 
-        loadArrayFromFile();
+        loadArrayFromFile2();
 
     }
 
@@ -45,10 +45,10 @@ public class CSVReader extends ArrayAdapter<FoodDetail> {
         return mView;
     }
 
-    private void loadArrayFromFile(){
+    private void loadArrayFromFile2(){
         try {
             int counter =0;
-            CharSequence cs2 = message;
+
             InputStream is = ctx.getAssets().open("DataBaruMakanan.csv");
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
             String line;
@@ -70,10 +70,9 @@ public class CSVReader extends ArrayAdapter<FoodDetail> {
                 cur.setCalcium(RowData[7]);
                 cur.setPorsi(RowData[9]);
                 cur.setBeratMakanan(RowData[10]);
+                cur.setTipe(RowData[11]);
 
-                //cur.setCholestrol(RowData[9]);
-
-                if (cur.getName().toLowerCase().contains(cs2)) {
+                if (cur.getTipe().equals(message)) {
                     counter++;
                     this.add(cur);
                 }

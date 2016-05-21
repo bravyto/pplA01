@@ -176,7 +176,6 @@
                         android:textSize="40dp" />
 
                 </LinearLayout>
-
                 <Button
                     style="@style/AppTheme"
                     android:layout_width="match_parent"
