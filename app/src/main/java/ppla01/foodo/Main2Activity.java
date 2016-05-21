@@ -74,8 +74,14 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -90,7 +96,11 @@ public class Main2Activity extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
     SharedPreferences spref;
     SharedPreferences.Editor editor;
-    AddFoodActivity food;
+   // AddFoodActivity food = new AddFoodActivity();;
+    ArrayList<String> listKonsum = new ArrayList<>();
+    Set<String> setKonsum = new HashSet<>();
+
+    int count = 0;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -146,6 +156,21 @@ public class Main2Activity extends AppCompatActivity {
         com.github.clans.fab.FloatingActionButton fab1 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item);
         com.github.clans.fab.FloatingActionButton fab2 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item1);
         com.github.clans.fab.FloatingActionButton fab3 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item2);
+
+
+        long INTERVAL_MSEC = 60000;
+        Timer timer = new Timer();
+//        timer.schedule(
+//                new
+//        );
+
+//        TimerTask task = new TimerTask()
+//        {
+//            public void run() {
+//                coba();
+//            }
+//        };
+//        timer.scheduleAtFixedRate(task, 0, INTERVAL_MSEC);
 
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -235,35 +260,112 @@ public class Main2Activity extends AppCompatActivity {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             if (tab != null) tab.setCustomView(R.layout.view_home_tab);
         }
-        int date =  spref.getInt("tanggal",0);
+
         //Toast.makeText(Main2Activity.this, "tanggal sekarang di spref " + date, Toast.LENGTH_SHORT).show();
-        int curent = Calendar.getInstance().get(Calendar.DATE);
-       // Toast.makeText(Main2Activity.this, "tanggal sekarang  " + curent, Toast.LENGTH_SHORT).show();
-        if(curent != date){
-            food = new AddFoodActivity();
-            editor = spref.edit();
+
+
+       // =editor = spref.edit();
+
+
+        int curent = Calendar.getInstance().get(Calendar.MINUTE);
+//
+        int date =  spref.getInt("tanggal", 0);
+//
+        float kalori = spref.getFloat("kaloriPagi", 0)  + spref.getFloat("kaloriSiang", 0)+ spref.getFloat("kaloriMalam", 0);
+
+//
+
+        float BMR = spref.getFloat("BMR", 0);
+
+        if(curent != date) {
+
+            AddFoodActivity.addArrayDailyKalori(date + ";" +kalori + ";" + BMR);
+
+            listKonsum =  AddFoodActivity.getArrayListDailyKalori();
+
+            setKonsum.addAll(listKonsum);
+            spref.edit();
+            editor.remove("setKonsum");
+            editor.apply();
+            editor.putStringSet("setKonsum", setKonsum);
+            editor.apply();
+
             editor.putStringSet("SetSiang", null);
             editor.putStringSet("SetPagi", null);
             editor.putStringSet("SetMalam", null);
             editor.putFloat("kaloriPagi", 0);
-            editor.putFloat("kaloriSiang",0);
-            editor.putFloat("kaloriMalam",0);
-            editor.commit();
-            food.setNull();
-//            Toast.makeText(Main2Activity.this, "masuk if"+
-//                    "  " +curent, Toast.LENGTH_SHORT).show();
+            editor.putFloat("kaloriSiang", 0);
+            editor.putFloat("kaloriMalam", 0);
+
             editor.putInt("tanggal", curent);
+
+
+            AddFoodActivity.setNull();
             editor.commit();
-
         }
-
-
-
-
 
     }
 
 
+
+//    public void coba(){
+//        int curent = Calendar.getInstance().get(Calendar.MINUTE);
+//
+//        int date =  spref.getInt("tanggal", 0);
+//
+//
+//
+//
+//
+//
+//        // Toast.makeText(Main2Activity.this, "tanggal sekarang  " + curent, Toast.LENGTH_SHORT).show();
+//
+//
+//        float tempA = 0 ;
+//        float tempB = 0;
+//        float tempC = 0;
+//
+//        if(curent == date){
+//            editor = spref.edit();
+//            tempA = spref.getFloat("kaloriPagi", 0);
+//            tempB = spref.getFloat("kaloriSiang", 0);
+//            tempC = spref.getFloat("kaloriMalam", 0);
+////            tempA =  consumedFoodBreakfast;
+////            tempB = consumedFoodLunch;
+////            tempC = consumedFoodDinner;
+//            int tempaaaa = (int) tempA + (int)  tempB + (int) tempC;
+//
+//        }
+//        else{
+//            food = new AddFoodActivity();
+//
+//            float BMR = spref.getFloat("BMR", 0);
+//            food.addArrayDailyKalori( "; " +date + ";" + tempA + ";" + tempB+ ";" + tempC + ";" + BMR);
+//            listKonsum = food.getArrayListDailyKalori();
+//            //listKonsum.add("haha");
+//            //listKonsum.add("yeye");
+//            setKonsum.addAll(listKonsum);
+//            editor.putStringSet("setKonsum", setKonsum);
+//            editor.putStringSet("SetSiang", null);
+//            editor.putStringSet("SetPagi", null);
+//            editor.putStringSet("SetMalam", null);
+//            editor.putFloat("kaloriPagi", 0);
+//            editor.putFloat("kaloriSiang", 0);
+//            editor.putFloat("kaloriMalam", 0);
+//            editor.commit();
+//            editor.putInt("tanggal", curent);
+//
+//
+//            food.setNull();
+//            editor.commit();
+//
+//
+//        }
+//
+
+
+
+   // }
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         mOptionsMenu = menu;
@@ -368,6 +470,7 @@ public class Main2Activity extends AppCompatActivity {
         private static  ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
         private static ArrayList<String> arrayListLunch  =new ArrayList<String>();
         private static ArrayList<String> arrayListDinner  =new ArrayList<String>();
+       // private static ArrayList<String> arrayListTemp =new ArrayList<String>();
         private ArrayAdapter<String> adapterBreakfast;
         private ArrayAdapter<String> adapterLunch;
         private ArrayAdapter<String> adapterDinner;
@@ -531,8 +634,11 @@ public class Main2Activity extends AppCompatActivity {
 
                             else {
                                 if (arrayX.get(indeks).equalsIgnoreCase("breakfast")) {
-                                    Set<String> setPagi = spref.getStringSet("SetPagi", null);
-                                    PlaceholderFragment.showToast(getContext(), setPagi, "Breakfast");
+//                                    Set<String> setPagi = spref.getStringSet("SetPagi", null);
+//                                    PlaceholderFragment.showToast(getContext(), setPagi, "Breakfast");
+                                    Set<String> setBaru = spref.getStringSet("setKonsum",null);
+
+                                    PlaceholderFragment.showToast(getContext(), setBaru,"Breakfast");
                                 } else if (arrayX.get(indeks).equalsIgnoreCase("lunch")) {
                                     Set<String> setSiang = spref.getStringSet("SetSiang", null);
                                     PlaceholderFragment.showToast(getContext(), setSiang, "Lunch");
@@ -642,8 +748,51 @@ public class Main2Activity extends AppCompatActivity {
                 } else {
                     rootView = inflater.inflate(R.layout.fragment_main2, container, false);
                     spref = getContext().getSharedPreferences("my_data", 0);
+
                     LineChart lineChart = (LineChart) rootView.findViewById(R.id.graph);
-                    // creating list of entry
+//                    PlaceholderFragment.showToast(getContext(), setBaru,"Breakfast");
+                   // Set<String> setBaru = spref.getStringSet("setKonsum",null);
+                  //  PlaceholderFragment.showToast(getContext(), setBaru,"Breakfast");
+
+//                    // creating list of entry
+                    Set<String>  setkonsum = spref.getStringSet("setKonsum", null);
+                    PlaceholderFragment.showToast(getContext(), setkonsum,"Breakfast");
+//                    //Set<String> setMalam = spref.getStringSet("SetMalam", null);
+//                   // arrayListDinner = new ArrayList<>(setMalam);
+//
+//                    List<String> arrayListTemp = new ArrayList<String>(setkonsum);
+
+//
+//
+//                    //ArrayList<String>arrayListTemp=new ArrayList<>(arrayListTempz);
+//
+//                    ArrayList<Entry> entries_line = new ArrayList<>();
+//
+//                 //   Collections.sort(arrayListTemp);
+//                    int size = arrayListTemp.size();
+//
+//
+//
+//
+//                    // creating labels
+//                    String[] labels_line = new String[size];
+//                    int count = 0;
+//                    for (String isi1 : arrayListTemp){
+//                        String[] isi = isi1.split(";");
+//
+//                       // int tanggal = Integer.parseInt(isi[0]);
+//
+//                        float kalori = (float) Double.parseDouble(isi[1]) + (float)Double.parseDouble(isi[2])+ (float) Double.parseDouble(isi[3]);
+//
+//                        entries_line.add(new Entry(kalori, count));
+//
+//                       // entries_line.add(new Entry( kalori, i));
+//                        labels_line[count] = count + "";
+//                        count++;
+//                    }
+
+
+
                     ArrayList<Entry> entries_line = new ArrayList<>();
                     entries_line.add(new Entry(4f, 0));
                     entries_line.add(new Entry(8f, 1));
@@ -654,23 +803,23 @@ public class Main2Activity extends AppCompatActivity {
                     entries_line.add(new Entry(18f, 6));
                     entries_line.add(new Entry(9f, 7));
 
-                    ArrayList<Entry> entries_line2 = new ArrayList<>();
-                    entries_line2.add(new Entry(1f, 0));
-                    entries_line2.add(new Entry(2f, 1));
-                    entries_line2.add(new Entry(3f, 2));
-                    entries_line2.add(new Entry(4f, 3));
-                    entries_line2.add(new Entry(5f, 4));
-                    entries_line2.add(new Entry(6f, 5));
-                    entries_line2.add(new Entry(7f, 6));
-                    entries_line2.add(new Entry(8f, 7));
+//                    ArrayList<Entry> entries_line2 = new ArrayList<>();
+//                    entries_line2.add(new Entry(1f, 0));
+//                    entries_line2.add(new Entry(2f, 1));
+//                    entries_line2.add(new Entry(3f, 2));
+//                    entries_line2.add(new Entry(4f, 3));
+//                    entries_line2.add(new Entry(5f, 4));
+//                    entries_line2.add(new Entry(6f, 5));
+//                    entries_line2.add(new Entry(7f, 6));
+//                    entries_line2.add(new Entry(8f, 7));
 
-                    // creating labels
-                    String[] labels_line = new String[]{"21 May 2016", "22 May 2016", "23 May 2016", "24 May 2016", "25 May 2016", "26 May 2016", "27 May 2016", "28 May 2016"};
+                     // creating labels
+                   String[] labels_line = new String[]{"21 May 2016", "22 May 2016", "23 May 2016", "24 May 2016", "25 May 2016", "26 May 2016", "27 May 2016", "28 May 2016"};
 
                     ArrayList<ILineDataSet> lines = new ArrayList<ILineDataSet>();
 
                     final LineDataSet dataset_line = new LineDataSet(entries_line, "Konsumsi Kalori Anda");
-                    final LineDataSet dataset_line2 = new LineDataSet(entries_line2, "Konsumsi Kalori Ideal");
+                    //final LineDataSet dataset_line2 = new LineDataSet(entries_line2, "Konsumsi Kalori Ideal");
                     dataset_line.setCircleColor(Color.rgb(220, 66, 76));
                     dataset_line.setColor(Color.rgb(220, 66, 76));
                     dataset_line.setLineWidth(3f);
@@ -679,15 +828,15 @@ public class Main2Activity extends AppCompatActivity {
                     dataset_line.setDrawValues(false);
                     dataset_line.setFillColor(Color.rgb(220, 66, 76));
 
-                    dataset_line2.getCircleColor(Color.rgb(1, 169, 157));
-                    dataset_line2.getCircleColor(Color.rgb(1, 169, 157));
-                    dataset_line2.setLineWidth(3f);
-                    dataset_line2.setCircleRadius(5f);
-                    dataset_line2.setValueTextSize(10f);
-                    dataset_line2.setDrawValues(false);
+//                    dataset_line2.getCircleColor(Color.rgb(1, 169, 157));
+//                    dataset_line2.getCircleColor(Color.rgb(1, 169, 157));
+//                    dataset_line2.setLineWidth(3f);
+//                    dataset_line2.setCircleRadius(5f);
+//                    dataset_line2.setValueTextSize(10f);
+//                    dataset_line2.setDrawValues(false);
 
                     lines.add(dataset_line);
-                    lines.add(dataset_line2);
+                    //lines.add(dataset_line2);
 
 //                LineData data_line = new LineData(labels_line, dataset_line);
 //                data_line.setValueTextSize(12f);
@@ -707,14 +856,14 @@ public class Main2Activity extends AppCompatActivity {
                                 return;
 
                             dataset_line.setDrawValues(true);
-                            dataset_line2.setDrawValues(true);
+                          //  dataset_line2.setDrawValues(true);
                             Toast.makeText(getActivity(), "Please long press the key", Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void onNothingSelected() {
                             dataset_line.setDrawValues(false);
-                            dataset_line2.setDrawValues(false);
+                          ///  dataset_line2.setDrawValues(false);
                         }
                     });
 //                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
@@ -900,9 +1049,9 @@ public class Main2Activity extends AppCompatActivity {
         NumberFormat nf = NumberFormat.getNumberInstance(Locale.GERMAN);
         private DecimalFormat mFormat = (DecimalFormat)nf;
 
-        public MyValueFormatter() {
-            mFormat = new DecimalFormat("###.###.##0"); // use one decimal
-        }
+//        public MyValueFormatter() {
+//            mFormat = new DecimalFormat("###.###.##0"); // use one decimal
+//        }
 
         @Override
         public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {

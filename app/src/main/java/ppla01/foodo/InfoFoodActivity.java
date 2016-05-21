@@ -94,42 +94,97 @@ public class InfoFoodActivity extends AppCompatActivity {
                 String jenis = spref.getString("jenis", "");
                 String thePortion = edit1.getText().toString();
 
+                int current = spref.getInt("tanggal", 0);
+
                 if(thePortion.equals("")) {
                     edit1.setError("Type your eat portion");
                 } else {
                     portion = Double.parseDouble(thePortion);
                     double caloriUpdate = Double.parseDouble(kalori) * portion;
-                    AddFoodActivity addFoodActivity = new AddFoodActivity();
+                   // AddFoodActivity addFoodActivity = new AddFoodActivity();
                     Intent intent = new Intent(v.getContext(), Main2Activity.class);
 
                     if (jenis.equals("breakfast")) {
-                        addFoodActivity.AddKaloriPagi(caloriUpdate);
-                        addFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kcal)");
-                        listPagi = addFoodActivity.getListBreakfast();
-                        editor = spref.edit();
-                        setPagi.addAll(listPagi);
-                        editor.putStringSet("SetPagi", setPagi);
-                        editor.putFloat("kaloriPagi", (float) caloriUpdate + spref.getFloat("kaloriPagi", 0));
-                        editor.commit();
+
+                        if(current == Calendar.getInstance().get(Calendar.MINUTE)){
+                            AddFoodActivity.AddKaloriPagi(caloriUpdate);
+                            AddFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kcal)");
+                            listPagi = AddFoodActivity.getListBreakfast();
+                            editor = spref.edit();
+                            setPagi.addAll(listPagi);
+                            editor.putStringSet("SetPagi", setPagi);
+
+
+                            editor.putFloat("kaloriPagi", (float) caloriUpdate + spref.getFloat("kaloriPagi", 0));
+                            editor.commit();
+                        } else{
+                            AddFoodActivity.setNull();
+                            editor = spref.edit();
+                            editor.putFloat("kaloriPagi", 0);
+
+                            AddFoodActivity.AddKaloriPagi(caloriUpdate);
+                            AddFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kcal)");
+                            listPagi = AddFoodActivity.getListBreakfast();
+                            setPagi.addAll(listPagi);
+                            editor.putStringSet("SetPagi", setPagi);
+
+
+                            editor.putFloat("kaloriPagi", (float) caloriUpdate + spref.getFloat("kaloriPagi", 0));
+                            editor.commit();
+
+
+                        }
 
                     } else if (jenis.equals("lunch")) {
-                        addFoodActivity.AddKaloriSiang(caloriUpdate);
-                        addFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kcal)");
-                        listSiang = addFoodActivity.getListLunch();
-                        editor = spref.edit();
-                        setSiang.addAll(listSiang);
-                        editor.putStringSet("SetSiang", setSiang);
-                        editor.putFloat("kaloriSiang", (float) caloriUpdate + spref.getFloat("kaloriSiang", 0));
-                        editor.commit();
+                        if(current == Calendar.getInstance().get(Calendar.MINUTE)) {
+                            AddFoodActivity.AddKaloriSiang(caloriUpdate);
+                            AddFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kcal)");
+                            listSiang = AddFoodActivity.getListLunch();
+                            editor = spref.edit();
+                            setSiang.addAll(listSiang);
+                            editor.putStringSet("SetSiang", setSiang);
+                            editor.putFloat("kaloriSiang", (float) caloriUpdate + spref.getFloat("kaloriSiang", 0));
+                            editor.commit();
+                        } else{
+                            AddFoodActivity.setNull();
+                            editor = spref.edit();
+                            editor.putFloat("kaloriSiang", 0);
+
+                            AddFoodActivity.AddKaloriSiang(caloriUpdate);
+                            AddFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kcal)");
+                            listSiang = AddFoodActivity.getListLunch();
+
+                            setSiang.addAll(listSiang);
+                            editor.putStringSet("SetSiang", setSiang);
+                            editor.putFloat("kaloriSiang", (float) caloriUpdate + spref.getFloat("kaloriSiang", 0));
+                            editor.commit();
+                        }
                     } else {
-                        addFoodActivity.AddKaloriMalam(caloriUpdate);
-                        addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kcal)");
-                        listMalam = addFoodActivity.getListDinner();
-                        editor = spref.edit();
-                        setMalam.addAll(listMalam);
-                        editor.putStringSet("SetMalam", setMalam);
-                        editor.putFloat("kaloriMalam", (float) caloriUpdate + spref.getFloat("kaloriMalam", 0));
-                        editor.commit();
+
+                        if(current == Calendar.getInstance().get(Calendar.MINUTE)) {
+                            AddFoodActivity.AddKaloriMalam(caloriUpdate);
+                            AddFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kcal)");
+                            listMalam = AddFoodActivity.getListDinner();
+                            editor = spref.edit();
+                            setMalam.addAll(listMalam);
+                            editor.putStringSet("SetMalam", setMalam);
+                            editor.putFloat("kaloriMalam", (float) caloriUpdate + spref.getFloat("kaloriMalam", 0));
+                            editor.commit();
+                        } else {
+                            AddFoodActivity.setNull();
+                            editor = spref.edit();
+                            editor.putFloat("kaloriSiang", 0);
+
+                            AddFoodActivity.AddKaloriMalam(caloriUpdate);
+                            AddFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kcal)");
+                            listMalam = AddFoodActivity.getListDinner();
+
+                            setMalam.addAll(listMalam);
+                            editor.putStringSet("SetMalam", setMalam);
+                            editor.putFloat("kaloriMalam", (float) caloriUpdate + spref.getFloat("kaloriMalam", 0));
+                            editor.commit();
+                        }
+
                     }
 
                     startActivity(intent);

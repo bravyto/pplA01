@@ -30,9 +30,14 @@ public class AddFoodActivity extends AppCompatActivity {
     private static ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
     private static ArrayList<String> arrayListLunch  =new ArrayList<String>();
     private static ArrayList<String> arrayListDinner  =new ArrayList<String>();
+    private static ArrayList<String> arrayListDailyKalori  =new ArrayList<String>();
+
     private ArrayAdapter<String> adapterBreakfast;
     private ArrayAdapter<String> adapterLunch;
     private ArrayAdapter<String> adapterDinner;
+    private ArrayAdapter<String> adapterDailyKalori;
+
+
     SharedPreferences spref;
     private static float kaloriPagi ;
     private static float kaloriSiang ;
@@ -44,74 +49,82 @@ public class AddFoodActivity extends AppCompatActivity {
 
     }
 
-    public void setNull (){
-        this.arrayListLunch.clear();
-        this.arrayListBreakfast.clear();
-        this.arrayListDinner.clear();
+    public static void setNull (){
+        arrayListLunch.clear();
+        arrayListBreakfast.clear();
+        arrayListDinner.clear();
     }
 
-    public void addArrayBreakfast(String item){
+    public static void addArrayBreakfast(String item){
         boolean same = false;
-        for(int i = 0 ; i < this.arrayListBreakfast.size(); i++) {
-            if(this.arrayListBreakfast.get(i).substring(0, this.arrayListBreakfast.get(i).lastIndexOf("(") - 1).equals(item.substring(0, item.lastIndexOf("(") - 1))) {
+        for(int i = 0 ; i < arrayListBreakfast.size(); i++) {
+            if(arrayListBreakfast.get(i).substring(0, arrayListBreakfast.get(i).lastIndexOf("(") - 1).equals(item.substring(0, item.lastIndexOf("(") - 1))) {
                 same = true;
-                String word = this.arrayListBreakfast.get(i);
+                String word = arrayListBreakfast.get(i);
                 double calory1 = Double.parseDouble(word.substring(word.lastIndexOf("(") + 1, word.length() - 1 - 4));
                 double calory2 = Double.parseDouble(item.substring(item.lastIndexOf("(") + 1, item.length() - 1 - 4));
                 calory1 += calory2;
-                this.arrayListBreakfast.set(i, word.substring(0, word.lastIndexOf("(") - 1) + " (" + calory1 + " kcal)");
+                arrayListBreakfast.set(i, word.substring(0, word.lastIndexOf("(") - 1) + " (" + calory1 + " kcal)");
             }
         }
         if(!same)
-            this.arrayListBreakfast.add(item);
+            arrayListBreakfast.add(item);
     }
 
-    public void addArrayLunch(String item){
+    public  static void addArrayLunch(String item){
 
         boolean same = false;
-        for(int i = 0 ; i < this.arrayListLunch.size(); i++) {
-            if(this.arrayListLunch.get(i).substring(0, this.arrayListLunch.get(i).lastIndexOf("(") - 1).equals(item.substring(0, item.lastIndexOf("(") - 1))) {
+        for(int i = 0 ; i < arrayListLunch.size(); i++) {
+            if(arrayListLunch.get(i).substring(0, arrayListLunch.get(i).lastIndexOf("(") - 1).equals(item.substring(0, item.lastIndexOf("(") - 1))) {
                 same = true;
-                String word = this.arrayListLunch.get(i);
+                String word = arrayListLunch.get(i);
                 double calory1 = Double.parseDouble(word.substring(word.lastIndexOf("(") + 1, word.length() - 1 - 4));
                 double calory2 = Double.parseDouble(item.substring(item.lastIndexOf("(") + 1, item.length() - 1 - 4));
                 calory1 += calory2;
-                this.arrayListLunch.set(i, word.substring(0, word.lastIndexOf("(") - 1) + " (" + calory1 + " kcal)");
+                arrayListLunch.set(i, word.substring(0, word.lastIndexOf("(") - 1) + " (" + calory1 + " kcal)");
             }
         }
         if(!same)
-            this.arrayListLunch.add(item);
+            arrayListLunch.add(item);
     }
 
-    public void addArrayDinner(String item){
+    public static void addArrayDinner(String item){
 
 
         boolean same = false;
-        for(int i = 0 ; i < this.arrayListDinner.size(); i++) {
-            if(this.arrayListDinner.get(i).substring(0, this.arrayListDinner.get(i).lastIndexOf("(") - 1).equals(item.substring(0, item.lastIndexOf("(") - 1))) {
+        for(int i = 0 ; i < arrayListDinner.size(); i++) {
+            if(arrayListDinner.get(i).substring(0, arrayListDinner.get(i).lastIndexOf("(") - 1).equals(item.substring(0, item.lastIndexOf("(") - 1))) {
                 same = true;
-                String word = this.arrayListDinner.get(i);
+                String word = arrayListDinner.get(i);
                 double calory1 = Double.parseDouble(word.substring(word.lastIndexOf("(") + 1, word.length() - 1 - 4));
                 double calory2 = Double.parseDouble(item.substring(item.lastIndexOf("(") + 1, item.length() - 1 - 4));
                 calory1 += calory2;
-                this.arrayListDinner.set(i, word.substring(0, word.lastIndexOf("(") - 1) + " (" + calory1 + " kcal)");
+                arrayListDinner.set(i, word.substring(0, word.lastIndexOf("(") - 1) + " (" + calory1 + " kcal)");
             }
         }
         if(!same)
-            this.arrayListDinner.add(item);
+            arrayListDinner.add(item);
     }
 
-    public void AddKaloriPagi(double kaloriFood){
-        this.kaloriPagi =  this.kaloriPagi + (float)kaloriFood;
+    public static void addArrayDailyKalori(String item){
+
+            arrayListDailyKalori.add(item);
     }
 
-    public void AddKaloriSiang(double kaloriFood){
-        this.kaloriSiang =  this.kaloriSiang + (float)kaloriFood;
+    public static void AddKaloriPagi(double kaloriFood){
+        kaloriPagi =  kaloriPagi + (float)kaloriFood;
     }
 
-    public void AddKaloriMalam (double kaloriFood){
-        this.kaloriMalam =  this.kaloriMalam + (float)kaloriFood;
+    public static void AddKaloriSiang(double kaloriFood){
+        kaloriSiang =  kaloriSiang + (float)kaloriFood;
     }
+
+    public static void AddKaloriMalam (double kaloriFood){
+        kaloriMalam =  kaloriMalam + (float)kaloriFood;
+    }
+
+
+
 
     public double getKaloriPagi(){
         return this.kaloriPagi;
@@ -126,16 +139,20 @@ public class AddFoodActivity extends AppCompatActivity {
         return this.kaloriMalam;
     }
 
-    public ArrayList<String> getListBreakfast(){
+    public static ArrayList<String> getListBreakfast(){
 
-        return this.arrayListBreakfast;
+        return arrayListBreakfast;
     }
-    public ArrayList<String> getListLunch(){
-        return this.arrayListLunch;
-    }
-    public ArrayList<String> getListDinner(){
+    public static ArrayList<String> getArrayListDailyKalori(){
 
-        return this.arrayListDinner;
+        return arrayListDailyKalori;
+    }
+    public static ArrayList<String> getListLunch(){
+        return arrayListLunch;
+    }
+    public static ArrayList<String> getListDinner(){
+
+        return arrayListDinner;
     }
 
     @Override
@@ -217,6 +234,7 @@ public class AddFoodActivity extends AppCompatActivity {
                 editor = spref.edit();
 
                 editor.putString("jenis", "breakfast");
+
                 editor.commit();
                 Intent i = new Intent(v.getContext(), FoodActivity.class);
                 startActivity(i);
