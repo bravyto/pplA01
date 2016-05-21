@@ -68,6 +68,7 @@ public class RecommendationActivity extends AppCompatActivity {
         recPagi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i("bmrnyabrpya", "tes" + theBMR);
 
                 rReader = new RecReader(RecommendationActivity.this,-1, "breakfast");
                 theList = (ListView)findViewById(R.id.thelist);
