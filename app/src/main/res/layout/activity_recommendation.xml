@@ -126,13 +126,27 @@
 
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        android:layout_height="wrap_content"
+        android:text="Recommendation For You:"
+        android:id="@+id/teksbos"
+        android:layout_below="@+id/linear3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <ListView
-        android:layout_below="@id/linear3"
+        android:layout_below="@id/teksbos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:id="@+id/thelist"
+        android:id="@+id/list"
         />
+
+
 
 </RelativeLayout>

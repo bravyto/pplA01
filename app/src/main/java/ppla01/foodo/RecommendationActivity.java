@@ -1,5 +1,6 @@
 package ppla01.foodo;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -12,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,6 +29,7 @@ public class RecommendationActivity extends AppCompatActivity {
     protected ImageView recMalam;
     protected RecReader rReader;
     protected ListView theList;
+    protected TextView theTexts;
     SharedPreferences spref;
     SharedPreferences.Editor editor;
     double theBMR;
@@ -51,7 +54,10 @@ public class RecommendationActivity extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         setTitle("Recommendation");
+
+
 
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
@@ -61,18 +67,24 @@ public class RecommendationActivity extends AppCompatActivity {
         recPagi = (ImageView) findViewById(R.id.oneImgView);
         recSiang = (ImageView) findViewById(R.id.twoImgView);
         recMalam = (ImageView) findViewById(R.id.threeImgView);
+        theTexts = (TextView) findViewById(R.id.teksbos);
 
-        rReader = new RecReader(RecommendationActivity.this,-1, "abc");
-        theList = (ListView)findViewById(R.id.thelist);
+        rReader = new RecReader(RecommendationActivity.this,-1, "abc",theBMR);
+        theList = (ListView)findViewById(R.id.list);
 
+        theList.setAdapter(new ArrayAdapter<String>(this, R.layout.list_item, R.id.label));
         recPagi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("bmrnyabrpya", "tes" + theBMR);
+                recSiang.setImageResource(R.drawable.burger);
+                recMalam.setImageResource(R.drawable.burger);
+                Log.i("bmrcuyy", "tes" + theBMR);
+                theTexts.setText("tahu bulat:");
 
-                rReader = new RecReader(RecommendationActivity.this,-1, "breakfast");
-                theList = (ListView)findViewById(R.id.thelist);
+                rReader = new RecReader(RecommendationActivity.this,-1, "breakfast",theBMR * 0.23);
+                theList = (ListView)findViewById(R.id.list);
                 theList.setAdapter(rReader);
+
 
 
             }
@@ -83,8 +95,9 @@ public class RecommendationActivity extends AppCompatActivity {
         recSiang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rReader = new RecReader(RecommendationActivity.this,-1, "lunch");
-                theList = (ListView)findViewById(R.id.thelist);
+                theTexts.setText("Lunch Recommendation:");
+                rReader = new RecReader(RecommendationActivity.this,-1, "lunch", theBMR * 0.33);
+                theList = (ListView)findViewById(R.id.list);
                 theList.setAdapter(rReader);
 
 
@@ -96,8 +109,9 @@ public class RecommendationActivity extends AppCompatActivity {
         recMalam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rReader = new RecReader(RecommendationActivity.this,-1, "dinner");
-                theList = (ListView)findViewById(R.id.thelist);
+                theTexts.setText("Dinner Recommendation:");
+                rReader = new RecReader(RecommendationActivity.this,-1, "dinner", theBMR * 0.32);
+                theList = (ListView)findViewById(R.id.list);
                 theList.setAdapter(rReader);
 
 
