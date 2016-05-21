@@ -77,12 +77,12 @@ public class InfoFoodActivity extends AppCompatActivity {
 
         textV1.setText(foodName);
         textV1.setTextSize(26);
-        textV2.setText(calories);
-        textV3.setText(vitc);
-        textV4.setText(protein);
-        textV5.setText(carbo);
-        textV6.setText(water);
-        textV7.setText(calcium);
+        textV2.setText(calories + "kal");
+        textV3.setText(vitc + " g" );
+        textV4.setText(protein+ " g");
+        textV5.setText(carbo+ " g");
+        textV6.setText(water+ " g");
+        textV7.setText(calcium+ " g");
         textV8.setText(porsiAndBerat);
 
         addFood.setOnClickListener(new View.OnClickListener() {

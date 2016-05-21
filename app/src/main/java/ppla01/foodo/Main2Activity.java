@@ -260,7 +260,6 @@ public class Main2Activity extends AppCompatActivity {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             if (tab != null) tab.setCustomView(R.layout.view_home_tab);
         }
-
         //Toast.makeText(Main2Activity.this, "tanggal sekarang di spref " + date, Toast.LENGTH_SHORT).show();
 
 
