@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,6 +29,7 @@ public class RecommendationActivity extends AppCompatActivity {
     protected ListView theList;
     SharedPreferences spref;
     SharedPreferences.Editor editor;
+    double theBMR;
     public final static String EXTRA_MESSAGE1= "passingMessageGan";
     public final static String EXTRA_MESSAGE2= "passingMessageGan2";
     public final static String EXTRA_MESSAGE3= "passingMessageGan3";
@@ -53,6 +55,8 @@ public class RecommendationActivity extends AppCompatActivity {
 
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
+        theBMR = spref.getFloat("BMR",0);
+
 
         recPagi = (ImageView) findViewById(R.id.oneImgView);
         recSiang = (ImageView) findViewById(R.id.twoImgView);
@@ -64,7 +68,6 @@ public class RecommendationActivity extends AppCompatActivity {
         recPagi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 rReader = new RecReader(RecommendationActivity.this,-1, "breakfast");
                 theList = (ListView)findViewById(R.id.thelist);
