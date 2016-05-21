@@ -56,13 +56,13 @@ public class InfoFoodActivity extends AppCompatActivity {
         extras = intent.getExtras();
 
         foodName = extras.getString(FoodActivity.EXTRA_MESSAGE1);
-        calories = "Food Calories: " + extras.getString(FoodActivity.EXTRA_MESSAGE2);
-        String vitc = "Vit C: " + extras.getString(FoodActivity.EXTRA_MESSAGE3);
-        String protein = "Protein: " + extras.getString(FoodActivity.EXTRA_MESSAGE4);
-        String carbo = "Carbohydrat: " + extras.getString(FoodActivity.EXTRA_MESSAGE5);
-        String water = "Water: " + extras.getString(FoodActivity.EXTRA_MESSAGE6);
-        String calcium = "Calcium: " + extras.getString(FoodActivity.EXTRA_MESSAGE7);
-        String porsiAndBerat = "Portion: " + extras.getString(FoodActivity.EXTRA_MESSAGE8) + " Weight: " + extras.getString(FoodActivity.EXTRA_MESSAGE9) + "(g)";
+        calories =              "Food Calories  : " + extras.getString(FoodActivity.EXTRA_MESSAGE2) + " Kal";
+        String vitc =           "Vit C                   : " + extras.getString(FoodActivity.EXTRA_MESSAGE3) + " mg";
+        String protein =        "Protein              : " + extras.getString(FoodActivity.EXTRA_MESSAGE4) + " gram";
+        String carbo =          "Carbohydrat     : " + extras.getString(FoodActivity.EXTRA_MESSAGE5) + " gram";
+        String water =          "Water                 : " + extras.getString(FoodActivity.EXTRA_MESSAGE6) + " gram";
+        String calcium =        "Calcium            : " + extras.getString(FoodActivity.EXTRA_MESSAGE7) + " mg";
+        String porsiAndBerat =  "Portion              : " + extras.getString(FoodActivity.EXTRA_MESSAGE8) + ", Weight: " + extras.getString(FoodActivity.EXTRA_MESSAGE9) + "(g)";
 
         kalori = extras.getString(FoodActivity.EXTRA_MESSAGE2);;
         TextView textV1 = (TextView) findViewById(R.id.nameOfFood);
