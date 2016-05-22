@@ -137,8 +137,8 @@ public class Main2Activity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_stat);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_eaten);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_stat);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_eaten);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_reminder);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_profile);
         int tabIconColor = ContextCompat.getColor(Main2Activity.this, R.color.activeTab);
@@ -214,16 +214,16 @@ public class Main2Activity extends AppCompatActivity {
                             inflater.inflate(R.menu.reminder_menu, mOptionsMenu);
                             setTitle("Reminder");
                         }
-                        else if (tabNo == 1) {
+                        else if (tabNo == 0) {
                             fab.setVisibility(View.VISIBLE);
                             fab.showMenuButton(true);
                             inflater.inflate(R.menu.main, mOptionsMenu);
-                            setTitle("Today's Food");
+                            setTitle("Home");
                         }
                         else {
                             fab.hideMenuButton(true);
                             inflater.inflate(R.menu.menu_main2, mOptionsMenu);
-                            setTitle("Home");
+                            setTitle("History");
                         }
                     }
 
@@ -465,7 +465,7 @@ public class Main2Activity extends AppCompatActivity {
                 TextView dinner= (TextView) rootView.findViewById(R.id.dinner);
                 dinner.setText(spref.getString("malam", ""));
             } else {
-                if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
+                if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
                     rootView = inflater.inflate(R.layout.fragment_food, container, false);
 
                     spref = getContext().getSharedPreferences("my_data", 0);

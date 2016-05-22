@@ -3,7 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:weightSum="1">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -52,14 +53,24 @@
         android:gravity="center_horizontal"
         android:paddingTop="10dp" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Share"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Share it!"
+        android:id="@+id/textView7"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/button5"
         android:layout_gravity="center_horizontal"
         android:textColor="#ffffff"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="5dp"
+        android:background="@drawable/twitterlogo" />
 
     <Button
         android:layout_width="wrap_content"
