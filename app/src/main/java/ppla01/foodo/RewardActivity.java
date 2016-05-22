@@ -1,8 +1,11 @@
 package ppla01.foodo;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
@@ -10,7 +13,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.twitter.sdk.android.tweetcomposer.TweetComposer;
+
 import org.w3c.dom.Text;
+
+import java.io.File;
 
 /**
  * Created by Bravyto on 19/05/2016.
@@ -18,6 +25,7 @@ import org.w3c.dom.Text;
 public class RewardActivity  extends Activity {
 
     protected Button submit_profile;
+    protected Button share;
     private static final float ROTATE_FROM = 0.0f;
     private static final float ROTATE_TO = 360.0f;// 3.141592654f * 32.0f;
 
@@ -62,7 +70,7 @@ public class RewardActivity  extends Activity {
 
         ImageView image = (ImageView) findViewById(R.id.imageView37);
         RotateAnimation r = new RotateAnimation(ROTATE_FROM, ROTATE_TO, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        r.setDuration((long) 2*1500);
+        r.setDuration((long) 2 * 1500);
         r.setRepeatCount(Animation.INFINITE);
         image.startAnimation(r);
         submit_profile = (Button) findViewById(R.id.button);
@@ -72,6 +80,17 @@ public class RewardActivity  extends Activity {
                 Intent intent = new Intent(v.getContext(), Main2Activity.class);
                 finish();
                 startActivity(intent);
+            }
+        });
+        share = (Button) findViewById(R.id.button5);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri text = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getResources().getResourcePackageName(R.drawable.downweight) + '/' + getResources().getResourceTypeName(R.drawable.downweight) + '/' + getResources().getResourceEntryName(R.drawable.downweight));
+                TweetComposer.Builder builder = new TweetComposer.Builder(RewardActivity.this)
+                        .text("just setting up my Fabric.")
+                        .image(text);
+                builder.show();
             }
         });
     }
