@@ -106,9 +106,6 @@
         <activity
             android:name=".RewardActivity"
             android:theme="@style/AppTheme"></activity>
-        <activity
-            android:name=".EmbeddedTweetActivity"
-            android:theme="@style/AppTheme"></activity>
 
         <receiver android:name=".AlarmReciever" />
 
