@@ -258,12 +258,6 @@ public class Main2Activity extends AppCompatActivity {
             listKonsum = food.getListKonsume();
             setKomsum.addAll(listKonsum);
             editor.putStringSet("SetKonsum", setKomsum);
-
-//            food.addListIdeal(""+spref.getFloat("BMR",0));
-//            listIdeal = food.getArrayListIdeal();
-//            setIdeal.addAll(listIdeal);
-//            editor.putStringSet("SetIdeal", setIdeal);
-
             editor.putStringSet("SetSiang", null);
             editor.putStringSet("SetPagi", null);
             editor.putStringSet("SetMalam", null);
