@@ -123,7 +123,7 @@ public class RewardActivity  extends Activity {
             public void onClick(View v) {
                 Uri text = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getResources().getResourcePackageName(R.drawable.downweight) + '/' + getResources().getResourceTypeName(R.drawable.downweight) + '/' + getResources().getResourceEntryName(R.drawable.downweight));
                 TweetComposer.Builder builder = new TweetComposer.Builder(RewardActivity.this)
-                        .text("just setting up my Fabric.")
+                        .text("I got badge from FooDo!")
                         .image(text);
                 builder.show();
             }
