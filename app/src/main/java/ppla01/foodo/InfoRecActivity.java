@@ -34,13 +34,13 @@ public class InfoRecActivity extends AppCompatActivity {
         extras = intent.getExtras();
 
         foodName = extras.getString(RecommendationActivity.EXTRA_MESSAGE1);
-        kalori  =              "Food Calories  : " + extras.getString(RecommendationActivity.EXTRA_MESSAGE2) + " Kal";
-        String vitc =           "Vit C                   : " + extras.getString(RecommendationActivity.EXTRA_MESSAGE3) + " mg";
-        String protein =        "Protein              : " + extras.getString(RecommendationActivity.EXTRA_MESSAGE4) + " gram";
-        String carbo =          "Carbohydrat     : " + extras.getString(RecommendationActivity.EXTRA_MESSAGE5) + " gram";
-        String water =          "Water                 : " + extras.getString(RecommendationActivity.EXTRA_MESSAGE6) + " gram";
-        String calcium =        "Calcium            : " + extras.getString(RecommendationActivity.EXTRA_MESSAGE7) + " mg";
-        String porsiAndBerat =  "Portion              : " + extras.getString(RecommendationActivity.EXTRA_MESSAGE8) + ", Weight: " + extras.getString(FoodActivity.EXTRA_MESSAGE9) + "(g)";
+        kalori  =              extras.getString(RecommendationActivity.EXTRA_MESSAGE2) + " kkal";
+        String vitc =           extras.getString(RecommendationActivity.EXTRA_MESSAGE3) + " mg";
+        String protein =        extras.getString(RecommendationActivity.EXTRA_MESSAGE4) + " gram";
+        String carbo =          extras.getString(RecommendationActivity.EXTRA_MESSAGE5) + " gram";
+        String water =          extras.getString(RecommendationActivity.EXTRA_MESSAGE6) + " gram";
+        String calcium =        extras.getString(RecommendationActivity.EXTRA_MESSAGE7) + " mg";
+        String porsiAndBerat =  extras.getString(RecommendationActivity.EXTRA_MESSAGE8) + ", Weight: " + extras.getString(FoodActivity.EXTRA_MESSAGE9) + "(g)";
 
         //kalori = extras.getString(FoodActivity.EXTRA_MESSAGE2);;
 
