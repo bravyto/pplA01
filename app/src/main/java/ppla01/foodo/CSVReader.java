@@ -35,6 +35,7 @@ public class CSVReader extends ArrayAdapter<FoodDetail> {
         if(null == mView){
             mView = new TextView(parent.getContext());
             mView.setTextSize(18);
+            mView.setPadding(0,20,0,20);
         }
 
         //Set the state name as the text.

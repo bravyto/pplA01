@@ -28,7 +28,7 @@ public class InfoRecActivity extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        setTitle("Info Food Recommendation");
+        setTitle("Food Info");
 
         intent = getIntent();
         extras = intent.getExtras();

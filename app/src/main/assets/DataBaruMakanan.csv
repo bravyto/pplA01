@@ -1,8 +1,7 @@
-No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 1,Belitung kukus,145,1.2,34.2,1,63.1,21,0.4,1 potong,61.4,None
 2,Belitung mentah,145,1.2,34.2,2,63.1,26,0.4,1 potong,73.4,None
 3,Beras Giling ,360,6.8,78.9,0,13,6,0.7,1 gelas,70,None
-4,Beras Giling masak (nasi) ,178,2.1,40.6,0,57,5,0.1,3/4 gelas,100,None
+4,Nasi Putih,178,2.1,40.6,0,57,5,0.1,3/4 gelas,100,None
 5,Beras Ketan Hitam,356,7,78,0,13,10,0.7,1 gelas,177,None
 6,Beras Ketan Hitam kukus,181,4,37.3,0,56.9,9,1.2,1 gelas,171.4,None
 7,Beras Ketan Hitam tape,166,3.8,34.4,0,50.2,8,1,1/3 gelas,44,None
@@ -30,7 +29,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 29,Jagung Kuning muda,129,4.1,30.3,9,63.5,5,1.3,1 buah,131,None
 30,Jagung Kuning pipil baru,307,7.9,63.6,0,24,9,3.4,1 gelas,138.2,None
 31,Jagung Kuning pipil lama,355,9.2,73.7,0,12,10,3.9,1 gelas,150.6,None
-32,Jagung Kuning segar,140,4.7,33.1,8,60,6,1.3,1 tongkol ,200,dinner
+32,Jagung Kuning segar,140,4.7,33.1,8,60,6,1.3,1 tongkol ,200,None
 33,Jagung Putih giling,361,8.7,72.4,0,13.1,9,4.5,1 gelas,132.4,None
 34,Jagung Putih muda,129,4.1,30.3,9,63.5,5,1.3,1 buah,10,None
 35,Jagung Putih pipil baru,307,7.9,63.6,0,24,9,3.4,1 gelas,162.6,None
@@ -97,7 +96,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 96,Kacang Endel biji,331,25,58,9,14,80,1,1 kg,1000,None
 97,Kacang Gude biji,336,20.7,62,5,12.2,125,1.4,1 sdm,13,None
 98,Kacang Gude biji muda,114,7,20.8,43,70.3,3.2,0.6,1 sdm,21,None
-99,Bubur Kacang Ijo,345,22.2,62.9,6,10,125,1.2,1 sdm,10,breakfast
+99,Bubur Kacang Ijo,345,22.2,62.9,6,10,125,1.2,1 sdm,10,dinner
 100,Kacang Kedelai basah,286,30.2,30.1,0,20.6,196,15.6,1 sdm,2.2,None
 101,Kacang Kedelai kering,331,34.9,34.8,0,7.5,227,18.1,1 sdm,10,None
 102,Kacang Kedelai kukus,75,4.1,10.7,0,82.5,203,2.1,1 sdm,10,None
@@ -192,7 +191,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 191,Sarang Burung,281,37.5,32.1,0,24.8,485,0.3,1 kg,1000,None
 192,Usus Sapi,130,14,1.5,0,76.7,14,7.2,1 bulatan,25,None
 193,Worst (sosis daging),452,14.5,2.3,0,37.6,28,42.3,1 potong,32,None
-194,Telur Ayam,162,12.8,0.7,0,74,54,11.5,1 butir,60,breakfast
+194,Telur Ayam,162,12.8,0.7,0,74,54,11.5,1 butir,60,None
 195,Telur Ayam bagian kuning,361,19.3,0.7,0,49.4,147,31.9,1 buah,15,None
 196,Telur Ayam bagian putih,50,10.8,0.8,0,87.8,6,0,1 buah,31,None
 197,Telur Ayam ceplok,383,15.1,8.3,1.9,0,61.4,32.9,1 buah,58.4,breakfast
@@ -218,7 +217,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 217,Ikan Asin teri goreng,430,33.4,0,0,0,1201,32.4,1 sdm,15,None
 218,Ikan Bader (Tawes),198,19,0,0,66,48,13,1 ekor,191.8,None
 219,Ikan Bandeng,129,20,0,0,74,20,4.8,1 potong,82,dinner
-220,Ikan Bawal,96,19,0,0,78,20,1.7,1 ekor,132.2,lunch
+220,Ikan Bawal,96,19,0,0,78,20,1.7,1 ekor,132.2,None
 221,Ikan Bekasang,138,14,7.4,0,69,40,0.7,1 potong,85.6,None
 222,Ikan Belut Segar goreng,417,25.9,32,0,11.2,840,19.4,1 ekor,24,None
 223,Ikan Belut Segar mentah,82,6.7,10.9,0,79.6,390,1,1 ekor,44.2,None
@@ -257,8 +256,6 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 256,Kerang,59,18,3.6,0,85,133,1.1,1 buah,9,None
 257,Kerupuk Ikan berpati,342,16,65.6,0,16,2,0.4,1 buah,4.8,None
 258,Kerupuk Udang berpati,359,17.2,332,0,12,337,68.2,1 buah,8,None
-259,Krupuk Ikan Berpati,sedang,48,4,0,0,45,5,1 buah,4.8,None
-260,Krupuk Udang Berpati,sedang,508,5,0,0,274,10,1 buah,508,None
 261,Kura-kura,83,19.1,0,0,80,27,0.2,1 ekor,13,None
 262,Peda Ikan Banjar,156,28,0,0,46,174,4,1 ekor,99.8,None
 263,Petis Ikan,161,20,24,0,56,37,0.2,1 potong,69,None
@@ -338,7 +335,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 337,Gambas lodeh,13,0.3,1.6,1.3,0,6.7,0.6,1 mangkok,255.2,None
 338,Jagung Muda bertongkol,33,2.2,7.4,8,89.5,7,0.1,1 tongkol,24.6,None
 339,Jamur Coklat (kulat siau),45,2.5,0,5,93.8,36,3.9,1 mangkok,50,None
-340,Jamur Kuping Tepung,128,16,64.6,0,14.9,51,0.9,1 sdm,7,breakfast
+340,Jamur Kuping Tepung,128,16,64.6,0,14.9,51,0.9,1 sdm,7,None
 341,Jamur Kuping segar,15,3.8,0.9,5,93.7,3,0.6,1 mangkok,50,None
 342,Jamur Putih (kulat putih),48,2.8,2.9,5,82.4,60,4.1,1 mangkok,50,None
 343,Jantung Pisang segar,31,1.2,7.1,10,90.2,30,0.3,1 buah,175.5,None
@@ -591,7 +588,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 590,Mie Goreng,468,7.6,62.4,2,0,22.4,20.4,1 piring ,25,lunch
 591,Misro,218,0.8,50.2,0,31.2,0.1,16,1 buah,50,None
 592,Nasi Goreng,276,3.2,30.2,0,0,4.8,3.2,1 piring ,50,dinner
-593,Nasi Uduk,253.3,4.3,11.7,0,50.2,0,21,1 bungkus,60,breakfast
+593,Nasi Uduk,253.3,4.3,11.7,0,50.2,0,21,1 bungkus,60,lunch
 594,Noga Kacang Tanah,600,14,42,0,1,0,41.7,1 buah,30,None
 595,Oncom Goreng,363.3,19.3,40.3,0,31.3,0,19.3,1 buah,30,None
 596,Oncom Hitam Goreng,284,12,13.6,0,0,115.6,14.4,1 potong,25,None
@@ -618,7 +615,7 @@ No,Nama,Kalori,Protein ,Karbohidrat,Vit.C,Air,Kalsium,Lemak,Porsi,Berat (g),Type
 617,Semur Jengkol,192.5,4.5,30.3,0,57.5,0.1,6,1 buah,10,None
 618,Singkong Goreng,285,1,28,12,0,3.5,18,1 potong,20,None
 619,Siomay,95.3,4.4,14.4,0,78.6,2.1,2.2,1 porsi,170,None
-620,Soto dengan Dagingb),127.5,2.6,8.3,0.5,0,10.8,9.4,1 sendok ,80,None
+620,Soto dengan Daging,127.5,2.6,8.3,0.5,0,10.8,9.4,1 sendok ,80,dinner
 621,Soto tanpa Daging,117.1,0.4,9.6,0.6,0,12.6,8.6,1 sendok ,70,None
 622,Tahu Goreng,128,5.6,1.2,0,0,84.8,11.2,1 potong,25,None
 623,Tempe Goreng,328,18.4,12.8,0,0,149.6,23.2,1 potong,25,None

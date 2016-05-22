@@ -37,6 +37,8 @@ public class WeekEvaluationActivity extends AppCompatActivity {
     String  tinggi, beratnow;
     String [] separate;
 
+    public static String oldWeight, newWeight;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,9 +76,10 @@ public class WeekEvaluationActivity extends AppCompatActivity {
                     valid = false;
                 }
                 if (valid) {
-
+                    oldWeight = spref.getString("beratnow", "");
                     editor.putString("tinggi", tinggi);
                     editor.putString("beratnow", beratnow);
+                    newWeight = beratnow;
                     Float massa = spref.getFloat("Aktivity",0);
                     double berat = 0.0;
                     if(!spref.getString("beratnow", "").equals(""))
