@@ -22,15 +22,49 @@
         android:textColor="#000000" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Food Calories "
+        android:id="@+id/textView9"
+        android:layout_below="@+id/nameOfFood"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=":"
+        android:id="@+id/textView13"
+        android:layout_above="@+id/textView11"
+        android:layout_toRightOf="@+id/textView9"
+        android:layout_toEndOf="@+id/textView9" />
+
+    <TextView
         android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/theCalories"
-        android:layout_below="@+id/nameOfFood"
+        android:layout_alignTop="@+id/textView9"
+        android:layout_toRightOf="@+id/textView13"
+        android:layout_toEndOf="@+id/textView13"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Vitamin C "
+        android:id="@+id/textView11"
+        android:layout_above="@+id/theProtein"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_alignParentStart="false"
+        android:layout_alignRight="@+id/textView9"
+        android:layout_alignEnd="@+id/textView9" />
+
     <TextView
         android:textSize="18dp"
         android:layout_width="wrap_content"
@@ -38,8 +72,32 @@
         android:text="New Text"
         android:id="@+id/theWater"
         android:layout_below="@+id/theCalories"
+        android:layout_toRightOf="@+id/textView15"
+        android:layout_toEndOf="@+id/textView15"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Protein"
+        android:id="@+id/textView16"
+        android:layout_below="@+id/textView11"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView11"
+        android:layout_alignEnd="@+id/textView11" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=":"
+        android:id="@+id/textView17"
+        android:layout_below="@+id/theWater"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_alignStart="@+id/textView15" />
+
     <TextView
         android:textSize="18dp"
         android:layout_width="wrap_content"
@@ -47,8 +105,9 @@
         android:text="New Text"
         android:id="@+id/theProtein"
         android:layout_below="@+id/theWater"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toRightOf="@+id/textView17"
+        android:layout_toEndOf="@+id/textView17"
+        android:layout_marginLeft="5dp" />
     <TextView
         android:textSize="18dp"
         android:layout_width="wrap_content"
@@ -56,8 +115,9 @@
         android:text="New Text"
         android:id="@+id/theCarbo"
         android:layout_below="@+id/theProtein"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toRightOf="@+id/textView17"
+        android:layout_toEndOf="@+id/textView17"
+        android:layout_marginLeft="5dp" />
     <TextView
         android:textSize="18dp"
         android:layout_width="wrap_content"
@@ -65,8 +125,8 @@
         android:text="New Text"
         android:id="@+id/theSugar"
         android:layout_below="@+id/theCarbo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/theCarbo"
+        android:layout_alignStart="@+id/theCarbo" />
     <TextView
         android:textSize="18dp"
         android:layout_width="wrap_content"
@@ -74,8 +134,8 @@
         android:text="New Text"
         android:id="@+id/theCalcium"
         android:layout_below="@+id/theSugar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/theSugar"
+        android:layout_alignStart="@+id/theSugar" />
     <TextView
         android:textSize="18dp"
         android:layout_width="wrap_content"
@@ -83,8 +143,8 @@
         android:text="New Text"
         android:id="@+id/theChole"
         android:layout_below="@+id/theCalcium"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/theCalcium"
+        android:layout_alignStart="@+id/theCalcium" />
 
     <Button
         android:layout_width="match_parent"
@@ -119,6 +179,103 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=":"
+        android:id="@+id/textView15"
+        android:layout_alignTop="@+id/textView11"
+        android:layout_alignLeft="@+id/textView13"
+        android:layout_alignStart="@+id/textView13" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Carbohydrat"
+        android:id="@+id/textView18"
+        android:layout_alignBottom="@+id/theCarbo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView16"
+        android:layout_alignEnd="@+id/textView16" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=":"
+        android:id="@+id/textView19"
+        android:layout_below="@+id/textView16"
+        android:layout_toRightOf="@+id/textView16"
+        android:layout_toEndOf="@+id/textView16" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Water"
+        android:id="@+id/textView24"
+        android:layout_alignTop="@+id/theSugar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView18"
+        android:layout_alignEnd="@+id/textView18" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=":"
+        android:id="@+id/textView25"
+        android:layout_alignTop="@+id/theSugar"
+        android:layout_alignLeft="@+id/textView19"
+        android:layout_alignStart="@+id/textView19" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Calcium"
+        android:id="@+id/textView26"
+        android:layout_below="@+id/textView24"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView24"
+        android:layout_alignEnd="@+id/textView24" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=":"
+        android:id="@+id/textView27"
+        android:layout_below="@+id/theSugar"
+        android:layout_alignLeft="@+id/textView25"
+        android:layout_alignStart="@+id/textView25" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Portion"
+        android:id="@+id/textView28"
+        android:layout_below="@+id/textView26"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView26"
+        android:layout_alignEnd="@+id/textView26" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=":"
+        android:id="@+id/textView29"
+        android:layout_below="@+id/theCalcium"
+        android:layout_alignLeft="@+id/textView27"
+        android:layout_alignStart="@+id/textView27" />
 
 
 </RelativeLayout>

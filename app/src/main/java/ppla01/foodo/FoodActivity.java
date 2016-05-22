@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -24,11 +26,9 @@ public class FoodActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE8= "passingMessageGan8";
     public final static String EXTRA_MESSAGE9= "passingMessageGan9";
 
-
-    protected Button dispFood;
     protected CSVReader cReader;
     protected ListView mList;
-
+    protected EditText input;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,25 +41,53 @@ public class FoodActivity extends AppCompatActivity {
 
         setTitle("Search Food");
 
-        dispFood = (Button) findViewById(R.id.displayFoodButton);
         cReader = new CSVReader(FoodActivity.this,-1, "abc");
         mList = (ListView)findViewById(R.id.mList);
 
-        dispFood.setOnClickListener(new View.OnClickListener() {
+        input = (EditText) findViewById(R.id.input_food);
+
+        String message = input.getText().toString();
+
+        cReader = new CSVReader(FoodActivity.this,-1, message);
+        mList = (ListView)findViewById(R.id.mList);
+        mList.setAdapter(cReader);
+
+        input.addTextChangedListener(new TextWatcher() {
+
             @Override
-            public void onClick(View v) {
-                EditText input = (EditText) findViewById(R.id.input_food);
+            public void afterTextChanged(Editable s) {}
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
                 String message = input.getText().toString();
 
                 cReader = new CSVReader(FoodActivity.this,-1, message);
                 mList = (ListView)findViewById(R.id.mList);
                 mList.setAdapter(cReader);
-
-
             }
-
-
         });
+
+//        dispFood.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                input = (EditText) findViewById(R.id.input_food);
+//                String message = input.getText().toString();
+//
+//                cReader = new CSVReader(FoodActivity.this,-1, message);
+//                mList = (ListView)findViewById(R.id.mList);
+//                mList.setAdapter(cReader);
+//
+//
+//            }
+//
+//
+//        });
 
         mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
