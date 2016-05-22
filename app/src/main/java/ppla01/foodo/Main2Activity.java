@@ -148,8 +148,8 @@ public class Main2Activity extends AppCompatActivity {
             tabLayout.getTabAt(i).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
         }
         fab = (FloatingActionMenu) findViewById(R.id.menu);
-        fab.setVisibility(View.INVISIBLE);
-        fab.hideMenuButton(true);
+//        fab.setVisibility(View.INVISIBLE);
+//        fab.hideMenuButton(true);
 
         com.github.clans.fab.FloatingActionButton fab1 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item);
         com.github.clans.fab.FloatingActionButton fab2 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item1);
