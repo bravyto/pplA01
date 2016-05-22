@@ -118,6 +118,8 @@ public class RewardActivity  extends Activity {
             }
         });
         share = (Button) findViewById(R.id.button5);
+        if (rewardnya.equals(""))
+            share.setVisibility(View.INVISIBLE);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
