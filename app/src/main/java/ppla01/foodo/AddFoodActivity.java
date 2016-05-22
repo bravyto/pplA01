@@ -30,6 +30,9 @@ public class AddFoodActivity extends AppCompatActivity {
     private static ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
     private static ArrayList<String> arrayListLunch  =new ArrayList<String>();
     private static ArrayList<String> arrayListDinner  =new ArrayList<String>();
+    private static ArrayList<String> arrayListKonsume =new ArrayList<String>();
+    private static ArrayList<String> arrayListIdeal =new ArrayList<String>();
+
     private ArrayAdapter<String> adapterBreakfast;
     private ArrayAdapter<String> adapterLunch;
     private ArrayAdapter<String> adapterDinner;
@@ -48,6 +51,14 @@ public class AddFoodActivity extends AppCompatActivity {
         this.arrayListLunch.clear();
         this.arrayListBreakfast.clear();
         this.arrayListDinner.clear();
+    }
+    public  void addListKonsume(String item){
+
+        this.arrayListKonsume.add(item);
+    }
+    public  void addListIdeal(String item){
+
+        this.arrayListIdeal.add(item);
     }
 
     public void addArrayBreakfast(String item){
@@ -136,6 +147,14 @@ public class AddFoodActivity extends AppCompatActivity {
     public ArrayList<String> getListDinner(){
 
         return this.arrayListDinner;
+    }
+    public ArrayList<String> getListKonsume(){
+
+        return this.arrayListKonsume;
+    }
+    public ArrayList<String> getArrayListIdeal(){
+
+        return this.getArrayListIdeal();
     }
 
     @Override
