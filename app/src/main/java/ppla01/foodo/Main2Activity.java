@@ -288,7 +288,7 @@ public class Main2Activity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(final Menu menu) {
         mOptionsMenu = menu;
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main2, menu);
+        inflater.inflate(R.menu.main, menu);
         return true;
     }
 
