@@ -3,6 +3,7 @@ package ppla01.foodo;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,17 +29,51 @@ public class RewardActivity  extends Activity {
     protected Button share;
     private static final float ROTATE_FROM = 0.0f;
     private static final float ROTATE_TO = 360.0f;// 3.141592654f * 32.0f;
+    String  tinggi, beratnow;
+    SharedPreferences spref;
+    public static double bawahBMI,atasBMI,ideal1,ideal2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        spref = RewardActivity.this.getSharedPreferences("my_data", 0);
         setContentView(R.layout.activity_reward);
+        tinggi = spref.getString("tinggi", "");
+        beratnow = spref.getString("beratnow", "");
+        double BMI = Double.parseDouble(beratnow)/(Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
+
+        if (BMI< 18.5){
+            atasBMI = 18.5;
+            bawahBMI = 18.5;
+        }else if (BMI >  18.5 || BMI <= 24.9){
+            bawahBMI = 18.5;
+            atasBMI = 24.9;
+        }
+        else if (BMI >= 25 || BMI <= 29.9){
+            bawahBMI = 25;
+            atasBMI = 29.9;
+        }else if (BMI >= 30 || BMI <= 34.9){
+            bawahBMI = 30;
+            atasBMI = 34.9;
+        }
+        else if (BMI >= 35 || BMI <= 39.9){
+            bawahBMI = 35;
+            atasBMI = 39.9;
+        }
+        else if (BMI >= 40 ){
+            bawahBMI = 40;
+            atasBMI = 40;
+        }
+
+        ideal1 = Math.round(bawahBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
+        ideal2 = Math.round(atasBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
+
 
         double oldWeightnya = Double.parseDouble(WeekEvaluationActivity.oldWeight);
         double newWeightnya = Double.parseDouble(WeekEvaluationActivity.newWeight);
-        double ideal1nya = Main2Activity.PlaceholderFragment.ideal1;
-        double ideal2nya = Main2Activity.PlaceholderFragment.ideal2;
+        double ideal1nya = ideal1;
+        double ideal2nya = ideal2;
 
         String rewardnya = "";
         ImageView rewardImage = (ImageView) findViewById(R.id.imageView39);

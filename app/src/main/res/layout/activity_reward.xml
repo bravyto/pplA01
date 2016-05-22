@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Your weight is going away from your ideal one. Please eat on time and follow your limit of calories!"
+        android:text="Your weight is not going to your ideal one. Please eat on time and follow your limit of calories!"
         android:id="@+id/rewardAdvice"
         android:layout_gravity="center_horizontal"
         android:textSize="15dp"
