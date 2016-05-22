@@ -113,10 +113,12 @@
             android:name=".InfoRecActivity"
             android:label="@string/title_activity_info_rec"
             android:parentActivityName=".RecommendationActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ppla01.foodo.RecommendationActivity" />
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 
