@@ -382,7 +382,7 @@ public class Main2Activity extends AppCompatActivity {
         SharedPreferences spref;
         SharedPreferences.Editor editor;
         String  nama, tinggi, umur, beratnow, gender, aktivitasnya;
-        double bawahBMI,atasBMI,ideal1,ideal2;
+        public static double bawahBMI,atasBMI,ideal1,ideal2;
         protected  TextView breakfastv, lunchv, dinnerv;
         protected Button Edit;
         private static  ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
