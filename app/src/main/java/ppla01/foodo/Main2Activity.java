@@ -917,8 +917,8 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public static class MyValueFormatter implements ValueFormatter {
-        NumberFormat nf = NumberFormat.getNumberInstance(Locale.GERMAN);
-        private DecimalFormat mFormat = (DecimalFormat)nf;
+//        NumberFormat nf = NumberFormat.getNumberInstance(Locale.GERMAN);
+        private DecimalFormat mFormat;
 
         public MyValueFormatter() {
             mFormat = new DecimalFormat("###,###,##0"); // use one decimal
