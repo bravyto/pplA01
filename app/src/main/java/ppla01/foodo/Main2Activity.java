@@ -137,8 +137,8 @@ public class Main2Activity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_stat);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_eaten);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_stat);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_eaten);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_reminder);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_profile);
         int tabIconColor = ContextCompat.getColor(Main2Activity.this, R.color.activeTab);
@@ -214,16 +214,16 @@ public class Main2Activity extends AppCompatActivity {
                             inflater.inflate(R.menu.reminder_menu, mOptionsMenu);
                             setTitle("Reminder");
                         }
-                        else if (tabNo == 1) {
+                        else if (tabNo == 0) {
                             fab.setVisibility(View.VISIBLE);
                             fab.showMenuButton(true);
                             inflater.inflate(R.menu.main, mOptionsMenu);
-                            setTitle("Today's Food");
+                            setTitle("Home");
                         }
                         else {
                             fab.hideMenuButton(true);
                             inflater.inflate(R.menu.menu_main2, mOptionsMenu);
-                            setTitle("Home");
+                            setTitle("History");
                         }
                     }
 
@@ -288,7 +288,7 @@ public class Main2Activity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(final Menu menu) {
         mOptionsMenu = menu;
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main2, menu);
+        inflater.inflate(R.menu.main, menu);
         return true;
     }
 
@@ -445,33 +445,7 @@ public class Main2Activity extends AppCompatActivity {
                 aktivitas.setText(aktivitasnya);
 
 //                TextView beratIdeal= (TextView) rootView.findViewById(R.id.weightIdeal);
-                double BMI = Double.parseDouble(beratnow)/(Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
 
-                if (BMI< 18.5){
-                    atasBMI = 18.5;
-                    bawahBMI = 18.5;
-                }else if (BMI >  18.5 || BMI <= 24.9){
-                    bawahBMI = 18.5;
-                    atasBMI = 24.9;
-                }
-                else if (BMI >= 25 || BMI <= 29.9){
-                    bawahBMI = 25;
-                    atasBMI = 29.9;
-                }else if (BMI >= 30 || BMI <= 34.9){
-                    bawahBMI = 30;
-                    atasBMI = 34.9;
-                }
-                else if (BMI >= 35 || BMI <= 39.9){
-                    bawahBMI = 35;
-                    atasBMI = 39.9;
-                }
-                else if (BMI >= 40 ){
-                    bawahBMI = 40;
-                    atasBMI = 40;
-                }
-
-                ideal1 = Math.round(bawahBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
-                ideal2 = Math.round(atasBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
 
                 if(ideal1 == ideal2){
 //                    beratIdeal.setText(""+ideal1 +" kg");
@@ -491,7 +465,7 @@ public class Main2Activity extends AppCompatActivity {
                 TextView dinner= (TextView) rootView.findViewById(R.id.dinner);
                 dinner.setText(spref.getString("malam", ""));
             } else {
-                if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
+                if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
                     rootView = inflater.inflate(R.layout.fragment_food, container, false);
 
                     spref = getContext().getSharedPreferences("my_data", 0);

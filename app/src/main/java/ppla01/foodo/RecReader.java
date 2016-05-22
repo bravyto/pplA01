@@ -1,6 +1,7 @@
 package ppla01.foodo;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,8 @@ public class RecReader extends ArrayAdapter<FoodDetail> {
         if(null == mView){
             mView = new TextView(parent.getContext());
             mView.setTextSize(18);
-            mView.setPadding(0,20,0,20);
+            mView.setPadding(20, 20, 20, 20);
+            mView.setTextColor(Color.BLACK);
         }
 
         //Set the state name as the text.
