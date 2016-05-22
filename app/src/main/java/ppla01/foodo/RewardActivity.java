@@ -120,15 +120,24 @@ public class RewardActivity  extends Activity {
         share = (Button) findViewById(R.id.button5);
         if (rewardnya.equals(""))
             share.setVisibility(View.INVISIBLE);
-        share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri text = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getResources().getResourcePackageName(R.drawable.downweight) + '/' + getResources().getResourceTypeName(R.drawable.downweight) + '/' + getResources().getResourceEntryName(R.drawable.downweight));
-                TweetComposer.Builder builder = new TweetComposer.Builder(RewardActivity.this)
-                        .text("I got badge from FooDo!")
-                        .image(text);
-                builder.show();
-            }
-        });
+        else {
+            final String finalRewardnya = rewardnya;
+            share.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Uri text;
+                    if (finalRewardnya.equals("naik"))
+                        text = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getResources().getResourcePackageName(R.drawable.downweight) + '/' + getResources().getResourceTypeName(R.drawable.downweight) + '/' + getResources().getResourceEntryName(R.drawable.idealup));
+                    else if (finalRewardnya.equals("turun"))
+                        text = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getResources().getResourcePackageName(R.drawable.downweight) + '/' + getResources().getResourceTypeName(R.drawable.downweight) + '/' + getResources().getResourceEntryName(R.drawable.idealdown));
+                    else
+                        text = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getResources().getResourcePackageName(R.drawable.downweight) + '/' + getResources().getResourceTypeName(R.drawable.downweight) + '/' + getResources().getResourceEntryName(R.drawable.idealstay));
+                    TweetComposer.Builder builder = new TweetComposer.Builder(RewardActivity.this)
+                            .text("I got badge from FooDo!")
+                            .image(text);
+                    builder.show();
+                }
+            });
+        }
     }
 }
