@@ -24,7 +24,7 @@
             android:layout_height="100dp"
             android:id="@+id/imageView39"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/polamakan"
+            android:src="@drawable/stayweight"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Bad News"
+        android:text="Congratulations!"
         android:id="@+id/rewardText"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Your weight is not going to your ideal one. Please eat on time and follow your limit of calories!"
+        android:text="You still on your ideal weight. Keep up the good work!"
         android:id="@+id/rewardAdvice"
         android:layout_gravity="center_horizontal"
         android:textSize="15dp"
