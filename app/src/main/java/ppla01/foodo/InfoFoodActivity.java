@@ -110,7 +110,7 @@ public class InfoFoodActivity extends AppCompatActivity {
                             editor = spref.edit();
                             Set<String> pagi = spref.getStringSet("SetPagi",null);
                             if(pagi == null){
-                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
                                 addFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kcal)");
                                 addFoodActivity.AddKaloriPagi(caloriUpdate);
                                 listPagi=addFoodActivity.getListBreakfast();
@@ -141,7 +141,7 @@ public class InfoFoodActivity extends AppCompatActivity {
 
                             Set<String> pagi = spref.getStringSet("SetPagi",null);
                             if(pagi == null){
-                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
                                 addFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kcal)");
                                 addFoodActivity.AddKaloriPagi(caloriUpdate);
                                 listPagi=addFoodActivity.getListBreakfast();
@@ -171,7 +171,7 @@ public class InfoFoodActivity extends AppCompatActivity {
                             editor = spref.edit();
                             Set<String> siang = spref.getStringSet("SetSiang",null);
                             if(siang == null){
-                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
                                 addFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kcal)");
                                 addFoodActivity.AddKaloriSiang(caloriUpdate);
                                 listSiang=addFoodActivity.getListLunch();
@@ -202,7 +202,7 @@ public class InfoFoodActivity extends AppCompatActivity {
 
                             Set<String> siang = spref.getStringSet("SetPagi",null);
                             if(siang == null){
-                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
                                 addFoodActivity.addArrayLunch(newItem + " (" + caloriUpdate + " kcal)");
                                 addFoodActivity.AddKaloriSiang(caloriUpdate);
                                 listSiang=addFoodActivity.getListLunch();
@@ -230,7 +230,7 @@ public class InfoFoodActivity extends AppCompatActivity {
                             editor = spref.edit();
                             Set<String> malam = spref.getStringSet("SetMalam",null);
                             if(malam == null){
-                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
                                 addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kcal)");
                                 addFoodActivity.AddKaloriMalam(caloriUpdate);
                                 listMalam=addFoodActivity.getListDinner();
@@ -261,7 +261,7 @@ public class InfoFoodActivity extends AppCompatActivity {
 
                             Set<String> malam = spref.getStringSet("SetMalam",null);
                             if(malam == null){
-                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
                                 addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kcal)");
                                 addFoodActivity.AddKaloriMalam(caloriUpdate);
                                 listMalam=addFoodActivity.getListDinner();

@@ -248,16 +248,42 @@ public class Main2Activity extends AppCompatActivity {
         int curent = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
         int month =  Calendar.getInstance().get(Calendar.MONTH);
         int year =  Calendar.getInstance().get(Calendar.YEAR);
-        Toast.makeText(Main2Activity.this, "tanggal sekarang di spref " +date+"/"+month+"/"+year, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(Main2Activity.this, "tanggal sekarang di spref " +date+"/"+month+"/"+year, Toast.LENGTH_SHORT).show();
         float kalori = spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriMalam",0)+spref.getFloat("kaloriSiang",0);
-        Toast.makeText(Main2Activity.this, "jumlah kalori konsumed " + kalori, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(Main2Activity.this, "jumlah kalori konsumed " + kalori, Toast.LENGTH_SHORT).show();
         if(curent != date){
             food = new AddFoodActivity();
+            spref = getApplicationContext().getSharedPreferences("my_data", 0);
             editor = spref.edit();
-            food.addListKonsume(date+"/"+month+"/"+year+":"+ kalori+":"+spref.getFloat("BMR",0));
-            listKonsum = food.getListKonsume();
-            setKomsum.addAll(listKonsum);
-            editor.putStringSet("SetKonsum", setKomsum);
+//            food.addListKonsume(date+"/"+month+"/"+year+":"+ kalori+":"+spref.getFloat("BMR",0));
+//            listKonsum = food.getListKonsume();
+//            setKomsum.addAll(listKonsum);
+//            editor.putStringSet("SetKonsum", setKomsum);
+
+
+            Set<String> consum = spref.getStringSet("SetKonsum",null);
+            if(consum == null){
+                food.addListKonsume(date + "/" + month + "/" + year + ":" + kalori + ":" + spref.getFloat("BMR",0));
+                listKonsum=food.getListKonsume();
+                setKomsum.addAll(listKonsum);
+                editor.putStringSet("SetKonsum", setKomsum);
+                editor.commit();
+            }else {
+                ArrayList<String> temp2 = new ArrayList<String>(consum);
+                for (int i = 0; i < temp2.size(); i++) {
+                    food.addListKonsume(temp2.get(i));
+                }
+                food.addListKonsume(date + "/" + month + "/" + year + ":" + kalori + ":" + spref.getFloat("BMR", 0));
+                listKonsum = food.getListKonsume();
+                setKomsum.addAll(listKonsum);
+                editor.putStringSet("SetKonsum", setKomsum);
+                editor.commit();
+            }
+
+
+
+
+
             editor.putStringSet("SetSiang", null);
             editor.putStringSet("SetPagi", null);
             editor.putStringSet("SetMalam", null);
@@ -639,7 +665,7 @@ public class Main2Activity extends AppCompatActivity {
                     arrayListKonsum = new ArrayList<>(setKonsum);
                     Collections.sort(arrayListKonsum);
 
-                    PlaceholderFragment.showToast(getContext(), setKonsum, "Report Weekly");
+//                    PlaceholderFragment.showToast(getContext(), setKonsum, "Report Weekly");
 //
                    ArrayList<Entry> entries_line = new ArrayList<>();
                    ArrayList<Entry> entries_line2 = new ArrayList<>();
