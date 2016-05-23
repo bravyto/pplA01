@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
     tools:context="ppla01.foodo.RecommendationActivity">
 
     <LinearLayout
@@ -20,8 +16,10 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="10dp"
-        android:id="@+id/linear2">
+        android:paddingBottom="5dp"
+        android:id="@+id/linear2"
+        android:background="#ffffff"
+        android:elevation="2dp">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -69,13 +67,79 @@
 
 
     </LinearLayout>
-    <ListView
+
+    <LinearLayout
         android:layout_below="@id/linear2"
+        tools:context=".MainActivity"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="0dp"
+        android:label="My new title"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:id="@+id/linear3"
+        android:background="#ffffff"
+        android:elevation="2dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center" >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Breakfast"
+                android:gravity="center_horizontal"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center" >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Lunch"
+                android:textColor="#000000"
+                android:gravity="center_horizontal" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center" >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Dinner"
+                android:textColor="#000000"
+                android:gravity="center_horizontal" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+    <ListView
+        android:layout_below="@id/linear3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:id="@+id/thelist"
-        />
+        android:id="@+id/list"
+        android:scrollIndicators="right"
+        android:textFilterEnabled="false"
+        android:textColor="#000000"/>
+
+
 
 </RelativeLayout>

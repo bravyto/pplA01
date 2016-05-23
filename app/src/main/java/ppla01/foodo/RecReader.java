@@ -1,6 +1,7 @@
 package ppla01.foodo;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +19,12 @@ import java.io.InputStreamReader;
 public class RecReader extends ArrayAdapter<FoodDetail> {
     Context ctx;
     String message;
-    public RecReader(Context context,int textViewResourceId, String message) {
+    double dBMR;
+    public RecReader(Context context,int textViewResourceId, String message, double dBMR) {
         super(context,textViewResourceId);
         this.ctx = context;
         this.message=message.toLowerCase();
+        this.dBMR=dBMR;
 
         loadArrayFromFile2();
 
@@ -35,6 +38,8 @@ public class RecReader extends ArrayAdapter<FoodDetail> {
         if(null == mView){
             mView = new TextView(parent.getContext());
             mView.setTextSize(18);
+            mView.setPadding(20, 20, 20, 20);
+            mView.setTextColor(Color.BLACK);
         }
 
         //Set the state name as the text.
@@ -72,7 +77,9 @@ public class RecReader extends ArrayAdapter<FoodDetail> {
                 cur.setBeratMakanan(RowData[10]);
                 cur.setTipe(RowData[11]);
 
-                if (cur.getTipe().equals(message)) {
+                double calcul= Double.parseDouble(cur.getCalories());
+
+                if (cur.getTipe().equals(message) && calcul <= dBMR) {
                     counter++;
                     this.add(cur);
                 }

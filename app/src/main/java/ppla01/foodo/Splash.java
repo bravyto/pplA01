@@ -7,15 +7,25 @@ import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by Bravyto on 09/04/2016.
  */
 public class Splash extends Activity{
 
+    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    private static final String TWITTER_KEY = "HB1nBve0OylJTx9d5xqO95wqC";
+    private static final String TWITTER_SECRET = "kF7alauDdMq1GcfMqFx6VAzbPqSBstpcc8nQFexVQqoZ1LTYWZ";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        Fabric.with(this, new Twitter(authConfig));
         setContentView(R.layout.splash);
 
         final ImageView iv = (ImageView) findViewById(R.id.imageView);
