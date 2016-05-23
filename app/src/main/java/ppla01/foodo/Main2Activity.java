@@ -74,6 +74,9 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
@@ -91,6 +94,11 @@ public class Main2Activity extends AppCompatActivity {
     SharedPreferences spref;
     SharedPreferences.Editor editor;
     AddFoodActivity food;
+    ArrayList<String> listKonsum = new ArrayList<>();
+    Set<String> setKomsum = new HashSet<>();
+    ArrayList<String> listIdeal = new ArrayList<>();
+    Set<String> setIdeal = new HashSet<>();
+
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -129,8 +137,8 @@ public class Main2Activity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_stat);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_eaten);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_stat);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_eaten);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_reminder);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_profile);
         int tabIconColor = ContextCompat.getColor(Main2Activity.this, R.color.activeTab);
@@ -140,8 +148,8 @@ public class Main2Activity extends AppCompatActivity {
             tabLayout.getTabAt(i).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
         }
         fab = (FloatingActionMenu) findViewById(R.id.menu);
-        fab.setVisibility(View.INVISIBLE);
-        fab.hideMenuButton(true);
+//        fab.setVisibility(View.INVISIBLE);
+//        fab.hideMenuButton(true);
 
         com.github.clans.fab.FloatingActionButton fab1 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item);
         com.github.clans.fab.FloatingActionButton fab2 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.menu_item1);
@@ -184,6 +192,7 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
 
+
         tabLayout.setOnTabSelectedListener(
                 new TabLayout.ViewPagerOnTabSelectedListener(mViewPager) {
 
@@ -205,16 +214,16 @@ public class Main2Activity extends AppCompatActivity {
                             inflater.inflate(R.menu.reminder_menu, mOptionsMenu);
                             setTitle("Reminder");
                         }
-                        else if (tabNo == 1) {
+                        else if (tabNo == 0) {
                             fab.setVisibility(View.VISIBLE);
                             fab.showMenuButton(true);
                             inflater.inflate(R.menu.main, mOptionsMenu);
-                            setTitle("Today's Food");
+                            setTitle("Home");
                         }
                         else {
                             fab.hideMenuButton(true);
                             inflater.inflate(R.menu.menu_main2, mOptionsMenu);
-                            setTitle("Home");
+                            setTitle("History");
                         }
                     }
 
@@ -235,13 +244,46 @@ public class Main2Activity extends AppCompatActivity {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             if (tab != null) tab.setCustomView(R.layout.view_home_tab);
         }
-        int date =  spref.getInt("tanggal",0);
-        //Toast.makeText(Main2Activity.this, "tanggal sekarang di spref " + date, Toast.LENGTH_SHORT).show();
-        int curent = Calendar.getInstance().get(Calendar.DATE);
-       // Toast.makeText(Main2Activity.this, "tanggal sekarang  " + curent, Toast.LENGTH_SHORT).show();
+        int date =  spref.getInt("tanggal", 0);
+        int curent = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        int month =  Calendar.getInstance().get(Calendar.MONTH);
+        int year =  Calendar.getInstance().get(Calendar.YEAR);
+//        Toast.makeText(Main2Activity.this, "tanggal sekarang di spref " +date+"/"+month+"/"+year, Toast.LENGTH_SHORT).show();
+        float kalori = spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriMalam",0)+spref.getFloat("kaloriSiang",0);
+//        Toast.makeText(Main2Activity.this, "jumlah kalori konsumed " + kalori, Toast.LENGTH_SHORT).show();
         if(curent != date){
             food = new AddFoodActivity();
+            spref = getApplicationContext().getSharedPreferences("my_data", 0);
             editor = spref.edit();
+//            food.addListKonsume(date+"/"+month+"/"+year+":"+ kalori+":"+spref.getFloat("BMR",0));
+//            listKonsum = food.getListKonsume();
+//            setKomsum.addAll(listKonsum);
+//            editor.putStringSet("SetKonsum", setKomsum);
+
+
+            Set<String> consum = spref.getStringSet("SetKonsum",null);
+            if(consum == null){
+                food.addListKonsume(date + "/" + month + "/" + year + ":" + kalori + ":" + spref.getFloat("BMR",0));
+                listKonsum=food.getListKonsume();
+                setKomsum.addAll(listKonsum);
+                editor.putStringSet("SetKonsum", setKomsum);
+                editor.commit();
+            }else {
+                ArrayList<String> temp2 = new ArrayList<String>(consum);
+                for (int i = 0; i < temp2.size(); i++) {
+                    food.addListKonsume(temp2.get(i));
+                }
+                food.addListKonsume(date + "/" + month + "/" + year + ":" + kalori + ":" + spref.getFloat("BMR", 0));
+                listKonsum = food.getListKonsume();
+                setKomsum.addAll(listKonsum);
+                editor.putStringSet("SetKonsum", setKomsum);
+                editor.commit();
+            }
+
+
+
+
+
             editor.putStringSet("SetSiang", null);
             editor.putStringSet("SetPagi", null);
             editor.putStringSet("SetMalam", null);
@@ -250,8 +292,6 @@ public class Main2Activity extends AppCompatActivity {
             editor.putFloat("kaloriMalam",0);
             editor.commit();
             food.setNull();
-//            Toast.makeText(Main2Activity.this, "masuk if"+
-//                    "  " +curent, Toast.LENGTH_SHORT).show();
             editor.putInt("tanggal", curent);
             editor.commit();
 
@@ -268,7 +308,7 @@ public class Main2Activity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(final Menu menu) {
         mOptionsMenu = menu;
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main2, menu);
+        inflater.inflate(R.menu.main, menu);
         return true;
     }
 
@@ -362,10 +402,11 @@ public class Main2Activity extends AppCompatActivity {
         SharedPreferences spref;
         SharedPreferences.Editor editor;
         String  nama, tinggi, umur, beratnow, gender, aktivitasnya;
-        double bawahBMI,atasBMI,ideal1,ideal2;
+        public static double bawahBMI,atasBMI,ideal1,ideal2;
         protected  TextView breakfastv, lunchv, dinnerv;
         protected Button Edit;
         private static  ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
+        private static  ArrayList<String> arrayListKonsum  =new ArrayList<String>();
         private static ArrayList<String> arrayListLunch  =new ArrayList<String>();
         private static ArrayList<String> arrayListDinner  =new ArrayList<String>();
         private ArrayAdapter<String> adapterBreakfast;
@@ -424,33 +465,7 @@ public class Main2Activity extends AppCompatActivity {
                 aktivitas.setText(aktivitasnya);
 
 //                TextView beratIdeal= (TextView) rootView.findViewById(R.id.weightIdeal);
-                double BMI = Double.parseDouble(beratnow)/(Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
 
-                if (BMI< 18.5){
-                    atasBMI = 18.5;
-                    bawahBMI = 18.5;
-                }else if (BMI >  18.5 || BMI <= 24.9){
-                    bawahBMI = 18.5;
-                    atasBMI = 24.9;
-                }
-                else if (BMI >= 25 || BMI <= 29.9){
-                    bawahBMI = 25;
-                    atasBMI = 29.9;
-                }else if (BMI >= 30 || BMI <= 34.9){
-                    bawahBMI = 30;
-                    atasBMI = 34.9;
-                }
-                else if (BMI >= 35 || BMI <= 39.9){
-                    bawahBMI = 35;
-                    atasBMI = 39.9;
-                }
-                else if (BMI >= 40 ){
-                    bawahBMI = 40;
-                    atasBMI = 40;
-                }
-
-                ideal1 = Math.round(bawahBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
-                ideal2 = Math.round(atasBMI * Double.parseDouble(tinggi)/100*Double.parseDouble(tinggi)/100);
 
                 if(ideal1 == ideal2){
 //                    beratIdeal.setText(""+ideal1 +" kg");
@@ -470,7 +485,7 @@ public class Main2Activity extends AppCompatActivity {
                 TextView dinner= (TextView) rootView.findViewById(R.id.dinner);
                 dinner.setText(spref.getString("malam", ""));
             } else {
-                if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
+                if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
                     rootView = inflater.inflate(R.layout.fragment_food, container, false);
 
                     spref = getContext().getSharedPreferences("my_data", 0);
@@ -644,28 +659,53 @@ public class Main2Activity extends AppCompatActivity {
                     spref = getContext().getSharedPreferences("my_data", 0);
                     LineChart lineChart = (LineChart) rootView.findViewById(R.id.graph);
                     // creating list of entry
-                    ArrayList<Entry> entries_line = new ArrayList<>();
-                    entries_line.add(new Entry(4f, 0));
-                    entries_line.add(new Entry(8f, 1));
-                    entries_line.add(new Entry(6f, 2));
-                    entries_line.add(new Entry(2f, 3));
-                    entries_line.add(new Entry(18f, 4));
-                    entries_line.add(new Entry(9f, 5));
-                    entries_line.add(new Entry(18f, 6));
-                    entries_line.add(new Entry(9f, 7));
 
-                    ArrayList<Entry> entries_line2 = new ArrayList<>();
-                    entries_line2.add(new Entry(1f, 0));
-                    entries_line2.add(new Entry(2f, 1));
-                    entries_line2.add(new Entry(3f, 2));
-                    entries_line2.add(new Entry(4f, 3));
-                    entries_line2.add(new Entry(5f, 4));
-                    entries_line2.add(new Entry(6f, 5));
-                    entries_line2.add(new Entry(7f, 6));
-                    entries_line2.add(new Entry(8f, 7));
+
+                    Set<String> setKonsum = spref.getStringSet("SetKonsum", null);
+                    arrayListKonsum = new ArrayList<>(setKonsum);
+                    Collections.sort(arrayListKonsum);
+
+//                    PlaceholderFragment.showToast(getContext(), setKonsum, "Report Weekly");
+//
+                   ArrayList<Entry> entries_line = new ArrayList<>();
+                   ArrayList<Entry> entries_line2 = new ArrayList<>();
+                   int size = arrayListKonsum.size();
+                   String[] labels_line = new String[size];
+//
+                    for (int i = 0; i < size; i++) {
+                        String [] split = arrayListKonsum.get(i).split(":");
+                        labels_line [i] = split[0];
+                        float parse = (float)Double.parseDouble(split[1]);
+                        float ideal= (float)Double.parseDouble(split[2]);
+                        entries_line.add(new Entry(parse, i));
+                        entries_line2.add(new Entry(ideal, i));
+
+
+                    }
+
+
+//                    entries_line.add(new Entry(4f, 0));
+//                    entries_line.add(new Entry(8f, 1));
+//                    entries_line.add(new Entry(6f, 2));
+//                    entries_line.add(new Entry(2f, 3));
+//                    entries_line.add(new Entry(18f, 4));
+//                    entries_line.add(new Entry(9f, 5));
+//                    entries_line.add(new Entry(18f, 6));
+//                    entries_line.add(new Entry(9f, 7));
+//
+
+//                    ArrayList<Entry> entries_line2 = new ArrayList<>();
+//                    entries_line2.add(new Entry(1f, 0));
+//                    entries_line2.add(new Entry(2f, 1));
+//                    entries_line2.add(new Entry(3f, 2));
+//                    entries_line2.add(new Entry(4f, 3));
+//                    entries_line2.add(new Entry(5f, 4));
+//                    entries_line2.add(new Entry(6f, 5));
+//                    entries_line2.add(new Entry(7f, 6));
+//                    entries_line2.add(new Entry(8f, 7));
 
                     // creating labels
-                    String[] labels_line = new String[]{"21 May 2016", "22 May 2016", "23 May 2016", "24 May 2016", "25 May 2016", "26 May 2016", "27 May 2016", "28 May 2016"};
+//                   String[] labels_line = new String[]{"21 May 2016", "22 May 2016", "23 May 2016", "24 May 2016", "25 May 2016", "26 May 2016", "27 May 2016", "28 May 2016"};
 
                     ArrayList<ILineDataSet> lines = new ArrayList<ILineDataSet>();
 

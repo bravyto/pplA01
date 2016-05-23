@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
     tools:context="ppla01.foodo.RecommendationActivity">
 
     <LinearLayout
@@ -21,7 +17,9 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="5dp"
-        android:id="@+id/linear2">
+        android:id="@+id/linear2"
+        android:background="#ffffff"
+        android:elevation="2dp">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -83,7 +81,9 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="10dp"
-        android:id="@+id/linear3">
+        android:id="@+id/linear3"
+        android:background="#ffffff"
+        android:elevation="2dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -136,7 +136,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:id="@+id/list"
-        />
+        android:scrollIndicators="right"
+        android:textFilterEnabled="false"
+        android:textColor="#000000"/>
 
 
 
