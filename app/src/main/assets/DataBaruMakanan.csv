@@ -1,7 +1,35 @@
+162,Abon,280,9.2,0,70,0,70,28.4,1 sdm,9,None
+501,Agar-agar,0,0,0,0,17.2,400,0.2,1 potong,95,None
+418,Alpokat,85,0.9,7.7,13,84.3,10,6.5,1 biji ,100,None
+79,Ampas Tahu,414,26.6,41.3,0,9,19,18.3,1 sdm,22.8,None
+275,Andewi,25,1.6,5.3,10,91.8,33,0.2,1 mangkok,22.4,None
+163,Angsa,354,16.4,0,0,51.1,15,31.5,1 potong,56.3,None
+419,Apel,58,0.3,14.9,5,84.1,6,0.4,1 buah,150,None
+420,Arbei,37,0.8,8.3,60,89.9,28,0.5,1 buah,10,None
+421,Asam masak di pohon,239,2.8,62.5,2,31.4,74,0.6,1 polong,8.6,None
+164,Ayam,302,18.2,0,0,55.9,14,25,1 potong,50,lunch
+165,Babat,113,17.6,0,0,76.7,12,4.2,1 potong,30,None
+537,Bacang,102.9,3.3,16.3,0,47.9,0,2.7,1 potong,70,None
+276,Baje,129,1.9,15.6,9,55.3,85,6.6,1 kg,1000,None
+538,Bakso,76,4.1,9.2,1.8,83.6,14,2.5,1 porsi,250,None
+539,Bakwan,272.5,4.3,21.8,0,54,0.1,18.8,1 potong,40,None
+277,Baligo,13,0.4,3,13,96.1,19,0.2,1 potong,75,None
+278,Batang Tading,137,4.3,19.1,4,14.3,54,4.8,1 kg,1000,None
+279,Bawang Bombay,45,1.4,10.3,9,87.5,32,0.2,1 buah,75.4,None
+280,Bawang Merah,39,1.5,0.2,2,88,36,0.3,1 siung,8.8,None
+281,Bawang Putih,95,4.5,23.1,15,71,42,0.2,1 siung,12.8,None
+283,Bayem kukus,30,1.3,5.8,32,90.7,239,0.7,1 gelas,100,None
+282,Bayem Merah,51,4.6,10,80,82,368,0.5,1 ikat,224,None
+284,Bayem rebus,23,1.2,3.7,19,93.5,150,0.6,1 mangkok,145,None
+285,Bayem segar,36,3.5,6.5,80,86.9,267,0.5,1 mangkok,50,None
+286,Bayem tumis + oncom,102,3.7,6.9,16.8,0,127.4,6.7,1 mangkok,223.2,None
+287,Bayem tumis bersantan,48,1.4,2.6,22,91.2,129,4.2,1 mangkok,240,None
+166,Bebek (itik),326,16,0,0,54.3,15,28.6,1 potong,45,lunch
+422,Belimbing,36,0.4,8.8,35,90,4,0.4,1 buah ,125,None
 1,Belitung kukus,145,1.2,34.2,1,63.1,21,0.4,1 potong,61.4,None
 2,Belitung mentah,145,1.2,34.2,2,63.1,26,0.4,1 potong,73.4,None
+423,Bengkuang,55,1.4,12.8,20,85.1,15,0.2,1 1 buah,164,None
 3,Beras Giling ,360,6.8,78.9,0,13,6,0.7,1 gelas,70,None
-4,Nasi Putih,178,2.1,40.6,0,57,5,0.1,3/4 gelas,100,None
 5,Beras Ketan Hitam,356,7,78,0,13,10,0.7,1 gelas,177,None
 6,Beras Ketan Hitam kukus,181,4,37.3,0,56.9,9,1.2,1 gelas,171.4,None
 7,Beras Ketan Hitam tape,166,3.8,34.4,0,50.2,8,1,1/3 gelas,44,None
@@ -12,159 +40,77 @@
 12,Beras Ketan Putih tumbuk,361,7.4,78.4,0,12.9,13,0.8,1 gelas,197,None
 13,Beras Menir,339,7.7,73,0,12,22,4.4,1 sdm,22,None
 14,Beras Merah tumbuk,359,7.5,77.6,0,13,16,0.9,1 gelas,153,None
+17,Beras Parboiled,364,6.8,80.1,0,12,5,0.6,1 gelas,188.2,None
 15,Beras Pecah Kulit,335,7.4,76.2,0,13.2,12,1.9,1 gelas,271,None
 16,Beras Setengah Giling,363,7.6,78.3,0,12,11,1.1,1 gelas,100,None
-17,Beras Parboiled,364,6.8,80.1,0,12,5,0.6,1 gelas,188.2,None
 18,Bihun,360,4.7,82.1,0,12.9,6,0.1,1 gelas,100,lunch
-19,Biskuit,458,6.9,75.1,0,2.2,62,14.4,1 buah,10,None
-20,Centel,332,11,73,0,11,28,3.3,1 gelas,73,None
-21,Gadung kukus,88,0.8,20.9,0,77.4,26,0.3,1 mangkok,315,None
-22,Gadung mentah,101,2.1,23.2,9,73.5,20,0.2,1 potong,105,None
-23,Ganyong kukus,100,0.8,23.8,6,74.1,15,0.2,1 buah,17.6,None
-24,Ganyong mentah,95,1,22.6,10,75,21,0.1,1 buah ,20.6,None
-25,Gaplek,338,1.5,81.3,0,14.5,80,0.7,1 potong,31.8,None
-26,Gembili,95,1.5,22.4,4,75,14,0.1,1 potong,111,None
-27,Havermout,390,14.2,68.2,0,8.3,53,7.4,1 sdm,8.2,breakfast
-28,Jagung Kuning giling,361,8.7,72.4,0,13.1,9,4.5,1 gelas,122.4,None
-29,Jagung Kuning muda,129,4.1,30.3,9,63.5,5,1.3,1 buah,131,None
-30,Jagung Kuning pipil baru,307,7.9,63.6,0,24,9,3.4,1 gelas,138.2,None
-31,Jagung Kuning pipil lama,355,9.2,73.7,0,12,10,3.9,1 gelas,150.6,None
-32,Jagung Kuning segar,140,4.7,33.1,8,60,6,1.3,1 tongkol ,200,None
-33,Jagung Putih giling,361,8.7,72.4,0,13.1,9,4.5,1 gelas,132.4,None
-34,Jagung Putih muda,129,4.1,30.3,9,63.5,5,1.3,1 buah,10,None
-35,Jagung Putih pipil baru,307,7.9,63.6,0,24,9,3.4,1 gelas,162.6,None
-36,Jagung Putih pipil lama,355,9.2,73.7,0,12,10,3.9,1 gelas,153.6,None
-37,Jagung Putih segar,140,4.7,33.1,8,60,6,1.3,1 tongkol,143.4,None
-38,Jagung grontol,156,2.7,33.3,0,61.7,51,1.3,1 gelas,160.4,None
-39,Jali,289,11,61,0,23.6,213,4,1 gelas,93,None
-40,Jawawut,334,9.7,73.4,0,11.9,28,3.5,1 gelas,110,None
-41,Kapri Muda,42,3.3,9.6,49,46.8,51,0.2,1 mangkok,119.6,None
-42,Katul Beras,275,12.6,54.6,0,10.8,32,14.8,1 gelas,80,None
-43,Kentang,83,2,19.1,17,77.8,11,0.1,1 biji ,100,breakfast
-44,Kentang Hitam,142,0.9,33.7,38,64,34,0.4,1 biji,14.2,None
-45,Kerupuk Aci,350,0.5,85.9,0,12,0,0.2,1 buah,3,None
-46,Ketela Pohon (singkong),146,1.2,34.7,30,62.5,33,0.3,1 potong,100,None
-47,Ketela Pohon Kuning,157,0.8,37.9,30,60,33,0.3,1 buah,113.2,None
-48,Maizena (pati jagung),343,0.3,85,0,14,20,0,1 sdm,5,None
-49,Makaroni,363,8.7,78.7,0,11.7,20,0.4,1 gelas,100,breakfast
-50,Mie kuah,86,0.6,14,0,80,14,3.3,1 gelas,100,None
-51,Mie kering,337,7.9,50,0,28.6,49,11.8,1 gelas,50,None
-52,Oyek (dari singkong),342,2.3,83.1,0,13.6,27,0.1,1 gelas,141.6,None
-53,Pati Singkong (tapioka),362,0.5,86.9,0,12,0,0.3,1 sdm,5,None
-54,Roti Putih,248,8,50,0,40,10,1.2,1 iris,20,breakfast
-55,Roti Warna Sawo Matang,249,7.9,49.7,0,40,20,1.5,1 potong,73.6,None
-56,Sente,64,0.6,14.8,5,84,30,0.3,1 potong,48,None
-57,Singkong kukus,146,1.2,34.7,15,62,33,0.3,1 potong,104,None
-58,Singkong tape,173,0.5,42.5,0,56.1,30,0.1,1 potong ,100,None
-59,Suweg kukus,90,1.5,21.9,0,75.5,50.2,0.1,1 potong,75.6,None
-60,Suweg mentah,69,1,15.7,5,82,62,0.1,1 potong,102,None
-61,Tales kukus,120,1.5,28.2,2,69.2,31,0.3,1 buah,126.6,None
-62,Tales mentah,98,1.9,23.7,4,73,28,0.2,1 biji  ,200,None
-63,Tepung Beras,364,7,80,0,12,5,0.5,1 sdm,6,None
-64,Tepung Gaplek,363,1.1,88.2,0,9.1,84,0.5,1 sdm,6,None
-65,Tepung Garut (arrowroot),355,0.7,85.2,0,13.6,8,0.2,1 sdm,18.2,None
-66,Tepung Jagung Kuning,355,9.2,73.7,0,12,10,3.9,1 sdm,4.2,None
-67,Tepung Jagung Putih,355,9.2,73.7,0,12,10,3.9,1 sdm,4.2,None
-68,Tepung Kentang,347,0.3,85.6,0,13,20,0.1,1 sdm,10,None
-69,Tepung Sagu,353,0.7,84.7,0,14,11,0.2,1 sdm,6,None
-70,Tepung Terigu,365,8.9,77.3,0,12,16,1.3,1 sdm,5,None
-71,Tim (nasi tim),120,2.4,26,0,0,3,0.4,1 gelas,200,None
-72,Ubi Jalar Merah,123,1.8,27.9,22,68.5,30,0.7,1 biji,150,None
-73,Ubi Jalar Putih,123,1.8,27.9,22,68.5,30,0.7,1 buah ,62.4,None
-74,Ubi Jalar Rebus,114,1.4,25.6,10.2,0,27.7,9.6,1 buah ,61.4,None
-75,Ubi Jalar Sayur,184,1.4,22.5,5.5,0,8.5,0.3,1 mangkok,264.4,None
-76,Ubi Jalar sayur,183,1.8,22.5,5.5,0,6.5,0.3,1 mangkok,264.4,None
-77,Uwi,101,2,19.8,9,75,45,0.2,1 potong,104,None
-78,Vermicelli,363,8.7,78.7,0,11.7,20,0.4,1 sdm,18,None
-79,Ampas Tahu,414,26.6,41.3,0,9,19,18.3,1 sdm,22.8,None
+540,Bihun Goreng,154,3,25.5,0,65.6,0,4.5,1 buah,200,None
 80,Biji Jambu Mete,562,21.2,23.6,0,5.9,50,49.6,1 sdm,13,None
 81,Biji Jambu Mete goreng,629,21.5,19.8,0,1,502,56.6,1 sdm,20,None
+541,Bika Ambon,225.7,3,52.9,0,42.9,0,0.3,1 buah,70,None
+502,Bir (4% alkohol),48,0.6,4.4,0,90.2,4,0,1 gelas,210,None
+19,Biskuit,458,6.9,75.1,0,2.2,62,14.4,1 buah,10,None
+542,Biskuit Mahal,350,8,54,0,0,162,11,1 buah,10,None
+543,Biskuit Murah,260,5,86,0,0,53,1,1 sdm,10,None
+288,Bit,42,1.6,9.6,10,87.6,27,0.1,1 buah,92.6,None
+503,Bonggol Pisang,43,2.6,11.6,12,86,15,0,1 potong,68.4,None
+504,Bonggol Pisang kering,245,3.4,66.2,4,20,60,0,1 potong,52.4,None
 82,Bongkrek (tempe bungkil),119,4.4,18.3,0,72.5,27,3.5,1 potong,6.68,None
+289,Boros Kunci,23,1,7.2,50,90,50,0.8,1 rimpang,26.8,None
+290,Boros Laja,22,1,4.7,50,93,50,0.3,1 buah,15,None
+544,Brondong,400,4,95.3,0,0,10,0.7,1 porsi,15,None
+424,Buah Atung,23,0.8,5.2,38,92,30,0.2,1 buah,4,None
+425,Buah Mentega (bisbul),39,0.7,9.7,33,89,43,0.2,1 buah,159,None
+426,Buah Nona,101,1.7,25.2,22,71.5,27,0.6,1 buah,147,None
+545,Bubur,60,1,13,0,0,2,60,1 buah,10,None
+99,Bubur Kacang Ijo,345,22.2,62.9,6,10,125,1.2,1 sdm,10,dinner
+505,Bulung Jajan,212,16.9,47.6,8,22,3033,0.2,1 kg,1000,None
+506,Bulung Sangu,237,14.7,56,5,18,3774,0.2,1 kg,1000,None
+291,Buncis,35,2.4,7.7,19,88.9,6.5,0.2,1 buah,10,None
+292,Buncis asam,60,5.1,8.5,9.5,0,72.3,0.5,1 buah,8.2,None
+293,Buncis rebus,30,2.2,6.4,8,90.6,107,0.2,1 gelas,100,None
 83,Bungkil Biji Karet,333,29.3,50,0,12,102,3.3,1/3 gelas,30.6,None
 84,Bungkil Kacang Tanah,336,37.4,30.5,0,14,730,13,1 potong,44,None
 85,Bungkil Kelapa,368,23,40,0,16,137,15,1/3 gelas,34.8,None
-86,Jengkol,20,3.5,3.1,12,93,21,0.1,1 buah,19.2,None
-87,Jengkol semur jengkol,212,6,29.1,4,52.7,77,8.7,1 buah,18,None
-88,Kacang Andong,356,20.5,61.6,1,10.8,150,4.1,1 kg,1000,None
-89,Kacang Arab,330,23.8,60.2,2,11.6,57,1.4,1 sdm,12,None
-90,Kacang Belimbing mentah,400,34.4,34.1,3.5,10,468,16.9,1 kg,1000,None
-91,Kacang Belimbing rebus,204,16.9,17.5,0,55.6,230,8.8,1 kg,1000,None
-92,Kacang Belimbing tempe,212,17.5,12.9,0,58.2,186,10,1 kg,1000,None
-93,Kacang Bogor goreng,479,12.7,58.9,0,3,135,23.2,1 sdm,15,None
-94,Kacang Bogor mentah,370,16,65,0,10,85,6,1 sdm,20,None
-95,Kacang Bogor rebus,161,7.7,27.1,0,61.2,56,2.8,1 buah,5,None
-96,Kacang Endel biji,331,25,58,9,14,80,1,1 kg,1000,None
-97,Kacang Gude biji,336,20.7,62,5,12.2,125,1.4,1 sdm,13,None
-98,Kacang Gude biji muda,114,7,20.8,43,70.3,3.2,0.6,1 sdm,21,None
-99,Bubur Kacang Ijo,345,22.2,62.9,6,10,125,1.2,1 sdm,10,dinner
-100,Kacang Kedelai basah,286,30.2,30.1,0,20.6,196,15.6,1 sdm,2.2,None
-101,Kacang Kedelai kering,331,34.9,34.8,0,7.5,227,18.1,1 sdm,10,None
-102,Kacang Kedelai kukus,75,4.1,10.7,0,82.5,203,2.1,1 sdm,10,None
-103,Kacang Merah,336,23.1,59.5,0,12,80,1.7,1 sdm,10,None
-104,Kacang Merah kering rebus,158,10.3,28.2,0,59.6,160,0.9,1 sdm,10,None
-105,Kacang Merah segar rebus,144,10,24.7,0,63.1,144,1,1 sdm,17.2,None
-106,Kacang Panjang biji,357,17.3,70,2,12.2,163,1.5,1 sdm,13.2,None
-107,Kacang Tanah atom,535,27.8,28.8,0,3.1,87,38.1,1 sdm,13.8,None
-108,Kacang Tanah kacang sari,561,25.5,26,0,2.1,50,43.8,1 sdm,10,None
-109,Kacang Tanah kupas kulit,452,25.3,21.1,3,4,58,42.8,1 mangkok,293.6,None
-110,Kacang Tanah rebus berkulit,360,13.5,12.8,5,40.2,42,31.2,1 buah,19.4,None
-111,Kacang Tanah rempeyek,513,17.5,44.3,0,3.9,65,32.5,1 bungkus,20,None
-112,Kacang Tanah sangan berselaput,569,28.8,15.8,0,3.6,88,48.4,1 sdm,10,None
-113,Kacang Tanah sangan tidak berselaput,559,26.9,23.6,0,2.6,74,44.2,1 sdm,7.4,None
-114,Kacang Tunggak (tolo),342,22.9,61.6,2,11,77,1.4,1 sdm,10,None
-115,Kacang Tunggak rebus,138,10.7,22.6,0,64.4,165,1.1,1 sdm,10.6,None
-116,Kecap,46,5.7,9,0,63,123,1.3,1 sdm,10,None
-117,Kecipir biji,405,32.8,36.5,0,9.7,80,17,1 sdm,28,None
-118,Keju Kacang Tanah,590,27,20.9,0,3,60,49,1 sdm,10,None
-119,Kelapa Muda air,17,0.2,3.8,1,95.5,15,0.1,1 gelas,200.6,None
-120,Kelapa Muda daging,68,1,14,4,83.3,7,0.9,1 potong,30,None
-121,Kelapa Setengah Tua daging,180,4,10,4,70,8,15,1 buah,416.6,None
-122,Kelapa Tua daging,359,3.4,14,0,46.9,21,34.7,1 buah,407,None
-123,Kembang Tahu mentah,380,48.9,23.3,0,10.8,378,13.8,1 potong,2.2,None
-124,Kembang Tahu rebus,90,10.7,4.7,0,79.8,35,4,1 potong,6,None
-125,Kemiri,636,19,8,0,7,80,63,1 buah,4.7,None
-126,Kenari,657,15,13,0,3,92,66,1 sdm,16.8,None
-127,Kerupuk Melinjo mentah,345,12,71.5,0.2,13,100,1.5,1 buah,3.2,None
-128,Kerupuk Melinjo tebal goreng asin,431,11.1,63,0,8,77,16.2,1 buah,3.2,None
-129,Kerupuk Melinjo tebal goreng manis,439,10,65.7,0,5.6,66,16.4,1 buah,3.2,None
-130,Kerupuk Melinjo tipis goreng,485,11.5,59.1,0,3.3,85,24.5,1 buah,1.7,None
-131,Ketumbar,404,14.1,54.2,0,11.2,630,16.1,1 sdm,5.3,None
-132,Kluwak,273,10,13.5,30,51,40,24,1 biji,24,None
-133,Koro Benguk biji,332,24,55,0,15,130,3,1 biji,0.8,None
-134,Koro Benguk tempe,141,10.2,23.2,0,64,42,1.3,1 potong,11.8,None
-135,Koro Kerupuk biji,125,8.3,22.1,31,67.2,17,0.7,1 biji,0.78,None
-136,Koro Loke biji,33,2.7,7.9,0,88.6,60,0.2,1 biji,1.5,None
-137,Koro Roway biji,344,12.5,69.4,1,13,70,2.1,1 biji,0.8,None
-138,Koro Wedus biji,338,22.2,61,0,11.8,88,1.5,1 biji,2.1,None
-139,Kwaci,515,30.6,13.8,0,9.9,54,42.1,1 sdm,10.9,None
-140,Lamtoro (pete cina) biji muda,85,5.7,15.4,15,77.4,180,0.3,1 sdm,14.8,None
-141,Lamtoro biji tua,148,10.6,26.2,20,61.4,155,0.5,1 sdm,15,None
-142,Lamtoro tempe,142,11,20.4,0,64,42,2.5,1 potong,8.8,None
-143,Nangka biji,165,4.2,36.7,10,57.7,33,0.1,1 biji,19,None
-144,Oncom Kacang Tanah pepes,132,12.7,13.7,0,65,133,3.8,1 potong,38,None
-145,Oncom Kedele,187,13,22.6,0,57,96,6,1 potong,25,None
-146,Oncom pepes,76,5.2,10.6,0,80.9,215,1.8,1 potong,33.4,None
-147,Pala biji,494,7.5,40.1,0,14.3,120,36.4,1 biji,12,None
-148,Pete Segar,142,10.4,22,36,60.5,95,2,1 biji,1.6,None
-149,Saga biji tanpa kulit,449,30.6,31.9,7,8.1,1062,25.5,1 biji,0.22,None
-150,Santan (kelapa + air),122,2,7.6,2,80,25,10,1 gelas,200,None
-151,Santan (kelapa saja),324,4.2,55.6,2,54.9,14,34.3,1 sdm,5,None
-152,Sari Kedelai bubuk,344,30,43,10,3,450,20,1 sdm,10,None
-153,Susu Kedelai,41,3.5,5,2,87,50,2.5,1 gelas,200,dinner
-154,Tahu,68,7.8,1.6,0,84.8,124,4.6,1 biji ,10,None
-155,Taoco,166,10.4,24.1,0,64.4,55,4.9,1 sdm,10,None
-156,Taokoa,104,12.9,1.2,0,78,153,6.8,1 potong,42,None
-157,Tempe Gembus,73,5.7,4.2,0,81.9,204,1.3,1 potong,37,None
-158,Tempe Kedelai Murni,149,18.3,12.7,0,64,129,4,1 potong,25,None
-159,Tepung Hunkwee,364,4.5,83.5,0,10,50,1,1 sdm,10,None
-160,Tepung Kacang Kedelai,347,35.9,29.9,0,9,195,20.6,1 sdm,6,None
-161,Wijen,568,19.3,18.1,0,5.8,125,51.1,1 sdm,10,None
-162,Abon,280,9.2,0,70,0,70,28.4,1 sdm,9,None
-163,Angsa,354,16.4,0,0,51.1,15,31.5,1 potong,56.3,None
-164,Ayam,302,18.2,0,0,55.9,14,25,1 potong,50,lunch
-165,Babat,113,17.6,0,0,76.7,12,4.2,1 potong,30,None
-166,Bebek (itik),326,16,0,0,54.3,15,28.6,1 potong,45,lunch
+546,Buntil,106,4.4,7.9,110,78.2,225,6.3,1 buah,100,None
+547,Buras,125.7,3.3,23.9,0,69.3,0,1.9,1 sdm,70,None
+21251,BURGER KING CHSBRGR,286,14.57,23.71,0.2,44.59,93,45,1 item,133,None
+21256,BURGER KINGCHICK STRIPS,292,18.2,20.49,1.1,43.02,13,44,1 strip,36,None
+21385,BURGER KINGCROISSAN'WICH W/ EGG & CHS,283,10.35,24.79,0,46.4,231,139,1 item,110,None
+21384,BURGER KINGCROISSAN'WICH W/ SAUSAGE & CHS,376,13.73,23,0,35.08,107,43,1 item,131,None
+21383,BURGER KINGCROISSAN'WICH W/ SAUSAGEEGG & CHS,308,12.09,15.9,0,48.1,90,123,1 sandwich,171,None
+21506,BURGER KINGDOUBLE CHEESEBURGER,282,16.83,17.43,0,47.37,120,0,1 sandwich,162,None
+21254,BURGER KINGDOUBLE WHOPPERNO CHS,252,13.94,13.74,0.2,55.29,35,46,1 item,374,None
+21255,BURGER KINGDOUBLE WHOPPERW/ CHS,266,14.47,13.52,0.2,53.28,78,47,1 item,399,None
+21249,BURGER KINGFRENCH FR,280,3.23,38.7,2.2,43.95,17,0,1 small serving,74,None
+21386,BURGER KINGFRENCH TOAST STKS,349,6,41.21,0,33.57,53,0,1 stick,21,None
+21250,BURGER KINGHAMBURGER,261,14.85,26.76,0.2,45.97,76,35,1 sandwich,99,None
+21387,BURGER KINGHASH BROWN ROUNDS,302,2.8,29.37,4.3,46.34,15,0,1 piece,5.6,None
+21509,BURGER KINGONION RINGS,417,3.86,43.58,1.4,24.52,115,0,1 small,91,None
+21259,BURGER KINGORIGINAL CHICK SNDWCH,286,12.14,26.22,0.2,44.7,46,31,1 sandwich,199,None
+21258,BURGER KINGPREMIUM FISH SNDWCH,260,10.29,26.69,0.2,48.44,37,31,1 sandwich,220,None
+21141,BURGER KINGVANILLA SHAKE,168,3.19,19.03,0,68.13,104,31,1 fl oz,24.8,None
+21252,BURGER KINGWHOPPERNO CHS,233,10.74,18.55,0.2,56.43,39,30,1 item,291,None
+21253,BURGER KINGWHOPPERW/ CHS,250,11.19,16.7,0.2,54.92,82,36,1 item,316,None
+22918,BURRITO BEAN AND CHEESE FROZEN,221,7.07,34.01,0.3,50.99,52,2,1 burrito,129,None
+22917,BURRITOBF & BEANFRZ,239,7.26,30.84,0.8,50.48,34,8,1 burrito frozen,139,None
+22928,BURRITOBF & BEANMICROWAVED,298,8.73,38.95,1,38.14,39,9,1 burrito cooked,116,None
+294,Cabe Hijau Besar,23,0.7,5.2,84,93.4,14,0.3,1 buah,6.7,None
+295,Cabe Merah Besar kering,311,15.9,61.8,50,10,160,6.2,1 buah,5.2,None
+296,Cabe Merah Besar segar,31,1,7.3,18,90.9,29,0.3,1 buah,5,None
+297,Cabe Rawit segar,103,4.7,19.9,70,71.2,45,2.4,1 mangkok,164.4,None
+427,Cempedak,116,3,28.6,15,67,20,0.4,1 biji,10,None
+507,Cengkeh Kering,292,5.2,57.4,0,23.3,740,8.9,1 sdm,10,None
+20,Centel,332,11,73,0,11,28,3.3,1 gelas,73,None
+508,Coklat Manis batang,472,2,62.7,0,1.4,63,29.8,1 potong,25,None
+509,Coklat Pahit batang,504,5.5,29.2,0,2.3,98,52.9,1 potong,25,None
+510,Coklat Susu batang,381,9,53.6,0,1,200,35,1 potong,25,None
+548,Combro,210,1.6,35.8,0,43.2,6.4,6.6,1 buah,50,None
 167,Corned Beef,241,16,0,0,53,10,25,1 sdm,22.5,None
+207,Cue Selar Kuning,145,27,0,0,59,50,2.3,1 ekor,15.8,None
+511,Cuka,12,0.1,5,0,94.5,7,0.1,1 sdm,3.7,None
+208,Cumi-cumi goreng,265,40.6,0,0,54.2,62,10.1,1 ekor,64,dinner
+209,Cumi-cumi segar,75,16.1,0.1,0,82.2,32,0.7,1 ekor,134,None
 168,Daging Anak Sapi,190,19.1,0,0,68,11,12,1 potong,35,None
 169,Daging Asap,191,32,0,0,60,15,6,1 potong,20.3,dinner
 170,Daging Babi Gemuk,457,11.6,0,0,42.6,7,45,1 potong,50,None
@@ -174,39 +120,95 @@
 174,Daging Kerbau,84,18.7,0,0,84,7,0.5,1 potong,45,None
 175,Daging Kuda,118,18.1,0.9,0,76,10,4.1,1 kg,1000,None
 176,Daging Sapi,207,18.8,0,0,66,11,14,1 potong,50,lunch
+298,Daun Bawang,29,1.8,5.2,37,91.6,55,0.7,1 akar,28,None
+299,Daun Beluntas,42,1.8,9.4,30,86,256,0.5,1 mangkok,50,None
+512,Daun Cincau,122,6,26,17,66,100,1,1 mangkok,38,None
+300,Daun Gandaria,60,3.1,14,61,81,40,0.3,1 mangkok,50,None
+301,Daun Jambu Mete muda,73,4.6,16.2,65,78,33,0.5,1 mangkok,50,None
+302,Daun Kacang Panjang,34,4.1,5.8,29,88.3,134,0.4,1 mangkok,50,None
+303,Daun Kacang Panjang kukus,40,3.7,8,11,87.2,111,0.3,1 gelas,100,None
+304,Daun Katuk,59,4.8,11,239,81,204,1,1 mangkok,50,None
+305,Daun Katuk rebus,53,5.3,9.1,66,83.3,186,0.9,1 gelas,100,None
+306,Daun Kecipir,47,5,8.5,29,85,134,0.5,1 mangkok,50,None
+307,Daun Kedondong,59,2.8,13.4,29,81,540,0.3,1 mangkok,60,None
+308,Daun Kelor,82,6.7,14.3,220,75,440,1.7,1 mangkok,55,None
+309,Daun Kelor rebus,61,6.1,10,13,80.3,255,0.9,1 mangkok,162,None
+310,Daun Kemang,43,5.5,7.5,30,85,35,0.3,1 ikat,44.4,None
+311,Daun Kemangi,46,4,8.9,50,85,45,0.5,1 mangkok,37,None
+312,Daun Koro,23,3,3.7,29,91,134,0.3,1 mangkok,50,None
+313,Daun Kumak,14,1.3,2.3,3,95.2,90,0.3,1 tangkai,59,None
+314,Daun Labu Siam,60,4,4.7,16,89.7,58,0.4,1 mangkok,51,None
+315,Daun Labu Waluh,30,3.6,4.5,36,89.7,138,0.6,1 mangkok,50,None
+316,Daun Leunca,45,4.7,8.1,40,85,210,0.5,1 mangkok,42,None
+317,Daun Lobak,30,2.3,5.8,109,60,140,0.4,1 ikat,116,None
+318,Daun Lompong Tales,40,3,7.4,31,87.2,76,0.8,1 mangkok,42.4,None
+319,Daun Mangkokan,54,3.7,11.8,83,82,474,0.3,1 mangkok,50,None
+320,Daun Melinjo,99,5,21.3,182,70.8,219,1.3,1 mangkok,50,None
+321,Daun Mengkudukukus,63,3.8,11.5,11,81.6,300,1.5,1 mangkok,107,None
+322,Daun Oyong,22,1,5.3,150,93,21,0.1,1 mangkok,56.4,None
+323,Daun Pakis,35,4,6.4,30,88,42,0.3,1 mangkok,50,None
+324,Daun Pete Cina,128,12,12.4,64,67,1500,6.5,1 mangkok,80.8,None
+325,Daun Poh-pohan,37,2.5,6.9,5,87.4,744,0.8,1 mangkok,48,None
+326,Daun Semanggi,45,4.4,0.5,6,84.7,98,8,1 mangkok,44.2,None
+327,Daun Singkong,73,6.8,13,275,77.2,165,1.2,1 ikat,104,None
+328,Daun Singkong lodeh,55,4,8.5,70,0,99,0.5,1 mangkok,228.6,None
+329,Daun Singkong rebus,31,3.7,4.8,34,90.5,160,0.6,1 gelas,100,None
+330,Daun Sintrong,36,2.6,6.1,3,88.5,398,0.9,1 mangkok,46.2,None
+331,Daun Tales,71,4.1,12.3,163,79.4,302,2.1,1 mangkok,50,None
+332,Daun Tales rebus,27,1.3,5.9,7,91.6,119,0.2,1 gelas,100,None
+333,Daun Ubi Jalar,47,2.8,10.4,22,84.7,79,0.4,1 mangkok,50,None
+334,Daun Ubi Jalar kukus,56,3.1,13,14,82.5,78,0.3,1 mangkok,143.2,None
+549,Deblo,260,2,53,24,0,56.5,15,1 buah,20,None
 177,Dendeng Daging Sapi,433,55,0,0,25,30,9,1 potong,15.6,None
 178,Dideh darah ayam,77,13.8,0.7,0,82,15,1.9,1 potong,23.8,None
 179,Dideh darah sapi,104,21.9,0,0,75.6,7,1.1,1 potong ,25,None
+513,Dodol,395,3,81.2,0,12,12,5.7,1 dodol,17,None
+550,Dodonkol,17.5,3.3,39.5,0,135,0,2.3,1 bungkus,40,None
+21277,"DOMINO'S 14"" CHS PIZZACLASSIC HAND-TOSSED CRUST",257,10.8,33.24,0.9,44.87,167,17,1 slice,108,None
+21279,"DOMINO'S 14"" CHS PIZZACRUNCHY THIN CRUST",298,12.33,28.18,1.7,41.58,292,27,1 slice,70,None
+21278,"DOMINO'S 14"" CHS PIZZAULTIMATE DEEP DISH CRUST",265,10.76,33.48,0.4,43.42,166,16,1 slice,118,None
+21282,"DOMINO'S 14"" EXTRAVAGANZZA FST PIZZACLSSIC HAND-TOSSED CRST",244,10.33,25.72,0,50.77,113,20,1 slice,151,None
+21280,"DOMINO'S 14"" PEPPERONI PIZZACLASSIC HAND-TOSSED CRUST",273,11.25,31.86,0.8,43.4,141,25,1 slice,113,None
+21492,"DOMINO'S 14"" PEPPERONI PIZZACRUNCHY THIN CRUST",328,13.88,25.35,1.2,38.53,236,38,1 slice,79,None
+21281,"DOMINO'S 14"" PEPPERONI PIZZAULTIMATE DEEP DISH CRUST",283,11.52,31.89,0.4,41.9,149,24,1 slice,123,None
+21494,"DOMINO'S 14"" SAUSAGE PIZZACLASSIC HAND-TOSSED CRUST",273,11.08,31.84,0.6,43.55,137,21,1 slice,114,None
+21493,"DOMINO'S 14"" SAUSAGE PIZZACRUNCHY THIN CRUST",319,12.77,25.3,1.1,40.38,234,35,1 slice,78,None
+21495,"DOMINO'S 14"" SAUSAGE PIZZAULTIMATE DEEP DISH CRUST",277,11.03,31.17,0.4,43.12,154,23,1 slice,129,None
+428,Duku,63,1,16.1,9,82,18,0.2,1 buah,8.9,None
+429,Durian,134,2.5,28,53,65,7.4,3,1 biji ,17.5,None
+335,Eceng Gondok,18,1,3.8,50,93,80,0.2,1 potong,47.8,None
+430,Embacang,98,1.4,25.4,56,72.5,21,0.2,1 potong,22.7,None
 180,Empal Goreng,590,18.5,0,0,0,151,57,1 mangkok,47,dinner
+431,Erbis,70,0.6,18.9,16,80,11,0,1 potong,320,None
+477,Es Krim,207,4,20.6,1,62.1,123,12.5,1 cup,60,None
+551,Es Krim (Coconut milk),156.7,3,32.7,0,0,6.7,1.7,1 buah,30,None
+552,Es Mambo,152,0,37.6,0,0,2,0,1 bungkus,25,None
+553,Es Sirup,44.8,0,11.3,0,0,0.6,0,1 gelas,125,None
+554,Gado-gado,135.3,5.8,16.4,0.1,72.5,14,5.8,1 porsi,150,lunch
+21,Gadung kukus,88,0.8,20.9,0,77.4,26,0.3,1 mangkok,315,None
+22,Gadung mentah,101,2.1,23.2,9,73.5,20,0.2,1 potong,105,None
+336,Gambas (Oyong),18,0.8,4.1,8,94.5,16,0.2,1 mangkok,50,None
+337,Gambas lodeh,13,0.3,1.6,1.3,0,6.7,0.6,1 mangkok,255.2,None
+432,Gandaria,68,0.7,18,111,80.8,8.5,0.1,1 buah,22,None
+23,Ganyong kukus,100,0.8,23.8,6,74.1,15,0.2,1 buah,17.6,None
+24,Ganyong mentah,95,1,22.6,10,75,21,0.1,1 buah ,20.6,None
+25,Gaplek,338,1.5,81.3,0,14.5,80,0.7,1 potong,31.8,None
+514,Gelatine,389,0,91,0,5,0,0,1 sdm,8.5,None
+26,Gembili,95,1.5,22.4,4,75,14,0.1,1 potong,111,None
+555,Gemblong,287.5,6.5,52.8,0,23.5,0.2,6.5,1 buah,40,None
+556,Getuk Lindri,171.4,4,32,0,61.1,0,4,1 potong,35,None
 181,Ginjal Babi,114,16.3,0.8,13,77.1,11,4.6,1 buah,85,None
 182,Ginjal Domba,105,16.6,1,13,77.8,13,3.3,1 buah,30.6,None
 183,Ginjal Sapi,141,15,0.9,13,74.9,9,8.1,1 potong,40,None
+557,Gudeg,53,1.6,8.8,0,87.9,7.9,1.6,1 porsi,100,dinner
+515,Gula Aren,368,0,95,0,9,75,0,1 buah,28.5,None
+516,Gula Kelapa,386,3,76,0,10,76,10,1 buah,99.8,None
+517,Gula Merah Tebu belum dimurnikan,356,0.4,90.6,0,7.4,51,0.5,1 kg,1000,None
+518,Gula Pasir,364,0,94,0,5.4,5,0,1 sdm,8,None
 184,Ham,389,16.9,0.3,0,42,10,35,1 potong,9.4,None
 185,Hati Babi,134,19.7,1.7,23,72.3,10,4.8,1 potong,69.3,None
 186,Hati Sapi,136,19.7,6,31,69.7,7,3.2,1 potong,50,None
-187,Kerupuk Kulit kerbau,422,83,0,0,15,5,4,1 buah,2.5,None
-188,Lemak Babi (Bacon),630,9.1,1.1,0,30,13,65,1 potong ,5,None
-189,Leverwost (sosis hati),387,16,3,0,76.7,20,22,1 potong,50,None
-190,Otak,125,10.4,0.8,18,78.9,16,8.6,1 potong ,60,None
-191,Sarang Burung,281,37.5,32.1,0,24.8,485,0.3,1 kg,1000,None
-192,Usus Sapi,130,14,1.5,0,76.7,14,7.2,1 bulatan,25,None
-193,Worst (sosis daging),452,14.5,2.3,0,37.6,28,42.3,1 potong,32,None
-194,Telur Ayam,162,12.8,0.7,0,74,54,11.5,1 butir,60,None
-195,Telur Ayam bagian kuning,361,19.3,0.7,0,49.4,147,31.9,1 buah,15,None
-196,Telur Ayam bagian putih,50,10.8,0.8,0,87.8,6,0,1 buah,31,None
-197,Telur Ayam ceplok,383,15.1,8.3,1.9,0,61.4,32.9,1 buah,58.4,breakfast
-198,Telur Ayam dadar,251,16.3,1.4,0,61.9,62,19.4,1 buah,56.8,breakfast
-199,Telur Bebek (itik),189,13.1,0.8,0,70.8,56,14.3,1 butir ,60,None
-200,Telur Bebek bagian kuning,398,17,0.8,0,47,150,35,1 buah,30.8,None
-201,Telur Bebek bagian putih,54,11,0.8,0,88,21,0,1 buah,35.7,None
-202,Telur Bebek ceplok,320,15.1,0.9,0,0,64.4,30.5,1 buah,42,None
-203,Telur Bebek dadar,301,20,0,0,55.1,71,23.7,1 buah,51.6,None
-204,Telur Bebek telur asin,195,13.6,1.4,0,66.5,120,13.6,1 butir,66.4,None
-205,Telur Penyu,144,12,0,0,76.6,84,10.2,1 butir,36.2,None
-206,Telur Terubuk,425,31,10,0,25,50,28,1 potong,21.6,None
-207,Cue Selar Kuning,145,27,0,0,59,50,2.3,1 ekor,15.8,None
-208,Cumi-cumi goreng,265,40.6,0,0,54.2,62,10.1,1 ekor,64,dinner
-209,Cumi-cumi segar,75,16.1,0.1,0,82.2,32,0.7,1 ekor,134,None
+27,Havermout,390,14.2,68.2,0,8.3,53,7.4,1 sdm,8.2,breakfast
 210,Ikan Asin bilis goreng,380,33.6,0,0,0,200,27.5,1 sdm,10,None
 211,Ikan Asin gabus goreng,456,46.5,0,0,0,16,24.4,1 ekor,47,None
 212,Ikan Asin japuh goreng,348,18.7,0,0,0,20.8,29.5,1 sdm,12,None
@@ -243,332 +245,184 @@
 243,Ikan Selar segar,100,18.8,0,0,75.4,40,2.2,1 ekor,0,None
 244,Ikan Sepat kering,289,38,0,0,30,40,14,1 ekor,12.4,None
 245,Ikan Tembang,204,16,0,0,56,20,15,1 ekor,10.9,None
-246,Ikan Teri Kering tawar,331,68.7,0,0,16.7,2381,4.2,1 sdm,15,None
-247,Ikan Teri Nasi kering,144,32.5,0,0,34.5,1000,0.6,1 sdm,6.6,None
 248,Ikan Teri bubuk,277,60,1.8,0,15,1209,2.3,1 sdm,5.4,None
 249,Ikan Teri kering,170,33.4,0,0,37.8,1200,3,1 sdm,8,breakfast
+246,Ikan Teri Kering tawar,331,68.7,0,0,16.7,2381,4.2,1 sdm,15,None
+247,Ikan Teri Nasi kering,144,32.5,0,0,34.5,1000,0.6,1 sdm,6.6,None
 250,Ikan Teri segar,77,16,0,0,80,500,1,1 sdm,15,None
 251,Ikan Teri tepung,347,48.8,19.6,0,5.2,4608,6.4,1 sdm,4.9,None
-252,Kacang Tunggak rempeyek,451,11.2,59.7,0,6.1,156,20.2,1 buah,20.6,None
-253,Katak,73,16.4,0,0,81.9,18,0.3,1 ekor,51.9,None
-254,Keong,64,12,2,0,81,217,1,1 buah,12,None
-255,Kepiting,151,13.8,14.1,0,68.1,210,3.8,1 potong,106.6,None
-256,Kerang,59,18,3.6,0,85,133,1.1,1 buah,9,None
-257,Kerupuk Ikan berpati,342,16,65.6,0,16,2,0.4,1 buah,4.8,None
-258,Kerupuk Udang berpati,359,17.2,332,0,12,337,68.2,1 buah,8,None
-261,Kura-kura,83,19.1,0,0,80,27,0.2,1 ekor,13,None
-262,Peda Ikan Banjar,156,28,0,0,46,174,4,1 ekor,99.8,None
-263,Petis Ikan,161,20,24,0,56,37,0.2,1 potong,69,None
-264,Petis Udang,220,15,40,0,39,37,0.1,1 sdm,20,None
-265,Pindang Ikan Banjar,157,28,0,0,59,50,4.2,1 ekor,14.4,None
-266,Pindang Ikan Benggol,170,31,0,0,57,50,4.2,1 ekor,50.6,None
-267,Pindang Ikan Layang,153,30,0,0,60,60,2.8,1 ekor,13.2,None
-268,Pindang Ikan Selar Kecil,142,27,0,0,60,60,3,1 ekor,17,None
-269,Rebon (udang kecil segar),81,16.2,0.7,0,79,757,1.2,1 sdm,10,None
-270,Rebon kering,299,29.4,3.2,0,21.6,2306,3.6,1 sdm,4.1,None
-271,Sardines dalam kaleng,338,21.1,1,0,47.1,354,27,1 potong,26.4,None
-272,Terasi Merah,174,30,3.5,0,40,100,3.5,1 potong,45,None
-273,Udang tepung,295,62.4,1.8,0,20.7,1209,2.3,1 sdm,10,lunch
-274,Udang segar,91,21,0.1,0,75,136,0.2,1 gelas,200,None
-275,Andewi,25,1.6,5.3,10,91.8,33,0.2,1 mangkok,22.4,None
-276,Baje,129,1.9,15.6,9,55.3,85,6.6,1 kg,1000,None
-277,Baligo,13,0.4,3,13,96.1,19,0.2,1 potong,75,None
-278,Batang Tading,137,4.3,19.1,4,14.3,54,4.8,1 kg,1000,None
-279,Bawang Bombay,45,1.4,10.3,9,87.5,32,0.2,1 buah,75.4,None
-280,Bawang Merah,39,1.5,0.2,2,88,36,0.3,1 siung,8.8,None
-281,Bawang Putih,95,4.5,23.1,15,71,42,0.2,1 siung,12.8,None
-282,Bayem Merah,51,4.6,10,80,82,368,0.5,1 ikat,224,None
-283,Bayem kukus,30,1.3,5.8,32,90.7,239,0.7,1 gelas,100,None
-284,Bayem rebus,23,1.2,3.7,19,93.5,150,0.6,1 mangkok,145,None
-285,Bayem segar,36,3.5,6.5,80,86.9,267,0.5,1 mangkok,50,None
-286,Bayem tumis + oncom,102,3.7,6.9,16.8,0,127.4,6.7,1 mangkok,223.2,None
-287,Bayem tumis bersantan,48,1.4,2.6,22,91.2,129,4.2,1 mangkok,240,None
-288,Bit,42,1.6,9.6,10,87.6,27,0.1,1 buah,92.6,None
-289,Boros Kunci,23,1,7.2,50,90,50,0.8,1 rimpang,26.8,None
-290,Boros Laja,22,1,4.7,50,93,50,0.3,1 buah,15,None
-291,Buncis,35,2.4,7.7,19,88.9,6.5,0.2,1 buah,10,None
-292,Buncis asam,60,5.1,8.5,9.5,0,72.3,0.5,1 buah,8.2,None
-293,Buncis rebus,30,2.2,6.4,8,90.6,107,0.2,1 gelas,100,None
-294,Cabe Hijau Besar,23,0.7,5.2,84,93.4,14,0.3,1 buah,6.7,None
-295,Cabe Merah Besar kering,311,15.9,61.8,50,10,160,6.2,1 buah,5.2,None
-296,Cabe Merah Besar segar,31,1,7.3,18,90.9,29,0.3,1 buah,5,None
-297,Cabe Rawit segar,103,4.7,19.9,70,71.2,45,2.4,1 mangkok,164.4,None
-298,Daun Bawang,29,1.8,5.2,37,91.6,55,0.7,1 akar,28,None
-299,Daun Beluntas,42,1.8,9.4,30,86,256,0.5,1 mangkok,50,None
-300,Daun Gandaria,60,3.1,14,61,81,40,0.3,1 mangkok,50,None
-301,Daun Jambu Mete muda,73,4.6,16.2,65,78,33,0.5,1 mangkok,50,None
-302,Daun Kacang Panjang,34,4.1,5.8,29,88.3,134,0.4,1 mangkok,50,None
-303,Daun Kacang Panjang kukus,40,3.7,8,11,87.2,111,0.3,1 gelas,100,None
-304,Daun Katuk,59,4.8,11,239,81,204,1,1 mangkok,50,None
-305,Daun Katuk rebus,53,5.3,9.1,66,83.3,186,0.9,1 gelas,100,None
-306,Daun Kecipir,47,5,8.5,29,85,134,0.5,1 mangkok,50,None
-307,Daun Kedondong,59,2.8,13.4,29,81,540,0.3,1 mangkok,60,None
-308,Daun Kelor,82,6.7,14.3,220,75,440,1.7,1 mangkok,55,None
-309,Daun Kelor rebus,61,6.1,10,13,80.3,255,0.9,1 mangkok,162,None
-310,Daun Kemang,43,5.5,7.5,30,85,35,0.3,1 ikat,44.4,None
-311,Daun Kemangi,46,4,8.9,50,85,45,0.5,1 mangkok,37,None
-312,Daun Koro,23,3,3.7,29,91,134,0.3,1 mangkok,50,None
-313,Daun Kumak,14,1.3,2.3,3,95.2,90,0.3,1 tangkai,59,None
-314,Daun Labu Siam,60,4,4.7,16,89.7,58,0.4,1 mangkok,51,None
-315,Daun Labu Waluh,30,3.6,4.5,36,89.7,138,0.6,1 mangkok,50,None
-316,Daun Leunca,45,4.7,8.1,40,85,210,0.5,1 mangkok,42,None
-317,Daun Lobak,30,2.3,5.8,109,60,140,0.4,1 ikat,116,None
-318,Daun Lompong Tales,40,3,7.4,31,87.2,76,0.8,1 mangkok,42.4,None
-319,Daun Mangkokan,54,3.7,11.8,83,82,474,0.3,1 mangkok,50,None
-320,Daun Melinjo,99,5,21.3,182,70.8,219,1.3,1 mangkok,50,None
-321,Daun Mengkudukukus,63,3.8,11.5,11,81.6,300,1.5,1 mangkok,107,None
-322,Daun Oyong,22,1,5.3,150,93,21,0.1,1 mangkok,56.4,None
-323,Daun Pakis,35,4,6.4,30,88,42,0.3,1 mangkok,50,None
-324,Daun Pete Cina,128,12,12.4,64,67,1500,6.5,1 mangkok,80.8,None
-325,Daun Poh-pohan,37,2.5,6.9,5,87.4,744,0.8,1 mangkok,48,None
-326,Daun Semanggi,45,4.4,0.5,6,84.7,98,8,1 mangkok,44.2,None
-327,Daun Singkong,73,6.8,13,275,77.2,165,1.2,1 ikat,104,None
-328,Daun Singkong lodeh,55,4,8.5,70,0,99,0.5,1 mangkok,228.6,None
-329,Daun Singkong rebus,31,3.7,4.8,34,90.5,160,0.6,1 gelas,100,None
-330,Daun Sintrong,36,2.6,6.1,3,88.5,398,0.9,1 mangkok,46.2,None
-331,Daun Tales,71,4.1,12.3,163,79.4,302,2.1,1 mangkok,50,None
-332,Daun Tales rebus,27,1.3,5.9,7,91.6,119,0.2,1 gelas,100,None
-333,Daun Ubi Jalar,47,2.8,10.4,22,84.7,79,0.4,1 mangkok,50,None
-334,Daun Ubi Jalar kukus,56,3.1,13,14,82.5,78,0.3,1 mangkok,143.2,None
-335,Eceng Gondok,18,1,3.8,50,93,80,0.2,1 potong,47.8,None
-336,Gambas (Oyong),18,0.8,4.1,8,94.5,16,0.2,1 mangkok,50,None
-337,Gambas lodeh,13,0.3,1.6,1.3,0,6.7,0.6,1 mangkok,255.2,None
+38,Jagung grontol,156,2.7,33.3,0,61.7,51,1.3,1 gelas,160.4,None
+28,Jagung Kuning giling,361,8.7,72.4,0,13.1,9,4.5,1 gelas,122.4,None
+29,Jagung Kuning muda,129,4.1,30.3,9,63.5,5,1.3,1 buah,131,None
+30,Jagung Kuning pipil baru,307,7.9,63.6,0,24,9,3.4,1 gelas,138.2,None
+31,Jagung Kuning pipil lama,355,9.2,73.7,0,12,10,3.9,1 gelas,150.6,None
+32,Jagung Kuning segar,140,4.7,33.1,8,60,6,1.3,1 tongkol ,200,None
 338,Jagung Muda bertongkol,33,2.2,7.4,8,89.5,7,0.1,1 tongkol,24.6,None
+33,Jagung Putih giling,361,8.7,72.4,0,13.1,9,4.5,1 gelas,132.4,None
+34,Jagung Putih muda,129,4.1,30.3,9,63.5,5,1.3,1 buah,10,None
+35,Jagung Putih pipil baru,307,7.9,63.6,0,24,9,3.4,1 gelas,162.6,None
+36,Jagung Putih pipil lama,355,9.2,73.7,0,12,10,3.9,1 gelas,153.6,None
+37,Jagung Putih segar,140,4.7,33.1,8,60,6,1.3,1 tongkol,143.4,None
+558,Jagung Rebus,175,1.8,35,0,0,4.8,1.8,1 bungkus,60,None
+559,Jagung Sayur (tumis),148.9,10.4,20.1,0,0,8.7,10.4,1 sendok ,60,None
+519,Jahe,51,1.5,10.1,4,86.2,21,1,1 rimpang,29.4,None
+39,Jali,289,11,61,0,23.6,213,4,1 gelas,93,None
+520,Jam Selai,239,0.5,64.5,0,34,20,0.6,1 sdm,18.8,None
+433,Jambu Air,46,0.6,11.8,5,87,7.5,0,1 buah,50,None
+434,Jambu Biji,49,0.9,12.2,87,86,14,0.3,1 buah ,100,None
+435,Jambu Bol,56,0.6,14.2,22,84.5,29,0.3,1 buah,100,None
+436,Jambu Monyet buah,64,0.7,15.8,197,82.6,4,0.6,1 buah,25,None
 339,Jamur Coklat (kulat siau),45,2.5,0,5,93.8,36,3.9,1 mangkok,50,None
-340,Jamur Kuping Tepung,128,16,64.6,0,14.9,51,0.9,1 sdm,7,None
 341,Jamur Kuping segar,15,3.8,0.9,5,93.7,3,0.6,1 mangkok,50,None
+340,Jamur Kuping Tepung,128,16,64.6,0,14.9,51,0.9,1 sdm,7,None
 342,Jamur Putih (kulat putih),48,2.8,2.9,5,82.4,60,4.1,1 mangkok,50,None
 343,Jantung Pisang segar,31,1.2,7.1,10,90.2,30,0.3,1 buah,175.5,None
 344,Jaruk Tigarun,48,2.5,0,27,92.1,47,4.2,1 kg,1000,None
+40,Jawawut,334,9.7,73.4,0,11.9,28,3.5,1 gelas,110,None
+560,Jenang,381.7,9.5,65.8,0,18.8,0.1,9.5,1 buah,60,None
+86,Jengkol,20,3.5,3.1,12,93,21,0.1,1 buah,19.2,None
+87,Jengkol semur jengkol,212,6,29.1,4,52.7,77,8.7,1 buah,18,None
+437,Jeruk Bali,48,0.6,12.4,43,86.3,23,0.2,1 buah ,50,None
+438,Jeruk Garut,44,0.8,10.9,31,87.3,33,0.3,1 buah,50,None
+439,Jeruk Manis,45,0.9,11.2,49,87.2,33,0.2,1 buah,50,None
+440,Jeruk Manis air (sari),44,0.8,11,49,87.5,19,0.2,1 gelas,200,None
+441,Jeruk Nipis,37,0.8,12.3,27,86.6,40,0.1,1 buah,41,None
 345,Jotang,32,1.9,7.1,20,89,162,0.3,1 mangkok,56.4,None
+88,Kacang Andong,356,20.5,61.6,1,10.8,150,4.1,1 kg,1000,None
+89,Kacang Arab,330,23.8,60.2,2,11.6,57,1.4,1 sdm,12,None
+90,Kacang Belimbing mentah,400,34.4,34.1,3.5,10,468,16.9,1 kg,1000,None
+91,Kacang Belimbing rebus,204,16.9,17.5,0,55.6,230,8.8,1 kg,1000,None
+92,Kacang Belimbing tempe,212,17.5,12.9,0,58.2,186,10,1 kg,1000,None
+93,Kacang Bogor goreng,479,12.7,58.9,0,3,135,23.2,1 sdm,15,None
+94,Kacang Bogor mentah,370,16,65,0,10,85,6,1 sdm,20,None
+95,Kacang Bogor rebus,161,7.7,27.1,0,61.2,56,2.8,1 buah,5,None
+96,Kacang Endel biji,331,25,58,9,14,80,1,1 kg,1000,None
+97,Kacang Gude biji,336,20.7,62,5,12.2,125,1.4,1 sdm,13,None
+98,Kacang Gude biji muda,114,7,20.8,43,70.3,3.2,0.6,1 sdm,21,None
 346,Kacang Gude muda,123,8.4,1.8,31,67.3,66,0.6,1 sdm,21,None
+561,Kacang Kapri Goreng,445,11,65.5,0,2.5,0.1,11,1 bungkus,20,None
 347,Kacang Kapri muda,98,6.7,17.7,26,74.3,22,0.4,1 mangkok,50,None
+100,Kacang Kedelai basah,286,30.2,30.1,0,20.6,196,15.6,1 sdm,2.2,None
+101,Kacang Kedelai kering,331,34.9,34.8,0,7.5,227,18.1,1 sdm,10,None
+102,Kacang Kedelai kukus,75,4.1,10.7,0,82.5,203,2.1,1 sdm,10,None
+103,Kacang Merah,336,23.1,59.5,0,12,80,1.7,1 sdm,10,None
+104,Kacang Merah kering rebus,158,10.3,28.2,0,59.6,160,0.9,1 sdm,10,None
+105,Kacang Merah segar rebus,144,10,24.7,0,63.1,144,1,1 sdm,17.2,None
 348,Kacang Panjang,44,2.7,7.8,21,88.5,49,0.3,1 buah,15,None
+106,Kacang Panjang biji,357,17.3,70,2,12.2,163,1.5,1 sdm,13.2,None
 349,Kacang Panjang kukus,39,3,7.6,20,88.2,100,0.6,1 gelas,100,None
 350,Kacang Panjang rebus,30,2.3,5.8,15,90.9,71,0.4,1 gelas,100,None
 351,Kacang Panjang tumis,150,2.5,7,8,0,45,12.5,1 sdm,15,None
+562,Kacang Sukro Putih,488,25.6,59.6,0,6.4,0,25.6,1 bungkus,25,None
+107,Kacang Tanah atom,535,27.8,28.8,0,3.1,87,38.1,1 sdm,13.8,None
+108,Kacang Tanah kacang sari,561,25.5,26,0,2.1,50,43.8,1 sdm,10,None
+109,Kacang Tanah kupas kulit,452,25.3,21.1,3,4,58,42.8,1 mangkok,293.6,None
+563,Kacang Tanah Rebus,385,14,13,5,0,42,31,1 bungkus (1/3 gelas),20,None
+110,Kacang Tanah rebus berkulit,360,13.5,12.8,5,40.2,42,31.2,1 buah,19.4,None
+111,Kacang Tanah rempeyek,513,17.5,44.3,0,3.9,65,32.5,1 bungkus,20,None
+112,Kacang Tanah sangan berselaput,569,28.8,15.8,0,3.6,88,48.4,1 sdm,10,None
+113,Kacang Tanah sangan tidak berselaput,559,26.9,23.6,0,2.6,74,44.2,1 sdm,7.4,None
+564,Kacang Telur,748,20.8,124.8,0,7.2,0.1,20.8,1 bungkus,25,None
+114,Kacang Tunggak (tolo),342,22.9,61.6,2,11,77,1.4,1 sdm,10,None
+115,Kacang Tunggak rebus,138,10.7,22.6,0,64.4,165,1.1,1 sdm,10.6,None
+252,Kacang Tunggak rempeyek,451,11.2,59.7,0,6.1,156,20.2,1 buah,20.6,None
 352,Kakap,92,20,0,0,77,20,0.7,1 ekor,707,None
 353,Kalakai,66,2.8,3.4,12,74.6,89,6.8,1 ikat,232,None
 354,Kangkung,29,3,5.4,32,89.7,73,0.3,1 ikat,125,None
 355,Kangkung kukus,30,3.2,4.7,11,90.4,70,0.7,1 mangkok,155,None
 356,Kangkung rebus,22,2.5,3.1,13,93,50,0.6,1 gelas,100,None
 357,Kangkung tumis,52,1.8,3,8.6,0,39.8,3.6,1 sdm,11.4,None
+41,Kapri Muda,42,3.3,9.6,49,46.8,51,0.2,1 mangkok,119.6,None
+565,Karedok,146.7,5.9,19.7,1.1,68.5,0.1,5.9,1 porsi ,150,None
+566,Karoket,292,11.2,2.8,0,40.4,0,11.2,1 buah,25,None
+253,Katak,73,16.4,0,0,81.9,18,0.3,1 ekor,51.9,None
+42,Katul Beras,275,12.6,54.6,0,10.8,32,14.8,1 gelas,80,None
+521,Katul Jagung,356,9,64.5,0,12,200,8.5,1 gelas,57.6,None
+116,Kecap,46,5.7,9,0,63,123,1.3,1 sdm,10,None
+117,Kecipir biji,405,32.8,36.5,0,9.7,80,17,1 sdm,28,None
 358,Kecipir buah muda,35,2.9,0.8,19,90.4,63,0.2,1 mangkok,50,None
+442,Kedondong masak,41,1,10.3,30,88,15,0.1,1 buah,60,None
+478,Keju,326,22.8,13.1,1,38.5,777,20.3,1 potong ,15,None
+118,Keju Kacang Tanah,590,27,20.9,0,3,60,49,1 sdm,10,None
+119,Kelapa Muda air,17,0.2,3.8,1,95.5,15,0.1,1 gelas,200.6,None
+120,Kelapa Muda daging,68,1,14,4,83.3,7,0.9,1 potong,30,None
+121,Kelapa Setengah Tua daging,180,4,10,4,70,8,15,1 buah,416.6,None
+122,Kelapa Tua daging,359,3.4,14,0,46.9,21,34.7,1 buah,407,None
+567,Kelepon,214,5.4,40.2,0,52.2,0,5.4,1 buah,12.5,None
 359,Kelewih,111,1.5,27.2,19,70,28,0.3,1 potong,24,None
+443,Kemang,48,1,11.9,58,86.5,10,0.2,1 buah ,105,None
+123,Kembang Tahu mentah,380,48.9,23.3,0,10.8,378,13.8,1 potong,2.2,None
+124,Kembang Tahu rebus,90,10.7,4.7,0,79.8,35,4,1 potong,6,None
 360,Kembang Turi,44,1.8,9.6,41,87.4,23,0.6,1 mangkok,50,None
+125,Kemiri,636,19,8,0,7,80,63,1 buah,4.7,None
+126,Kenari,657,15,13,0,3,92,66,1 sdm,16.8,None
+43,Kentang,83,2,19.1,17,77.8,11,0.1,1 biji ,100,breakfast
+44,Kentang Hitam,142,0.9,33.7,38,64,34,0.4,1 biji,14.2,None
+254,Keong,64,12,2,0,81,217,1,1 buah,12,None
+479,Kepala Susu (Krim),204,2.6,4,1,72.5,97,20,1 sdm,3.3,None
+255,Kepiting,151,13.8,14.1,0,68.1,210,3.8,1 potong,106.6,None
+256,Kerang,59,18,3.6,0,85,133,1.1,1 buah,9,None
+568,Keremes,475,1.6,64.4,0,6.7,153,25.5,1 bungkus,100,None
+45,Kerupuk Aci,350,0.5,85.9,0,12,0,0.2,1 buah,3,None
+257,Kerupuk Ikan berpati,342,16,65.6,0,16,2,0.4,1 buah,4.8,None
+187,Kerupuk Kulit kerbau,422,83,0,0,15,5,4,1 buah,2.5,None
+127,Kerupuk Melinjo mentah,345,12,71.5,0.2,13,100,1.5,1 buah,3.2,None
+128,Kerupuk Melinjo tebal goreng asin,431,11.1,63,0,8,77,16.2,1 buah,3.2,None
+129,Kerupuk Melinjo tebal goreng manis,439,10,65.7,0,5.6,66,16.4,1 buah,3.2,None
+130,Kerupuk Melinjo tipis goreng,485,11.5,59.1,0,3.3,85,24.5,1 buah,1.7,None
+569,Kerupuk Sayong,46.7,17.3,81.3,0,0,80,17.3,1 buah,15,None
+570,Kerupuk Udang,340,30,52,0,0,298,30,1 buah,5,None
+258,Kerupuk Udang berpati,359,17.2,332,0,12,337,68.2,1 buah,8,None
+444,Kesemek,78,0.8,20,11,78.2,6.6,0.4,1 buah,128.2,None
+571,Ketapang,340,11,54,0,0,14,11,1 buah,10,None
+46,Ketela Pohon (singkong),146,1.2,34.7,30,62.5,33,0.3,1 potong,100,None
+47,Ketela Pohon Kuning,157,0.8,37.9,30,60,33,0.3,1 buah,113.2,None
 361,Ketimun,12,0.7,2.7,8,96.1,10,0.1,1 buah ,83,None
 362,Ketimun,12,0.7,2.7,8,96.1,10,0.1,1 buah ,142,None
 363,Ketimun,12,0.7,2.7,8,96.1,10,0.1,1 buah ,208,None
+131,Ketumbar,404,14.1,54.2,0,11.2,630,16.1,1 sdm,5.3,None
+572,Ketupat Tahu,109.6,2.6,18.6,0,74.8,0,2.6,1 porsi,250,None
+21419,KFCBISCUIT,358,7.5,43.55,0,28.4,55,1,1 biscuit,49,None
+21420,KFCCOLESLAW,144,0.91,15.65,14.6,73.99,28,2,1 package,112,None
+21421,KFCCRISPY CHICK STRIPS,274,20.25,13.66,0,47.93,25,51,1 strip,47,None
+21438,KFCFRIED CHICKEX CRISPYBREASTMEAT & SKN W/ BREADING,268,21.24,8.47,0,51.42,27,76,1 breast with skin,212,None
+21430,KFCFRIED CHICKEX CRISPYBREASTMEAT ONLYSKN & BRDING RMVD,153,27.25,0.25,0,65.71,20,87,1 breast without skin,140,None
+21439,KFCFRIED CHICKEX CRISPYDRUMSTKMEAT & SKN W/ BREADING,274,20.62,7.96,0,51.44,25,109,1 drumstick with skin,81,None
+21431,KFCFRIED CHICKEX CRISPYDRUMSTKMEAT ONLYSKN & BRDNG RMVD,170,25.9,0,0,64.78,16,137,1 drumstick bone and skin removed,41,None
+21429,KFCFRIED CHICKEX CRISPYSKN & BREADING,464,10.96,22.54,0,26.98,41,59,0,0,None
+21440,KFCFRIED CHICKEX CRISPYTHIGHMEAT & SKN W/ BREADING,309,17.17,10.3,0,47.99,30,91,1 thigh with skin,152,None
+21432,KFCFRIED CHICKEX CRISPYTHIGHMEAT ONLYSKN & BRDING RMVD,179,22.41,0,0,65.68,21,118,1 thigh without skin,91,None
+21441,KFCFRIED CHICKEX CRISPYWINGMEAT & SKN W/ BREADING,337,20.8,11.66,0,41.91,35,107,1 wing with skin,68,None
+21433,KFCFRIED CHICKEX CRISPYWINGMEAT ONLYSKN & BRDING REMOVD,236,28.67,2.97,0,53.85,30,146,1 wing without skin,44,None
+21434,KFCFRIED CHICKORIGINAL RECIPEBREASTMEAT & SKN W/ BRDING,231,21.94,6.28,0,56.16,33,81,1 breast with skin,212,None
+21425,KFCFRIED CHICKORIGINAL RECIPEBREASTMEAT NLYSKN BRDNG RD,149,26.89,0,0,66.44,25,96,1 breast without skin,152,None
+21435,KFCFRIED CHICKORIGINAL RECIPEDRUMSTKMEAT & SKN W/ BRDING,239,22.3,5.39,0,55.6,29,117,1 drumstick with skin,75,None
+21426,KFCFRIED CHICKORIGINAL RECIPEDRUMSTKMEAT ONLYSKN BRG RD,175,26.3,0.11,0,63.77,16,137,1 drumstick bone and skin removed,40,None
+21424,KFCFRIED CHICKORIGINAL RECIPESKN & BREADING,384,14.17,18.79,0,35.52,117,82,0,0,None
+21436,KFCFRIED CHICKORIGINAL RECIPETHIGHMEAT & SKN W/ BREADING,269,18.9,8.46,0,52.09,64,104,1 thigh with skin,135,None
+21427,KFCFRIED CHICKORIGINAL RECIPETHIGHMEAT ONLYSKN BRDNG RD,175,22.78,0.01,0,65.65,20,122,1 thigh without skin,86,None
+21437,KFCFRIED CHICKORIGINAL RECIPEWINGMEAT & SKN W/ BREADING,297,21.7,9.93,0,46.4,77,113,1 wing with skin,60,None
+21428,KFCFRIED CHICKORIGINAL RECIPEWINGMEAT ONLYSKN BRDNG RD,216,28.65,1.76,0,56.44,40,141,1 wing wing without skin,39,None
+21422,KFCPOPCORN CHICK,351,17.67,21.18,0,35.62,32,40,1 piece,6.4,None
+132,Kluwak,273,10,13.5,30,51,40,24,1 biji,24,None
+445,Kokosan,86,1.6,13,3,85,20.2,0.2,1 buah,18,None
 364,Kool Kembang,25,2.4,4.9,69,91.7,22,0.2,1 mangkok,174.6,None
 365,Kool Merah kool putih,24,1.4,5.3,50,92.4,46,0.2,1 buah ,255,None
 366,Kool Merah kool putih,24,1.4,5.3,50,92.4,46,0.2,1 buah ,493,None
 367,Kool Merah kool putih,24,1.4,5.3,50,92.4,46,0.2,1 buah ,849,None
+522,Kopi bagian yang larut,352,17.4,69,0,0,296,1.3,1 gelas,182,None
+133,Koro Benguk biji,332,24,55,0,15,130,3,1 biji,0.8,None
+134,Koro Benguk tempe,141,10.2,23.2,0,64,42,1.3,1 potong,11.8,None
+135,Koro Kerupuk biji,125,8.3,22.1,31,67.2,17,0.7,1 biji,0.78,None
 368,Koro Kerupuk buah,125,8.3,22.1,31,67.2,17,0.7,1 buah,4.2,None
+136,Koro Loke biji,33,2.7,7.9,0,88.6,60,0.2,1 biji,1.5,None
+137,Koro Roway biji,344,12.5,69.4,1,13,70,2.1,1 biji,0.8,None
+138,Koro Wedus biji,338,22.2,61,0,11.8,88,1.5,1 biji,2.1,None
 369,Koro Wedus buah muda,38,3,7.9,17,88,56,0.3,1 kg,1000,None
+573,Kripik Tempe Goreng,542,40.3,11.5,0,3.2,175,42.4,1 bungkus,100,None
 370,Krokot,21,1.7,3.8,25,93,103,0.4,1 mangkok,65.6,None
 371,Kucai,45,2.2,10.3,17,86.3,52,0.3,1 mangkok,77.2,None
 372,Kucai Muda (Lokio),42,3.8,7.8,59,86,76,0.6,1 ikat,25,None
-373,Labu Air,17,0.6,3.8,10,95,12,0.2,1 mangkok,50,None
-374,Labu Siam,26,0.6,6.7,18,92.3,14,0.1,1 buah ,162,None
-375,Leunca buah,33,1.9,7.4,17,90,274,0.1,1 mangkok,192.2,None
-376,Lobak,19,0.9,4.2,32,94.1,35,0.1,1 buah,110,None
-377,Melinjo,66,5,13.3,100,80,163,0.7,1 buah,6.3,None
-378,Nangka Muda,51,2,11.3,9,85.4,45,0.4,1 potong,300,None
-379,Paria (Pare),29,1.1,6.6,52,91.2,45,0.3,1 buah ,70,None
-380,Paria (Pare),29,1.1,6.6,52,91.2,45,0.3,1 buah ,109,None
-381,Paria (Pare),29,1.1,6.6,52,91.2,45,0.3,1 buah ,172,None
-382,Paria Putih kukus,16,0.8,3.4,35,95,16,0.2,1 gelas,100,None
-383,Pe-Cay,23,1.8,4.5,75,92.4,179,0.3,1 buah,61.6,None
-384,Pepaya Muda,26,2.1,4.9,19,92.3,50,0.1,1 mangkok,50,None
-385,Pepaya lodeh,275,11.6,30.2,43.6,0,251.3,11.6,1 mangkok,268.6,None
-386,Peterseli,50,3.7,9,193,83.9,193,1,1 ikat,232,None
-387,Prey (bawang daun),45,2.2,10.3,17,86.3,52,0.3,1 akar,28,None
-388,Rebung,27,0.6,5.2,4,91,13,0.3,1 mangkok,225.4,None
-389,Sawi,22,2.3,4,102,92.2,220,0.3,1 buah ,41,None
-390,Selada,15,1.2,2.9,8,94.8,22,0.2,1 mangkok,50,None
-391,Selada Air,17,1.7,3,50,94.1,182,0.3,1 batang,3,None
-392,Selada Air rebus,19,2.7,2.9,27,93.5,83,0.2,1 mangkok,163.2,None
-393,Seledri,20,1,4.6,11,93,50,0.1,1 mangkok,50,None
-394,Singkah (rotan muda),81,5.1,5.1,4,73.9,60,4.5,1 kg,1000,None
-395,Sop Kool,12,0.5,2,17.6,0,14.2,0.1,1 mangkok,195,None
-396,Sop Kool dan Wortel,15,0.6,3.1,14.6,0,12.6,0.1,1 mangkok,235,None
-397,Susupan,87,5.3,6.3,31,60,54,5.2,1 buah,30,None
-398,Tebu Terubuk,25,4.6,3,50,91,40,0.4,1 potong,18,None
-399,Tekokak,34,2,7.9,80,89,50,0.1,1 mangkok,50,None
-400,Tekokak kering,294,8.3,72.6,0,12.3,370,1.7,1 ikat,77,None
-401,Terong,24,1.1,5.5,5,92.7,15,0.2,1 mangkok,50,None
-402,Terong + Oncom makanan,285,4.3,9.5,3.5,0,48,25.7,1 sdm,20.6,None
-403,Terong Asam,39,2.3,2,17,89.8,51,1.9,1 buah,39,None
-404,Terong Belanda,48,1.5,11.3,17,85.9,13,0.3,1 buah,115.6,None
-405,Terong kukus,23,1.8,4.9,2,92.7,40,0.1,1 gelas,100,None
-406,Tespong daun,59,2.9,13.9,21,81,155,0.3,1 ikat,59.8,None
-407,Toge -Tahu makanan,392,5.4,28.4,7.6,0,17.4,28.5,1 sdm,15.6,None
-408,Toge kacang ijo,23,2.9,4.1,15,92.4,29,0.2,1 mangkok,50,None
-409,Toge kacang tunggak,35,5,5.8,15,88,57,0.2,1 mangkok,50,None
-410,Toge kedelai,67,9,6.4,15,81,50,2.6,1 mangkok,50,None
-411,Toge seduh,28,3,4,2,91.9,52,0.8,1 sdm,15.4,None
-412,Tomat Masak,20,1,4.2,40,94,5,0.3,1 buah ,43,None
-413,Tomat Muda,23,2,2.3,30,93,5,0.7,1 buah,46.4,None
-414,Tomat sari (juice),15,1,3.5,10,94,7,0.2,1 gelas,190,None
-415,Wortel,42,1.2,9.3,6,88.2,39,0.3,1 buah ,27,None
-416,Wortel kukus,37,1,8.3,4,89.5,44,0.6,1 gelas,100,None
-417,Wortel rebus,28,0.7,6.3,2,92.1,46,0.5,1 gelas,100,None
-418,Alpokat,85,0.9,7.7,13,84.3,10,6.5,1 biji ,100,None
-419,Apel,58,0.3,14.9,5,84.1,6,0.4,1 buah,150,None
-420,Arbei,37,0.8,8.3,60,89.9,28,0.5,1 buah,10,None
-421,Asam masak di pohon,239,2.8,62.5,2,31.4,74,0.6,1 polong,8.6,None
-422,Belimbing,36,0.4,8.8,35,90,4,0.4,1 buah ,125,None
-423,Bengkuang,55,1.4,12.8,20,85.1,15,0.2,1 1 buah,164,None
-424,Buah Atung,23,0.8,5.2,38,92,30,0.2,1 buah,4,None
-425,Buah Mentega (bisbul),39,0.7,9.7,33,89,43,0.2,1 buah,159,None
-426,Buah Nona,101,1.7,25.2,22,71.5,27,0.6,1 buah,147,None
-427,Cempedak,116,3,28.6,15,67,20,0.4,1 biji,10,None
-428,Duku,63,1,16.1,9,82,18,0.2,1 buah,8.9,None
-429,Durian,134,2.5,28,53,65,7.4,3,1 biji ,17.5,None
-430,Embacang,98,1.4,25.4,56,72.5,21,0.2,1 potong,22.7,None
-431,Erbis,70,0.6,18.9,16,80,11,0,1 potong,320,None
-432,Gandaria,68,0.7,18,111,80.8,8.5,0.1,1 buah,22,None
-433,Jambu Air,46,0.6,11.8,5,87,7.5,0,1 buah,50,None
-434,Jambu Biji,49,0.9,12.2,87,86,14,0.3,1 buah ,100,None
-435,Jambu Bol,56,0.6,14.2,22,84.5,29,0.3,1 buah,100,None
-436,Jambu Monyet buah,64,0.7,15.8,197,82.6,4,0.6,1 buah,25,None
-437,Jeruk Bali,48,0.6,12.4,43,86.3,23,0.2,1 buah ,50,None
-438,Jeruk Garut,44,0.8,10.9,31,87.3,33,0.3,1 buah,50,None
-439,Jeruk Manis,45,0.9,11.2,49,87.2,33,0.2,1 buah,50,None
-440,Jeruk Manis air (sari),44,0.8,11,49,87.5,19,0.2,1 gelas,200,None
-441,Jeruk Nipis,37,0.8,12.3,27,86.6,40,0.1,1 buah,41,None
-442,Kedondong masak,41,1,10.3,30,88,15,0.1,1 buah,60,None
-443,Kemang,48,1,11.9,58,86.5,10,0.2,1 buah ,105,None
-444,Kesemek,78,0.8,20,11,78.2,6.6,0.4,1 buah,128.2,None
-445,Kokosan,86,1.6,13,3,85,20.2,0.2,1 buah,18,None
-446,Langsat,56,0.9,14.3,3,84.1,17,0.2,1 buah,18,None
-447,Mangga Gedong,44,0.7,11.2,9,87.4,13,0.2,1 buah,180.2,None
-448,Mangga Golek,63,0.5,16.7,30,82.2,14,0.2,1 potong,49.2,None
-449,Mangga Harum Manis,46,0.4,11.9,6,86.6,15,0.2,1 buah,469.4,None
-450,Mangga Indramayu,72,0.8,18.7,16,80.2,13,0.2,1 buah,293.6,None
-451,Mangga Kopek,56,0.4,14.6,27,84.5,16,0.2,1 potong,47.8,None
-452,Mangga Muda,59,0.5,15.1,65,83.7,12,0.4,1 buah,172,None
-453,Manggis,63,0.6,15.6,2,83,8,0.6,1 buah ,73,None
-454,Menteng,65,1.7,16.1,5,79,13,0.2,1 buah,26.2,None
-455,Nanas,52,0.4,13.7,24,85.3,16,0.2,1 buah,450,None
-456,Nangka masak di pohon,106,1.2,27.6,7,70,20,0.3,1 biji,16.7,None
-457,Pala daging,42,0.3,10.9,22,88.1,32,0.2,1 buah,33.5,None
-458,Pepaya,46,0.5,12.2,78,86.7,23,0,1 potong,100,None
-459,PIR,64.3,0.8,4037.5,382.5,0,0,0,1 buah,184,None
-460,Pisang Ambon,99,1.2,25.8,3,72,8,0.2,1 buah,75,None
-461,Pisang Angle,68,1.3,17.2,6,80.3,10,0.2,1 buah,74.4,None
-462,Pisang Lampung,99,1.3,25.6,4,72.1,10,0.2,1 buah,63.2,None
-463,Pisang Mas,127,1.4,33.6,2,64.2,7,0.2,1 buah,43.4,None
-464,Pisang Oli,134,1.1,35.5,3,61.8,31,0.5,1 buah,65.2,None
-465,Pisang Raja,120,1.2,31.8,10,65.8,10,0.2,1 buah,102.2,None
-466,Pisang Raja Sere (Susu),118,1.2,31.1,4,67,7,0.2,1 buah,83,None
-467,Pisang Raja Uli,146,2,38.2,3,59.1,10,0.2,1 buah ,50,None
-468,Pisang Siam goreng,625,1,8.1,4.8,0,26.1,0,1 buah,75.6,None
-469,Rambutan,69,0.9,18.1,58,80.5,16,0.1,1 buah,27.6,None
-470,Rambutan Aceh,11,0,2.7,8.7,0,2.4,0,1 buah,21,None
-471,Rambutan sinyonya,4,0,0.9,2.9,0,0.8,0,1 buah,94,None
-472,Salak,77,0.4,20.9,2,78.6,28,0,1 buah ,75,None
-473,Sawo,92,0.5,22.4,21,75.5,25,1.1,1 buah,50,None
-474,Semangka,28,0.5,6.9,6,92.1,7,0.2,1 potong ,150,None
-475,Sirsak,65,1,16.3,20,81.7,14,0.3,1 gelas,100,None
-476,Srikaya,101,1.7,35.2,22,71.5,27,0.6,1 buah,147,None
-477,Es Krim,207,4,20.6,1,62.1,123,12.5,1 cup,60,None
-478,Keju,326,22.8,13.1,1,38.5,777,20.3,1 potong ,15,None
-479,Kepala Susu (Krim),204,2.6,4,1,72.5,97,20,1 sdm,3.3,None
-480,Mentega,725,0.5,1.4,0,16.5,15,81.6,1 sdt,5,None
-481,Susu Ibu (ASI),65,1.1,7.7,2.7,0,35.3,3.5,1 gelas,200,None
-482,Susu Kambing,64,4.3,6.6,1,85.9,98,2.3,1 gelas,200,None
-483,Susu Kental Manis,336,8.2,55,1,25,275,10,1 gelas,200,None
-484,Susu Kental Tak Manis,138,7,9.9,1,73.7,243,7.9,1 gelas,200,None
-485,Susu Kerbau,160,6.3,7.1,1,73.8,216,12,1 gelas,200,None
-486,Susu Sapi,61,3.2,4.3,1,88.3,143,3.5,1 gelas,200,breakfast
-487,Susu Skim (tak berlemak),36,3.5,5.1,1,90.5,123,0.1,1 sdm,5,None
-488,Tepung Susu,509,24.6,36.2,6,3.5,904,30,1 sdm,5,None
-489,Tepung Susu Asam untuk bayi,418,19,65.5,30,2.5,800,9,1 sdm,5,None
-490,Tepung Susu Skim,362,35.6,52,7,3.5,1300,1,1 sdm,5,None
-491,Yoghurt,52,3.3,4,0,88,120,2.5,1 gelas,200,None
-492,Lemak Babi,902,0,0,0,0,0,100,1 potong ,5,None
-493,Lemak Kerbau,818,1.5,0,0,5,0,90,1 potong,9,None
-494,Margarine,720,0.6,0.4,0,15.5,20,81,1 sdm,10,None
-495,Minyak Hati Hiu (Eulamia),902,0,0,0,0,0,100,1 sdm,10,None
-496,Minyak Ikan,902,0,0,0,0,0,100,1 sdm,10,None
-497,Minyak Kacang Tanah,902,0,0,0,0,0,100,1 sdm,10,None
-498,Minyak Kelapa,870,1,98,0,0,0,1,1 sdm,10,None
-499,Minyak Kelapa Sawit,902,0,0,0,0,0,100,1 sdm,7.2,None
-500,Minyak Wijen,902,0,0,0,0,0,100,1 sdm,3.3,None
-501,Agar-agar,0,0,0,0,17.2,400,0.2,1 potong,95,None
-502,Bir (4% alkohol),48,0.6,4.4,0,90.2,4,0,1 gelas,210,None
-503,Bonggol Pisang,43,2.6,11.6,12,86,15,0,1 potong,68.4,None
-504,Bonggol Pisang kering,245,3.4,66.2,4,20,60,0,1 potong,52.4,None
-505,Bulung Jajan,212,16.9,47.6,8,22,3033,0.2,1 kg,1000,None
-506,Bulung Sangu,237,14.7,56,5,18,3774,0.2,1 kg,1000,None
-507,Cengkeh Kering,292,5.2,57.4,0,23.3,740,8.9,1 sdm,10,None
-508,Coklat Manis batang,472,2,62.7,0,1.4,63,29.8,1 potong,25,None
-509,Coklat Pahit batang,504,5.5,29.2,0,2.3,98,52.9,1 potong,25,None
-510,Coklat Susu batang,381,9,53.6,0,1,200,35,1 potong,25,None
-511,Cuka,12,0.1,5,0,94.5,7,0.1,1 sdm,3.7,None
-512,Daun Cincau,122,6,26,17,66,100,1,1 mangkok,38,None
-513,Dodol,395,3,81.2,0,12,12,5.7,1 dodol,17,None
-514,Gelatine,389,0,91,0,5,0,0,1 sdm,8.5,None
-515,Gula Aren,368,0,95,0,9,75,0,1 buah,28.5,None
-516,Gula Kelapa,386,3,76,0,10,76,10,1 buah,99.8,None
-517,Gula Merah Tebu belum dimurnikan,356,0.4,90.6,0,7.4,51,0.5,1 kg,1000,None
-518,Gula Pasir,364,0,94,0,5.4,5,0,1 sdm,8,None
-519,Jahe,51,1.5,10.1,4,86.2,21,1,1 rimpang,29.4,None
-520,Jam Selai,239,0.5,64.5,0,34,20,0.6,1 sdm,18.8,None
-521,Katul Jagung,356,9,64.5,0,12,200,8.5,1 gelas,57.6,None
-522,Kopi bagian yang larut,352,17.4,69,0,0,296,1.3,1 gelas,182,None
-523,Kunyit,63,2,9.1,1,84.9,24,2.7,1 rimpang,49,None
-524,Lemon Squasih,36,0,10,20,90,0,0,1 gelas,200,None
-525,Lemonade,30,0,8,0,91,0,0,1 gelas,200,None
-526,Madu,294,0.3,79.5,4,20,5,0,1 sdm,15,None
-527,Melase,276,0,71,0,21.2,470,0.1,1 kg,1000,None
-528,Merica,359,11.5,64.4,0,12.9,460,6.8,1 sdm,12.8,None
-529,Ragi,136,43,3,0,10,140,2.4,1 buah,5,None
-530,Saos Tomat,98,2,24.5,11,69.5,12,0.4,1sdm,10,None
-531,Serbuk Coklat,298,8,48.9,0,3.9,125,23.8,1 sdm,7,None
-532,Setrup sirup,213,0,55,0,44,0,0,1 gelas,200.4,None
-533,Teh,132,19.5,67.8,0,7.6,717,0.7,1 sdm,3.7,None
-534,Tempuyak,126,1.1,25.7,26,62.6,48,2.2,1 rimpang,26.8,None
-535,Tepung Ikan,316,60.1,22.4,0,4.3,3196,6.5,1 sdm,4.9,None
-536,Terasi Merah,174,30,3.5,0,44,100,3.5,1 potong,45,None
-537,Bacang,102.9,3.3,16.3,0,47.9,0,2.7,1 potong,70,None
-538,Bakso,76,4.1,9.2,1.8,83.6,14,2.5,1 porsi,250,None
-539,Bakwan,272.5,4.3,21.8,0,54,0.1,18.8,1 potong,40,None
-540,Bihun Goreng,154,3,25.5,0,65.6,0,4.5,1 buah,200,None
-541,Bika Ambon,225.7,3,52.9,0,42.9,0,0.3,1 buah,70,None
-542,Biskuit Mahal,350,8,54,0,0,162,11,1 buah,10,None
-543,Biskuit Murah,260,5,86,0,0,53,1,1 sdm,10,None
-544,Brondong,400,4,95.3,0,0,10,0.7,1 porsi,15,None
-545,Bubur,60,1,13,0,0,2,60,1 buah,10,None
-546,Buntil,106,4.4,7.9,110,78.2,225,6.3,1 buah,100,None
-547,Buras,125.7,3.3,23.9,0,69.3,0,1.9,1 sdm,70,None
-548,Combro,210,1.6,35.8,0,43.2,6.4,6.6,1 buah,50,None
-549,Deblo,260,2,53,24,0,56.5,15,1 buah,20,None
-550,Dodonkol,17.5,3.3,39.5,0,135,0,2.3,1 bungkus,40,None
-551,Es Krim (Coconut milk),156.7,3,32.7,0,0,6.7,1.7,1 buah,30,None
-552,Es Mambo,152,0,37.6,0,0,2,0,1 bungkus,25,None
-553,Es Sirup,44.8,0,11.3,0,0,0.6,0,1 gelas,125,None
-554,Gado-gado,135.3,5.8,16.4,0.1,72.5,14,5.8,1 porsi,150,lunch
-555,Gemblong,287.5,6.5,52.8,0,23.5,0.2,6.5,1 buah,40,None
-556,Getuk Lindri,171.4,4,32,0,61.1,0,4,1 potong,35,None
-557,Gudeg,53,1.6,8.8,0,87.9,7.9,1.6,1 porsi,100,dinner
-558,Jagung Rebus,175,1.8,35,0,0,4.8,1.8,1 bungkus,60,None
-559,Jagung Sayur (tumis),148.9,10.4,20.1,0,0,8.7,10.4,1 sendok ,60,None
-560,Jenang,381.7,9.5,65.8,0,18.8,0.1,9.5,1 buah,60,None
-561,Kacang Kapri Goreng,445,11,65.5,0,2.5,0.1,11,1 bungkus,20,None
-562,Kacang Sukro Putih,488,25.6,59.6,0,6.4,0,25.6,1 bungkus,25,None
-563,Kacang Tanah Rebus,385,14,13,5,0,42,31,1 bungkus (1/3 gelas),20,None
-564,Kacang Telur,748,20.8,124.8,0,7.2,0.1,20.8,1 bungkus,25,None
-565,Karedok,146.7,5.9,19.7,1.1,68.5,0.1,5.9,1 porsi ,150,None
-566,Karoket,292,11.2,2.8,0,40.4,0,11.2,1 buah,25,None
-567,Kelepon,214,5.4,40.2,0,52.2,0,5.4,1 buah,12.5,None
-568,Keremes,475,1.6,64.4,0,6.7,153,25.5,1 bungkus,100,None
-569,Kerupuk Sayong,46.7,17.3,81.3,0,0,80,17.3,1 buah,15,None
-570,Kerupuk Udang,340,30,52,0,0,298,30,1 buah,5,None
-571,Ketapang,340,11,54,0,0,14,11,1 buah,10,None
-572,Ketupat Tahu,109.6,2.6,18.6,0,74.8,0,2.6,1 porsi,250,None
-573,Kripik Tempe Goreng,542,40.3,11.5,0,3.2,175,42.4,1 bungkus,100,None
 574,Kue Apem,186.7,1.6,39.6,0,55.6,0,1.6,1 potong,45,None
 575,Kue Bugis,240,1,54,0,41,11.5,4,1 buah,10,None
 576,Kue Koya,366,4.2,7.9,0,13.2,153,4.3,1 bungkus,100,None
@@ -579,54 +433,45 @@
 581,Kue Semprong,380,1,92,0,5,0.1,1,1 buah,10,None
 582,Kue Talam,180,5,32,0,61,0.1,5,1 buah,10,None
 583,Kue Tambang,512,26,60.4,0,0.8,0,26,1 buah,5,None
+523,Kunyit,63,2,9.1,1,84.9,24,2.7,1 rimpang,49,None
+261,Kura-kura,83,19.1,0,0,80,27,0.2,1 ekor,13,None
+139,Kwaci,515,30.6,13.8,0,9.9,54,42.1,1 sdm,10.9,None
+373,Labu Air,17,0.6,3.8,10,95,12,0.2,1 mangkok,50,None
+374,Labu Siam,26,0.6,6.7,18,92.3,14,0.1,1 buah ,162,None
 584,Laksa,166.3,2.7,29.5,0,82.2,0.1,3.9,1 porsi,300,None
+140,Lamtoro (pete cina) biji muda,85,5.7,15.4,15,77.4,180,0.3,1 sdm,14.8,None
+141,Lamtoro biji tua,148,10.6,26.2,20,61.4,155,0.5,1 sdm,15,None
+142,Lamtoro tempe,142,11,20.4,0,64,42,2.5,1 potong,8.8,None
+446,Langsat,56,0.9,14.3,3,84.1,17,0.2,1 buah,18,None
+492,Lemak Babi,902,0,0,0,0,0,100,1 potong ,5,None
+188,Lemak Babi (Bacon),630,9.1,1.1,0,30,13,65,1 potong ,5,None
+493,Lemak Kerbau,818,1.5,0,0,5,0,90,1 potong,9,None
+524,Lemon Squasih,36,0,10,20,90,0,0,1 gelas,200,None
+525,Lemonade,30,0,8,0,91,0,0,1 gelas,200,None
 585,Lemper,221.3,3.8,43.4,0,60.9,0,3.6,1 buah,80,None
+375,Leunca buah,33,1.9,7.4,17,90,274,0.1,1 mangkok,192.2,None
 586,Leupeut Ketan,240,7.8,51.3,0.3,0,20.5,0.5,1 buah,40,None
+189,Leverwost (sosis hati),387,16,3,0,76.7,20,22,1 potong,50,None
+376,Lobak,19,0.9,4.2,32,94.1,35,0.1,1 buah,110,None
 587,Lopis,163.3,2.8,33,0,61.2,0,2.2,1 buah,60,None
+526,Madu,294,0.3,79.5,4,20,5,0,1 sdm,15,None
+48,Maizena (pati jagung),343,0.3,85,0,14,20,0,1 sdm,5,None
+49,Makaroni,363,8.7,78.7,0,11.7,20,0.4,1 gelas,100,breakfast
+447,Mangga Gedong,44,0.7,11.2,9,87.4,13,0.2,1 buah,180.2,None
+448,Mangga Golek,63,0.5,16.7,30,82.2,14,0.2,1 potong,49.2,None
+449,Mangga Harum Manis,46,0.4,11.9,6,86.6,15,0.2,1 buah,469.4,None
+450,Mangga Indramayu,72,0.8,18.7,16,80.2,13,0.2,1 buah,293.6,None
+451,Mangga Kopek,56,0.4,14.6,27,84.5,16,0.2,1 potong,47.8,None
+452,Mangga Muda,59,0.5,15.1,65,83.7,12,0.4,1 buah,172,None
+453,Manggis,63,0.6,15.6,2,83,8,0.6,1 buah ,73,None
+494,Margarine,720,0.6,0.4,0,15.5,20,81,1 sdm,10,None
 588,Martabak ,265.3,4.7,49.3,0,40,0,5.5,1 potong,75,None
 589,Martabak Telur,200,8.9,29.5,0,54.7,0.1,5.1,1 buah,100,None
-590,Mie Goreng,468,7.6,62.4,2,0,22.4,20.4,1 piring ,25,lunch
-591,Misro,218,0.8,50.2,0,31.2,0.1,16,1 buah,50,None
-592,Nasi Goreng,276,3.2,30.2,0,0,4.8,3.2,1 piring ,50,dinner
-593,Nasi Uduk,253.3,4.3,11.7,0,50.2,0,21,1 bungkus,60,lunch
-594,Noga Kacang Tanah,600,14,42,0,1,0,41.7,1 buah,30,None
-595,Oncom Goreng,363.3,19.3,40.3,0,31.3,0,19.3,1 buah,30,None
-596,Oncom Hitam Goreng,284,12,13.6,0,0,115.6,14.4,1 potong,25,None
-597,Oncom Hitam Goreng bertepung,306.7,9,27,0,0,7,18,1 potong,30,None
-598,Oncom Merah Goreng,368,6.8,13.2,0,0,40,32,1 potong,25,None
-599,Oncom Merah Goreng bertepung,320,7.3,31,0,0,34,18.7,1 potong,30,None
-600,Oncom Merah Sayur (tumis),40,2,3,0.8,0,12,2,1 sdm,10,None
-601,Onde-onde,288.6,8.3,44.3,0,38,0.1,8.9,1 buah,35,None
-602,Ongol-ongol,115,1.5,14,0,78,0.1,6,1 buah,20,None
-603,Opak Singkong,940,36,104,0,0,600,42,1 buah,5,None
-604,Papais,133.8,3,27,0,0,0,1.6,1 buah,80,None
-605,Pastel,222.2,5.8,34.9,0,40.4,0,17.1,1 buah,90,None
-606,Permen,400,0,95,0,0,5,0,1 buah,2,None
-607,Pilus,514,1,647,0,3.4,0,27.8,1 buah,50,None
-608,Pisang Goreng,220,2.3,6.3,0,52.3,12,2.3,1 potong,60,None
-609,Putu,210,3,37,0,53,0.1,6,1 buah,10,None
-610,Putu Mayang,200,1,43.8,0,52.4,0,2.4,1 buah,12.5,None
-611,Rarawuan,295,7.3,47.5,0,35.5,1.1,8.5,1 buah,40,None
-612,Risoles,335,5.3,70.5,0,56.5,6.8,3.5,1 buah,40,None
-613,Roti Gambang,350,7.5,75.5,0,13.5,23.5,2,1 buah,20,None
-614,Sagu Ambon,338,0.6,83.1,0.1,15.5,16,0.3,1 sendok,15,None
-615,Sate Kulit,110,15.5,11.5,0,70.5,0.1,0.5,1 porsi,20,None
-616,Sate Usus,126.7,14,1.3,0,0,14,7.3,1 tusuk,15,None
-617,Semur Jengkol,192.5,4.5,30.3,0,57.5,0.1,6,1 buah,10,None
-618,Singkong Goreng,285,1,28,12,0,3.5,18,1 potong,20,None
-619,Siomay,95.3,4.4,14.4,0,78.6,2.1,2.2,1 porsi,170,None
-620,Soto dengan Daging,127.5,2.6,8.3,0.5,0,10.8,9.4,1 sendok ,80,dinner
-621,Soto tanpa Daging,117.1,0.4,9.6,0.6,0,12.6,8.6,1 sendok ,70,None
-622,Tahu Goreng,128,5.6,1.2,0,0,84.8,11.2,1 potong,25,None
-623,Tempe Goreng,328,18.4,12.8,0,0,149.6,23.2,1 potong,25,None
-624,Tempe Sayur,240,6,49.3,1.3,0,8,2.7,1 sdm,15,None
-625,Toge Goreng,93.6,4.4,15.1,2.6,78.1,16.2,1.8,1 porsi,250,None
-626,Ubi Jalar Goreng,160,3.7,55.3,8.7,0,40,1.3,1 potong,30,None
-627,Ubi Jalar Rebus,113.8,1.4,25.5,10.2,0,27.7,9.5,1 potong,65,None
-628,Ubi Jalar Sayur,183.3,1.3,22.5,5.5,0,8.5,0.3,1 sendok ,60,None
 21377,MCDONALD'S BACON RANCH SALAD W/ CRISPY CHICK,122,8.82,6.08,9.7,77.38,46,22,1 item 11.3 oz,319,None
 21233,MCDONALD'S CHEESEBURGER,263,12.97,27.81,0.6,45,167,35,1 item 4 oz,119,None
+21357,MCDONALD'S EGG MCMUFFIN,228,13.64,21.67,1.2,52.58,192,165,1 sandwich,126,breakfast
 21232,MCDONALD'S FLT-O-FSH,282,11.26,26.39,0.3,45.76,120,32,1 sandwich,134,None
+21365,MCDONALD'S HOTCAKES (WITH 2 PATS MARGARINE & SYRUP),272,4.05,46.08,0,40.6,57,9,1 item,221,breakfast
 21360,MCDONALD'SBACON EGG & CHS BISCUIT,304,13.45,22.26,2.1,42.29,109,167,1 item 4.9 oz,142,None
 21376,MCDONALD'SBACON RANCH SALAD W/ GRILLED CHICK,81,10.28,3.64,10.2,81.42,48,28,1 item 10.8 oz,305,None
 21378,MCDONALD'SBACON RANCH SALAD WO/ CHICK,61,4.14,4.2,13.5,87.2,63,12,1 item 7.8 oz,223,None
@@ -641,7 +486,6 @@
 21363,MCDONALD'SDELUXE BRKFSTW/ SYRUP & MARGARINE,285,7.56,29.48,0.2,45.91,50,109,1 item 14.8 oz,420,None
 21344,MCDONALD'SDOUBLE CHEESEBURGER,282,15.5,18.79,0.4,47,178,48,1 sandwich,155,None
 21345,MCDONALD'SDOUBLE QUARTER POUNDER W/ CHS,262,16.96,14.43,0.6,50.34,106,57,1 item,280,None
-21357,MCDONALD'S EGG MCMUFFIN,228,13.64,21.67,1.2,52.58,192,165,1 sandwich,126,breakfast
 21382,MCDONALD'SFILET-O-FISH (WITHOUT TARTAR SAUCE),243,12.47,31.08,0.1,46.9,128,25,1 item,124,None
 21238,MCDONALD'SFRENCH FR,323,3.41,42.58,5.6,36.63,19,0,1 small serving,71,None
 21380,MCDONALD'SFRUIT 'N YOGURT PARFAIT,105,2.73,20.72,13.9,74.61,86,5,1 item 5.2 oz,149,None
@@ -653,7 +497,6 @@
 21313,MCDONALD'SHOT MUSTARD SAU,190,2.6,29.08,0,58.65,32,0,1 package,28,None
 21364,MCDONALD'SHOTCAKES & SAUSAGE,294,7.81,37.55,0,40.7,78,19,1 item,192,None
 21321,MCDONALD'SHOTCAKES (PLAIN),228,6,38.27,0,48.24,84,13,3 hotcakes 5.3 oz,149,None
-21365,MCDONALD'S HOTCAKES (WITH 2 PATS MARGARINE & SYRUP),272,4.05,46.08,0,40.6,57,9,1 item,221,breakfast
 21343,MCDONALD'SLOFAT CARAMEL SAU,313,1.89,71.53,0,22.5,71,12,.8 oz,21,None
 21355,MCDONALD'SMCCHICKEN SNDWCH,273,10.43,27.97,0,46.11,88,27,1 sandwich,131,None
 21356,MCDONALD'SMCCHICKEN SNDWCH (WITHOUT MAYONNAISE),240,11.08,30.95,0.9,47.43,96,22,1 item,138,None
@@ -687,28 +530,78 @@
 21334,MCDONALD'SSTRAWBERRY SUNDAE,158,3.19,28.09,1.5,64.02,110,13,1 item (6.3 oz),178,None
 21315,MCDONALD'SSWT 'N SOUR SAU,170,0.66,39.38,1.2,57.37,6,0,1 package,28,None
 21316,MCDONALD'STANGY HONEY MUSTARD SAU,167,1.32,28.81,0,63,23,0,1.5 oz,43,None
-21419,KFCBISCUIT,358,7.5,43.55,0,28.4,55,1,1 biscuit,49,None
-21420,KFCCOLESLAW,144,0.91,15.65,14.6,73.99,28,2,1 package,112,None
-21421,KFCCRISPY CHICK STRIPS,274,20.25,13.66,0,47.93,25,51,1 strip,47,None
-21438,KFCFRIED CHICKEX CRISPYBREASTMEAT & SKN W/ BREADING,268,21.24,8.47,0,51.42,27,76,1 breast with skin,212,None
-21430,KFCFRIED CHICKEX CRISPYBREASTMEAT ONLYSKN & BRDING RMVD,153,27.25,0.25,0,65.71,20,87,1 breast without skin,140,None
-21439,KFCFRIED CHICKEX CRISPYDRUMSTKMEAT & SKN W/ BREADING,274,20.62,7.96,0,51.44,25,109,1 drumstick with skin,81,None
-21431,KFCFRIED CHICKEX CRISPYDRUMSTKMEAT ONLYSKN & BRDNG RMVD,170,25.9,0,0,64.78,16,137,1 drumstick bone and skin removed,41,None
-21429,KFCFRIED CHICKEX CRISPYSKN & BREADING,464,10.96,22.54,0,26.98,41,59,0,0,None
-21440,KFCFRIED CHICKEX CRISPYTHIGHMEAT & SKN W/ BREADING,309,17.17,10.3,0,47.99,30,91,1 thigh with skin,152,None
-21432,KFCFRIED CHICKEX CRISPYTHIGHMEAT ONLYSKN & BRDING RMVD,179,22.41,0,0,65.68,21,118,1 thigh without skin,91,None
-21441,KFCFRIED CHICKEX CRISPYWINGMEAT & SKN W/ BREADING,337,20.8,11.66,0,41.91,35,107,1 wing with skin,68,None
-21433,KFCFRIED CHICKEX CRISPYWINGMEAT ONLYSKN & BRDING REMOVD,236,28.67,2.97,0,53.85,30,146,1 wing without skin,44,None
-21434,KFCFRIED CHICKORIGINAL RECIPEBREASTMEAT & SKN W/ BRDING,231,21.94,6.28,0,56.16,33,81,1 breast with skin,212,None
-21425,KFCFRIED CHICKORIGINAL RECIPEBREASTMEAT NLYSKN BRDNG RD,149,26.89,0,0,66.44,25,96,1 breast without skin,152,None
-21435,KFCFRIED CHICKORIGINAL RECIPEDRUMSTKMEAT & SKN W/ BRDING,239,22.3,5.39,0,55.6,29,117,1 drumstick with skin,75,None
-21426,KFCFRIED CHICKORIGINAL RECIPEDRUMSTKMEAT ONLYSKN BRG RD,175,26.3,0.11,0,63.77,16,137,1 drumstick bone and skin removed,40,None
-21424,KFCFRIED CHICKORIGINAL RECIPESKN & BREADING,384,14.17,18.79,0,35.52,117,82,0,0,None
-21436,KFCFRIED CHICKORIGINAL RECIPETHIGHMEAT & SKN W/ BREADING,269,18.9,8.46,0,52.09,64,104,1 thigh with skin,135,None
-21427,KFCFRIED CHICKORIGINAL RECIPETHIGHMEAT ONLYSKN BRDNG RD,175,22.78,0.01,0,65.65,20,122,1 thigh without skin,86,None
-21437,KFCFRIED CHICKORIGINAL RECIPEWINGMEAT & SKN W/ BREADING,297,21.7,9.93,0,46.4,77,113,1 wing with skin,60,None
-21428,KFCFRIED CHICKORIGINAL RECIPEWINGMEAT ONLYSKN BRDNG RD,216,28.65,1.76,0,56.44,40,141,1 wing wing without skin,39,None
-21422,KFCPOPCORN CHICK,351,17.67,21.18,0,35.62,32,40,1 piece,6.4,None
+527,Melase,276,0,71,0,21.2,470,0.1,1 kg,1000,None
+377,Melinjo,66,5,13.3,100,80,163,0.7,1 buah,6.3,None
+480,Mentega,725,0.5,1.4,0,16.5,15,81.6,1 sdt,5,None
+454,Menteng,65,1.7,16.1,5,79,13,0.2,1 buah,26.2,None
+528,Merica,359,11.5,64.4,0,12.9,460,6.8,1 sdm,12.8,None
+590,Mie Goreng,468,7.6,62.4,2,0,22.4,20.4,1 piring ,25,lunch
+51,Mie kering,337,7.9,50,0,28.6,49,11.8,1 gelas,50,None
+50,Mie kuah,86,0.6,14,0,80,14,3.3,1 gelas,100,None
+495,Minyak Hati Hiu (Eulamia),902,0,0,0,0,0,100,1 sdm,10,None
+496,Minyak Ikan,902,0,0,0,0,0,100,1 sdm,10,None
+497,Minyak Kacang Tanah,902,0,0,0,0,0,100,1 sdm,10,None
+498,Minyak Kelapa,870,1,98,0,0,0,1,1 sdm,10,None
+499,Minyak Kelapa Sawit,902,0,0,0,0,0,100,1 sdm,7.2,None
+500,Minyak Wijen,902,0,0,0,0,0,100,1 sdm,3.3,None
+591,Misro,218,0.8,50.2,0,31.2,0.1,16,1 buah,50,None
+455,Nanas,52,0.4,13.7,24,85.3,16,0.2,1 buah,450,None
+143,Nangka biji,165,4.2,36.7,10,57.7,33,0.1,1 biji,19,None
+456,Nangka masak di pohon,106,1.2,27.6,7,70,20,0.3,1 biji,16.7,None
+378,Nangka Muda,51,2,11.3,9,85.4,45,0.4,1 potong,300,None
+592,Nasi Goreng,276,3.2,30.2,0,0,4.8,3.2,1 piring ,50,dinner
+4,Nasi Putih,178,2.1,40.6,0,57,5,0.1,3/4 gelas,100,None
+593,Nasi Uduk,253.3,4.3,11.7,0,50.2,0,21,1 bungkus,60,lunch
+594,Noga Kacang Tanah,600,14,42,0,1,0,41.7,1 buah,30,None
+595,Oncom Goreng,363.3,19.3,40.3,0,31.3,0,19.3,1 buah,30,None
+596,Oncom Hitam Goreng,284,12,13.6,0,0,115.6,14.4,1 potong,25,None
+597,Oncom Hitam Goreng bertepung,306.7,9,27,0,0,7,18,1 potong,30,None
+144,Oncom Kacang Tanah pepes,132,12.7,13.7,0,65,133,3.8,1 potong,38,None
+145,Oncom Kedele,187,13,22.6,0,57,96,6,1 potong,25,None
+598,Oncom Merah Goreng,368,6.8,13.2,0,0,40,32,1 potong,25,None
+599,Oncom Merah Goreng bertepung,320,7.3,31,0,0,34,18.7,1 potong,30,None
+600,Oncom Merah Sayur (tumis),40,2,3,0.8,0,12,2,1 sdm,10,None
+146,Oncom pepes,76,5.2,10.6,0,80.9,215,1.8,1 potong,33.4,None
+601,Onde-onde,288.6,8.3,44.3,0,38,0.1,8.9,1 buah,35,None
+602,Ongol-ongol,115,1.5,14,0,78,0.1,6,1 buah,20,None
+603,Opak Singkong,940,36,104,0,0,600,42,1 buah,5,None
+190,Otak,125,10.4,0.8,18,78.9,16,8.6,1 potong ,60,None
+52,Oyek (dari singkong),342,2.3,83.1,0,13.6,27,0.1,1 gelas,141.6,None
+147,Pala biji,494,7.5,40.1,0,14.3,120,36.4,1 biji,12,None
+457,Pala daging,42,0.3,10.9,22,88.1,32,0.2,1 buah,33.5,None
+604,Papais,133.8,3,27,0,0,0,1.6,1 buah,80,None
+379,Paria (Pare),29,1.1,6.6,52,91.2,45,0.3,1 buah ,70,None
+380,Paria (Pare),29,1.1,6.6,52,91.2,45,0.3,1 buah ,109,None
+381,Paria (Pare),29,1.1,6.6,52,91.2,45,0.3,1 buah ,172,None
+382,Paria Putih kukus,16,0.8,3.4,35,95,16,0.2,1 gelas,100,None
+605,Pastel,222.2,5.8,34.9,0,40.4,0,17.1,1 buah,90,None
+53,Pati Singkong (tapioka),362,0.5,86.9,0,12,0,0.3,1 sdm,5,None
+383,Pe-Cay,23,1.8,4.5,75,92.4,179,0.3,1 buah,61.6,None
+262,Peda Ikan Banjar,156,28,0,0,46,174,4,1 ekor,99.8,None
+458,Pepaya,46,0.5,12.2,78,86.7,23,0,1 potong,100,None
+385,Pepaya lodeh,275,11.6,30.2,43.6,0,251.3,11.6,1 mangkok,268.6,None
+384,Pepaya Muda,26,2.1,4.9,19,92.3,50,0.1,1 mangkok,50,None
+606,Permen,400,0,95,0,0,5,0,1 buah,2,None
+148,Pete Segar,142,10.4,22,36,60.5,95,2,1 biji,1.6,None
+386,Peterseli,50,3.7,9,193,83.9,193,1,1 ikat,232,None
+263,Petis Ikan,161,20,24,0,56,37,0.2,1 potong,69,None
+264,Petis Udang,220,15,40,0,39,37,0.1,1 sdm,20,None
+607,Pilus,514,1,647,0,3.4,0,27.8,1 buah,50,None
+265,Pindang Ikan Banjar,157,28,0,0,59,50,4.2,1 ekor,14.4,None
+266,Pindang Ikan Benggol,170,31,0,0,57,50,4.2,1 ekor,50.6,None
+267,Pindang Ikan Layang,153,30,0,0,60,60,2.8,1 ekor,13.2,None
+268,Pindang Ikan Selar Kecil,142,27,0,0,60,60,3,1 ekor,17,None
+459,PIR,64.3,0.8,4037.5,382.5,0,0,0,1 buah,184,None
+460,Pisang Ambon,99,1.2,25.8,3,72,8,0.2,1 buah,75,None
+461,Pisang Angle,68,1.3,17.2,6,80.3,10,0.2,1 buah,74.4,None
+608,Pisang Goreng,220,2.3,6.3,0,52.3,12,2.3,1 potong,60,None
+462,Pisang Lampung,99,1.3,25.6,4,72.1,10,0.2,1 buah,63.2,None
+463,Pisang Mas,127,1.4,33.6,2,64.2,7,0.2,1 buah,43.4,None
+464,Pisang Oli,134,1.1,35.5,3,61.8,31,0.5,1 buah,65.2,None
+465,Pisang Raja,120,1.2,31.8,10,65.8,10,0.2,1 buah,102.2,None
+466,Pisang Raja Sere (Susu),118,1.2,31.1,4,67,7,0.2,1 buah,83,None
+467,Pisang Raja Uli,146,2,38.2,3,59.1,10,0.2,1 buah ,50,None
+468,Pisang Siam goreng,625,1,8.1,4.8,0,26.1,0,1 buah,75.6,None
 21271,"PIZZA HUT 12"" CHS PIZZAHAND-TOSSED CRUST",271,11.93,31.22,0,43.29,209,24,1 slice,96,None
 21272,"PIZZA HUT 12"" CHS PIZZAPAN CRUST",280,11.73,29.93,0,43.4,208,21,1 slice,100,None
 21273,"PIZZA HUT 12"" CHS PIZZATHIN 'N CRISPY CRUST",303,15.29,28.64,0,38.77,278,34,1 slice,69,None
@@ -727,34 +620,141 @@
 21496,"PIZZA HUT 14"" SAUSAGE PIZZATHIN 'N CRISPY CRUST",323,13.95,28.7,3,37.28,193,37,1 slice,92,None
 21298,"PIZZA HUT 14"" SUPER SUPREME PIZZAHAND-TOSSED CRUST",248,11.34,26.01,0.6,49.15,104,28,1 slice,123,None
 21525,PIZZA HUTBREADSTICKPARMESAN GARLIC,343,12.2,44.48,0,28.38,87,7,1 breadstick,43,None
-21277,"DOMINO'S 14"" CHS PIZZACLASSIC HAND-TOSSED CRUST",257,10.8,33.24,0.9,44.87,167,17,1 slice,108,None
-21279,"DOMINO'S 14"" CHS PIZZACRUNCHY THIN CRUST",298,12.33,28.18,1.7,41.58,292,27,1 slice,70,None
-21278,"DOMINO'S 14"" CHS PIZZAULTIMATE DEEP DISH CRUST",265,10.76,33.48,0.4,43.42,166,16,1 slice,118,None
-21282,"DOMINO'S 14"" EXTRAVAGANZZA FST PIZZACLSSIC HAND-TOSSED CRST",244,10.33,25.72,0,50.77,113,20,1 slice,151,None
-21280,"DOMINO'S 14"" PEPPERONI PIZZACLASSIC HAND-TOSSED CRUST",273,11.25,31.86,0.8,43.4,141,25,1 slice,113,None
-21492,"DOMINO'S 14"" PEPPERONI PIZZACRUNCHY THIN CRUST",328,13.88,25.35,1.2,38.53,236,38,1 slice,79,None
-21281,"DOMINO'S 14"" PEPPERONI PIZZAULTIMATE DEEP DISH CRUST",283,11.52,31.89,0.4,41.9,149,24,1 slice,123,None
-21494,"DOMINO'S 14"" SAUSAGE PIZZACLASSIC HAND-TOSSED CRUST",273,11.08,31.84,0.6,43.55,137,21,1 slice,114,None
-21493,"DOMINO'S 14"" SAUSAGE PIZZACRUNCHY THIN CRUST",319,12.77,25.3,1.1,40.38,234,35,1 slice,78,None
-21495,"DOMINO'S 14"" SAUSAGE PIZZAULTIMATE DEEP DISH CRUST",277,11.03,31.17,0.4,43.12,154,23,1 slice,129,None
-21251,BURGER KING CHSBRGR,286,14.57,23.71,0.2,44.59,93,45,1 item,133,None
-21256,BURGER KINGCHICK STRIPS,292,18.2,20.49,1.1,43.02,13,44,1 strip,36,None
-21385,BURGER KINGCROISSAN'WICH W/ EGG & CHS,283,10.35,24.79,0,46.4,231,139,1 item,110,None
-21384,BURGER KINGCROISSAN'WICH W/ SAUSAGE & CHS,376,13.73,23,0,35.08,107,43,1 item,131,None
-21383,BURGER KINGCROISSAN'WICH W/ SAUSAGEEGG & CHS,308,12.09,15.9,0,48.1,90,123,1 sandwich,171,None
-21506,BURGER KINGDOUBLE CHEESEBURGER,282,16.83,17.43,0,47.37,120,0,1 sandwich,162,None
-21254,BURGER KINGDOUBLE WHOPPERNO CHS,252,13.94,13.74,0.2,55.29,35,46,1 item,374,None
-21255,BURGER KINGDOUBLE WHOPPERW/ CHS,266,14.47,13.52,0.2,53.28,78,47,1 item,399,None
-21249,BURGER KINGFRENCH FR,280,3.23,38.7,2.2,43.95,17,0,1 small serving,74,None
-21386,BURGER KINGFRENCH TOAST STKS,349,6,41.21,0,33.57,53,0,1 stick,21,None
-21250,BURGER KINGHAMBURGER,261,14.85,26.76,0.2,45.97,76,35,1 sandwich,99,None
-21387,BURGER KINGHASH BROWN ROUNDS,302,2.8,29.37,4.3,46.34,15,0,1 piece,5.6,None
-21509,BURGER KINGONION RINGS,417,3.86,43.58,1.4,24.52,115,0,1 small,91,None
-21259,BURGER KINGORIGINAL CHICK SNDWCH,286,12.14,26.22,0.2,44.7,46,31,1 sandwich,199,None
-21258,BURGER KINGPREMIUM FISH SNDWCH,260,10.29,26.69,0.2,48.44,37,31,1 sandwich,220,None
-21141,BURGER KINGVANILLA SHAKE,168,3.19,19.03,0,68.13,104,31,1 fl oz,24.8,None
-21252,BURGER KINGWHOPPERNO CHS,233,10.74,18.55,0.2,56.43,39,30,1 item,291,None
-21253,BURGER KINGWHOPPERW/ CHS,250,11.19,16.7,0.2,54.92,82,36,1 item,316,None
-22918,BURRITO BEAN AND CHEESE FROZEN,221,7.07,34.01,0.3,50.99,52,2,1 burrito,129,None
-22917,BURRITOBF & BEANFRZ,239,7.26,30.84,0.8,50.48,34,8,1 burrito frozen,139,None
-22928,BURRITOBF & BEANMICROWAVED,298,8.73,38.95,1,38.14,39,9,1 burrito cooked,116,None
+387,Prey (bawang daun),45,2.2,10.3,17,86.3,52,0.3,1 akar,28,None
+609,Putu,210,3,37,0,53,0.1,6,1 buah,10,None
+610,Putu Mayang,200,1,43.8,0,52.4,0,2.4,1 buah,12.5,None
+529,Ragi,136,43,3,0,10,140,2.4,1 buah,5,None
+469,Rambutan,69,0.9,18.1,58,80.5,16,0.1,1 buah,27.6,None
+470,Rambutan Aceh,11,0,2.7,8.7,0,2.4,0,1 buah,21,None
+471,Rambutan sinyonya,4,0,0.9,2.9,0,0.8,0,1 buah,94,None
+611,Rarawuan,295,7.3,47.5,0,35.5,1.1,8.5,1 buah,40,None
+269,Rebon (udang kecil segar),81,16.2,0.7,0,79,757,1.2,1 sdm,10,None
+270,Rebon kering,299,29.4,3.2,0,21.6,2306,3.6,1 sdm,4.1,None
+388,Rebung,27,0.6,5.2,4,91,13,0.3,1 mangkok,225.4,None
+612,Risoles,335,5.3,70.5,0,56.5,6.8,3.5,1 buah,40,None
+613,Roti Gambang,350,7.5,75.5,0,13.5,23.5,2,1 buah,20,None
+54,Roti Putih,248,8,50,0,40,10,1.2,1 iris,20,breakfast
+55,Roti Warna Sawo Matang,249,7.9,49.7,0,40,20,1.5,1 potong,73.6,None
+149,Saga biji tanpa kulit,449,30.6,31.9,7,8.1,1062,25.5,1 biji,0.22,None
+614,Sagu Ambon,338,0.6,83.1,0.1,15.5,16,0.3,1 sendok,15,None
+472,Salak,77,0.4,20.9,2,78.6,28,0,1 buah ,75,None
+150,Santan (kelapa + air),122,2,7.6,2,80,25,10,1 gelas,200,None
+151,Santan (kelapa saja),324,4.2,55.6,2,54.9,14,34.3,1 sdm,5,None
+530,Saos Tomat,98,2,24.5,11,69.5,12,0.4,1sdm,10,None
+191,Sarang Burung,281,37.5,32.1,0,24.8,485,0.3,1 kg,1000,None
+271,Sardines dalam kaleng,338,21.1,1,0,47.1,354,27,1 potong,26.4,None
+152,Sari Kedelai bubuk,344,30,43,10,3,450,20,1 sdm,10,None
+615,Sate Kulit,110,15.5,11.5,0,70.5,0.1,0.5,1 porsi,20,None
+616,Sate Usus,126.7,14,1.3,0,0,14,7.3,1 tusuk,15,None
+389,Sawi,22,2.3,4,102,92.2,220,0.3,1 buah ,41,None
+473,Sawo,92,0.5,22.4,21,75.5,25,1.1,1 buah,50,None
+390,Selada,15,1.2,2.9,8,94.8,22,0.2,1 mangkok,50,None
+391,Selada Air,17,1.7,3,50,94.1,182,0.3,1 batang,3,None
+392,Selada Air rebus,19,2.7,2.9,27,93.5,83,0.2,1 mangkok,163.2,None
+393,Seledri,20,1,4.6,11,93,50,0.1,1 mangkok,50,None
+474,Semangka,28,0.5,6.9,6,92.1,7,0.2,1 potong ,150,None
+617,Semur Jengkol,192.5,4.5,30.3,0,57.5,0.1,6,1 buah,10,None
+56,Sente,64,0.6,14.8,5,84,30,0.3,1 potong,48,None
+531,Serbuk Coklat,298,8,48.9,0,3.9,125,23.8,1 sdm,7,None
+532,Setrup sirup,213,0,55,0,44,0,0,1 gelas,200.4,None
+394,Singkah (rotan muda),81,5.1,5.1,4,73.9,60,4.5,1 kg,1000,None
+618,Singkong Goreng,285,1,28,12,0,3.5,18,1 potong,20,None
+57,Singkong kukus,146,1.2,34.7,15,62,33,0.3,1 potong,104,None
+58,Singkong tape,173,0.5,42.5,0,56.1,30,0.1,1 potong ,100,None
+619,Siomay,95.3,4.4,14.4,0,78.6,2.1,2.2,1 porsi,170,None
+475,Sirsak,65,1,16.3,20,81.7,14,0.3,1 gelas,100,None
+395,Sop Kool,12,0.5,2,17.6,0,14.2,0.1,1 mangkok,195,None
+396,Sop Kool dan Wortel,15,0.6,3.1,14.6,0,12.6,0.1,1 mangkok,235,None
+620,Soto dengan Daging,127.5,2.6,8.3,0.5,0,10.8,9.4,1 sendok ,80,dinner
+621,Soto tanpa Daging,117.1,0.4,9.6,0.6,0,12.6,8.6,1 sendok ,70,None
+476,Srikaya,101,1.7,35.2,22,71.5,27,0.6,1 buah,147,None
+481,Susu Ibu (ASI),65,1.1,7.7,2.7,0,35.3,3.5,1 gelas,200,None
+482,Susu Kambing,64,4.3,6.6,1,85.9,98,2.3,1 gelas,200,None
+153,Susu Kedelai,41,3.5,5,2,87,50,2.5,1 gelas,200,dinner
+483,Susu Kental Manis,336,8.2,55,1,25,275,10,1 gelas,200,None
+484,Susu Kental Tak Manis,138,7,9.9,1,73.7,243,7.9,1 gelas,200,None
+485,Susu Kerbau,160,6.3,7.1,1,73.8,216,12,1 gelas,200,None
+486,Susu Sapi,61,3.2,4.3,1,88.3,143,3.5,1 gelas,200,breakfast
+487,Susu Skim (tak berlemak),36,3.5,5.1,1,90.5,123,0.1,1 sdm,5,None
+397,Susupan,87,5.3,6.3,31,60,54,5.2,1 buah,30,None
+59,Suweg kukus,90,1.5,21.9,0,75.5,50.2,0.1,1 potong,75.6,None
+60,Suweg mentah,69,1,15.7,5,82,62,0.1,1 potong,102,None
+154,Tahu,68,7.8,1.6,0,84.8,124,4.6,1 biji ,10,None
+622,Tahu Goreng,128,5.6,1.2,0,0,84.8,11.2,1 potong,25,None
+61,Tales kukus,120,1.5,28.2,2,69.2,31,0.3,1 buah,126.6,None
+62,Tales mentah,98,1.9,23.7,4,73,28,0.2,1 biji  ,200,None
+155,Taoco,166,10.4,24.1,0,64.4,55,4.9,1 sdm,10,None
+156,Taokoa,104,12.9,1.2,0,78,153,6.8,1 potong,42,None
+398,Tebu Terubuk,25,4.6,3,50,91,40,0.4,1 potong,18,None
+533,Teh,132,19.5,67.8,0,7.6,717,0.7,1 sdm,3.7,None
+399,Tekokak,34,2,7.9,80,89,50,0.1,1 mangkok,50,None
+400,Tekokak kering,294,8.3,72.6,0,12.3,370,1.7,1 ikat,77,None
+194,Telur Ayam,162,12.8,0.7,0,74,54,11.5,1 butir,60,None
+195,Telur Ayam bagian kuning,361,19.3,0.7,0,49.4,147,31.9,1 buah,15,None
+196,Telur Ayam bagian putih,50,10.8,0.8,0,87.8,6,0,1 buah,31,None
+197,Telur Ayam ceplok,383,15.1,8.3,1.9,0,61.4,32.9,1 buah,58.4,breakfast
+198,Telur Ayam dadar,251,16.3,1.4,0,61.9,62,19.4,1 buah,56.8,breakfast
+199,Telur Bebek (itik),189,13.1,0.8,0,70.8,56,14.3,1 butir ,60,None
+200,Telur Bebek bagian kuning,398,17,0.8,0,47,150,35,1 buah,30.8,None
+201,Telur Bebek bagian putih,54,11,0.8,0,88,21,0,1 buah,35.7,None
+202,Telur Bebek ceplok,320,15.1,0.9,0,0,64.4,30.5,1 buah,42,None
+203,Telur Bebek dadar,301,20,0,0,55.1,71,23.7,1 buah,51.6,None
+204,Telur Bebek telur asin,195,13.6,1.4,0,66.5,120,13.6,1 butir,66.4,None
+205,Telur Penyu,144,12,0,0,76.6,84,10.2,1 butir,36.2,None
+206,Telur Terubuk,425,31,10,0,25,50,28,1 potong,21.6,None
+157,Tempe Gembus,73,5.7,4.2,0,81.9,204,1.3,1 potong,37,None
+623,Tempe Goreng,328,18.4,12.8,0,0,149.6,23.2,1 potong,25,None
+158,Tempe Kedelai Murni,149,18.3,12.7,0,64,129,4,1 potong,25,None
+624,Tempe Sayur,240,6,49.3,1.3,0,8,2.7,1 sdm,15,None
+534,Tempuyak,126,1.1,25.7,26,62.6,48,2.2,1 rimpang,26.8,None
+63,Tepung Beras,364,7,80,0,12,5,0.5,1 sdm,6,None
+64,Tepung Gaplek,363,1.1,88.2,0,9.1,84,0.5,1 sdm,6,None
+65,Tepung Garut (arrowroot),355,0.7,85.2,0,13.6,8,0.2,1 sdm,18.2,None
+159,Tepung Hunkwee,364,4.5,83.5,0,10,50,1,1 sdm,10,None
+535,Tepung Ikan,316,60.1,22.4,0,4.3,3196,6.5,1 sdm,4.9,None
+66,Tepung Jagung Kuning,355,9.2,73.7,0,12,10,3.9,1 sdm,4.2,None
+67,Tepung Jagung Putih,355,9.2,73.7,0,12,10,3.9,1 sdm,4.2,None
+160,Tepung Kacang Kedelai,347,35.9,29.9,0,9,195,20.6,1 sdm,6,None
+68,Tepung Kentang,347,0.3,85.6,0,13,20,0.1,1 sdm,10,None
+69,Tepung Sagu,353,0.7,84.7,0,14,11,0.2,1 sdm,6,None
+488,Tepung Susu,509,24.6,36.2,6,3.5,904,30,1 sdm,5,None
+489,Tepung Susu Asam untuk bayi,418,19,65.5,30,2.5,800,9,1 sdm,5,None
+490,Tepung Susu Skim,362,35.6,52,7,3.5,1300,1,1 sdm,5,None
+70,Tepung Terigu,365,8.9,77.3,0,12,16,1.3,1 sdm,5,None
+272,Terasi Merah,174,30,3.5,0,40,100,3.5,1 potong,45,None
+536,Terasi Merah,174,30,3.5,0,44,100,3.5,1 potong,45,None
+401,Terong,24,1.1,5.5,5,92.7,15,0.2,1 mangkok,50,None
+402,Terong + Oncom makanan,285,4.3,9.5,3.5,0,48,25.7,1 sdm,20.6,None
+403,Terong Asam,39,2.3,2,17,89.8,51,1.9,1 buah,39,None
+404,Terong Belanda,48,1.5,11.3,17,85.9,13,0.3,1 buah,115.6,None
+405,Terong kukus,23,1.8,4.9,2,92.7,40,0.1,1 gelas,100,None
+406,Tespong daun,59,2.9,13.9,21,81,155,0.3,1 ikat,59.8,None
+71,Tim (nasi tim),120,2.4,26,0,0,3,0.4,1 gelas,200,None
+625,Toge Goreng,93.6,4.4,15.1,2.6,78.1,16.2,1.8,1 porsi,250,None
+408,Toge kacang ijo,23,2.9,4.1,15,92.4,29,0.2,1 mangkok,50,None
+409,Toge kacang tunggak,35,5,5.8,15,88,57,0.2,1 mangkok,50,None
+410,Toge kedelai,67,9,6.4,15,81,50,2.6,1 mangkok,50,None
+411,Toge seduh,28,3,4,2,91.9,52,0.8,1 sdm,15.4,None
+407,Toge -Tahu makanan,392,5.4,28.4,7.6,0,17.4,28.5,1 sdm,15.6,None
+412,Tomat Masak,20,1,4.2,40,94,5,0.3,1 buah ,43,None
+413,Tomat Muda,23,2,2.3,30,93,5,0.7,1 buah,46.4,None
+414,Tomat sari (juice),15,1,3.5,10,94,7,0.2,1 gelas,190,None
+626,Ubi Jalar Goreng,160,3.7,55.3,8.7,0,40,1.3,1 potong,30,None
+72,Ubi Jalar Merah,123,1.8,27.9,22,68.5,30,0.7,1 biji,150,None
+73,Ubi Jalar Putih,123,1.8,27.9,22,68.5,30,0.7,1 buah ,62.4,None
+74,Ubi Jalar Rebus,114,1.4,25.6,10.2,0,27.7,9.6,1 buah ,61.4,None
+627,Ubi Jalar Rebus,113.8,1.4,25.5,10.2,0,27.7,9.5,1 potong,65,None
+75,Ubi Jalar Sayur,184,1.4,22.5,5.5,0,8.5,0.3,1 mangkok,264.4,None
+76,Ubi Jalar sayur,183,1.8,22.5,5.5,0,6.5,0.3,1 mangkok,264.4,None
+628,Ubi Jalar Sayur,183.3,1.3,22.5,5.5,0,8.5,0.3,1 sendok ,60,None
+274,Udang segar,91,21,0.1,0,75,136,0.2,1 gelas,200,None
+273,Udang tepung,295,62.4,1.8,0,20.7,1209,2.3,1 sdm,10,lunch
+192,Usus Sapi,130,14,1.5,0,76.7,14,7.2,1 bulatan,25,None
+77,Uwi,101,2,19.8,9,75,45,0.2,1 potong,104,None
+78,Vermicelli,363,8.7,78.7,0,11.7,20,0.4,1 sdm,18,None
+161,Wijen,568,19.3,18.1,0,5.8,125,51.1,1 sdm,10,None
+193,Worst (sosis daging),452,14.5,2.3,0,37.6,28,42.3,1 potong,32,None
+415,Wortel,42,1.2,9.3,6,88.2,39,0.3,1 buah ,27,None
+416,Wortel kukus,37,1,8.3,4,89.5,44,0.6,1 gelas,100,None
+417,Wortel rebus,28,0.7,6.3,2,92.1,46,0.5,1 gelas,100,None
+491,Yoghurt,52,3.3,4,0,88,120,2.5,1 gelas,200,None
