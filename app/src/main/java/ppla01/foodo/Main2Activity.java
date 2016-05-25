@@ -526,11 +526,11 @@ public class Main2Activity extends AppCompatActivity {
                         lebih = totalKonsumsi - bmr;
                         yData[0] = lebih;
                         xData[0] = "Kelebihan Kalori";
-                        textSisa.setTextColor(Color.rgb(255,0,0));
+                        textSisa.setTextColor(Color.rgb(220,66,76));
                     } else {
                         yData[0] = sisa;
                         xData[0] = "Not consumed";
-                        textSisa.setTextColor(Color.rgb(0,255,0));
+                        textSisa.setTextColor(Color.rgb(1,169,157));
 
                     }
 
@@ -716,8 +716,8 @@ public class Main2Activity extends AppCompatActivity {
 
                     ArrayList<ILineDataSet> lines = new ArrayList<ILineDataSet>();
 
-                    final LineDataSet dataset_line = new LineDataSet(entries_line, "Konsumsi Kalori Anda");
-                    final LineDataSet dataset_line2 = new LineDataSet(entries_line2, "Konsumsi Kalori Ideal");
+                    final LineDataSet dataset_line = new LineDataSet(entries_line, "Calories consumed");
+                    final LineDataSet dataset_line2 = new LineDataSet(entries_line2, "Ideal calories consumption");
                     dataset_line.setCircleColor(Color.rgb(220, 66, 76));
                     dataset_line.setColor(Color.rgb(220, 66, 76));
                     dataset_line.setLineWidth(3f);
@@ -732,6 +732,7 @@ public class Main2Activity extends AppCompatActivity {
                     dataset_line2.setCircleRadius(5f);
                     dataset_line2.setValueTextSize(10f);
                     dataset_line2.setDrawValues(false);
+                    dataset_line2.setFillColor(Color.rgb(1, 169, 157));
 
                     lines.add(dataset_line);
                     lines.add(dataset_line2);
@@ -894,13 +895,13 @@ public class Main2Activity extends AppCompatActivity {
 
 
             TextView textView = new TextView(context);
-            textView.setText("Konsumsi Kalori : " +split[1]);
+            textView.setText("Calories Consumed : " +split[1]);
             textView.setPadding(10, 0, 10, 0);
             textView.setTextColor(Color.WHITE);
             item.addView(textView);
 
             TextView textView2 = new TextView(context);
-            textView2.setText("Konsumsi Ideal : " +split[2]);
+            textView2.setText("Ideal Consumption  : " +split[2]);
             textView2.setPadding(10, 0, 10, 0);
             textView2.setTextColor(Color.WHITE);
             item.addView(textView2);
