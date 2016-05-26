@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.design.widget.TabLayout;
@@ -220,6 +221,9 @@ public class Main2Activity extends AppCompatActivity {
                             fab.showMenuButton(true);
                             inflater.inflate(R.menu.main, mOptionsMenu);
                             setTitle("Home");
+                            System.out.println(xData[0]);
+                            if(xData[0].equalsIgnoreCase("Kelebihan Kalori"))
+                                Toast.makeText(Main2Activity.this, "You have consumed too much calories!", Toast.LENGTH_LONG).show();
                         }
                         else {
                             fab.hideMenuButton(true);
@@ -243,6 +247,10 @@ public class Main2Activity extends AppCompatActivity {
         );
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
+            if(i == 0){
+                if(xData[0].equalsIgnoreCase("Kelebihan Kalori"))
+                    Toast.makeText(Main2Activity.this, "You have consumed too much calories!", Toast.LENGTH_LONG).show();
+            }
             if (tab != null) tab.setCustomView(R.layout.view_home_tab);
         }
         int date =  spref.getInt("tanggal", 0);
@@ -527,11 +535,14 @@ public class Main2Activity extends AppCompatActivity {
                         yData[0] = lebih;
                         xData[0] = "Kelebihan Kalori";
                         textSisa.setTextColor(Color.rgb(220,66,76));
+                        textSisa.setTypeface(null, Typeface.BOLD);
+                        //Toast.makeText(getContext(), "Anda sudah mengonsumsi kalori melebih batas ideal!", Toast.LENGTH_LONG).show();
+
                     } else {
                         yData[0] = sisa;
                         xData[0] = "Not consumed";
                         textSisa.setTextColor(Color.rgb(1,169,157));
-
+                        textSisa.setTypeface(null, Typeface.NORMAL);
                     }
 
                     // add data
@@ -671,7 +682,7 @@ public class Main2Activity extends AppCompatActivity {
                     Set<String> setKonsum = spref.getStringSet("SetKonsum", null);
                     arrayListKonsum = new ArrayList<>(setKonsum);
                     Collections.sort(arrayListKonsum);
-
+                    arrayListKonsum.remove(0);
 //                    PlaceholderFragment.showToast(getContext(), setKonsum, "Report Weekly");
 //
                    ArrayList<Entry> entries_line = new ArrayList<>();
@@ -743,7 +754,8 @@ public class Main2Activity extends AppCompatActivity {
 
                     lineChart.getAxisRight().setDrawLabels(false);;
 
-                    lineChart.setData(new LineData(labels_line, lines));// set the data and list of lables into chart
+                    if(labels_line.length > 0)
+                        lineChart.setData(new LineData(labels_line, lines));// set the data and list of lables into chart
                     lineChart.setBackgroundColor(Color.WHITE);
                     lineChart.setDescription("in kcal");  // set the description
                     lineChart.setDescriptionPosition(200,850);
@@ -788,8 +800,6 @@ public class Main2Activity extends AppCompatActivity {
                         yVals1.add(new Entry(yData[i+1], yVals1.size()));
                     }
                 }
-                Toast.makeText(context, "Anda sudah mengonsumsi kalori melebih batas ideal!", Toast.LENGTH_LONG).show();
-
             }
             else {
                 for (int i = 0; i < yData.length; i++) {
