@@ -21,15 +21,6 @@
             android:gravity="center"
             >
 
-            <TextView
-                android:id="@+id/linetext2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rekap Konsumsi Kalori"
-                android:textSize="16dp"
-                android:layout_marginBottom="20dp"
-                android:layout_gravity="center_horizontal" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -38,7 +29,12 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:gravity="top|center_vertical|fill_vertical"
-            android:layout_below="@+id/judul1">
+            android:layout_below="@+id/judul1"
+            android:elevation="2dp"
+            android:background="#ffffff"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp">
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/graph"
                 android:layout_width="match_parent"
