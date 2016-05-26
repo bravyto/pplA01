@@ -98,6 +98,7 @@ public class NotifyServiceNoon extends Service {
         int mNotificationId = 002;
 
         Intent contentIntent = new Intent(this, RecommendationActivity.class);
+        contentIntent.putExtra("deSiang", "sianggan");
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         stackBuilder.addParentStack(RecommendationActivity.class);
         stackBuilder.addNextIntent(contentIntent);

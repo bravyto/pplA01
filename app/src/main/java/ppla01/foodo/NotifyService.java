@@ -108,6 +108,7 @@ public class NotifyService extends Service{
 
 
         Intent contentIntent = new Intent(this, RecommendationActivity.class);
+        contentIntent.putExtra("dePagi", "pagigan");
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         stackBuilder.addParentStack(RecommendationActivity.class);
         stackBuilder.addNextIntent(contentIntent);
