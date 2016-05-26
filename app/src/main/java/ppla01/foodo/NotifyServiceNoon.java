@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
@@ -111,6 +112,9 @@ public class NotifyServiceNoon extends Service {
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
         mBuilderNoon.setContentIntent(resultPendingIntent);
+
+        mBuilderNoon.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+        mBuilderNoon.setLights(Color.YELLOW, 3000, 3000);
 
         mBuilderNoon.setAutoCancel(true);
 
