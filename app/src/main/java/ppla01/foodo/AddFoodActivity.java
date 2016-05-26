@@ -8,6 +8,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -112,6 +114,36 @@ public class AddFoodActivity extends AppCompatActivity {
             this.arrayListDinner.add(item);
     }
 
+    public int search (String item,ArrayList<String>arrayListBreakfast){
+        int i = 0;
+        for(i=0; i<=arrayListBreakfast.size();i++)
+        {
+            if(arrayListBreakfast.get(i).equals(item)){
+                return i;
+            }
+        }
+        return i;
+
+    }
+    public void rmArrayPagi (int idx){
+        this.arrayListBreakfast.remove(idx);
+    }
+    public void rmArraySiang (int idx){
+        this.arrayListLunch.remove(idx);
+    }
+    public void rmArrayMalam (int idx){
+        this.arrayListDinner.remove(idx);
+    }
+    public void minKaloriPagi(double kaloriFood){
+        this.kaloriPagi =  this.kaloriPagi - (float)kaloriFood;
+    }
+    public void minKaloriSiang(double kaloriFood){
+        this.kaloriSiang =  this.kaloriSiang - (float)kaloriFood;
+    }
+    public void minKaloriMalam(double kaloriFood){
+        this.kaloriMalam =  this.kaloriMalam - (float)kaloriFood;
+    }
+
     public void AddKaloriPagi(double kaloriFood){
         this.kaloriPagi =  this.kaloriPagi + (float)kaloriFood;
     }
@@ -195,6 +227,7 @@ public class AddFoodActivity extends AppCompatActivity {
             }
             adapterBreakfast = new ArrayAdapter<String>(this, R.layout.list_item, arrayListBreakfast);
             listBreakfast.setAdapter(adapterBreakfast);
+            listBreakfast.setOnItemClickListener(new ItemListPagi());
         }
 
         ListView listLunch = (ListView) findViewById(R.id.listvlunch);
@@ -209,6 +242,7 @@ public class AddFoodActivity extends AppCompatActivity {
             }
             adapterLunch = new ArrayAdapter<String>(this, R.layout.list_item, arrayListLunch);
             listLunch.setAdapter(adapterLunch);
+            listLunch.setOnItemClickListener(new ItemListSiang());
         }
 
         ListView listDinner = (ListView) findViewById(R.id.listvdinner);
@@ -223,6 +257,7 @@ public class AddFoodActivity extends AppCompatActivity {
             }
             adapterDinner = new ArrayAdapter<String>(this, R.layout.list_item, arrayListDinner);
             listDinner.setAdapter(adapterDinner);
+            listDinner.setOnItemClickListener(new ItemListMalam());
         }
 
 
@@ -276,5 +311,57 @@ public class AddFoodActivity extends AppCompatActivity {
             }
 
         });
+    }
+    class ItemListPagi implements AdapterView.OnItemClickListener{
+        @Override
+
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            spref = getApplicationContext().getSharedPreferences("my_data", 0);
+            editor = spref.edit();
+            editor.putString("delete","pagi");
+//            ViewGroup vg = (ViewGroup) view;
+            TextView yv= (TextView) findViewById(R.id.label);
+            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
+            editor.putString("makanan", yv.getText().toString());
+            editor.commit();
+            Intent i = new Intent(view.getContext(), DeleteActivity.class);
+            startActivity(i);
+
+        }
+    }
+    class ItemListSiang implements AdapterView.OnItemClickListener{
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            spref = getApplicationContext().getSharedPreferences("my_data", 0);
+            editor = spref.edit();
+            editor.putString("delete","siang");
+//            ViewGroup vg = (ViewGroup) view;
+            TextView yv= (TextView) findViewById(R.id.label);
+            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
+            editor.putString("makanan", yv.getText().toString());
+            editor.commit();
+            Toast.makeText(AddFoodActivity.this, "kategori " +spref.getString("delete"," "), Toast.LENGTH_SHORT).show();
+            Toast.makeText(AddFoodActivity.this, "makanan " +spref.getString("makanan"," "), Toast.LENGTH_SHORT).show();
+
+            Intent i = new Intent(view.getContext(), DeleteActivity.class);
+            startActivity(i);
+
+        }
+    }
+    class ItemListMalam implements AdapterView.OnItemClickListener{
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            spref = getApplicationContext().getSharedPreferences("my_data", 0);
+            editor = spref.edit();
+            editor.putString("delete","malam");
+//            ViewGroup vg = (ViewGroup) view;
+            TextView yv= (TextView) findViewById(R.id.label);
+            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
+            editor.putString("makanan", yv.getText().toString());
+            editor.commit();
+            Intent i = new Intent(view.getContext(), DeleteActivity.class);
+            startActivity(i);
+
+        }
     }
 }
