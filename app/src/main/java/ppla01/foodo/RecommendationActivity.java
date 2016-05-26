@@ -72,6 +72,46 @@ public class RecommendationActivity extends AppCompatActivity {
         theList = (ListView)findViewById(R.id.list);
 
         theList.setAdapter(new ArrayAdapter<String>(this, R.layout.list_item, R.id.label));
+
+        Bundle extras = getIntent().getExtras();
+        //String b = extras.get("dePagi").toString();
+        Log.i("wew gan", "halo tuan");
+        if(extras != null) {
+            if (extras.get("dePagi") !=null &&  extras.get("dePagi").toString().equals("pagigan")) {
+                Log.i("masukpagi", "gan");
+                recPagi.setImageResource(R.drawable.rec1);
+                recSiang.setImageResource(R.drawable.rec2cover);
+                recMalam.setImageResource(R.drawable.rec3cover);
+                Log.i("bmrcuyy", "tes" + theBMR);
+
+
+                rReader = new RecReader(RecommendationActivity.this,-1, "breakfast",theBMR * 0.23);
+                theList = (ListView)findViewById(R.id.list);
+                theList.setAdapter(rReader);
+            }
+            if (extras.get("deSiang") !=null && extras.get("deSiang").toString().equals("sianggan")) {
+                Log.i("masuksiang", "gan");
+                recPagi.setImageResource(R.drawable.rec1cover);
+                recSiang.setImageResource(R.drawable.rec2);
+                recMalam.setImageResource(R.drawable.rec3cover);
+                rReader = new RecReader(RecommendationActivity.this,-1, "lunch", theBMR * 0.33);
+                theList = (ListView)findViewById(R.id.list);
+                theList.setAdapter(rReader);
+            }
+            if (extras.get("deMalam") !=null && extras.get("deMalam").toString().equals("malamgan")) {
+                Log.i("masukmalam", "gan");
+                recPagi.setImageResource(R.drawable.rec1cover);
+                recSiang.setImageResource(R.drawable.rec2cover);
+                recMalam.setImageResource(R.drawable.rec3);
+                rReader = new RecReader(RecommendationActivity.this,-1, "dinner", theBMR * 0.32);
+                theList = (ListView)findViewById(R.id.list);
+                theList.setAdapter(rReader);
+            }
+        }
+
+
+
+
         recPagi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
