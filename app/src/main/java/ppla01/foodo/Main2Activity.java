@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.design.widget.TabLayout;
@@ -45,6 +46,7 @@ import com.github.mikephil.charting.charts.CombinedChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -219,6 +221,9 @@ public class Main2Activity extends AppCompatActivity {
                             fab.showMenuButton(true);
                             inflater.inflate(R.menu.main, mOptionsMenu);
                             setTitle("Home");
+                            System.out.println(xData[0]);
+                            if(xData[0].equalsIgnoreCase("Kelebihan Kalori"))
+                                Toast.makeText(Main2Activity.this, "You have consumed too much calories!", Toast.LENGTH_LONG).show();
                         }
                         else {
                             fab.hideMenuButton(true);
@@ -242,6 +247,10 @@ public class Main2Activity extends AppCompatActivity {
         );
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
+            if(i == 0){
+                if(xData[0].equalsIgnoreCase("Kelebihan Kalori"))
+                    Toast.makeText(Main2Activity.this, "You have consumed too much calories!", Toast.LENGTH_LONG).show();
+            }
             if (tab != null) tab.setCustomView(R.layout.view_home_tab);
         }
         int date =  spref.getInt("tanggal", 0);
@@ -341,6 +350,10 @@ public class Main2Activity extends AppCompatActivity {
             Intent intent = new Intent(Main2Activity.this, JadwalMakanActivity.class);
             startActivity(intent);
         }else if (id == R.id.action_favorite) {
+            Intent intent = new Intent(Main2Activity.this, RecommendationActivity.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.action_delete) {
             Intent intent = new Intent(Main2Activity.this, RecommendationActivity.class);
             startActivity(intent);
         }
@@ -521,13 +534,19 @@ public class Main2Activity extends AppCompatActivity {
                         lebih = totalKonsumsi - bmr;
                         yData[0] = lebih;
                         xData[0] = "Kelebihan Kalori";
+                        textSisa.setTextColor(Color.rgb(220,66,76));
+                        textSisa.setTypeface(null, Typeface.BOLD);
+                        //Toast.makeText(getContext(), "Anda sudah mengonsumsi kalori melebih batas ideal!", Toast.LENGTH_LONG).show();
+
                     } else {
                         yData[0] = sisa;
                         xData[0] = "Not consumed";
+                        textSisa.setTextColor(Color.rgb(1,169,157));
+                        textSisa.setTypeface(null, Typeface.NORMAL);
                     }
 
                     // add data
-                    final ArrayList<String> arrayX = addData(pieChart);
+                    final ArrayList<String> arrayX = addData(pieChart, getContext());
 
                     // set a chart value selected listener
                     pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
@@ -539,7 +558,6 @@ public class Main2Activity extends AppCompatActivity {
 //                        if(xData[0].equalsIgnoreCase("Kelebihan Kalori")){
 //                            indeks += 1;
 //                        }
-
                             System.out.println("Index: " + indeks);
                             if (e == null)
                                 return;
@@ -664,7 +682,7 @@ public class Main2Activity extends AppCompatActivity {
                     Set<String> setKonsum = spref.getStringSet("SetKonsum", null);
                     arrayListKonsum = new ArrayList<>(setKonsum);
                     Collections.sort(arrayListKonsum);
-
+                    arrayListKonsum.remove(0);
 //                    PlaceholderFragment.showToast(getContext(), setKonsum, "Report Weekly");
 //
                    ArrayList<Entry> entries_line = new ArrayList<>();
@@ -709,8 +727,8 @@ public class Main2Activity extends AppCompatActivity {
 
                     ArrayList<ILineDataSet> lines = new ArrayList<ILineDataSet>();
 
-                    final LineDataSet dataset_line = new LineDataSet(entries_line, "Konsumsi Kalori Anda");
-                    final LineDataSet dataset_line2 = new LineDataSet(entries_line2, "Konsumsi Kalori Ideal");
+                    final LineDataSet dataset_line = new LineDataSet(entries_line, "Calories consumed");
+                    final LineDataSet dataset_line2 = new LineDataSet(entries_line2, "Ideal calories consumption");
                     dataset_line.setCircleColor(Color.rgb(220, 66, 76));
                     dataset_line.setColor(Color.rgb(220, 66, 76));
                     dataset_line.setLineWidth(3f);
@@ -725,6 +743,7 @@ public class Main2Activity extends AppCompatActivity {
                     dataset_line2.setCircleRadius(5f);
                     dataset_line2.setValueTextSize(10f);
                     dataset_line2.setDrawValues(false);
+                    dataset_line2.setFillColor(Color.rgb(1, 169, 157));
 
                     lines.add(dataset_line);
                     lines.add(dataset_line2);
@@ -732,9 +751,14 @@ public class Main2Activity extends AppCompatActivity {
 //                LineData data_line = new LineData(labels_line, dataset_line);
 //                data_line.setValueTextSize(12f);
 
-                    lineChart.setData(new LineData(labels_line, lines));// set the data and list of lables into chart
+
+                    lineChart.getAxisRight().setDrawLabels(false);;
+
+                    if(labels_line.length > 0)
+                        lineChart.setData(new LineData(labels_line, lines));// set the data and list of lables into chart
                     lineChart.setBackgroundColor(Color.WHITE);
-                    lineChart.setDescription("in Kcal");  // set the description
+                    lineChart.setDescription("in kcal");  // set the description
+                    lineChart.setDescriptionPosition(200,850);
                     lineChart.setVisibleXRangeMaximum(5);
                     lineChart.moveViewToX(labels_line.length - 5);
 
@@ -748,7 +772,8 @@ public class Main2Activity extends AppCompatActivity {
 
                             dataset_line.setDrawValues(true);
                             dataset_line2.setDrawValues(true);
-                            Toast.makeText(getActivity(), "Please long press the key", Toast.LENGTH_SHORT).show();
+                            PlaceholderFragment.toastLineChart(getContext(),arrayListKonsum.get(e.getXIndex()));
+                            //Toast.makeText(getActivity(), arrayListKonsum.get(e.getXIndex()), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
@@ -764,31 +789,49 @@ public class Main2Activity extends AppCompatActivity {
             return rootView;
         }
 
-        private static ArrayList<String> addData(PieChart pieChart) {
+        private static ArrayList<String> addData(PieChart pieChart, Context context) {
             ArrayList<Entry> yVals1 = new ArrayList<Entry>();
+
+
 
             if(xData[0].equalsIgnoreCase("Kelebihan Kalori")){
                 for (int i = 0; i < yData.length-1; i++) {
                     if (yData[i+1] > 0) {
-                        yVals1.add(new Entry(yData[i+1], i));
+                        yVals1.add(new Entry(yData[i+1], yVals1.size()));
                     }
                 }
             }
             else {
                 for (int i = 0; i < yData.length; i++) {
                     if (yData[i] > 0) {
-                        yVals1.add(new Entry(yData[i], i));
+                        yVals1.add(new Entry(yData[i], yVals1.size()));
                     }
                 }
             }
             ArrayList<String> xVals = new ArrayList<String>();
 
-            for (int i = 0; i < xData.length; i++) {
-                if(yData[i] > 0){
-                    if(!xData[i].equalsIgnoreCase("Kelebihan Kalori"))
-                        xVals.add(xData[i]);
+
+            if(xData[0].equalsIgnoreCase("Kelebihan Kalori")){
+                for (int i = 0; i < yData.length-1; i++) {
+                    if (yData[i+1] > 0) {
+                        xVals.add(xData[i+1]);
+                    }
                 }
             }
+            else {
+                for (int i = 0; i < yData.length; i++) {
+                    if (yData[i] > 0) {
+                        xVals.add(xData[i]);
+                    }
+                }
+            }
+
+//            for (int i = 0; i < xData.length; i++) {
+//                if(yData[i] > 0){
+//                    if(!xData[i].equalsIgnoreCase("Kelebihan Kalori"))
+//                        xVals.add(xData[i]);
+//                }
+//            }
 
             System.out.println(xVals.toString());
             System.out.println(yVals1.toString());
@@ -846,6 +889,43 @@ public class Main2Activity extends AppCompatActivity {
             pieChart.invalidate();
 
             return xVals;
+        }
+
+        public static void toastLineChart(Context context, String data){
+            String [] split = data.split(":");
+
+            LayoutInflater inflater = LayoutInflater.from(context);
+
+            View layout = inflater.inflate(R.layout.toast,
+                    (ViewGroup) ((Activity) context).findViewById(R.id.toast_layout_root));
+            LinearLayout item = (LinearLayout) layout.findViewById(R.id.listMakanan);
+            TextView text = (TextView) layout.findViewById(R.id.text);
+
+            text.setText(split[0]);
+
+
+            TextView textView = new TextView(context);
+            textView.setText("Calories Consumed : " +split[1]);
+            textView.setPadding(10, 0, 10, 0);
+            textView.setTextColor(Color.WHITE);
+            item.addView(textView);
+
+            TextView textView2 = new TextView(context);
+            textView2.setText("Ideal Consumption  : " +split[2]);
+            textView2.setPadding(10, 0, 10, 0);
+            textView2.setTextColor(Color.WHITE);
+            item.addView(textView2);
+
+            // Toast...
+            if(toast != null){
+                toast.cancel();
+            }
+
+            toast = new Toast(context);
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+            toast.setDuration(Toast.LENGTH_SHORT);
+            toast.setView(layout);
+            toast.show();
         }
 
         public static void showToast(Context context,Set<String> listMakanan, String stat){
@@ -937,8 +1017,8 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public static class MyValueFormatter implements ValueFormatter {
-        NumberFormat nf = NumberFormat.getNumberInstance(Locale.GERMAN);
-        private DecimalFormat mFormat = (DecimalFormat)nf;
+//        NumberFormat nf = NumberFormat.getNumberInstance(Locale.GERMAN);
+        private DecimalFormat mFormat;
 
         public MyValueFormatter() {
             mFormat = new DecimalFormat("###,###,##0"); // use one decimal
@@ -947,7 +1027,7 @@ public class Main2Activity extends AppCompatActivity {
         @Override
         public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
             // write your logic here
-            return mFormat.format((int)value) + " Kcal"; // e.g. append a dollar-sign
+            return mFormat.format((int)value) + " kcal"; // e.g. append a dollar-sign
         }
     }
 

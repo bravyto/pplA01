@@ -11,6 +11,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -102,12 +103,13 @@ public class NotifyService extends Service{
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.food_icon2)
                         .setContentTitle("Let's eat")
-                        .setContentText("guys Good morning, It's time to take your Breakfast :)");
+                        .setContentText("Good morning, It's time to take your Breakfast :)");
 
         int mNotificationId = 001;
 
 
         Intent contentIntent = new Intent(this, RecommendationActivity.class);
+        contentIntent.putExtra("dePagi", "pagigan");
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         stackBuilder.addParentStack(RecommendationActivity.class);
         stackBuilder.addNextIntent(contentIntent);
@@ -118,6 +120,9 @@ public class NotifyService extends Service{
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
         mBuilder.setContentIntent(resultPendingIntent);
+
+        mBuilder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+        mBuilder.setLights(Color.YELLOW, 3000, 3000);
 
         mBuilder.setAutoCancel(true);
 

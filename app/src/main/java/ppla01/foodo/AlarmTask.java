@@ -44,6 +44,9 @@ public class AlarmTask implements Runnable {
 
     @Override
     public void run() {
+        long theAlarm = 0;
+        Calendar now = Calendar.getInstance();
+
         //send();
         // Request to start are service when the alarm date is upon us
         // We don't start an activity as we just want to pop up a notification into the system bar not a full activity
@@ -52,8 +55,15 @@ public class AlarmTask implements Runnable {
 
         PendingIntent pendingIntent = PendingIntent.getService(context, code, intent, 0);
 
+        if(date.getTimeInMillis() < now.getTimeInMillis()) {
+            theAlarm = date.getTimeInMillis() + ((24*60*60*1000) + 1);
+        }
+        else {
+            theAlarm = date.getTimeInMillis();
+        }
+
         // Sets an alarm - note this alarm will be lost if the phone is turned off and on again
-        am.setRepeating(AlarmManager.RTC, date.getTimeInMillis(),24*60*60*1000, pendingIntent);
+        am.setRepeating(AlarmManager.RTC, theAlarm,24*60*60*1000, pendingIntent);
     }
 
 

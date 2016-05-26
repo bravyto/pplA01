@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
@@ -98,6 +99,7 @@ public class NotifyServiceNight extends Service {
         int mNotificationId = 002;
 
         Intent contentIntent = new Intent(this, RecommendationActivity.class);
+        contentIntent.putExtra("deMalam", "malamgan");
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         stackBuilder.addParentStack(RecommendationActivity.class);
         stackBuilder.addNextIntent(contentIntent);
@@ -108,6 +110,9 @@ public class NotifyServiceNight extends Service {
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
         mBuilderNight.setContentIntent(resultPendingIntent);
+
+        mBuilderNight.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+        mBuilderNight.setLights(Color.YELLOW, 3000, 3000);
 
         mBuilderNight.setAutoCancel(true);
 

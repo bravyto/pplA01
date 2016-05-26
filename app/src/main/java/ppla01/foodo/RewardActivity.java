@@ -118,8 +118,10 @@ public class RewardActivity  extends Activity {
             }
         });
         share = (Button) findViewById(R.id.button5);
-        if (rewardnya.equals(""))
+        if (rewardnya.equals("")) {
+            findViewById(R.id.textView7).setVisibility(View.INVISIBLE);
             share.setVisibility(View.INVISIBLE);
+        }
         else {
             final String finalRewardnya = rewardnya;
             share.setOnClickListener(new View.OnClickListener() {
