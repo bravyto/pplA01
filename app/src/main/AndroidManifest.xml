@@ -71,6 +71,10 @@
             android:parentActivityName=".HomeActivity"
             android:theme="@style/AppTheme" />
         <activity
+            android:name=".DeleteActivity"
+            android:parentActivityName=".AddFoodActivity"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".ProfileActivity"
             android:parentActivityName=".HomeActivity"
             android:theme="@style/AppTheme">

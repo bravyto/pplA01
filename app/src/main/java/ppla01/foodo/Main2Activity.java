@@ -354,7 +354,7 @@ public class Main2Activity extends AppCompatActivity {
             startActivity(intent);
         }
         else if (id == R.id.action_delete) {
-            Intent intent = new Intent(Main2Activity.this, RecommendationActivity.class);
+            Intent intent = new Intent(Main2Activity.this, AddFoodActivity.class);
             startActivity(intent);
         }
 

@@ -153,10 +153,12 @@ public class InfoFoodActivity extends AppCompatActivity {
                                 ArrayList <String> temp = new ArrayList<String>(pagi);
                                 for (int i = 0; i < temp.size(); i++) {
                                     addFoodActivity.addArrayBreakfast(temp.get(i));
+                                    Toast.makeText(v.getContext(), " indeks ke-i "+temp.get(i),Toast.LENGTH_SHORT).show();
                                 }
                                 addFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kcal)");
                                 addFoodActivity.AddKaloriPagi(caloriUpdate);
                                 listPagi=addFoodActivity.getListBreakfast();
+                                Toast.makeText(v.getContext(), " listPagi "+listPagi,Toast.LENGTH_SHORT).show();
                                 setPagi.addAll(listPagi);
                                 editor.putStringSet("SetPagi",setPagi);
                                 editor.putFloat("kaloriPagi", (float) caloriUpdate + spref.getFloat("kaloriPagi", 0));
