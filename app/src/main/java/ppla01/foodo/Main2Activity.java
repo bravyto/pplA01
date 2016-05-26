@@ -225,6 +225,7 @@ public class Main2Activity extends AppCompatActivity {
                             fab.hideMenuButton(true);
                             inflater.inflate(R.menu.menu_main2, mOptionsMenu);
                             setTitle("History");
+                            Toast.makeText(Main2Activity.this, "Anda sudah mengonsumsi kalori melebih batas ideal!", Toast.LENGTH_LONG).show();
                         }
                     }
 
@@ -527,6 +528,8 @@ public class Main2Activity extends AppCompatActivity {
                         yData[0] = lebih;
                         xData[0] = "Kelebihan Kalori";
                         textSisa.setTextColor(Color.rgb(220,66,76));
+                        //Toast.makeText(getContext(), "Anda sudah mengonsumsi kalori melebih batas ideal!", Toast.LENGTH_LONG).show();
+
                     } else {
                         yData[0] = sisa;
                         xData[0] = "Not consumed";
@@ -788,8 +791,6 @@ public class Main2Activity extends AppCompatActivity {
                         yVals1.add(new Entry(yData[i+1], yVals1.size()));
                     }
                 }
-                Toast.makeText(context, "Anda sudah mengonsumsi kalori melebih batas ideal!", Toast.LENGTH_LONG).show();
-
             }
             else {
                 for (int i = 0; i < yData.length; i++) {
