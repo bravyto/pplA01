@@ -55,7 +55,7 @@ public class DeleteActivity extends AppCompatActivity {
         datatampil = (TextView) findViewById(R.id.makanan);
         datatampil2 = (TextView) findViewById(R.id.kalori);
         delete = (Button)findViewById(R.id.delete);
-        datatampil.setText(" Nama Makanan : " + data);
+        datatampil.setText(" Nama Makanan : " + data.substring(0, data.lastIndexOf("(") - 1));
         datatampil2.setText(" Kalori Makanan : " + kalori+ " kkal");
         delete.setOnClickListener(new View.OnClickListener() {
             @Override

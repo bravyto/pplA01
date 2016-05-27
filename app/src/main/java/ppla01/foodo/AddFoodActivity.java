@@ -206,14 +206,7 @@ public class AddFoodActivity extends AppCompatActivity {
         float bmr= spref.getFloat("BMR", 0);
         sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
 
-        TextView consume = (TextView) findViewById(R.id.judul);
-        consume.setText("Consumed : "+ (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+ spref.getFloat ("kaloriMalam",0)+ " kal"));
-        TextView kurang = (TextView) findViewById(R.id.tampil);
-        if(sisa < 0){
-            kurang.setText("Excess :  "+ ((-1) *sisa) + "  from " + bmr);
-        } else {
-            kurang.setText("Remaining : " + sisa + "  from " + bmr);
-        }
+
 
         ListView listBreakfast = (ListView) findViewById(R.id.listv);
         Set<String> setPagi = spref.getStringSet("SetPagi", null);
@@ -321,7 +314,7 @@ public class AddFoodActivity extends AppCompatActivity {
             editor.putString("delete","pagi");
 //            ViewGroup vg = (ViewGroup) view;
             TextView yv= (TextView) findViewById(R.id.label);
-            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
             editor.putString("makanan", yv.getText().toString());
             editor.commit();
             Intent i = new Intent(view.getContext(), DeleteActivity.class);
@@ -335,13 +328,9 @@ public class AddFoodActivity extends AppCompatActivity {
             spref = getApplicationContext().getSharedPreferences("my_data", 0);
             editor = spref.edit();
             editor.putString("delete","siang");
-//            ViewGroup vg = (ViewGroup) view;
             TextView yv= (TextView) findViewById(R.id.label);
-            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
             editor.putString("makanan", yv.getText().toString());
             editor.commit();
-            Toast.makeText(AddFoodActivity.this, "kategori " +spref.getString("delete"," "), Toast.LENGTH_SHORT).show();
-            Toast.makeText(AddFoodActivity.this, "makanan " +spref.getString("makanan"," "), Toast.LENGTH_SHORT).show();
 
             Intent i = new Intent(view.getContext(), DeleteActivity.class);
             startActivity(i);
@@ -356,7 +345,7 @@ public class AddFoodActivity extends AppCompatActivity {
             editor.putString("delete","malam");
 //            ViewGroup vg = (ViewGroup) view;
             TextView yv= (TextView) findViewById(R.id.label);
-            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
             editor.putString("makanan", yv.getText().toString());
             editor.commit();
             Intent i = new Intent(view.getContext(), DeleteActivity.class);
