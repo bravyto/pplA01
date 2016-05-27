@@ -6,78 +6,104 @@
     android:background="#ffffff"
     android:weightSum="1">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical">
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:id="@+id/imageView37"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:id="@+id/imageView37"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/rewardbackground" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/imageView39"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/polamakan"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Bad News"
+            android:id="@+id/rewardText"
             android:layout_gravity="center_horizontal"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/rewardbackground" />
+            android:layout_marginTop="10dp"
+            android:paddingTop="10dp" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/imageView39"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Your weight is not going to your ideal one. Please eat on time and follow your limit of calories! "
+            android:id="@+id/rewardAdvice"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/polamakan"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+            android:textSize="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Bad News"
-        android:id="@+id/rewardText"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:paddingTop="10dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="40dp"
+            android:paddingLeft="40dp"
+            android:layout_gravity="center_vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Your weight is not going to your ideal one. Please eat on time and follow your limit of calories! "
-        android:id="@+id/rewardAdvice"
-        android:layout_gravity="center_horizontal"
-        android:textSize="15dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:gravity="center_horizontal"
-        android:paddingTop="10dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Share it!"
-        android:id="@+id/textView7"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:textColor="#000000" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Share it!"
+                    android:id="@+id/textView7"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000" />
 
-    <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/button5"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#ffffff"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/twitterlogo" />
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/button5"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/twitterlogo" />
+            </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back to Home"
-        android:id="@+id/button"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#ffffff"
-        android:layout_marginTop="20dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:id="@+id/button"
+                android:layout_gravity="center_vertical|right"
+                android:textColor="#ffffff"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0.5" />
+
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

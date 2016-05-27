@@ -71,6 +71,10 @@
             android:parentActivityName=".HomeActivity"
             android:theme="@style/AppTheme" />
         <activity
+            android:name=".DeleteActivity"
+            android:parentActivityName=".AddFoodActivity"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".ProfileActivity"
             android:parentActivityName=".HomeActivity"
             android:theme="@style/AppTheme">
@@ -124,6 +128,8 @@
             android:name="io.fabric.ApiKey"
             android:value="a6771a5f9bb90fe3477b58dcfec5f9fd960800ee" />
     </application>
+
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
