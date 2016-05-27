@@ -1,6 +1,7 @@
 package ppla01.foodo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -116,6 +117,11 @@ public class FoodActivity extends AppCompatActivity {
                 extras.putString(EXTRA_MESSAGE8, porsi);
                 extras.putString(EXTRA_MESSAGE9, beratMakanan);
                 intent.putExtras(extras);
+
+                    SharedPreferences spref = getApplicationContext().getSharedPreferences("my_data", 0);
+                    SharedPreferences.Editor editor = spref.edit();
+                    editor.putString("addel", "add");
+                    editor.commit();
 
                 startActivity(intent);
             }

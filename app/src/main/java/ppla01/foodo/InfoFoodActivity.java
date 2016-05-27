@@ -21,7 +21,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class InfoFoodActivity extends AppCompatActivity {
-    Button addFood ;
+    Button addFood , deleteFood;
     Bundle extras;
     Intent intent;
     EditText edit1;
@@ -35,6 +35,7 @@ public class InfoFoodActivity extends AppCompatActivity {
     Set<String> setPagi = new HashSet<>();
     Set <String> setSiang = new HashSet<>();
     Set <String> setMalam = new HashSet<>();
+    String data;
 
 
     @Override
@@ -52,6 +53,25 @@ public class InfoFoodActivity extends AppCompatActivity {
         setTitle("Food Information");
 
         addFood = (Button)findViewById(R.id.addFood);
+        deleteFood = (Button)findViewById(R.id.deleteFood);
+        edit1 = (EditText) findViewById(R.id.inputPortion);
+        TextView porsi = (TextView) findViewById(R.id.portionText);
+
+        String addel =  spref.getString("addel", null);
+        if (addel.equals("add")){
+
+            addFood.setVisibility(View.VISIBLE);
+            deleteFood.setVisibility(View.GONE);
+            edit1.setVisibility(View.VISIBLE);
+            porsi.setVisibility(View.VISIBLE);
+
+        } else{
+            addFood.setVisibility(View.GONE);
+            deleteFood.setVisibility(View.VISIBLE);
+            edit1.setVisibility(View.GONE);
+            porsi.setVisibility(View.GONE);
+        }
+
         intent = getIntent();
         extras = intent.getExtras();
 
@@ -63,6 +83,12 @@ public class InfoFoodActivity extends AppCompatActivity {
         String water =          extras.getString(FoodActivity.EXTRA_MESSAGE6) + " gram";
         String calcium =        extras.getString(FoodActivity.EXTRA_MESSAGE7) + " mg";
         String porsiAndBerat =  extras.getString(FoodActivity.EXTRA_MESSAGE8) + ", Weight: " + extras.getString(FoodActivity.EXTRA_MESSAGE9) + "(g)";
+        data = spref.getString("makanan", "");
+
+        Toast.makeText(InfoFoodActivity.this, " maakanna is" + data ,Toast.LENGTH_SHORT).show();
+        String jenis = spref.getString("jenisdelete", "");
+        Toast.makeText(InfoFoodActivity.this, " jenisnya is" + jenis ,Toast.LENGTH_SHORT).show();
+
 
         kalori = extras.getString(FoodActivity.EXTRA_MESSAGE2);;
         TextView textV1 = (TextView) findViewById(R.id.nameOfFood);
@@ -73,7 +99,7 @@ public class InfoFoodActivity extends AppCompatActivity {
         TextView textV6 = (TextView) findViewById(R.id.theSugar);
         TextView textV7 = (TextView) findViewById(R.id.theCalcium);
         TextView textV8 = (TextView) findViewById(R.id.theChole);
-        edit1 = (EditText) findViewById(R.id.inputPortion);
+      //  edit1 = (EditText) findViewById(R.id.inputPortion);
 
         textV1.setText(foodName);
         textV1.setTextSize(26);
@@ -85,6 +111,85 @@ public class InfoFoodActivity extends AppCompatActivity {
         textV7.setText(calcium);
         textV8.setText(porsiAndBerat);
 
+
+
+        deleteFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AddFoodActivity.class);
+                AddFoodActivity addFoodActivity = new AddFoodActivity();
+                spref = getApplicationContext().getSharedPreferences("my_data", 0);
+                editor = spref.edit();
+                String jenis = spref.getString("jenisdelete", "");
+                Toast.makeText(v.getContext(), " jenisnya is" + jenis ,Toast.LENGTH_SHORT).show();
+
+
+                if (jenis.equals("lunch")) {
+
+                    String newItem = data;
+
+                    listSiang = addFoodActivity.getListLunch();
+                    int idx = addFoodActivity.search(newItem, listSiang);
+
+
+                    double caloriUpdate = Double.parseDouble(data.substring(data.lastIndexOf("(") + 1, data.length() - 1 - 9));
+                    Toast.makeText(v.getContext(), "kaloriupdate adalah " +caloriUpdate,Toast.LENGTH_SHORT).show();
+
+                    addFoodActivity.minKaloriSiang(caloriUpdate);
+
+                    addFoodActivity.rmArraySiang(idx);
+                    Toast.makeText(v.getContext(), "isilis adalah " + addFoodActivity.getListLunch(),Toast.LENGTH_SHORT).show();
+                    editor.putFloat("kaloriSiang", (spref.getFloat("kaloriSiang", 0) - (float) caloriUpdate));
+
+                    listSiang = addFoodActivity.getListLunch();
+                    setSiang.addAll(listSiang);
+                    editor.putStringSet("SetSiang", setSiang);
+                    editor.commit();
+
+                } else if (jenis.equals("breakfast")) {
+                    String newItem = data;
+
+                    listPagi = addFoodActivity.getListBreakfast();
+                    int idx = addFoodActivity.search(newItem, listPagi);
+
+
+                    double caloriUpdate = Double.parseDouble(data.substring(data.lastIndexOf("(") + 1, data.length() - 1 - 4));
+                    addFoodActivity.minKaloriPagi(caloriUpdate);
+
+                    addFoodActivity.rmArrayPagi(idx);
+                    Toast.makeText(v.getContext(), "isilis adalah " + addFoodActivity.getListBreakfast(),Toast.LENGTH_SHORT).show();
+                    editor.putFloat("kaloriPagi", (spref.getFloat("kaloriPagi", 0) - (float) caloriUpdate));
+
+                    listPagi = addFoodActivity.getListBreakfast();
+                    setPagi.addAll(listPagi);
+                    editor.putStringSet("SetPagi", setPagi);
+                    editor.commit();
+                } else {
+                    String newItem = data;
+
+                    listMalam = addFoodActivity.getListDinner();
+                    int idx = addFoodActivity.search(newItem, listMalam);
+
+
+                    double caloriUpdate = Double.parseDouble(data.substring(data.lastIndexOf("(") + 1, data.length() - 1 - 4));
+                    addFoodActivity.minKaloriMalam(caloriUpdate);
+
+                    addFoodActivity.rmArrayMalam(idx);
+                    Toast.makeText(v.getContext(), "isilis adalah " + addFoodActivity.getListDinner(),Toast.LENGTH_SHORT).show();
+                    editor.putFloat("kaloriMalam", (spref.getFloat("kaloriMalam", 0) - (float) caloriUpdate));
+
+                    listMalam = addFoodActivity.getListDinner();
+                    setMalam.addAll(listMalam);
+                    editor.putStringSet("SetMalam", setMalam);
+                    editor.commit();
+                }
+
+
+                startActivity(intent);
+                finish();
+
+            }
+        });
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

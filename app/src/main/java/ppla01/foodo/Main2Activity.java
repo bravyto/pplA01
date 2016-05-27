@@ -355,6 +355,11 @@ public class Main2Activity extends AppCompatActivity {
         }
         else if (id == R.id.action_delete) {
             Intent intent = new Intent(Main2Activity.this, AddFoodActivity.class);
+
+            SharedPreferences spref = getApplicationContext().getSharedPreferences("my_data", 0);
+            SharedPreferences.Editor editor = spref.edit();
+            editor.putString("addel", "delete");
+            editor.commit();
             startActivity(intent);
         }
 
