@@ -12,6 +12,8 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
@@ -84,21 +86,21 @@ public class RewardActivity  extends Activity {
             if (newWeightnya > oldWeightnya) {
                 rewardnya = "naik";
                 rewardImage.setImageResource(R.drawable.upweight);
-                rewardText.setText("Congratulations!");
+                rewardText.setText("Weight Up Badge!");
                 rewardAdvice.setText("You are going to your ideal weight by increasing your weight");
             }
         } else if (oldWeightnya > ideal2nya) {
             if (newWeightnya < oldWeightnya) {
                 rewardnya = "turun";
                 rewardImage.setImageResource(R.drawable.downweight);
-                rewardText.setText("Congratulations!");
+                rewardText.setText("Weight Down Badge!");
                 rewardAdvice.setText("You are going to your ideal weight by decreasing your weight");
             }
         } else {
             if (newWeightnya <= ideal2nya && newWeightnya >= ideal1nya) {
                 rewardnya = "stabil";
                 rewardImage.setImageResource(R.drawable.stayweight);
-                rewardText.setText("Congratulations!");
+                rewardText.setText("Stay On Ideal Badge!");
                 rewardAdvice.setText("You still on your ideal weight. Keep up the good work!");
             }
         }
@@ -119,8 +121,9 @@ public class RewardActivity  extends Activity {
         });
         share = (Button) findViewById(R.id.button5);
         if (rewardnya.equals("")) {
-            findViewById(R.id.textView7).setVisibility(View.INVISIBLE);
-            share.setVisibility(View.INVISIBLE);
+            findViewById(R.id.textView7).setVisibility(View.GONE);
+            share.setVisibility(View.GONE);
+            submit_profile.setLayoutParams(new TableLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
         }
         else {
             final String finalRewardnya = rewardnya;
