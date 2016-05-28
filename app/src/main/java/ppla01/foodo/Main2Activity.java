@@ -272,7 +272,11 @@ public class Main2Activity extends AppCompatActivity {
 
             Set<String> consum = spref.getStringSet("SetKonsum",null);
             if(consum == null){
-                food.addListKonsume(date + "/" + month + "/" + year + ":" + kalori + ":" + spref.getFloat("BMR",0));
+                if(date > curent)
+                    food.addListKonsume(date + "/" + (month) + "/" + year + ":" + kalori + ":" + spref.getFloat("BMR",0));
+                else
+                    food.addListKonsume(date + "/" + (month+1) + "/" + year + ":" + kalori + ":" + spref.getFloat("BMR",0));
+
                 listKonsum=food.getListKonsume();
                 setKomsum.addAll(listKonsum);
                 editor.putStringSet("SetKonsum", setKomsum);
@@ -282,7 +286,10 @@ public class Main2Activity extends AppCompatActivity {
                 for (int i = 0; i < temp2.size(); i++) {
                     food.addListKonsume(temp2.get(i));
                 }
-                food.addListKonsume(date + "/" + month + "/" + year + ":" + kalori + ":" + spref.getFloat("BMR", 0));
+                if(date > curent)
+                    food.addListKonsume(date + "/" + (month) + "/" + year + ":" + kalori + ":" + spref.getFloat("BMR",0));
+                else
+                    food.addListKonsume(date + "/" + (month+1) + "/" + year + ":" + kalori + ":" + spref.getFloat("BMR",0));
                 listKonsum = food.getListKonsume();
                 setKomsum.addAll(listKonsum);
                 editor.putStringSet("SetKonsum", setKomsum);
@@ -681,8 +688,16 @@ public class Main2Activity extends AppCompatActivity {
 
                     Set<String> setKonsum = spref.getStringSet("SetKonsum", null);
                     arrayListKonsum = new ArrayList<>(setKonsum);
-                    Collections.sort(arrayListKonsum);
+                    for(int i =0; i < arrayListKonsum.size()-1; i++) {
+                        System.out.println(arrayListKonsum.get(i));
+                    }
+                    System.out.println("Sesudah diurut: ");
+                    arrayListKonsum = sortTanggal(arrayListKonsum);
+//                            Collections.sort(arrayListKonsum);
                     arrayListKonsum.remove(0);
+                    for(int i =0; i < arrayListKonsum.size()-1; i++) {
+                        System.out.println(arrayListKonsum.get(i));
+                    }
 //                    PlaceholderFragment.showToast(getContext(), setKonsum, "Report Weekly");
 //
                    ArrayList<Entry> entries_line = new ArrayList<>();
@@ -1014,6 +1029,52 @@ public class Main2Activity extends AppCompatActivity {
             toast.show();
         }
 
+    }
+
+    public static ArrayList<String> sortTanggal(ArrayList<String> input){
+
+        String temp;
+        for (int i = 1; i < input.size(); i++) {
+            for(int j = i ; j > 0 ; j--){
+                String [] temps = input.get(j).split(":");
+                String [] tanggal = temps[0].split("/");
+                int hari = Integer.parseInt(tanggal[0]);
+                int bulan = Integer.parseInt(tanggal[1]);
+                int tahun = Integer.parseInt(tanggal[2]);
+
+                String [] temps1 = input.get(j-1).split(":");
+                String [] tanggal1 = temps1[0].split("/");
+                int hari1 = Integer.parseInt(tanggal1[0]);
+                int bulan1 = Integer.parseInt(tanggal1[1]);
+                int tahun1 = Integer.parseInt(tanggal1[2]);
+
+                if(tahun < tahun1){
+                    temp = input.get(j);
+                    input.set(j,input.get(j-1));
+                    input.set(j-1,temp);
+                }
+                else if(tahun == tahun1){
+                    if(bulan < bulan1){
+                        temp = input.get(j);
+                        input.set(j,input.get(j-1));
+                        input.set(j-1,temp);
+                    }
+                    else if(bulan == bulan1){
+                        if(hari < hari1){
+                            temp = input.get(j);
+                            input.set(j,input.get(j-1));
+                            input.set(j-1,temp);
+                        }
+                    }
+                }
+//                if(input[j] < input[j-1]){
+//                    temp = input[j];
+//                    input[j] = input[j-1];
+//                    input[j-1] = temp;
+//                }
+            }
+        }
+        return input;
     }
 
     public static class MyValueFormatter implements ValueFormatter {

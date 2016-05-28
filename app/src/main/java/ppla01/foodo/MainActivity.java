@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     protected EditText user_weight;
     protected EditText user_height;
     protected Button submit_profile;
+    protected ImageView more_info;
     RadioButton pria, wanita;
     Spinner Aktivitas;
     double indeksMassa;
@@ -103,6 +106,13 @@ public class MainActivity extends AppCompatActivity {
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
         editor = spref.edit();
 
+        more_info = (ImageView) findViewById(R.id.moreinfo);
+        more_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Low : Get little to no exercie. Normally will not make you sweat. You sit a lot. \n\nLight : You walk a lot. And you move a lot. \n\nModerate : Rarely sit. Have an exercise several times a week. \n\nActive : Have a routine exercise 5o minutes a day such as jogging. Another example : cleaning home. \n\nHigh : You push yourself really hard. Usually have a really intense activity, like : swimming, heavy lifting, mountain biking.", Toast.LENGTH_LONG).show();
+            }
+        });
         user_name = (EditText) findViewById(R.id.name);
         user_birthdate = (EditText) findViewById(R.id.birthdate);
         user_weight = (EditText) findViewById(R.id.weight);
@@ -152,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
 
         user_name.setText(spref.getString("nama", ""), null);
         user_birthdate.setText(spref.getString("umur", ""), null);
