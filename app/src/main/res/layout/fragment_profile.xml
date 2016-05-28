@@ -229,12 +229,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal">
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageView42"
-                    android:src="@drawable/upweight"
-                    android:layout_gravity="center_vertical" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
