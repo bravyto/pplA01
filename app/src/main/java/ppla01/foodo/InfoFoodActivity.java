@@ -56,7 +56,7 @@ public class InfoFoodActivity extends AppCompatActivity {
         extras = intent.getExtras();
 
         foodName = extras.getString(FoodActivity.EXTRA_MESSAGE1);
-        calories =              extras.getString(FoodActivity.EXTRA_MESSAGE2) + " kkal";
+        calories =              extras.getString(FoodActivity.EXTRA_MESSAGE2) + " kcal";
         String vitc =           extras.getString(FoodActivity.EXTRA_MESSAGE3) + " mg";
         String protein =        extras.getString(FoodActivity.EXTRA_MESSAGE4) + " gram";
         String carbo =          extras.getString(FoodActivity.EXTRA_MESSAGE5) + " gram";
