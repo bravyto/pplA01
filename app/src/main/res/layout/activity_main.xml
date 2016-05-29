@@ -228,7 +228,27 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/spin"
                         android:entries="@array/activity"
-                        android:layout_weight="0.8"></Spinner>
+                        android:layout_weight="0.6"></Spinner>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView7"
+                        android:layout_weight="0.05" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/moreinfo"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/moreinfo"
+                        android:layout_gravity="center_vertical" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView9"
+                        android:layout_weight="0.05" />
 
 :
                 </LinearLayout>
