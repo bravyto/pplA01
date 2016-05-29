@@ -94,6 +94,7 @@
         android:layout_marginLeft="5dp" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -104,6 +105,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -114,6 +116,7 @@
         android:layout_toEndOf="@+id/textView44" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -126,6 +129,7 @@
         android:layout_toStartOf="@+id/textView47" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -136,6 +140,7 @@
         android:layout_toEndOf="@+id/textView44" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -148,6 +153,7 @@
         android:layout_toStartOf="@+id/textView47" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -158,6 +164,7 @@
         android:layout_toEndOf="@+id/textView46" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -170,6 +177,7 @@
         android:layout_toStartOf="@+id/textView49" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -180,6 +188,7 @@
         android:layout_toEndOf="@+id/textView48" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -192,6 +201,7 @@
         android:layout_toStartOf="@+id/textView51" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -202,6 +212,7 @@
         android:layout_toEndOf="@+id/textView50" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -214,6 +225,7 @@
         android:layout_toStartOf="@+id/textView53" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -224,6 +236,7 @@
         android:layout_toEndOf="@+id/textView52" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -236,6 +249,7 @@
         android:layout_toStartOf="@+id/textView55" />
 
     <TextView
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
