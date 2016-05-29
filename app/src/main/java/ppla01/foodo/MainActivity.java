@@ -95,11 +95,11 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
         spref = getSharedPreferences("my_data", 0);
         if (spref.getString("log", "").equals("1")) {
-            setTitle("Edit Profile Info");
+            setTitle("Edit Personal Info");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         } else {
             scheduleAlarm(findViewById(android.R.id.content));
-            setTitle("Input Profile Info");
+            setTitle("Input Personal Info");
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
 
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         more_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Low : Get little to no exercie. Normally will not make you sweat. You sit a lot. \n\nLight : You walk a lot. And you move a lot. \n\nModerate : Rarely sit. Have an exercise several times a week. \n\nActive : Have a routine exercise 5o minutes a day such as jogging. Another example : cleaning home. \n\nHigh : You push yourself really hard. Usually have a really intense activity, like : swimming, heavy lifting, mountain biking.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Low : Get little to no exercise. Normally will not make you sweat. You sit a lot. \n\nLight : You walk a lot. And you move a lot. \n\nModerate : Rarely sit. Have an exercise several times a week. \n\nActive : Have a routine exercise 50 minutes a day such as jogging. Another example : cleaning home. \n\nHigh : You push yourself really hard. Usually have a really intense activity, like : swimming, heavy lifting, mountain biking.", Toast.LENGTH_LONG).show();
             }
         });
         user_name = (EditText) findViewById(R.id.name);
