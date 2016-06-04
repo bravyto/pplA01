@@ -42,7 +42,8 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:elevation="4dp"
-                android:background="#ffffff">
+                android:background="#ffffff"
+                android:layout_gravity="center_horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -54,9 +55,8 @@
                      <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:layout_weight=".2"
-                        android:id="@+id/imageView7"
-                        android:layout_gravity="center_vertical"
+                         android:id="@+id/imageView7"
+                        android:layout_gravity="center_horizontal"
                         android:src="@drawable/coffee" />
 
                     <TextView
@@ -70,16 +70,6 @@
                         android:textAlignment="center" />
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".2"
-                    android:textSize="26dp"
-                    android:id="@+id/breakfastz"
-                    android:layout_gravity="center_vertical"
-                    android:clickable="true" />
-
 
 
                 <!--<Button-->
@@ -98,23 +88,29 @@
 
             <LinearLayout
                 android:state_pressed="true"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/item"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
                 android:elevation="2dp"
                 android:background="#ffffff">
 
 
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/test"></LinearLayout>
+
                 <ListView
                     android:id="@+id/listv"
                     android:layout_width="match_parent"
-                    android:fastScrollEnabled="true"
+                    android:fastScrollEnabled="false"
                     android:gravity="center_vertical"
-                    android:smoothScrollbar="true"
-                    android:layout_height="50dp"/>
+                    android:smoothScrollbar="false"
+                    android:scrollbars="none"
+                    android:layout_height="wrap_content"
+                    android:scrollIndicators="none" />
                  </LinearLayout>
 
             <LinearLayout
@@ -155,32 +151,29 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".2"
-                    android:textSize="26dp"
-                    android:id="@+id/lunch"
-                    android:layout_gravity="center_vertical"
-                    android:clickable="true" />
-
             </LinearLayout>
 
             <LinearLayout
                 android:state_pressed="true"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:background="#ffffff"
                 android:layout_height="wrap_content"
                 android:id="@+id/item2"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
                 android:elevation="2dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/test2" />
 
                 <ListView
                     android:id="@+id/listvlunch"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"></ListView>
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"></ListView>
+
             </LinearLayout>
 
             <LinearLayout
@@ -221,32 +214,29 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".2"
-                    android:textSize="26dp"
-                    android:id="@+id/dinner"
-                    android:layout_gravity="center_vertical"
-                    android:clickable="true" />
-
             </LinearLayout>
                 <LinearLayout
                     android:state_pressed="true"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:background="#ffffff"
                     android:layout_height="wrap_content"
                     android:id="@+id/item3"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
                     android:elevation="2dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/test3" />
 
                     <ListView
                         android:id="@+id/listvdinner"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"></ListView>
-            </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"></ListView>
+
+                </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

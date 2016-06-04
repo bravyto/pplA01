@@ -7,12 +7,16 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +57,18 @@ public class AddFoodActivity extends AppCompatActivity {
         this.arrayListLunch.clear();
         this.arrayListBreakfast.clear();
         this.arrayListDinner.clear();
+    }
+
+    public void dinnerNull() {
+        this.arrayListDinner.clear();
+    }
+
+    public void breakfastNull() {
+        this.arrayListBreakfast.clear();
+    }
+
+    public void lunchNull() {
+        this.arrayListLunch.clear();
     }
     public  void addListKonsume(String item){
 
@@ -106,6 +122,7 @@ public class AddFoodActivity extends AppCompatActivity {
                 String word = this.arrayListDinner.get(i);
                 double calory1 = Double.parseDouble(word.substring(word.lastIndexOf("(") + 1, word.length() - 1 - 4));
                 double calory2 = Double.parseDouble(item.substring(item.lastIndexOf("(") + 1, item.length() - 1 - 4));
+                Log.e("bdudidada", calory1 + " " + calory2);
                 calory1 += calory2;
                 this.arrayListDinner.set(i, word.substring(0, word.lastIndexOf("(") - 1) + " (" + calory1 + " kcal)");
             }
@@ -196,10 +213,10 @@ public class AddFoodActivity extends AppCompatActivity {
 
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        setTitle("Add Food");
+        setTitle("Edit Today's Food");
 
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
 
@@ -209,6 +226,8 @@ public class AddFoodActivity extends AppCompatActivity {
 
 
         ListView listBreakfast = (ListView) findViewById(R.id.listv);
+        final LinearLayout test1 = (LinearLayout) findViewById(R.id.test);
+
         Set<String> setPagi = spref.getStringSet("SetPagi", null);
         if(setPagi==null){
 
@@ -219,11 +238,30 @@ public class AddFoodActivity extends AppCompatActivity {
 
             }
             adapterBreakfast = new ArrayAdapter<String>(this, R.layout.list_item, arrayListBreakfast);
+
+            final int adapterCount = adapterBreakfast.getCount();
+
+            for (int i = 0; i < adapterCount; i++) {
+                View item = adapterBreakfast.getView(i, null, null);
+                test1.addView(item);
+            }
+            test1.post(new Runnable() {
+                @Override
+                public void run() {
+                    //maybe also works height = ll.getLayoutParams().height;
+                    LinearLayout itemnya = (LinearLayout) findViewById(R.id.item);
+                    ViewGroup.LayoutParams itemdu = itemnya.getLayoutParams();
+                    itemdu.height = test1.getHeight() + adapterCount;
+                    itemnya.setLayoutParams(itemdu);
+                    test1.setVisibility(View.GONE);
+                }
+            });
             listBreakfast.setAdapter(adapterBreakfast);
             listBreakfast.setOnItemClickListener(new ItemListPagi());
         }
 
         ListView listLunch = (ListView) findViewById(R.id.listvlunch);
+        final LinearLayout test2 = (LinearLayout) findViewById(R.id.test2);
         Set<String> setSiang = spref.getStringSet("SetSiang", null);
         if(setSiang==null){
 
@@ -233,12 +271,32 @@ public class AddFoodActivity extends AppCompatActivity {
                 arrayListLunch=new ArrayList<>(setSiang);
 
             }
+
             adapterLunch = new ArrayAdapter<String>(this, R.layout.list_item, arrayListLunch);
+
+            final int adapterCount = adapterLunch.getCount();
+
+            for (int i = 0; i < adapterCount; i++) {
+                View item = adapterLunch.getView(i, null, null);
+                test2.addView(item);
+            }
+            test2.post(new Runnable() {
+                @Override
+                public void run() {
+                    //maybe also works height = ll.getLayoutParams().height;
+                    LinearLayout itemnya = (LinearLayout) findViewById(R.id.item2);
+                    ViewGroup.LayoutParams itemdu = itemnya.getLayoutParams();
+                    itemdu.height = test2.getHeight() + adapterCount;
+                    itemnya.setLayoutParams(itemdu);
+                    test2.setVisibility(View.GONE);
+                }
+            });
             listLunch.setAdapter(adapterLunch);
             listLunch.setOnItemClickListener(new ItemListSiang());
         }
 
         ListView listDinner = (ListView) findViewById(R.id.listvdinner);
+        final LinearLayout test3 = (LinearLayout) findViewById(R.id.test3);
         Set<String> setMalam = spref.getStringSet("SetMalam", null);
         if(setMalam==null){
 
@@ -249,61 +307,78 @@ public class AddFoodActivity extends AppCompatActivity {
 
             }
             adapterDinner = new ArrayAdapter<String>(this, R.layout.list_item, arrayListDinner);
+            final int adapterCount = adapterBreakfast.getCount();
+
+            for (int i = 0; i < adapterCount; i++) {
+                View item = adapterDinner.getView(i, null, null);
+                test3.addView(item);
+            }
+            test3.post(new Runnable() {
+                @Override
+                public void run() {
+                    //maybe also works height = ll.getLayoutParams().height;
+                    LinearLayout itemnya = (LinearLayout) findViewById(R.id.item3);
+                    ViewGroup.LayoutParams itemdu = itemnya.getLayoutParams();
+                    itemdu.height = test3.getHeight() + adapterCount;
+                    itemnya.setLayoutParams(itemdu);
+                    test3.setVisibility(View.GONE);
+                }
+            });
             listDinner.setAdapter(adapterDinner);
             listDinner.setOnItemClickListener(new ItemListMalam());
         }
 
 
-        breakfastv = (TextView) findViewById(R.id.breakfastz);
-        breakfastv.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // request your webservice here. Possible use of AsyncTask and ProgressDialog
-                // show the result here - dialog or Toast
-                editor = spref.edit();
-
-                editor.putString("jenis", "breakfast");
-                editor.commit();
-                Intent i = new Intent(v.getContext(), FoodActivity.class);
-                startActivity(i);
-            }
-
-        });
-
-        lunchv = (TextView) findViewById(R.id.lunch);
-        lunchv.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // request your webservice here. Possible use of AsyncTask and ProgressDialog
-                // show the result here - dialog or Toast
-                editor = spref.edit();
-
-                editor.putString("jenis", "lunch");
-                editor.commit();
-                Intent i = new Intent(v.getContext(), FoodActivity.class);
-                startActivity(i);
-            }
-
-        });
-
-        dinnerv = (TextView) findViewById(R.id.dinner);
-        dinnerv.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // request your webservice here. Possible use of AsyncTask and ProgressDialog
-                // show the result here - dialog or Toast
-                editor = spref.edit();
-
-                editor.putString("jenis", "dinner");
-                editor.commit();
-                Intent i = new Intent(v.getContext(), FoodActivity.class);
-                startActivity(i);
-            }
-
-        });
+//        breakfastv = (TextView) findViewById(R.id.breakfastz);
+//        breakfastv.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // request your webservice here. Possible use of AsyncTask and ProgressDialog
+//                // show the result here - dialog or Toast
+//                editor = spref.edit();
+//
+//                editor.putString("jenis", "breakfast");
+//                editor.commit();
+//                Intent i = new Intent(v.getContext(), FoodActivity.class);
+//                startActivity(i);
+//            }
+//
+//        });
+//
+//        lunchv = (TextView) findViewById(R.id.lunch);
+//        lunchv.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // request your webservice here. Possible use of AsyncTask and ProgressDialog
+//                // show the result here - dialog or Toast
+//                editor = spref.edit();
+//
+//                editor.putString("jenis", "lunch");
+//                editor.commit();
+//                Intent i = new Intent(v.getContext(), FoodActivity.class);
+//                startActivity(i);
+//            }
+//
+//        });
+//
+//        dinnerv = (TextView) findViewById(R.id.dinner);
+//        dinnerv.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // request your webservice here. Possible use of AsyncTask and ProgressDialog
+//                // show the result here - dialog or Toast
+//                editor = spref.edit();
+//
+//                editor.putString("jenis", "dinner");
+//                editor.commit();
+//                Intent i = new Intent(v.getContext(), FoodActivity.class);
+//                startActivity(i);
+//            }
+//
+//        });
     }
     class ItemListPagi implements AdapterView.OnItemClickListener{
         @Override
@@ -311,11 +386,12 @@ public class AddFoodActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             spref = getApplicationContext().getSharedPreferences("my_data", 0);
             editor = spref.edit();
-            editor.putString("delete","pagi");
+            editor.putString("delete", "pagi");
+//            Log.e("halah", arrayListBreakfast.get(position));
 //            ViewGroup vg = (ViewGroup) view;
-            TextView yv= (TextView) findViewById(R.id.label);
+//            TextView yv= (TextView) findViewById(R.id.label);
 //            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
-            editor.putString("makanan", yv.getText().toString());
+            editor.putString("makanan", arrayListBreakfast.get(position));
             editor.commit();
             Intent i = new Intent(view.getContext(), DeleteActivity.class);
             startActivity(i);
@@ -328,8 +404,7 @@ public class AddFoodActivity extends AppCompatActivity {
             spref = getApplicationContext().getSharedPreferences("my_data", 0);
             editor = spref.edit();
             editor.putString("delete","siang");
-            TextView yv= (TextView) findViewById(R.id.label);
-            editor.putString("makanan", yv.getText().toString());
+            editor.putString("makanan", arrayListLunch.get(position));
             editor.commit();
 
             Intent i = new Intent(view.getContext(), DeleteActivity.class);
@@ -344,9 +419,8 @@ public class AddFoodActivity extends AppCompatActivity {
             editor = spref.edit();
             editor.putString("delete","malam");
 //            ViewGroup vg = (ViewGroup) view;
-            TextView yv= (TextView) findViewById(R.id.label);
 //            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
-            editor.putString("makanan", yv.getText().toString());
+            editor.putString("makanan", arrayListDinner.get(position));
             editor.commit();
             Intent i = new Intent(view.getContext(), DeleteActivity.class);
             startActivity(i);

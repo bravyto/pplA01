@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -56,7 +57,7 @@ public class InfoFoodActivity extends AppCompatActivity {
         extras = intent.getExtras();
 
         foodName = extras.getString(FoodActivity.EXTRA_MESSAGE1);
-        calories =              extras.getString(FoodActivity.EXTRA_MESSAGE2) + " kkal";
+        calories =              extras.getString(FoodActivity.EXTRA_MESSAGE2) + " kcal";
         String vitc =           extras.getString(FoodActivity.EXTRA_MESSAGE3) + " mg";
         String protein =        extras.getString(FoodActivity.EXTRA_MESSAGE4) + " gram";
         String carbo =          extras.getString(FoodActivity.EXTRA_MESSAGE5) + " gram";
@@ -120,6 +121,7 @@ public class InfoFoodActivity extends AppCompatActivity {
                                 editor.commit();
                             }else{
                                 ArrayList <String> temp = new ArrayList<String>(pagi);
+                                addFoodActivity.breakfastNull();
                                 for (int i = 0; i < temp.size(); i++) {
                                     addFoodActivity.addArrayBreakfast(temp.get(i));
                                 }
@@ -151,9 +153,10 @@ public class InfoFoodActivity extends AppCompatActivity {
                                 editor.commit();
                             }else{
                                 ArrayList <String> temp = new ArrayList<String>(pagi);
+                                addFoodActivity.breakfastNull();
                                 for (int i = 0; i < temp.size(); i++) {
                                     addFoodActivity.addArrayBreakfast(temp.get(i));
-                                    Toast.makeText(v.getContext(), " indeks ke-i "+temp.get(i),Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(v.getContext(), " indeks ke-i "+temp.get(i),Toast.LENGTH_SHORT).show();
                                 }
                                 addFoodActivity.addArrayBreakfast(newItem + " (" + caloriUpdate + " kcal)");
                                 addFoodActivity.AddKaloriPagi(caloriUpdate);
@@ -183,6 +186,7 @@ public class InfoFoodActivity extends AppCompatActivity {
                                 editor.commit();
                             }else{
                                 ArrayList <String> temp2 = new ArrayList<String>(siang);
+                                addFoodActivity.lunchNull();
                                 for (int i = 0; i < temp2.size(); i++) {
                                     addFoodActivity.addArrayLunch(temp2.get(i));
                                 }
@@ -214,6 +218,7 @@ public class InfoFoodActivity extends AppCompatActivity {
                                 editor.commit();
                             }else{
                                 ArrayList <String> temp2 = new ArrayList<String>(siang);
+                                addFoodActivity.lunchNull();
                                 for (int i = 0; i < temp2.size(); i++) {
                                     addFoodActivity.addArrayLunch(temp2.get(i));
                                 }
@@ -233,6 +238,7 @@ public class InfoFoodActivity extends AppCompatActivity {
                             Set<String> malam = spref.getStringSet("SetMalam",null);
                             if(malam == null){
 //                                Toast.makeText(v.getContext(), " masuk if ",Toast.LENGTH_SHORT).show();
+                                Log.e("satu", "masuk sini");
                                 addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kcal)");
                                 addFoodActivity.AddKaloriMalam(caloriUpdate);
                                 listMalam=addFoodActivity.getListDinner();
@@ -242,9 +248,12 @@ public class InfoFoodActivity extends AppCompatActivity {
                                 editor.commit();
                             }else{
                                 ArrayList <String> temp3 = new ArrayList<String>(malam);
+                                addFoodActivity.dinnerNull();
                                 for (int i = 0; i < temp3.size(); i++) {
+                                    Log.e("dua", temp3.get(i));
                                     addFoodActivity.addArrayDinner(temp3.get(i));
                                 }
+                                Log.e("tiga", newItem);
                                 addFoodActivity.addArrayDinner(newItem + " (" + caloriUpdate + " kcal)");
                                 addFoodActivity.AddKaloriMalam(caloriUpdate);
                                 listMalam=addFoodActivity.getListDinner();
@@ -273,6 +282,7 @@ public class InfoFoodActivity extends AppCompatActivity {
                                 editor.commit();
                             }else{
                                 ArrayList <String> temp3 = new ArrayList<String>(malam);
+                                addFoodActivity.dinnerNull();
                                 for (int i = 0; i < temp3.size(); i++) {
                                     addFoodActivity.addArrayDinner(temp3.get(i));
                                 }
