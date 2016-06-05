@@ -51,7 +51,7 @@ public class DeleteActivity extends AppCompatActivity {
         String nilaiKal = data.substring(data.lastIndexOf("(") + 1, data.length() - 1 - 4);
         kalori = Double.parseDouble(nilaiKal);
 
-        Toast.makeText(DeleteActivity.this, "kalori 0 " +nilaiKal, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(DeleteActivity.this, "kalori 0 " +nilaiKal, Toast.LENGTH_SHORT).show();
         datatampil = (TextView) findViewById(R.id.makanan);
         datatampil2 = (TextView) findViewById(R.id.kalori);
         delete = (Button)findViewById(R.id.delete);
@@ -67,41 +67,54 @@ public class DeleteActivity extends AppCompatActivity {
                 AddFoodActivity addFoodActivity = new AddFoodActivity();
 
                 if (jenis.equals("pagi")) {
-                    listPagi = addFoodActivity.getListBreakfast();
-                    int idx = addFoodActivity.search(newItem, listPagi);
-                    addFoodActivity.rmArrayPagi(idx);
+                    Set<String> pagi = spref.getStringSet("SetPagi", null);
+                    listPagi = new ArrayList<String>(pagi);
+                    int idx = search(newItem, listPagi);
+                    listPagi= rmArray(listPagi, idx);
                     addFoodActivity.minKaloriPagi(kalori);
                     editor.putFloat("kaloriPagi", (spref.getFloat("kaloriPagi", 0) - (float) kalori));
 
-                    listPagi = addFoodActivity.getListBreakfast();
                     setPagi.addAll(listPagi);
                     editor.putStringSet("SetPagi", setPagi);
                     editor.commit();
                     Intent i = new Intent(DeleteActivity.this, Main2Activity.class);
                     startActivity(i);
                 } else if (jenis.equals("siang")) {
-                    listSiang = addFoodActivity.getListLunch();
-                    int idx = addFoodActivity.search(newItem, listSiang);
-                    addFoodActivity.rmArraySiang(idx);
+
+                    Set<String> siang = spref.getStringSet("SetSiang", null);
+                    listSiang = new ArrayList<String>(siang);
+                    int idx = search(newItem, listSiang);
+                    listSiang= rmArray(listSiang, idx);
                     addFoodActivity.minKaloriSiang(kalori);
                     editor.putFloat("kaloriSiang", (spref.getFloat("kaloriSiang", 0) - (float) kalori));
 
-                    listSiang = addFoodActivity.getListLunch();
                     setSiang.addAll(listSiang);
                     editor.putStringSet("SetSiang", setSiang);
                     editor.commit();
                     Intent i = new Intent(DeleteActivity.this, Main2Activity.class);
                     startActivity(i);
                 } else if (jenis.equals("malam")) {
-                    listMalam = addFoodActivity.getListDinner();
-                    int idx = addFoodActivity.search(newItem, listMalam);
-                    addFoodActivity.rmArrayMalam(idx);
+//                    listMalam = addFoodActivity.getListDinner();
+//                    int idx = addFoodActivity.search(newItem, listMalam);
+//                    addFoodActivity.rmArrayMalam(idx);
+//                    addFoodActivity.minKaloriMalam(kalori);
+//                    editor.putFloat("kaloriMalam", (spref.getFloat("kaloriKalam", 0) - (float) kalori));
+//
+//                    listMalam = addFoodActivity.getListDinner();
+//                    setMalam.addAll(listMalam);
+//                    editor.putStringSet("SetMalam", setPagi);
+//                    editor.commit();
+//                    Intent i = new Intent(DeleteActivity.this, Main2Activity.class);
+//                    startActivity(i);
+                    Set<String> malam = spref.getStringSet("SetMalam", null);
+                    listMalam = new ArrayList<String>(malam);
+                    int idx = search(newItem, listMalam);
+                    listMalam= rmArray(listMalam, idx);
                     addFoodActivity.minKaloriMalam(kalori);
-                    editor.putFloat("kaloriMalam", (spref.getFloat("kaloriKalam", 0) - (float) kalori));
+                    editor.putFloat("kaloriMalam", (spref.getFloat("kaloriMalam", 0) - (float) kalori));
 
-                    listMalam = addFoodActivity.getListDinner();
                     setMalam.addAll(listMalam);
-                    editor.putStringSet("SetMalam", setPagi);
+                    editor.putStringSet("SetMalam", setMalam);
                     editor.commit();
                     Intent i = new Intent(DeleteActivity.this, Main2Activity.class);
                     startActivity(i);
@@ -110,10 +123,20 @@ public class DeleteActivity extends AppCompatActivity {
 
             }
         });
-
-
-
+    }
+    public int search (String item,ArrayList<String>arrayList){
+        int i = 0;
+        for(i=0; i<=arrayList.size();i++)
+        {
+            if(arrayList.get(i).equals(item)){
+                return i;
+            }
+        }
+        return i;
 
     }
-
+    public ArrayList rmArray (ArrayList<String> arrayList,int idx){
+        arrayList.remove(idx);
+        return arrayList;
+    }
 }

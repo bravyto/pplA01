@@ -31,13 +31,11 @@ import java.util.Set;
 
 public class AddFoodActivity extends AppCompatActivity {
 
-    protected  TextView breakfastv, lunchv, dinnerv;
     protected Button Edit;
     private static ArrayList<String> arrayListBreakfast  =new ArrayList<String>();
     private static ArrayList<String> arrayListLunch  =new ArrayList<String>();
     private static ArrayList<String> arrayListDinner  =new ArrayList<String>();
     private static ArrayList<String> arrayListKonsume =new ArrayList<String>();
-    private static ArrayList<String> arrayListIdeal =new ArrayList<String>();
 
     private ArrayAdapter<String> adapterBreakfast;
     private ArrayAdapter<String> adapterLunch;
@@ -52,31 +50,15 @@ public class AddFoodActivity extends AppCompatActivity {
     public AddFoodActivity(){
 
     }
-
     public void setNull (){
         this.arrayListLunch.clear();
         this.arrayListBreakfast.clear();
         this.arrayListDinner.clear();
     }
 
-    public void dinnerNull() {
-        this.arrayListDinner.clear();
-    }
-
-    public void breakfastNull() {
-        this.arrayListBreakfast.clear();
-    }
-
-    public void lunchNull() {
-        this.arrayListLunch.clear();
-    }
     public  void addListKonsume(String item){
 
         this.arrayListKonsume.add(item);
-    }
-    public  void addListIdeal(String item){
-
-        this.arrayListIdeal.add(item);
     }
 
     public void addArrayBreakfast(String item){
@@ -131,26 +113,6 @@ public class AddFoodActivity extends AppCompatActivity {
             this.arrayListDinner.add(item);
     }
 
-    public int search (String item,ArrayList<String>arrayListBreakfast){
-        int i = 0;
-        for(i=0; i<=arrayListBreakfast.size();i++)
-        {
-            if(arrayListBreakfast.get(i).equals(item)){
-                return i;
-            }
-        }
-        return i;
-
-    }
-    public void rmArrayPagi (int idx){
-        this.arrayListBreakfast.remove(idx);
-    }
-    public void rmArraySiang (int idx){
-        this.arrayListLunch.remove(idx);
-    }
-    public void rmArrayMalam (int idx){
-        this.arrayListDinner.remove(idx);
-    }
     public void minKaloriPagi(double kaloriFood){
         this.kaloriPagi =  this.kaloriPagi - (float)kaloriFood;
     }
@@ -173,57 +135,22 @@ public class AddFoodActivity extends AppCompatActivity {
         this.kaloriMalam =  this.kaloriMalam + (float)kaloriFood;
     }
 
-    public double getKaloriPagi(){
-        return this.kaloriPagi;
-    }
-
-    public double getKaloriSiang(){
-        return this.kaloriSiang;
-    }
-
-    public double getKaloriMalam(){
-
-        return this.kaloriMalam;
-    }
-
-    public ArrayList<String> getListBreakfast(){
-
-        return this.arrayListBreakfast;
-    }
-    public ArrayList<String> getListLunch(){
-        return this.arrayListLunch;
-    }
-    public ArrayList<String> getListDinner(){
-
-        return this.arrayListDinner;
-    }
     public ArrayList<String> getListKonsume(){
 
         return this.arrayListKonsume;
-    }
-    public ArrayList<String> getArrayListIdeal(){
-
-        return this.getArrayListIdeal();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
-
-
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DC424C")));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         setTitle("Edit Today's Food");
-
         spref = getApplicationContext().getSharedPreferences("my_data", 0);
-
         float bmr= spref.getFloat("BMR", 0);
         sisa = bmr - (spref.getFloat("kaloriPagi",0)+spref.getFloat("kaloriSiang",0)+spref.getFloat("kaloriMalam",0));
-
-
 
         ListView listBreakfast = (ListView) findViewById(R.id.listv);
         final LinearLayout test1 = (LinearLayout) findViewById(R.id.test);
@@ -237,6 +164,7 @@ public class AddFoodActivity extends AppCompatActivity {
                 arrayListBreakfast=new ArrayList<>(setPagi);
 
             }
+            arrayListBreakfast=new ArrayList<>(setPagi);
             adapterBreakfast = new ArrayAdapter<String>(this, R.layout.list_item, arrayListBreakfast);
 
             final int adapterCount = adapterBreakfast.getCount();
@@ -271,7 +199,7 @@ public class AddFoodActivity extends AppCompatActivity {
                 arrayListLunch=new ArrayList<>(setSiang);
 
             }
-
+            arrayListLunch=new ArrayList<>(setSiang);
             adapterLunch = new ArrayAdapter<String>(this, R.layout.list_item, arrayListLunch);
 
             final int adapterCount = adapterLunch.getCount();
@@ -306,8 +234,9 @@ public class AddFoodActivity extends AppCompatActivity {
                 arrayListDinner=new ArrayList<>(setMalam);
 
             }
+            arrayListDinner=new ArrayList<>(setMalam);
             adapterDinner = new ArrayAdapter<String>(this, R.layout.list_item, arrayListDinner);
-            final int adapterCount = adapterBreakfast.getCount();
+            final int adapterCount = adapterDinner.getCount();
 
             for (int i = 0; i < adapterCount; i++) {
                 View item = adapterDinner.getView(i, null, null);
@@ -316,7 +245,7 @@ public class AddFoodActivity extends AppCompatActivity {
             test3.post(new Runnable() {
                 @Override
                 public void run() {
-                    //maybe also works height = ll.getLayoutParams().height;
+
                     LinearLayout itemnya = (LinearLayout) findViewById(R.id.item3);
                     ViewGroup.LayoutParams itemdu = itemnya.getLayoutParams();
                     itemdu.height = test3.getHeight() + adapterCount;
@@ -328,57 +257,6 @@ public class AddFoodActivity extends AppCompatActivity {
             listDinner.setOnItemClickListener(new ItemListMalam());
         }
 
-
-//        breakfastv = (TextView) findViewById(R.id.breakfastz);
-//        breakfastv.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                // request your webservice here. Possible use of AsyncTask and ProgressDialog
-//                // show the result here - dialog or Toast
-//                editor = spref.edit();
-//
-//                editor.putString("jenis", "breakfast");
-//                editor.commit();
-//                Intent i = new Intent(v.getContext(), FoodActivity.class);
-//                startActivity(i);
-//            }
-//
-//        });
-//
-//        lunchv = (TextView) findViewById(R.id.lunch);
-//        lunchv.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                // request your webservice here. Possible use of AsyncTask and ProgressDialog
-//                // show the result here - dialog or Toast
-//                editor = spref.edit();
-//
-//                editor.putString("jenis", "lunch");
-//                editor.commit();
-//                Intent i = new Intent(v.getContext(), FoodActivity.class);
-//                startActivity(i);
-//            }
-//
-//        });
-//
-//        dinnerv = (TextView) findViewById(R.id.dinner);
-//        dinnerv.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                // request your webservice here. Possible use of AsyncTask and ProgressDialog
-//                // show the result here - dialog or Toast
-//                editor = spref.edit();
-//
-//                editor.putString("jenis", "dinner");
-//                editor.commit();
-//                Intent i = new Intent(v.getContext(), FoodActivity.class);
-//                startActivity(i);
-//            }
-//
-//        });
     }
     class ItemListPagi implements AdapterView.OnItemClickListener{
         @Override
@@ -387,10 +265,6 @@ public class AddFoodActivity extends AppCompatActivity {
             spref = getApplicationContext().getSharedPreferences("my_data", 0);
             editor = spref.edit();
             editor.putString("delete", "pagi");
-//            Log.e("halah", arrayListBreakfast.get(position));
-//            ViewGroup vg = (ViewGroup) view;
-//            TextView yv= (TextView) findViewById(R.id.label);
-//            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
             editor.putString("makanan", arrayListBreakfast.get(position));
             editor.commit();
             Intent i = new Intent(view.getContext(), DeleteActivity.class);
@@ -418,8 +292,6 @@ public class AddFoodActivity extends AppCompatActivity {
             spref = getApplicationContext().getSharedPreferences("my_data", 0);
             editor = spref.edit();
             editor.putString("delete","malam");
-//            ViewGroup vg = (ViewGroup) view;
-//            Toast.makeText(AddFoodActivity.this, "Data Adalah " +yv.getText().toString(), Toast.LENGTH_SHORT).show();
             editor.putString("makanan", arrayListDinner.get(position));
             editor.commit();
             Intent i = new Intent(view.getContext(), DeleteActivity.class);
